@@ -333,3 +333,25 @@ Residual risks: leaderboard-probe discipline (one bundled probe per system,
 per the standing no-probe-shopping note); rare-label fold noise (25 CO / 19
 ST positives ⇒ plateau rule, not argmax); provider drift (pin OpenRouter
 serving; the free-Gemini −0.048 parity failure stands).
+
+### P5 harness pre-built while Kaggle retry runs (2026-07-14 evening)
+
+Kaggle multiseed run 1 completed 6/20 (run-dir claim race between the two
+GPU workers + stale bundle missing camelbert-da + stdout-only error
+capture); kernel v2 + dataset v2 fixed all three, retry re-runs all 20.
+Ahead of its landing, the downstream chain is built and validated:
+
+- `scripts/ensemble_encoder_seeds.py` — mean sigmoid across seed runs,
+  cross-fitted thresholds re-fit with the trainer machinery, emits a
+  router-compatible synthetic run dir. Per-seed recomputation reproduces
+  the Kaggle-reported primaries digit-for-digit (0.5967 / 0.6209).
+- `route_task1_v2.py --ot-source encoder` — OOF gate script now composes
+  the deployed v2.1 rules (OT encoder-only), mirroring the deploy twin.
+- **Pinned bundle-v3 baseline: v2.1-rules composed OOF 0.7065** with the
+  champion single-seed fp32 encoder (CO 0.400 / AS 0.9192 / TE 0.7782 /
+  ST 0.6429 / AN 0.7243 / OT 0.7744). Gate: ≥ 0.7265 + ≥3/5 fold wins.
+- Exploratory 2-seed fp16 preview (harness validation, NOT a candidate):
+  0.7219, +0.0154, 5/5 fold slices above baseline; gains concentrated in
+  the encoder-fed legs (OT 0.8116, AN 0.7527, CO 0.4267). Caveat: fp16
+  Kaggle seeds vs fp32 local baseline — the seed-20260710 replication
+  anchor must separate stack effect from ensemble effect before gating.
