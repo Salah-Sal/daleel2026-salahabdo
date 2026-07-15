@@ -562,3 +562,18 @@ If ADOPTED (either test): deploy = 5-seed deploy encoder trainings
 compatible, else one ~$0.5 rerun) + ONE bundled T1 dev probe.
 If both REJECTED: bundle-v3 CLOSED permanently; v2.2 remains the
 pinned eval T1 recipe.
+
+### bundle-v3 RESULT — BOTH GATES FAILED, CLOSED (2026-07-15)
+Gate run 20260715-124435-...-30372f1e85. Control reproduced v2.2 =
+0.7298 exactly. PRIMARY full bundle 0.7458 (+0.0160, 4/5 folds) < gate
+0.7498. SECONDARY ensemble-only 0.7436 (+0.0138, 4/5) < gate. Every
+component delivered its banked estimate almost exactly (TE +0.0135,
+CO +0.0267 vs banked +0.026, ensemble +0.0138 identical across rule
+versions; per-label: AN 0.7243->0.7643, OT 0.7744->0.7906, CO
+0.400->0.4267, TE 0.7782->0.7917) — the additivity was real, the sum
+is just +0.016, matching HEADROOM_AUDIT's "honest sum ~+0.015, just
+short" prediction from three days ago. Per registration: bundle-v3
+CLOSED permanently, no recombinations, ablations adopt nothing.
+**v2.2 (dev 0.7089) remains the pinned eval-phase T1 recipe.** The
+winner's-curse guard held: a +0.016 OOF gain on 430 paragraphs did not
+earn a dev probe (the mix amendment burned one on +0.023 and lost).
