@@ -577,3 +577,41 @@ CLOSED permanently, no recombinations, ablations adopt nothing.
 **v2.2 (dev 0.7089) remains the pinned eval-phase T1 recipe.** The
 winner's-curse guard held: a +0.016 OOF gain on 430 paragraphs did not
 earn a dev probe (the mix amendment burned one on +0.023 and lost).
+
+## REGISTERED GATE — T2 "G1" calibration temperature (Menon logit adjustment)
+(approved 2026-07-15 from the literature review; registered
+BEFORE any tau fitting or scoring. Zero API cost.)
+
+### Rationale
+S1's per-class prior calibration is post-hoc logit adjustment at tau=1
+(Menon et al. ICLR 2021, Eq. 9): p ∝ p_enc · w_c with
+w_c = gold-mass-prior / encoder-expected-mass-prior. Menon's
+statistically grounded form is p ∝ p_enc · w_c^tau, with tau tuned
+because neural posteriors are miscalibrated. This is the one principled
+remaining lever on the AN 0.49x mass deficit. Known failure mode
+(Lipton): tau too high floods low-precision AN mass — hence gating on
+the real mass-F1 metric, not balanced error.
+
+### Frozen design
+Identical to the adopted S1 bundle (t2_structural_gate.py, registration
+46368f9) in every respect except calibration strength:
+  calibrate(dist, w, tau): adj_c = dist_c * w_c^tau, renormalized.
+Joint per-fold selection of (lambda, tau) on the 4 fitting folds'
+pooled span partial-F1 after full decode (same in-sample selection
+convention as S1's lambda):
+  lambda grid: {0.0, 0.1, ..., 0.9}   (unchanged S1 grid)
+  tau grid:    {0.0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 2.5, 3.0}
+Ties broken toward the S1 operating point (lambda=0.9, tau=1.0), then
+lower tau, then lower lambda — fully deterministic. Transitions,
+Rule-A, dedup, folds: byte-identical to S1.
+
+### Controls and gate
+CONTROL: the pipeline at fixed (lambda=0.9, tau=1.0) must reproduce the
+S1 gate run's pooled 0.7206 exactly, else abort.
+GATE: selected-variant pooled OOF >= 0.7206 + 0.02 = 0.7406 AND >= 3/5
+fold wins vs the S1 baseline per fold.
+Diagnostics reported regardless of verdict (for the paper): per-tau
+pooled OOF curve at the selected lambda, AN/CO mass ratios per tau.
+If ADOPTED: deploy twin (all-430 joint selection) + ONE dev probe.
+If REJECTED: banked; calibration-strength family CLOSED (no grid
+extension, no per-class tau, no alternative calibration forms).
