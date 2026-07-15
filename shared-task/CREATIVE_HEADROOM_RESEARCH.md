@@ -221,6 +221,30 @@ discipline: no further same-leg prompt-variant gates; remaining CO
 evidence (cross-model vote rank feature, banked +0.026) routes through
 the single bundle-v3 gate.**
 
+## REGISTERED GATE: T2 AN-rescue span judge (frozen 2026-07-15 before any call)
+
+Fresh v3 confusion matrix (OOF, mass-based): span-level AN recall ≈ 37%
+of gold AN mass; leaks AN→AS 4.1% / AN→CO 2.4% of total mass — the two
+largest coherent sinks. AN is the one criterial-form label ("concrete
+instance"), per the signal audit (form=instance → 0.67–0.71 unsupervised).
+
+- Baseline: v3 recorded pooled OOF **0.6934** (5 outer role runs).
+- Candidates: recorded spans labeled AS or CO, in paragraphs where the
+  v2.2 T1 OOF composition (run 4f30d408fa) fires AN. Measured: 1,314
+  candidates, 197 with dominant gold AN; oracle flip = **+0.0461**.
+- Judge: gemma-4-31b-paid ChainOfThought, span-in-marked-context, asks
+  whether the target span is a concrete instance (event, case, personal
+  experience, historical example = AN) rather than stance (AS) or shared
+  premise (CO). Contrastive out-of-fold exemplars: 10 gold-AN span texts
+  + 10 recorded-AS spans whose dominant gold is AS (fold-excluded).
+  3 rollouts T=0.7 (rollout_id 0/1/2). FLIP to AN only on unanimous
+  yes among successful rollouts (min 2 successes); errors → no flip.
+- Screen (pre-registered, P3 pattern): fold-0 first; proceed to folds
+  1–4 only if fold-0 relabeled F1 ≥ recorded + 0.015.
+- Gate: pooled 5-fold OOF ≥ **0.7134** (0.6934 + 0.02) AND ≥3/5 fold
+  wins → adopt into T2 deploy + ONE dev probe; else bank.
+- One run, no rule/threshold/source-label shopping after the numbers.
+
 ## Proposed sequencing (dev closes Jul 26)
 
 1. Free CO forensics read (idea 2a) — informs 2b's prompt; no spend.
