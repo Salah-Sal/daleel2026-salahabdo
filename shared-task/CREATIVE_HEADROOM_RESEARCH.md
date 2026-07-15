@@ -413,3 +413,19 @@ transition-model variants, no decode-rule swaps after seeing numbers).
   separate future registration ("S2") on whatever baseline stands after
   S1 — different mechanism family (learned arbitration vs decoding),
   so family-wise discipline is preserved.
+
+### S1 RESULT — ADOPTED (2026-07-15)
+Gate run 20260715-001221-t2-s1-structural-camelbert-quarter-n430:
+pooled 0.6934 -> **0.7206** (+0.0272), gate 0.7134, **5/5 fold wins**.
+Pre-Rule-A decode 0.7166; Rule-A added +0.0040 (38 flips). 237/3824
+span labels changed. Encoder evidence contribution isolated by the
+placebo ablation (uniform scores -> 0.7133): +0.0073 real. lambda=0.9
+all folds; calibration weights mild (ST ~1.25-1.40, AN ~1.1). Mass
+ratios: CO 3.98x -> 1.78x, ST 1.38x -> 1.07x; AN unchanged 0.49x —
+the anecdote deficit is untouched and remains S2's target.
+Local encoder standalone OOF 0.6562 (Kaggle GPU twin 0.6645), AN-rich
+error profile (465 AN vs 36 CO segments) — decorrelation confirmed.
+NEXT: deploy twin (fit on all 430, dev inference) + ONE bundled T2 dev
+probe. P3 note: its 0.7133 is below the new 0.7206 baseline; the
+prompt-relabel track is subsumed by S1's CO fix — any P3-on-S1 retry
+would be a NEW registration at >= 0.7406, currently not planned.
