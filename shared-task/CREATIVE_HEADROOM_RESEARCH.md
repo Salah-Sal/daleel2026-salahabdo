@@ -203,6 +203,24 @@ REGISTER; invisible golds are informal truisms embedded in debate flow
   flip that result. If CO adoption lands, P3 re-gates free again (missed
   by 0.0001) — triple payoff.
 
+### GATE RESULT (2026-07-15): **REJECTED — CO 0.40 → 0.3733, composed 0.7254 < 0.7498**
+
+Run `20260714-222759-t1-co-specialist-gemma-4-31b-paid-n430` (1,290 calls,
+2 parse errors contained, control check passed). Specialist-alone
+separation is real but weak: gold-CO mean fraction 0.7333 vs unanimous-FP
+mean 0.5447 — gemma still rates most of the 41 FPs as CO even with the
+annotators' own exemplars and the four rules in context; its sampled
+reasoning violates NOT-CO rule 3 explicitly while applying it. As a 4th
+rank feature the weak signal net-hurt (fold-3 slice −0.022, others
+unchanged). BANKED as a negative result. **Conclusion (third independent
+confirmation): CO conventions resist in-family prompting entirely —
+zero-shot definitions (crossfit 0.07), definition judge (0.3733), and now
+contrastive many-shot with induced rules all fail; the convention must
+enter via supervision or a different model family. Family-wise gate
+discipline: no further same-leg prompt-variant gates; remaining CO
+evidence (cross-model vote rank feature, banked +0.026) routes through
+the single bundle-v3 gate.**
+
 ## Proposed sequencing (dev closes Jul 26)
 
 1. Free CO forensics read (idea 2a) — informs 2b's prompt; no spend.
