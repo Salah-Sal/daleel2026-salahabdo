@@ -510,3 +510,55 @@ no AN-vs-AS information beyond what S1 already extracted — consistent
 with Webis-16 AN kappa 0.399 and the ~0.75 ceiling at pooled 0.7206.
 Banked per registration: learned-arbitration family CLOSED. T2 eval
 recipe stands at S1 (dev 0.7247).
+
+## REGISTERED GATE — T1 "bundle-v3" on the v2.2 baseline
+(approved 2026-07-15; registered BEFORE any composition of these
+components was scored together. All inputs are frozen cached artifacts;
+zero API cost.)
+
+### Baseline and control
+Baseline = v2.2 composed OOF, recomputed in-run from the byte-identical
+inputs of gate run 20260715-003004-...-4f30d408fa (llm-t0, 5 rollouts,
+champion single-seed quarter encoder 0e77e5faf4, 5 span runs, verifier-
+merged st-judge, --ot-source encoder). CONTROL: the recomputation must
+reproduce macro 0.7298 exactly, else abort (no gate run).
+
+### Frozen bundle changes (everything else byte-identical to v2.2)
+1. **Encoder source -> local 5-seed CPU fp32 quarter ensemble**
+   (20260714-233725-...-a7b50f0a10: mean sigmoid over seeds
+   {20260710 champion + 4 new}, thresholds refit cross-fitted by
+   ensemble_encoder_seeds.py). Feeds the AN leg, OT leg, and the CO
+   ranker sigmoids. EX-ANTE stack selection (winner's-curse guard):
+   quarter is the externally dev-validated architecture (mix FAILED
+   0.6364) and CPU fp32 is the deploy-faithful stack; the mix/da/
+   msa-fp16 ensembles are NOT candidates and will not be composed.
+2. **TE leg: 6th voter = llama-3.3-70b T=0**
+   (20260714-200859-...-3b704b9a00); theta_TE cross-fitted per fold
+   over the 6 votes with the standard fitter. AS/ST thetas stay fitted
+   on the 5 gemma rollouts only.
+3. **CO leg: 4th rank feature = llama CO presence** (tie-break by
+   ensemble encoder CO sigmoid), added to the frozen 3-feature
+   rank-mean; budget unchanged k = round(2 x 0.0588 x n_fold).
+   qwen-CO is NOT added (banked evidence showed no gain beyond llama).
+
+Explicitly unchanged, with reasons: AS (saturated; 7-voter pool hurt),
+ST (votes + BFRS judge + verifier v2; the banked qwen-ST +0.082 was
+measured PRE-judge/PRE-verifier and the verifier already consumes
+qwen/llama co-signals — adding qwen votes would double-count a spent
+signal), AN/OT rules (only their encoder input changes).
+
+### Gate — fixed-sequence procedure (both declared now)
+PRIMARY: full bundle composed macro >= baseline + 0.02 (~0.7498) AND
+>= 3/5 fold-slice wins.
+SECONDARY (evaluated ONLY if primary fails): ensemble-swap-only
+composition (change 1 alone, TE/CO legs as v2.2) under the same
++0.02/3-of-5 rule. This is the component with the strongest
+independent evidence (+0.0138 on v2.1 rules; 5/5 fold preview).
+No further fallbacks: TE-only, CO-only, or any recombination are NOT
+tested regardless of diagnostics. Component ablation numbers are
+reported for the paper but can adopt nothing.
+If ADOPTED (either test): deploy = 5-seed deploy encoder trainings
+(CPU) + llama dev voter (reuse the existing dev run if format-
+compatible, else one ~$0.5 rerun) + ONE bundled T1 dev probe.
+If both REJECTED: bundle-v3 CLOSED permanently; v2.2 remains the
+pinned eval T1 recipe.
