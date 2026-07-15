@@ -436,3 +436,11 @@ all-train. Its config shows it is run_zero_shot.py --program quote at
 T=0 (stage0-quote-v1, no compile step) — there is no fitting and hence
 no in-sample contamination in Rule-A. The dev twin
 (20260711-032218-...-e955af86f9) is the identical program on dev_in.
+
+### S1 DEV CONFIRMATION (2026-07-15)
+Codabench dev: **0.7247** (P 0.6840, R 0.7704; editorial 0.6875,
+debate 0.7381) vs prior 0.6847 — **+0.0400**, exceeding the OOF delta
+(+0.0272) and landing +0.012 above the arithmetic prediction (~0.712).
+First adoption of the campaign whose dev transfer was POSITIVE. Both
+genres improved (editorial +0.0447, debate +0.0382). S1 is the pinned
+eval-phase T2 recipe unless S2 clears its own gate (>= 0.7406 OOF).
