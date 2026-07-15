@@ -262,6 +262,69 @@ supervision route: the relabeler compile over ~800 gold span decisions
 transfer failed at that data size — a compile would need its own
 transfer-honest gate design).
 
+## T2 creative research (2026-07-15; literature survey + artifact forensics)
+
+### Framing discovery: our label scheme IS Webis-Editorials-16
+Al-Khatib, Wachsmuth, Kiesel, Hagen & Stein (COLING 2016) — same six
+types over clause-segmented editorials (14,313 units, 300 English
+editorials; Zenodo 3254405). Consequences:
+- **Human agreement per type (Fleiss κ): CO 0.114, OT 0.152, AN 0.399**,
+  AS 0.613, TE 0.591, ST 0.582. CO/OT are near-chance for trained
+  native annotators. The human confusion matrix mirrors our model's
+  cell-for-cell (annotator CG→assumption 0.562; anecdote→assumption
+  0.277). A sizeable share of our remaining 25% wrong-label mass is
+  irreducible annotation noise; realistic ceiling ≈ 0.75 pooled.
+  This retroactively explains every CO failure in both tasks: the
+  convention is statistical, not definitional — nothing to "verify".
+- Genre flow facts (Al-Khatib EMNLP 2017, 28,986 editorials): anecdote
+  mass is bursty/contiguous, testimony sits between anecdote blocks —
+  matches our measured gold AN self-transition 39% (base ~10%).
+- The corpus itself is a translate-train augmentation source with our
+  exact conventions (untried in literature; Arabic AM transfer results:
+  AraBERT translate-train 0.251 vs XLM-R zero-shot 0.003) — REQUIRES
+  ORGANIZER RULES CHECK for closed-track external data.
+
+### Internal forensics (all measured, cached artifacts, $0)
+- **Mass calibration is the pathology**: v3 predicts CO at 4.15× gold
+  mass, quote champion at 5.0×; both starve AN at ~0.5×; all other
+  labels 0.9–1.4×. Gemma-family bias, not pipeline-specific.
+- Rule A (CO needs cross-system consensus, else quote's label):
+  **+0.0138 pooled, deterministic, zero cost** — banked component.
+- Quote-based AN rescue: +0.004 only (both systems share AN blindness).
+- Two-system per-span arbitration oracle: **+0.058**.
+- Genre gap OOF: editorial 0.6606 vs debate 0.7062.
+- Gold transitions: AN→AN 39%, CO→CO 29%, OT→OT 26% — sequence
+  structure exists; v3 decides atoms independently.
+
+### Ranked T2 plan (composable into ONE bundled gate ≥ 0.6934 + 0.02)
+All Tier-A items are zero-API and wait only on the local T2 encoder OOF
+run (launched 2026-07-15, CPU fp32, same recipe as Kaggle 0.6645; emits
+oof_task_2.jsonl + oof_task_2_segment_scores.jsonl):
+1. **Transition+position Viterbi re-decode** over atom posteriors
+   (emissions = encoder segment probs blended with LLM labels;
+   6×6 transitions + start priors fit per-fold; ~40 params).
+   Lit: +5.8 node F1 inference-only, +13.1 full (Widmoser EACL 2021);
+   ILP +3.2 (Stab & Gurevych 2017). Attacks AN burstiness, isolated CO.
+2. **Per-class posterior calibration** (logit offsets vs mass priors,
+   6 params/fold; Menon ICLR 2021 logit adjustment). Attacks the
+   4×/0.5× miscalibration head-on.
+3. **Rule-A CO consensus** (+0.0138 already measured).
+4. **Span-level linear combiner** over {v3, quote, encoder}
+   distributions + position/cue features (SpanNER +0.78–1.02;
+   DS@GT routed hybrid; LinkNER uncertainty routing +3–21).
+5. **AN-vs-AS binary pair specialist** (CAMeLBERT head on pair-restricted
+   gold, confidence-selective override per SuperICL: flips only above
+   OOF-tuned τ, no-regression by construction; fine-tuning >> prompting
+   for discourse conventions is the canonical IDRR result).
+Tier B: QLoRA decision-classifier (Qwen3-4B class) on the ~3.5k gold
+atom decisions (LoRA-Land/LlamaLens evidence; saturation 200–500 ex).
+Tier C (rules check first): Webis-16 translate-train encoder pretrain.
+Killed by evidence: more prompt-only relabeling (Arabic LLM span typing
+0.04–0.11 vs supervised 0.25–0.35; our own 4 failures); synthetic
+discourse-convention generation (published null, arXiv 2503.20588);
+many-shot beyond a cheap falsification probe (fine-tuning dominates at
+6-label spaces, Bertsch NAACL 2025).
+
 ## Proposed sequencing (dev closes Jul 26)
 
 1. Free CO forensics read (idea 2a) — informs 2b's prompt; no spend.
