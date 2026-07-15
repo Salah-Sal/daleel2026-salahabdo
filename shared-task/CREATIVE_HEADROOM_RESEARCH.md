@@ -497,3 +497,16 @@ T1 v2.2 dev deploy ...a650666233) + ONE bundled dev probe.
 If REJECTED: bank. No feature enlargement, no grid extension, no
 alternative classifiers, no class-weighting variants after seeing
 numbers. S2 closes the learned-arbitration family either way.
+
+### S2 RESULT — REJECTED (2026-07-15)
+Gate run 20260715-003839-t2-s2-combiner-n430: pooled 0.7206 -> 0.7218
+(+0.0013 vs required +0.02), 3/5 fold wins. Flip precision 0.4672
+(137 gold-overlapping flips) — just under the ~0.50 break-even for
+mass-F1 type swaps. The registered risk fired: class_weight='balanced'
+over-fired minorities (33 AS->CO flips re-inflated CO 1.78x -> 2.18x)
+while AS->AN (47 flips) lifted AN only 0.49x -> 0.59x. Reading: the
+available signals (encoder posterior, quote, T1-v2.2, position) carry
+no AN-vs-AS information beyond what S1 already extracted — consistent
+with Webis-16 AN kappa 0.399 and the ~0.75 ceiling at pooled 0.7206.
+Banked per registration: learned-arbitration family CLOSED. T2 eval
+recipe stands at S1 (dev 0.7247).
