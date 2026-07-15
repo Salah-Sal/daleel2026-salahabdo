@@ -343,3 +343,73 @@ Gururangan et al. 2020 (arXiv:2004.10964), FreeAL (arXiv:2311.15614),
 PGKD (arXiv:2411.05045), self-consistency plateau (arXiv:2511.00751),
 Are-More-Calls (arXiv:2403.02419), BOXWRENCH (arXiv:2501.07727),
 many-shot/kNN demos (arXiv:2508.09323).
+
+## REGISTERED GATE — T2 structural re-decode bundle "S1"
+(registered 2026-07-15 while the local T2 encoder OOF run was still
+training — fold 2/5 at registration commit; NO fitting, decoding, or
+scoring of any bundle component had been run.)
+
+### Rules check outcome (Tier C killed)
+Organizer rules (QatarDebate webpage, "Closed Track"): participants may
+NOT use "Additional labeled datasets for training". Webis-Editorials-16
+translate-train is therefore ILLEGAL for our closed-track entry (all
+our models are open-weight <=70B, so we are closed-eligible; the open
+track is scored separately). Tier C is parked permanently unless we
+decide to file a second, open-track entry.
+
+### Bundle definition (frozen; order fixed)
+Atom lattice = the recorded v3 spans of each paragraph (5 role runs,
+outer0..4, the 0.6934 baseline), sorted by start offset. The bundle is
+pure relabeling: extraction mass and boundaries untouched (type swaps
+preserve segmentation credit under mass-F1).
+
+1. **Encoder span distributions.** From the local T2 encoder run
+   (camelbert-msa-quarter, fold-seed 20260710, connective granularity),
+   per v3 span: overlap-mass-weighted mean of segment softmax `scores`
+   over segments intersecting [start,end); drop NONE and renormalize to
+   the 6 labels. Spans with zero segment overlap fall back to uniform.
+2. **Per-class prior calibration** (closed-form, no grid): multiply by
+   (gold char-mass prior / encoder predicted char-mass prior) per label,
+   tau=1, priors computed on the 4 fitting folds only; renormalize.
+3. **Emission blend**: p = (1-lambda) * p_enc_cal + lambda *
+   onehot(v3 recorded label). lambda per fold from grid
+   {0.0,0.1,...,0.9}, chosen to maximize pooled span partial-F1 over
+   the 4 fitting folds after decoding them with that fold's fitted
+   transitions. Single scalar per fold; grid registered here.
+4. **Viterbi re-decode**: genre-conditioned 6x6 transition matrix +
+   start priors, fit on gold span label sequences (gold spans sorted by
+   start) of the 4 fitting folds, Laplace alpha=1. Decode = argmax
+   joint log-likelihood over the span sequence.
+5. **Rule-A CO consensus** (post-decode): for each span whose decoded
+   label is CO, take the quote champion's dominant label by char-overlap
+   mass over the span; if a dominant label exists and differs from CO,
+   relabel to it; otherwise keep CO. Quote source =
+   20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b.
+
+All fitting keyed to the v3 outer folds; the eval fold's paragraphs are
+always excluded from priors, transitions, and lambda selection.
+
+### Gate rule
+Pooled OOF span partial-F1 of the bundle >= recorded + 0.02 (recorded
+pooled = 0.6934, so >= 0.7134) AND >= 3/5 fold wins (relabeled >=
+recorded per fold). Zero API cost, so no fold-0 screen: one full run.
+If ADOPTED: build deploy twin (fit calibration/transitions/lambda on
+all 430, encoder deploy inference on dev, same frozen rules) + ONE
+bundled dev probe; the free P3 regate then re-runs on the new baseline.
+If REJECTED: bank, no same-family retry (no lambda-grid extension, no
+transition-model variants, no decode-rule swaps after seeing numbers).
+
+### Registered caveats (honesty notes, written before results)
+- Quote champion was GEPA-compiled on all-train, so its train
+  predictions carry in-sample flavor; Rule-A's measured +0.0138 may be
+  optimistic. Bounded: Rule-A only touches spans still CO after decode.
+  The dev probe is the arbiter.
+- Encoder OOF probs are out-of-fold w.r.t. the encoder's own folds
+  (same seed 20260710); using them as stacking features inside v3-fold
+  fitting is standard stacked-generalization practice.
+- Plays 4-5 from the ranked plan (span-level linear combiner over
+  {v3, quote, encoder}; AN-vs-AS pair specialist with
+  confidence-selective override) are NOT in this bundle. They form a
+  separate future registration ("S2") on whatever baseline stands after
+  S1 — different mechanism family (learned arbitration vs decoding),
+  so family-wise discipline is preserved.
