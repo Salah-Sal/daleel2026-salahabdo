@@ -631,3 +631,67 @@ structurally unable to reach it). Clean negative for the paper: the
 last calibration-family lever measurably saturates. Per registration:
 banked, calibration-strength family CLOSED (no per-class tau, no grid
 extension). T2 eval recipe remains S1 (dev 0.7247).
+
+---
+
+## REGISTERED GATE — T1 "TAPT" transductive task-adaptive pretraining
+(approved 2026-07-15, under the explicit hypothetical
+that organizers permit transductive use of provided INPUT text;
+registered BEFORE any MLM step or downstream fitting. Zero API cost.)
+
+### Legality status — read first
+The corpus includes the organizer-provided dev INPUT text (dev_in.jsonl,
+inputs only, no labels exist for it). Whether transductive use of
+provided inputs is legal in the closed track is an OPEN question we
+intend to put to the organizers in writing. Therefore:
+- This experiment is OOF-measurement-only. Even if the gate passes,
+  NOTHING deploys and no dev probe is spent until a written organizer
+  "yes" exists. The pinned eval recipes (T1 v2.2, T2 S1) are untouched.
+- If the ruling is "no", the result is banked as the future-work /
+  what-transduction-would-buy paragraph and the family closes.
+- Closed-track derivation is otherwise clean: apache-2.0 base checkpoint
+  (camelbert-msa-quarter @ 3e48534705c153737cbec1c5748bb02359b7b239) +
+  organizer-provided text only. No external data, no labels consumed.
+
+### Rationale
+Gururangan et al. 2020 (TAPT): continued MLM on the task's own unlabeled
+text, 100 epochs, gives consistent downstream gains; the low-resource
+RCT-500 setting (closest analog to our 430) gained ~+0.5 F1 and
+Curated-TAPT more. Our composition dilutes an encoder-only gain (encoder
+feeds only the AN/OT legs + CO rank features of v2.2), so the predicted
+composed effect is ~+0.005 — BELOW the +0.02 gate. Prediction on record:
+REJECTED is the expected verdict; the measurement itself (a quantified
+"transduction at this scale buys X" table) is the primary value either
+way, per the van Miltenburg preregistration framing.
+
+### Frozen TAPT recipe (before any training)
+Corpus: all organizer-provided input text visible today = 612
+train_task_1 paragraphs + 217 dev_in paragraphs = 829 unique texts,
+340,743 chars (~113k tokens). Text field only. No labels touched.
+MLM continued pretraining of camelbert-msa-quarter @ 3e48534:
+  dynamic masking (DataCollatorForLanguageModeling), mlm_probability
+  0.15; max_length 512, stride 128 windows (matches downstream
+  tokenization); epochs 100 (Gururangan); batch 16; lr 5e-5 with linear
+  decay, warmup ratio 0.06 (Gururangan); weight decay 0.01; grad clip
+  1.0; seed 20260710; fp32 CPU. SINGLE SEED — Gururangan report
+  cross-seed variance for TAPT; caveat attaches to any verdict.
+Checkpoint identity: revision = `git hash-object model.safetensors`
+(40-hex content hash) recorded in a new reviewed ENCODER_SPECS entry
+(repository = local checkpoint dir, closed_track_verified per the
+legality note above + provenance.json in the TAPT run dir).
+
+### Frozen downstream + gate
+Retrain the T1 encoder with byte-identical arguments to the v2.2
+encoder leg run 20260711-090448-516508Z (task 1, connective granularity,
+folds/fold_seed/seed 20260710, epochs 4, batch 4, lr 2e-5, fp32 cpu —
+full dict in that run's config.json) changing ONLY the model spec to
+the TAPT checkpoint. Compose v2.2 with the TAPT encoder's oof/scores
+substituted (exact ensemble_only swap pattern of t1_bundle_v3_gate.py);
+every other leg is the same frozen artifact set.
+CONTROL: recomputed v22_control must equal 0.7298 exactly, else abort.
+GATE: composed macro >= 0.7298 + 0.02 = 0.7498 AND >= 3/5 fold wins.
+Diagnostics regardless of verdict: encoder-only OOF macro (TAPT vs
+baseline encoder run), per-label composed deltas, final MLM loss.
+If REJECTED: banked; TAPT-strength variations (more epochs, corpus
+curation, other bases) stay CLOSED; only a future written organizer
+"yes" + eval-input availability could motivate a NEW registration.
