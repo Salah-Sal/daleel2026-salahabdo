@@ -155,6 +155,54 @@ exemplars = all 19 gold ST + all 19 train-OOF FPs, co-signal = one qwen
 + one llama zero-shot run on the eval input, same frozen drop rule; ONE
 dev probe before pinning v2.2 for eval (revert = re-upload the v2.1 zip).
 
+## CO forensics read (2026-07-15, all 41 unanimous FPs + 7 invisible golds + 16 seen golds)
+
+Annotator convention, induced from gold: CO = neutral exposition of the
+thing under debate — definitions ("X is/means…"), procedural or legal
+frameworks described from inside the system being discussed, an entity's
+stated goals, established policy decisions — plus generic commonsense
+premises (informal truisms). Four systematic NOT-CO patterns behind the
+41 unanimous gemma FPs:
+1. "everyone-knows" rhetoric (كلنا نعلم / من المعلوم / نحن نعلم) wrapping
+   a CONTESTED claim → AS (~12 cases; the marker is rhetorical assertion);
+2. settled historical events/instances → AN, never CO (Benz patent ¶717,
+   Russia invaded Ukraine ¶515; "settled events are AN" re-confirmed);
+3. legal/scriptural citations deployed AS EVIDENCE → TE (1951 Convention
+   ¶317, Quranic verse + fiqh consensus ¶920, Knesset law ¶310);
+4. debate-motion restatement / scene-setting ledes → OT/AN.
+Miss direction is the mirror image: gemma keys on the formal definitional
+REGISTER; invisible golds are informal truisms embedded in debate flow
+(¶62 humans adapt, ¶153 companies want profit, ¶553 China is in Asia,
+¶879 Ukraine borders Russia — 5/7 in debates).
+
+## REGISTERED GATE: CO contrastive many-shot specialist (frozen before any call)
+
+- Baseline: v2.2 composed OOF **0.7298** (run `20260715-003004…4f30d408fa`,
+  champion quarter encoder, CO leg = 0.40 via rank-mean(enc sigmoid,
+  gemma vote fraction, span presence) top-k×2 fold-local budget).
+- Specialist: gemma-4-31b-paid ChainOfThought, one binary present/absent
+  decision per paragraph over ALL 430, 3 rollouts T=0.7 (rollout_id
+  0/1/2), score = present-fraction. Prompt = official CO definition +
+  the four NOT-CO convention rules above + contrastive exemplars, fold-
+  excluded: all out-of-fold gold-CO paragraphs (~20) as CO-PRESENT and
+  the first 12 (sorted pid) out-of-fold unanimous-FP paragraphs as
+  CO-ABSENT. A rollout that errors after retries is excluded from that
+  paragraph's fraction (neutral containment; denominator shrinks).
+- Frozen composition change (the ONLY change): CO leg v3 = same fold-
+  local top-k×2 budget, rank-mean over FOUR features = the three frozen
+  ones + specialist fraction. Control check: the 3-feature rank must
+  reproduce the baseline CO fired set exactly before the 4-feature run
+  is scored.
+- Gate: composed macro = 0.7298 + (CO_new − 0.40)/6 (exact, single-leg
+  change) ≥ **0.7498** AND ≥3/5 fold-slice wins → adopt into v2.3 +
+  deploy twin + one dev probe; else BANK for bundle-v3. One run, no
+  budget/threshold/feature shopping after seeing the number.
+- Context: prior zero-shot definition judge as 4th feature was REJECTED
+  (pooled 0.3733 vs control 0.40); the registered bet is that convention
+  rules + contrastive exemplars (examples>definitions, confirmed twice)
+  flip that result. If CO adoption lands, P3 re-gates free again (missed
+  by 0.0001) — triple payoff.
+
 ## Proposed sequencing (dev closes Jul 26)
 
 1. Free CO forensics read (idea 2a) — informs 2b's prompt; no spend.
