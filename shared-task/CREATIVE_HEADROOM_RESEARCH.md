@@ -245,6 +245,23 @@ instance"), per the signal audit (form=instance → 0.67–0.71 unsupervised).
   wins → adopt into T2 deploy + ONE dev probe; else bank.
 - One run, no rule/threshold/source-label shopping after the numbers.
 
+### SCREEN RESULT (2026-07-15): **KILLED AT FOLD-0 — delta −0.0024 (needed +0.015)**
+
+Run `20260714-232555-t2-an-rescue-gemma-4-31b-paid-f0` (228 candidates,
+684 calls, 0 errors). 27 unanimous flips, only 12 with dominant gold AN —
+judge precision 0.44 vs the ~0.75 the arithmetic requires; net slightly
+negative. Folds 1–4 not run (screen rule). Refines the audit's
+form-detectability finding: paragraph-level AN PRESENCE is detectable
+(0.67–0.71), but the span-level AN/AS boundary is convention-laden and
+does not verify in-family — consistent with D7 ("criteria verify,
+conventions don't") and with today's CO result. The ledger now reads:
+ST (criterial) verified twice and shipped; CO and AN (conventional)
+failed every prompting attack. T2's remaining substantive play is the
+supervision route: the relabeler compile over ~800 gold span decisions
+(D7 evidence: GEPA lifted AN decision accuracy 0.74→0.88, but deployment
+transfer failed at that data size — a compile would need its own
+transfer-honest gate design).
+
 ## Proposed sequencing (dev closes Jul 26)
 
 1. Free CO forensics read (idea 2a) — informs 2b's prompt; no spend.
