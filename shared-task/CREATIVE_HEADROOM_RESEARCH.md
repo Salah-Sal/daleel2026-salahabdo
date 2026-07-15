@@ -615,3 +615,19 @@ pooled OOF curve at the selected lambda, AN/CO mass ratios per tau.
 If ADOPTED: deploy twin (all-430 joint selection) + ONE dev probe.
 If REJECTED: banked; calibration-strength family CLOSED (no grid
 extension, no per-class tau, no alternative calibration forms).
+
+### G1 RESULT — REJECTED, calibration-strength family CLOSED (2026-07-15)
+Gate run 20260715-160053-t2-g1-tau-n430. Control at (lambda=.9, tau=1)
+reproduced 0.7206 exactly. Joint selection picked scattered per-fold
+tau {0.0, 0.25, 1.0, 1.5, 2.0} = noise-fitting; pooled 0.7203
+(-0.0003 vs S1), 4/5 "wins" (ties). The tau curve is the finding:
+pooled F1 spans only 0.7179-0.7212 across tau in [0,3], and **AN mass
+ratio is 0.49 at EVERY tau** — calibration strength has zero effect on
+the anecdote deficit. With lambda=0.9 and mild prior ratios
+(w_AN ~1.1-1.25), even tau=3 cannot move AN mass; the deficit lives in
+extraction + the LLM labels, exactly as the Stab & Gurevych
+error-propagation argument predicts (relabeling-side interventions are
+structurally unable to reach it). Clean negative for the paper: the
+last calibration-family lever measurably saturates. Per registration:
+banked, calibration-strength family CLOSED (no per-class tau, no grid
+extension). T2 eval recipe remains S1 (dev 0.7247).
