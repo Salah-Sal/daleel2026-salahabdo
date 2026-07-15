@@ -444,3 +444,56 @@ debate 0.7381) vs prior 0.6847 — **+0.0400**, exceeding the OOF delta
 First adoption of the campaign whose dev transfer was POSITIVE. Both
 genres improved (editorial +0.0447, debate +0.0382). S1 is the pinned
 eval-phase T2 recipe unless S2 clears its own gate (>= 0.7406 OOF).
+
+## REGISTERED GATE — T2 "S2" confidence-selective span combiner
+(registered 2026-07-15 after S1 dev confirmation 0.7247; NO fitting,
+feature extraction, or scoring of any S2 component has been run.)
+
+### Baseline and gate rule
+Baseline = the S1 gate run's relabeled OOF spans
+(20260715-001221-t2-s1-structural-camelbert-quarter-n430, pooled
+0.7206, recomputed at gate time). Gate: pooled OOF span partial-F1
+>= recorded + 0.02 (= 0.7406) AND >= 3/5 fold wins. Zero API cost,
+single full run, no fold-0 screen.
+
+### Frozen design
+ONE multinomial logistic regression per fold (sklearn 1.9.0, lbfgs,
+L2 C=1.0, class_weight='balanced', max_iter=1000), trained on the 4
+fitting folds' spans that overlap gold (target = dominant gold label
+by char-overlap mass; zero-overlap spans excluded from training but
+eligible for override at inference). Features per span (frozen):
+  1. calibrated encoder posterior (6; S1 calibration weights fit on
+     the same 4 folds)
+  2. v3 recorded label one-hot (6)
+  3. S1 label one-hot (6)
+  4. quote dominant label one-hot + none (7)
+  5. T1 v2.2 composed paragraph label indicators (6; run
+     20260715-003004-...-4f30d408fa)
+  6. genre indicator (1)
+  7. log char length (1)
+  8. relative start offset (1)
+  9. is_first, is_last (2)
+ 10. prev S1 label one-hot + none (7)
+ 11. next S1 label one-hot + none (7)
+Continuous dims standardized with fitting-fold mean/std.
+**Override rule**: replace the S1 label with the combiner argmax ONLY
+when argmax != S1 label AND max posterior >= tau; tau per fold from
+grid {0.50, 0.55, ..., 0.95} maximizing pooled span-F1 on the 4
+fitting folds (in-sample for selection only — same convention as S1
+lambda). Exact-duplicate dedup after override (S1 rule).
+
+This single 6-way model subsumes the planned binary AN-vs-AS pair
+specialist (AS->AN flips are its dominant expected action given the
+0.49x AN deficit); class_weight='balanced' is the registered choice
+targeting AN recall, with the tau override guarding minority
+over-fire. Design point: S1's label is itself a feature, so the
+combiner learns WHEN to distrust S1 — the SuperICL pattern with the
+LLM+decoder stack as the base system.
+
+If ADOPTED: deploy twin (train on all 430; tau by all-430 in-sample
+selection; dev features from S1 dev output 20260715-002802-t2-s1-
+deploy-dev_in, encoder deploy ...f04daf77d5, quote dev ...e955af86f9,
+T1 v2.2 dev deploy ...a650666233) + ONE bundled dev probe.
+If REJECTED: bank. No feature enlargement, no grid extension, no
+alternative classifiers, no class-weighting variants after seeing
+numbers. S2 closes the learned-arbitration family either way.
