@@ -429,3 +429,10 @@ NEXT: deploy twin (fit on all 430, dev inference) + ONE bundled T2 dev
 probe. P3 note: its 0.7133 is below the new 0.7206 baseline; the
 prompt-relabel track is subsumed by S1's CO fix — any P3-on-S1 retry
 would be a NEW registration at >= 0.7406, currently not planned.
+
+### S1 deploy note — Rule-A caveat VOID (upgrade)
+The registered caveat assumed the quote source was GEPA-compiled on
+all-train. Its config shows it is run_zero_shot.py --program quote at
+T=0 (stage0-quote-v1, no compile step) — there is no fitting and hence
+no in-sample contamination in Rule-A. The dev twin
+(20260711-032218-...-e955af86f9) is the identical program on dev_in.
