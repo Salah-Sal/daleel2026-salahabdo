@@ -695,3 +695,42 @@ baseline encoder run), per-label composed deltas, final MLM loss.
 If REJECTED: banked; TAPT-strength variations (more epochs, corpus
 curation, other bases) stay CLOSED; only a future written organizer
 "yes" + eval-input availability could motivate a NEW registration.
+
+### TAPT RESULT — REJECTED, composition-dilution family CLOSED (2026-07-16)
+MLM run 20260715-202537-...-transductive-829: 100 epochs, initial loss
+2.8468 -> final 0.4633 (plateau ~0.43-0.51 from epoch ~80 = full
+convergence on the 340k-char corpus, the expected mild-overfit regime).
+Checkpoint camelbert-msa-quarter-tapt-transductive-v1, weights
+git-hash-object 1577e68b0fa6226ea37b3b3c3cfc4f4b2db2bfb4, registered in
+ENCODER_SPECS (license-verified apache-2.0 derivation; deployment
+separately blocked). Encoder retrain 20260716-081636-...-tapt (byte-
+identical args to the v2.2 encoder leg 20260711-090448 except --model).
+Gate run 20260716-083652-...-t1-tapt-gate-n430.
+
+Control reproduced 0.7298 exactly. Composed tapt_swap = 0.7364
+(+0.0066 vs v2.2), 3/5 fold wins -> BELOW the 0.7498 gate. REJECTED,
+as pre-registered (~+0.005 predicted; +0.0066 measured).
+
+The finding is the dilution decomposition, and it is clean:
+- **Encoder-only OOF macro: baseline 0.5948 -> TAPT 0.6424 = +0.0476.**
+  TAPT genuinely and substantially improved the raw encoder (~5 pts) --
+  the transductive MLM signal is real, not noise.
+- The composition only routes the encoder through the AN + OT legs and
+  the CO rank features, so the +0.0476 encoder gain lands *exactly*
+  there and nowhere else: per-label composed AN 0.7243 -> 0.7557
+  (+0.0314), OT 0.7744 -> 0.8095 (+0.0351); AS/TE/ST unchanged (no
+  encoder dependency); CO 0.40 -> 0.3733 (-0.0267, the CO rank features
+  shifted slightly adverse). Net composed +0.0066.
+This is the textbook composition-dilution result: a large component-level
+gain attenuates to near-zero at the system level because the component
+feeds only a fraction of the decision surface. It quantifies precisely
+what transduction would buy inside our architecture, and it is a strong
+honest paper table (van Miltenburg preregistration framing: prediction
+on record, gate on the real metric, measurement is the deliverable).
+Single-seed (Gururangan variance caveat stands on the +0.0066 point).
+
+Per registration: banked; composition-dilution / TAPT-strength family
+CLOSED (no more epochs, no corpus curation, no alternate bases). Nothing
+deploys: T1 eval recipe remains v2.2 (dev 0.7089). A future written
+organizer "yes" on transductive input use + eval-input availability
+would be a NEW registration, not a reopening of this one.
