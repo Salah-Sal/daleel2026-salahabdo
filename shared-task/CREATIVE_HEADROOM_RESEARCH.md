@@ -835,3 +835,21 @@ call (pin verification), latency, token usage, judge's side-by-side
 notes. Outputs live in scratchpad; committed report = pid-level notes
 only (no organizer text). Any config beyond these 5 after seeing
 outputs = new registration.
+
+### CFG-J1 RESULT — judged 2026-07-29, probe complete, family rests
+Full judge report in the model-config design note (not in this release). Scoreboard
+(n=10 descriptive): C1 bf16-pin 0.7332 > C0 unpinned 0.7219 > C2
+fp4-pin 0.7178 >> C3 T=1.0 0.6950 >> C4 thinking 0.4645 (2 hard
+failures). Headline findings: (1) C0 served by NINE distinct upstreams
+over 20 calls — roulette confirmed live, pins held 10/10 and are
+verifiable from response metadata; (2) fp4-vs-bf16 divergence is
+LENGTH-GATED (byte-identical outputs <=856 ch, over-fragmentation on
+3k+ debates) -> Stage 1 parity sets must be length-stratified;
+(3) thinking IS reachable via reasoning:{enabled:true} (Stage 3
+precondition = YES) but starves max_tokens on long inputs and
+collapses recall — needs >=12k budget if ever retried; (4) two
+config-INVARIANT failures (degenerate-paragraph OT hallucination 5/5
+configs, attribution+content merging) are program properties that
+bound any config gain. Engineering adoption (no gate): C1-style pin
+recommended as future-run default. All score-bearing changes remain
+future-cycle. Probe closed; the 5 configs are final.
