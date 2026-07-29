@@ -803,3 +803,35 @@ Either branch: family rests after these 2 legs x 2 tasks (+ the val
 noise check). Any prompt/demo edit, CoT toggle, dual-span toggle,
 model swap, or compile step after seeing these numbers is a NEW
 registration in a future cycle, not an extension of this one.
+
+## REGISTERED MEASUREMENT — "CFG-J1" config judge probe (frozen 2026-07-29, before any probe call)
+
+Qualitative pilot for the model-config design note (2026-07-29:
+manual configs, small chosen eval set, human-judged
+side-by-side outputs). Measurement-only: recipes frozen, no adoption
+branch; deliverables are (a) judge notes feeding the design doc's Stage
+0/1/3 preconditions, (b) empirical answers to reachability questions
+(provider pin observable? thinking reachable?). Scores on n~10 are
+descriptive color only, never verdicts.
+
+Frozen probe: program = QuoteProgram (frozen production W1 prompt, no
+demos, ChatAdapter), model gemma-4-31b-paid, max_tokens 6000.
+Configs (exactly 5):
+- C0 baseline: production kwargs, no pin (routed = fp4 roulette).
+- C1 bf16-pin: + provider {order:[coreweave], allow_fallbacks:false,
+  quantizations:[bf16]} via extra_body.
+- C2 fp4-pin: + provider {order:[deepinfra], allow_fallbacks:false,
+  quantizations:[fp4]}.
+- C3 official-sampling: C1 + temperature 1.0, top_p 0.95, top_k 64.
+- C4 thinking-probe: C1 + reasoning {enabled: true} (the Stage 3
+  reachability question; parse/latency/cost observed).
+Eval set: n=10 train-pool paragraphs picked by a deterministic
+zero-API stress rule (longest; most gold spans; dual-label pid 276 if
+in-pool; ST-numeric editorial; TE-quote debate; shortest/title-like;
+genre balance; tie-break lowest pid). IDs recorded in the probe report.
+Readouts per config: per-paragraph spans + official span-F1 vs train
+gold (descriptive), align/fidelity stats, served-provider metadata per
+call (pin verification), latency, token usage, judge's side-by-side
+notes. Outputs live in scratchpad; committed report = pid-level notes
+only (no organizer text). Any config beyond these 5 after seeing
+outputs = new registration.
