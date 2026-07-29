@@ -853,3 +853,57 @@ configs, attribution+content merging) are program properties that
 bound any config gain. Engineering adoption (no gate): C1-style pin
 recommended as future-run default. All score-bearing changes remain
 future-cycle. Probe closed; the 5 configs are final.
+
+## GN RESULT (2026-07-29, all 8 legs complete; registration 427547d)
+
+Execution note: both demos=none --on train legs FAILED on first launch
+(pid 540 returned -1 for units; zero-tolerance default) and were
+relaunched with --max-error-rate 0.005 — 429/430 cache-backed, the one
+contained error re-fired and was tolerated. No design change; the
+containment flag is the standing v3 mechanism.
+
+### Scoreboard (official scorers)
+| task | demos | --on train (430, PRIMARY) | --on val (182, noise check) |
+|---|---|---|---|
+| T2 span-F1 | en   | **0.6209** | 0.6078 |
+| T2 span-F1 | none | 0.6163 | 0.6122 |
+| T1 macro-F1 | en  | **0.6444** | 0.6499 |
+| T1 macro-F1 | none | 0.6395 | 0.6567 |
+
+Baselines (fitted, same pool, descriptive only): T2 S1 0.7206 → GN
+recovers 86.2%. T1 v2.2 composed 0.7298 → GN recovers 88.3%.
+
+### Predictions scored
+1. "T2 lands 0.45–0.60" — **falsified high**: 0.6209. The program is
+   better than registered expectation.
+2. Evidence-label over-fire — partially confirmed, but the dominant
+   signature is a CO/OT collapse, not TE inflation: per-label span-F1
+   (en/train) CO 0.251, OT 0.178 vs AS 0.770, TE 0.682, ST 0.683,
+   AN 0.415. T1 mirror: CO 0.277, OT 0.550 vs AS 0.929, TE 0.792.
+   The guideline-as-written CO definition diverges hardest from
+   gold-as-annotated — the same CO lesson the engineered stack needed
+   Rule-A + a budget to contain.
+3. Alignment solved — **confirmed**: 0/2326 unaligned, 96.2%
+   exact-stage, G1 = 1.0 on the primary leg.
+4. "en demos > none" — **no score effect** (train: +0.0046/+0.0049;
+   val: −0.0044/−0.0068; all far inside the ±0.03–0.04 rerun band, val
+   even reverses sign). What demos measurably buy is FORMAT robustness:
+   the only uncontained format failure across all full-pool legs
+   (pid 540 → -1) occurred on the demos=none path; the en-demos legs
+   ran 430/430 with zero program errors.
+5. T1 well below composed — confirmed (0.6444 vs 0.7298), with the CO
+   signature per (2).
+
+### Verdict: branch (a), at the boundary — with the caveat on record
+The pre-registered pivot was T2 ≥ 0.62 on the 430. The primary leg
+(en, the design default) reads 0.6209 — over the pivot by 0.0009,
+i.e. inside any honest noise band; the none leg reads 0.6163, under
+it. We take branch (a) as registered ("a guideline-faithful single
+program recovers most of the engineered stack" — ~86% of S1, ~88% of
+v2.2, zero fitting, zero compilation) while stating plainly that the
+pivot was met at the boundary, and the paper paragraph must carry
+both framings: the recovery headline AND the guideline–gold divergence
+table (CO/OT collapse) as the mechanism of the remaining 14%.
+Measurement-only as registered: nothing deploys, nothing uploads.
+Family rests; any prompt/demo/CoT/dual-span/compile change is a new
+registration in a future cycle.
