@@ -734,3 +734,72 @@ CLOSED (no more epochs, no corpus curation, no alternate bases). Nothing
 deploys: T1 eval recipe remains v2.2 (dev 0.7089). A future written
 organizer "yes" on transductive input use + eval-input availability
 would be a NEW registration, not a reopening of this one.
+
+## REGISTERED MEASUREMENT — "GN" guideline-native program (frozen 2026-07-29, before any full-pool API call)
+
+### Status — read first
+This is a NEW family (guideline-native single program), not a reopening
+of any closed family. It is **measurement-only by construction**: both
+eval recipes are frozen (T1 v2.2, T2 S1), final test submissions are
+already uploaded, and boards close Jul 31 — there is no adoption branch
+in this cycle at all. The deliverable is analysis: (a) how much of the
+engineered two-system stack a single guideline-faithful DSPy program
+recovers, and (b) a quantified guidelines-as-written vs gold-as-annotated
+divergence table for the paper's error analysis and for Daleel 2027.
+No dev probe, no upload, nothing deploys, regardless of the numbers.
+
+Prior disclosure: one designated plumbing smoke run exists
+(20260729-171558, --on train:8, T2, en demos — the sanctioned plumbing
+path, training gold only). It verified plumbing (G1 1.0, 0 errors,
+41/41 exact-stage alignment) and its n=8 score (0.4671) is a sanity
+anchor, not a readout. This registration precedes every full-pool call.
+
+### Frozen design
+Program: GuidelineProgram as committed at 0ea5b82 (SegmentUnits ->
+CategorizeUnits, ChainOfThought both stages, emit_dual_spans=False,
+module-owned LM per 7924acd). Prompts, docstrings, and the 8+8 official
+guideline demos are frozen at that commit — no edits after any number.
+Model/config: gemma-4-31b-paid (OpenRouter), ChatAdapter, temperature
+0.0, max_tokens 6000, threads 8, closed track. Zero fitting anywhere:
+no compilation, no threshold tuning, demos are the fixed official
+guideline examples.
+Grid (exactly 2 legs, frozen): guideline_demos in {none, en}.
+CoT stays ON in both legs (design default; no CoT axis registered).
+Splits and readouts:
+- PRIMARY: --on train (the 430-id pool) for both tasks. Baselines for
+  comparison: composed OOF T1 0.7298 (v2.2), T2 0.7206 (S1). These are
+  fitted-system numbers on the same pool; GN is unfitted, so the
+  comparison is descriptive, not a gate.
+- SECONDARY (noise check only): --on val (frozen 182), single-shot
+  readouts there are noise-dominated per the standing rule.
+- Task 1 legs reuse the identical T=0 prompts via the DSPy disk cache
+  (same records, same program) — no additional API spend.
+Metrics: official scorers via run_zero_shot (T1 macro-F1, T2 partial
+span-F1); diagnostics regardless of outcome: align_stats (exact/ws/
+norm/fuzzy/unaligned), per-label F1, pred-vs-gold label-mass counts,
+unit counts, G1/parse/length-mismatch rates, per-paragraph cost.
+
+### Predictions on record (van Miltenburg framing)
+1. T2 span-F1 lands in 0.45–0.60 on the 430 — well below S1's 0.7206.
+2. The evidence-label over-fire seen at n=8 persists at scale: TE and
+   CO substantially over-predicted vs gold, AS under-predicted — i.e.
+   the official (broad) definitions systematically diverge from the
+   AS-dominant gold. This divergence table is the primary deliverable.
+3. Alignment stays essentially solved: exact-stage rate >= 0.98,
+   unaligned rate <= 1% (vs the v3 pipeline's aligner-oracle framing).
+4. en demos > none on span-F1 (demos carry boundary conventions).
+5. T1 macro well below 0.7298 (single zero-shot program vs routed
+   composition), with the same TE/CO-inflation signature.
+
+### Verdict branches (both pre-written; analysis-only)
+- If T2 >= 0.62 (recovers >= ~86% of S1): headline finding is
+  "a guideline-faithful single program recovers most of the engineered
+  stack" — banked as a paper paragraph + the default Daleel 2027
+  starting architecture. Still nothing deploys.
+- If T2 < 0.62: headline finding is the quantified guideline–gold gap
+  (label-mass table + per-label deltas); banked for the paper's error
+  analysis (CO lesson, mirror image) + 2027 prompt-design input.
+Either branch: family rests after these 2 legs x 2 tasks (+ the val
+noise check). Any prompt/demo edit, CoT toggle, dual-span toggle,
+model swap, or compile step after seeing these numbers is a NEW
+registration in a future cycle, not an extension of this one.
