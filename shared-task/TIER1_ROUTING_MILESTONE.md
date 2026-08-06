@@ -17,7 +17,12 @@ the design, the calibration protocol, and the adoption rule.
 
 Champion run-to-run noise: ±0.03–0.04 macro (measured on identical configs).
 
-## Amendments from the signal audit (2026-07-11, commit 8463378)
+## Amendments from the signal audit (2026-07-11)
+
+> Correction (2026-08-06 paper audit): the commit hash `8463378` originally
+> cited here does not exist in this repository. The signal-audit verdict
+> commit is `e15c8f9`; this document itself first entered git in the gate
+> verdict commit `c603bad`.
 
 1. **CO gets no criterion, only a budget.** `stance=presupposed` fires on
    settled events (319 AN vs 65 CO of 857 units): annotator-CO is not
