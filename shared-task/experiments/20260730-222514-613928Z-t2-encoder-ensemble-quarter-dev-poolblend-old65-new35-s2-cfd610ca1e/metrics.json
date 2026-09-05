@@ -1,0 +1,14 @@
+{
+  "n_seeds": 2,
+  "n_segments": 1780,
+  "n_paragraphs": 217,
+  "predicted_segment_class_counts": {
+    "AN": 225,
+    "AS": 1043,
+    "CO": 6,
+    "NONE": 113,
+    "OT": 210,
+    "ST": 15,
+    "TE": 168
+  }
+}

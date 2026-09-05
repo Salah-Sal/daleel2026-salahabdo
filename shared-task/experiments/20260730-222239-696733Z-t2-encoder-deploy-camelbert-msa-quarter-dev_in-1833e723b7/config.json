@@ -1,0 +1,75 @@
+{
+  "script": "deploy_encoder_task2.py",
+  "argv": [
+    "--oof-run",
+    "experiments/20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+    "--fit-pool",
+    "all",
+    "--input",
+    "../resources/repos/Daleel2026/data/dev/dev_in.jsonl",
+    "--source-id",
+    "daleel2026:dev-input"
+  ],
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md S1 deploy",
+  "campaign_argv": [
+    "--task",
+    "2",
+    "--model",
+    "camelbert-msa-quarter",
+    "--track",
+    "closed",
+    "--pool",
+    "legacy-train",
+    "--setting",
+    "both",
+    "--folds",
+    "5",
+    "--fold-seed",
+    "20260710",
+    "--seed",
+    "20260710",
+    "--epochs",
+    "4",
+    "--batch-size",
+    "16",
+    "--learning-rate",
+    "2e-5",
+    "--class-weighting",
+    "none",
+    "--stride",
+    "128",
+    "--granularity",
+    "connective",
+    "--device",
+    "cpu",
+    "--precision",
+    "fp32"
+  ],
+  "precision": "fp32",
+  "model": {
+    "key": "camelbert-msa-quarter",
+    "repository": "CAMeL-Lab/bert-base-arabic-camelbert-msa-quarter",
+    "revision": "3e48534705c153737cbec1c5748bb02359b7b239",
+    "license_id": "apache-2.0",
+    "license_url": "https://huggingface.co/CAMeL-Lab/bert-base-arabic-camelbert-msa-quarter",
+    "closed_track_verified": true
+  },
+  "fit_pool": "all",
+  "train_ids_count": 612,
+  "training_sources": [
+    {
+      "path": "<repo>/resources/repos/Daleel2026/data/train/train_task_2.jsonl",
+      "sha256": "4ef331404670e39a3cd46ec4dfcfe3be4cb6d71e5d764d998ad87d74d31d1a66",
+      "record_count": 612,
+      "selected_record_count": 612
+    }
+  ],
+  "oof_run": "experiments/20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+  "oof_run_sha256": "e2d49dd5e6036ef32ff7ef74aa1f83ebf97ddb0113efba74e347ce65a72c8c87",
+  "input": {
+    "path": "../resources/repos/Daleel2026/data/dev/dev_in.jsonl",
+    "sha256": "b8a79224f4b239f2f968bcc62ea4a07ebf3a74f4895808ab62ea5231756acd34",
+    "source_id": "daleel2026:dev-input",
+    "record_count": 217
+  }
+}

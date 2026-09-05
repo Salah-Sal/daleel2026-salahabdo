@@ -1,0 +1,21 @@
+{
+  "script": "ensemble_task2_segment_scores.py",
+  "argv": [
+    "--runs",
+    "experiments/20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+    "experiments/20260730-212958-943559Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-8dcdf5d136",
+    "--name",
+    "quarter-oof-seeds-20260710-20260711"
+  ],
+  "method": "arithmetic mean of seven-way segment softmax probabilities",
+  "kind": "oof",
+  "inputs": [
+    "experiments/20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+    "experiments/20260730-212958-943559Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-8dcdf5d136"
+  ],
+  "input_score_sha256": [
+    "3a388364fe83f44c6a74b89e09eb0477ec4a554c41c341c0b286d69749ae7ca3",
+    "6a56b76f57826fe1940dc667f960c9747001eb7de99afa82aa206202f9dcdca8"
+  ],
+  "segment_contract": "identical (paragraph_id,start_offset,end_offset,fold,gold_oracle_label)"
+}

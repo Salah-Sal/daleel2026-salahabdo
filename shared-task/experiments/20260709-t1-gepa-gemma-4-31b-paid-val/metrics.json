@@ -1,0 +1,31 @@
+{
+  "task": 1,
+  "model": "gemma-4-31b-paid",
+  "program": "seed",
+  "compiled": "experiments/20260709-t1-gepa-gemma-4-31b-paid-refl-deepseek-v4-pro/compiled/gepa.json",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 218.5,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.6828,
+  "micro_f1": 0.7941,
+  "s2_rare_recall": {
+    "ST": 0.875,
+    "CO": 0.1
+  },
+  "per_label_f1": {
+    "CO": 0.125,
+    "AS": 0.9242,
+    "TE": 0.8103,
+    "ST": 0.875,
+    "AN": 0.6729,
+    "OT": 0.6892
+  },
+  "proxy_mean": 0.7352
+}

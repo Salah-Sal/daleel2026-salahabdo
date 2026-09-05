@@ -1,0 +1,35 @@
+{
+  "task": 1,
+  "model": "llama-3.2-3b",
+  "litellm_id": "openrouter/meta-llama/llama-3.2-3b-instruct:free",
+  "on": "train:8",
+  "n_paragraphs": 8,
+  "cot": true,
+  "g1_format_compliance": 0.0,
+  "n_parse_failures": 8,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 8,
+  "wall_seconds": 191.6,
+  "errors_sample": [
+    "61: LMRateLimitError: [meta-llama/llama-3.2-3b-instruct:free] litellm.RateLimitError: RateLimitError: OpenrouterException - {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"meta-llama/llama-3.2-3b-instruct:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Venice\",\"is_byok\":false,\"retry_after_seconds\":29,\"retry_after_seconds_raw\":28.142,\"headers\":{\"Retry-After\":\"29\"}}},\"user_id\":\"<redacted-account-id>\"}",
+    "327: LMRateLimitError: [meta-llama/llama-3.2-3b-instruct:free] litellm.RateLimitError: RateLimitError: OpenrouterException - {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"meta-llama/llama-3.2-3b-instruct:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Venice\",\"is_byok\":false,\"retry_after_seconds\":28,\"retry_after_seconds_raw\":27.695,\"headers\":{\"Retry-After\":\"28\"}}},\"user_id\":\"<redacted-account-id>\"}",
+    "493: LMRateLimitError: [meta-llama/llama-3.2-3b-instruct:free] litellm.RateLimitError: RateLimitError: OpenrouterException - {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"meta-llama/llama-3.2-3b-instruct:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Venice\",\"is_byok\":false,\"retry_after_seconds\":12,\"retry_after_seconds_raw\":11.438,\"headers\":{\"Retry-After\":\"12\"}}},\"user_id\":\"<redacted-account-id>\"}",
+    "511: LMRateLimitError: [meta-llama/llama-3.2-3b-instruct:free] litellm.RateLimitError: RateLimitError: OpenrouterException - {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"meta-llama/llama-3.2-3b-instruct:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Venice\",\"is_byok\":false,\"retry_after_seconds\":12,\"retry_after_seconds_raw\":11.725,\"headers\":{\"Retry-After\":\"12\"}}},\"user_id\":\"<redacted-account-id>\"}",
+    "525: LMRateLimitError: [meta-llama/llama-3.2-3b-instruct:free] litellm.RateLimitError: RateLimitError: OpenrouterException - {\"error\":{\"message\":\"Rate limit exceeded: limit_rpm/meta-llama/llama-3.2-3b-instruct/e8440b11-29fb-4887-a222-eff9ba33dfbf. High demand for meta-llama/llama-3.2-3b-instruct:free on OpenRouter - limited to 8 requests per minute. Please retry shortly.\",\"code\":429,\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"8\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1783630440000\"},\"provider_name\":null}},\"user_id\":\"<redacted-account-id>\"}"
+  ],
+  "s1_official_macro_f1": 0.0,
+  "micro_f1": 0.0,
+  "s2_rare_recall": {
+    "ST": 0.0,
+    "CO": 0.0
+  },
+  "per_label_f1": {
+    "CO": 0.0,
+    "AS": 0.0,
+    "TE": 0.0,
+    "ST": 0.0,
+    "AN": 0.0,
+    "OT": 0.0
+  },
+  "proxy_mean": 0.0
+}

@@ -1,0 +1,262 @@
+{
+  "primary": {
+    "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+    "score": 0.20707070707070707
+  },
+  "official": {
+    "macro_f1": 0.20707070707070707,
+    "micro_f1": 0.42857142857142855,
+    "per_label": {
+      "CO": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "AS": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091,
+        "support": 6
+      },
+      "TE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "ST": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "AN": {
+        "precision": 0.5,
+        "recall": 0.25,
+        "f1": 0.3333333333333333,
+        "support": 4
+      },
+      "OT": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      }
+    }
+  },
+  "per_genre": {
+    "editorial": {
+      "macro_f1": 0.20000000000000004,
+      "micro_f1": 0.375,
+      "per_label": {
+        "CO": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AS": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "support": 3
+        },
+        "TE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "ST": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AN": {
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "f1": 0.4,
+          "support": 3
+        },
+        "OT": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      }
+    },
+    "debate": {
+      "macro_f1": 0.16666666666666666,
+      "micro_f1": 0.5,
+      "per_label": {
+        "CO": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AS": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "TE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "ST": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AN": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "OT": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        }
+      }
+    }
+  },
+  "diagnostics": {
+    "default_0_5": {
+      "macro_f1": 0.19551282051282048,
+      "micro_f1": 0.33333333333333337,
+      "per_label": {
+        "CO": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AS": {
+          "precision": 0.8571428571428571,
+          "recall": 1.0,
+          "f1": 0.923076923076923,
+          "support": 6
+        },
+        "TE": {
+          "precision": 0.14285714285714285,
+          "recall": 1.0,
+          "f1": 0.25,
+          "support": 1
+        },
+        "ST": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AN": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4
+        },
+        "OT": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        }
+      }
+    },
+    "same_oof_threshold_fit_optimistic": {
+      "macro_f1": 0.41310541310541304,
+      "micro_f1": 0.6470588235294118,
+      "per_label": {
+        "CO": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AS": {
+          "precision": 0.8571428571428571,
+          "recall": 1.0,
+          "f1": 0.923076923076923,
+          "support": 6
+        },
+        "TE": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "support": 1
+        },
+        "ST": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AN": {
+          "precision": 0.6,
+          "recall": 0.75,
+          "f1": 0.6666666666666665,
+          "support": 4
+        },
+        "OT": {
+          "precision": 0.125,
+          "recall": 1.0,
+          "f1": 0.2222222222222222,
+          "support": 1
+        }
+      }
+    },
+    "final_thresholds_fit_on_all_oof_scores": {
+      "CO": 0.6212305426597596,
+      "AS": 0.5103755593299866,
+      "TE": 0.6959655284881592,
+      "ST": 0.6762484312057496,
+      "AN": 0.4299693703651428,
+      "OT": 0.4839908182621002
+    },
+    "threshold_fit_f1_by_label": {
+      "CO": 0.0,
+      "AS": 0.9230769230769231,
+      "TE": 0.6666666666666666,
+      "ST": 0.0,
+      "AN": 0.6666666666666666,
+      "OT": 0.2222222222222222
+    },
+    "cross_fitted_thresholds_by_heldout_fold": {
+      "0": {
+        "CO": 0.6212305426597596,
+        "AS": 0.6213952302932739,
+        "TE": 0.7337608337402345,
+        "ST": 0.5354671478271485,
+        "AN": 0.4299693703651428,
+        "OT": 0.4839908182621002
+      },
+      "1": {
+        "CO": 0.5058601498603822,
+        "AS": 0.5103755593299866,
+        "TE": 0.6959655284881592,
+        "ST": 0.6762484312057496,
+        "AN": 0.47322896122932434,
+        "OT": 0.662268102169037
+      }
+    }
+  },
+  "task": 1,
+  "architecture": "arabic-encoder-multilabel-window-v1",
+  "comparable_run": false,
+  "paragraph_count": 8,
+  "training_item_count": 8,
+  "fold_count": 2,
+  "mean_validation_loss": 0.7267942875623703,
+  "total_training_seconds": 0.3627437919494696
+}

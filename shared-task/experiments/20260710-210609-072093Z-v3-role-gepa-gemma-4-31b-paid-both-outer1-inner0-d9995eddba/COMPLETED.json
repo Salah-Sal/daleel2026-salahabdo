@@ -1,0 +1,55 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "compiled/instructions.json",
+      "sha256": "d7b801de027e462dc4ea1a08a206ee503551bb8b9d3777f3230c3e46f6700c56"
+    },
+    {
+      "relative_path": "compiled/role.json",
+      "sha256": "7fc17dcf90b39a473e72a1eb30a2c80e34df451de76d90c229d2cc06dad10f79"
+    },
+    {
+      "relative_path": "compiled/role_bundle.json",
+      "sha256": "a672887cec7edd27d1c4906a1bcb6f62d6e962a768bb2c7cea511f6e67d12936"
+    },
+    {
+      "relative_path": "compiled/role_memory.jsonl",
+      "sha256": "49fb0e6849f096564a1245ee1cdceef3c4cd199f237ba016b26fad3983e41755"
+    },
+    {
+      "relative_path": "config.json",
+      "sha256": "147077bef5279729b648beb17a628372cd6c04aea1ff57e932fafc800dcbe992"
+    },
+    {
+      "relative_path": "folds.json",
+      "sha256": "2c497dc75066716f8a01c944db851d66095606e677ffb516bd71cfa205c86604"
+    },
+    {
+      "relative_path": "metrics.json",
+      "sha256": "a4cfc0375fb96917159deb0ec996bceb7a23e7fcf50ab8263a80dff81de245a8"
+    },
+    {
+      "relative_path": "pre_registration.json",
+      "sha256": "ef728bb06411ac78ec9c6153d851b4a2d0a36f86e84a86ee77e40b41d9a25f0e"
+    },
+    {
+      "relative_path": "predictions/outer_task_1.jsonl",
+      "sha256": "50cc649803d91437aefcc59ee6aa44f43aba673ae6ae203304002507a0e49cba"
+    },
+    {
+      "relative_path": "predictions/outer_task_2.jsonl",
+      "sha256": "d12a9d2a6c903f5a8142cd45caea9651754c1a641eb6997054b8f049394e6ac5"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "9fc8bb1781efe4fab70497cc1d5fd81ffd4cbea3b17c119179960a0a44b9bbae"
+    }
+  ],
+  "metadata": {
+    "architecture": "proposal-atom-role-v3",
+    "outer_fold": 1,
+    "final": false
+  }
+}

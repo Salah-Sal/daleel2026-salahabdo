@@ -1,0 +1,20 @@
+{
+  "n_target_paragraphs": 217,
+  "deployment_thetas": {
+    "AS": 2,
+    "TE": 4,
+    "ST": 4
+  },
+  "co_k": 26,
+  "st_judge_applied": false,
+  "st_dropped_by_judge": 0,
+  "predicted_label_counts": {
+    "CO": 26,
+    "AS": 168,
+    "TE": 96,
+    "ST": 17,
+    "AN": 81,
+    "OT": 79
+  },
+  "n_empty_predictions": 11
+}

@@ -1,0 +1,25 @@
+{
+  "script": "ensemble_task2_segment_scores.py",
+  "argv": [
+    "--runs",
+    "experiments/20260727-045700-912449Z-t2-encoder-deploy-camelbert-msa-quarter-test_in-d6963ed563",
+    "experiments/20260730-231614-866500Z-t2-encoder-deploy-camelbert-msa-quarter-test_in-65c48161b1",
+    "--name",
+    "quarter-test-seeds-20260710-20260711"
+  ],
+  "method": "weighted arithmetic mean of seven-way segment softmax probabilities",
+  "weights": [
+    0.5,
+    0.5
+  ],
+  "kind": "target-deploy",
+  "inputs": [
+    "experiments/20260727-045700-912449Z-t2-encoder-deploy-camelbert-msa-quarter-test_in-d6963ed563",
+    "experiments/20260730-231614-866500Z-t2-encoder-deploy-camelbert-msa-quarter-test_in-65c48161b1"
+  ],
+  "input_score_sha256": [
+    "46d1b4f7e3402f45cbd87e3d2c147a48c6ec4e0c70e6a54618c7282fceb39d04",
+    "ad261a5704edb822e9c9ddc0c385507a29fd0e9a0f0e4779e4cffcaf748d4464"
+  ],
+  "segment_contract": "identical (paragraph_id,start_offset,end_offset,fold,gold_oracle_label)"
+}

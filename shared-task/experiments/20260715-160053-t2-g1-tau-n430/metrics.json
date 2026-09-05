@@ -1,0 +1,108 @@
+{
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md registered T2 G1 tau gate (0f6b709)",
+  "s1_run": "20260715-001221-t2-s1-structural-camelbert-quarter-n430",
+  "control_s1_point": 0.7206,
+  "g1_f1": 0.7203,
+  "delta_vs_s1": -0.0003,
+  "selection": {
+    "0": {
+      "lambda": 0.9,
+      "tau": 1.5,
+      "fit_f1": 0.727
+    },
+    "1": {
+      "lambda": 0.9,
+      "tau": 0.25,
+      "fit_f1": 0.7074
+    },
+    "2": {
+      "lambda": 0.9,
+      "tau": 1.0,
+      "fit_f1": 0.7268
+    },
+    "3": {
+      "lambda": 0.9,
+      "tau": 0.0,
+      "fit_f1": 0.7154
+    },
+    "4": {
+      "lambda": 0.9,
+      "tau": 2.0,
+      "fit_f1": 0.7227
+    }
+  },
+  "tau_curve_at_selected_lambda": {
+    "0.0": {
+      "pooled_f1": 0.721,
+      "an_mass_ratio": 0.49,
+      "co_mass_ratio": 1.7
+    },
+    "0.25": {
+      "pooled_f1": 0.7212,
+      "an_mass_ratio": 0.49,
+      "co_mass_ratio": 1.7
+    },
+    "0.5": {
+      "pooled_f1": 0.7212,
+      "an_mass_ratio": 0.49,
+      "co_mass_ratio": 1.73
+    },
+    "0.75": {
+      "pooled_f1": 0.7206,
+      "an_mass_ratio": 0.49,
+      "co_mass_ratio": 1.78
+    },
+    "1.0": {
+      "pooled_f1": 0.7206,
+      "an_mass_ratio": 0.49,
+      "co_mass_ratio": 1.78
+    },
+    "1.5": {
+      "pooled_f1": 0.7203,
+      "an_mass_ratio": 0.49,
+      "co_mass_ratio": 1.78
+    },
+    "2.0": {
+      "pooled_f1": 0.7197,
+      "an_mass_ratio": 0.49,
+      "co_mass_ratio": 1.78
+    },
+    "2.5": {
+      "pooled_f1": 0.7184,
+      "an_mass_ratio": 0.49,
+      "co_mass_ratio": 1.83
+    },
+    "3.0": {
+      "pooled_f1": 0.7179,
+      "an_mass_ratio": 0.49,
+      "co_mass_ratio": 1.87
+    }
+  },
+  "gate": {
+    "rule": "pooled >= 0.7406 AND >=3/5 fold wins",
+    "per_fold": {
+      "0": {
+        "s1": 0.6917,
+        "g1": 0.6917
+      },
+      "1": {
+        "s1": 0.7702,
+        "g1": 0.7702
+      },
+      "2": {
+        "s1": 0.6865,
+        "g1": 0.6865
+      },
+      "3": {
+        "s1": 0.736,
+        "g1": 0.736
+      },
+      "4": {
+        "s1": 0.7145,
+        "g1": 0.7132
+      }
+    },
+    "fold_wins": 4,
+    "adopted": false
+  }
+}

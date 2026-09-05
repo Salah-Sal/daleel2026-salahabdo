@@ -1,0 +1,18 @@
+{
+  "task": 1,
+  "model": "gemma-4-31b-paid",
+  "program": "seed",
+  "compiled": null,
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "on": "dev",
+  "n_paragraphs": 217,
+  "cot": true,
+  "g1_format_compliance": 0.9954,
+  "n_parse_failures": 1,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 1,
+  "wall_seconds": 388.6,
+  "errors_sample": [
+    "718: ValidationError: 1 validation error for list[literal['CO','AS','TE','ST','AN','OT']]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type"
+  ]
+}

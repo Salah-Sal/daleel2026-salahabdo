@@ -1,0 +1,64 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "config.json",
+      "sha256": "302ac37e1a5f853927cd34ec2b2447f66dbe4760dddd21b93479d7e23511c193"
+    },
+    {
+      "relative_path": "folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "metrics.json",
+      "sha256": "edd419b0781f00dfee7fed096007de87ffbc98a2893a7e3190c9ccaed6f374ea"
+    },
+    {
+      "relative_path": "predictions/confirmation_task_1.jsonl",
+      "sha256": "44533d7364f45a6800d7f713e4b84be420608aef66b1a5661c14826c1ac395c1"
+    },
+    {
+      "relative_path": "predictions/confirmation_task_1_scores.jsonl",
+      "sha256": "d14c807f89a922fe737dcfeaa38089bd557961a42397188b25395de2b7a788a7"
+    },
+    {
+      "relative_path": "predictions/confirmation_task_2.jsonl",
+      "sha256": "7b1596cc31904bd2bcebc86961f598dc85db92718cb1d2f93f0ef5d97b86d9bd"
+    },
+    {
+      "relative_path": "predictions/confirmation_task_2_scores.jsonl",
+      "sha256": "63adcdda578d456fd101cd155f67f398b8fa42ce0067290690ca069cf7b001cd"
+    },
+    {
+      "relative_path": "predictions/oof_task_1.jsonl",
+      "sha256": "8639ccca82a8fb8d66e758f861919bb2cbff5576935f82258316e7fea7ab0c0b"
+    },
+    {
+      "relative_path": "predictions/oof_task_1_scores.jsonl",
+      "sha256": "35075b3591804000614349b763a185bc18fe403b30eaf4cb98f42c83f17a2ab1"
+    },
+    {
+      "relative_path": "predictions/oof_task_2.jsonl",
+      "sha256": "b044917a8f8ae434cf2990c9867e4c52d25a91a159010dd13d2cbaeaab7dd835"
+    },
+    {
+      "relative_path": "predictions/oof_task_2_scores.jsonl",
+      "sha256": "e28b91c3df7c1aed9e0c7c0a7a334081a6313c780603d2aad2ace73b4c1bf67b"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "41fc87d5a473a3a495a81aa82bf0f85d352cbfa262a0cf2355b99abbd5c41186"
+    }
+  ],
+  "metadata": {
+    "tasks": [
+      1,
+      2
+    ],
+    "primary_scores": {
+      "task1": 0.5728239190266673,
+      "task2": 0.5831658316802316
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "script": "compile_program.py",
+  "argv": [
+    "--task",
+    "1",
+    "--optimizer",
+    "gepa",
+    "--model",
+    "gemma-4-31b-paid",
+    "--threads",
+    "8"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended"
+  },
+  "optimizer": "gepa",
+  "bootstrap_gate": 1.0,
+  "teacher_model": null,
+  "prompt_model": null,
+  "reflection_model": "gemma-4-31b-paid",
+  "opt_train": 281,
+  "opt_val": 149,
+  "seed": 20260709,
+  "max_tokens": 6000,
+  "dspy_version": "3.3.0b1"
+}

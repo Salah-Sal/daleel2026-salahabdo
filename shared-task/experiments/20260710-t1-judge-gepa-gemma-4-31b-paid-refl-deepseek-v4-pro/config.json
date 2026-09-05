@@ -1,0 +1,35 @@
+{
+  "script": "compile_judge.py",
+  "argv": [
+    "--optimizer",
+    "gepa",
+    "--model",
+    "gemma-4-31b-paid",
+    "--reflection-model",
+    "deepseek-v4-pro",
+    "--threads",
+    "8"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended",
+    "lm_kwargs": []
+  },
+  "optimizer": "gepa",
+  "reflection_model": "deepseek-v4-pro",
+  "teacher_model": null,
+  "judged_labels": [
+    "CO",
+    "ST",
+    "OT",
+    "AN"
+  ],
+  "n_train_decisions": 269,
+  "n_val_decisions": 165,
+  "seed": 20260709,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1"
+}

@@ -1,0 +1,102 @@
+{
+  "script": "route_task1_v2_deploy.py",
+  "argv": [
+    "--train-rollouts",
+    "experiments/20260711-105038-863885Z-t1-zeroshot-r0-gemma-4-31b-paid-train-0f9f7cebfb",
+    "experiments/20260711-105041-193190Z-t1-zeroshot-r1-gemma-4-31b-paid-train-08cec06199",
+    "experiments/20260711-100552-274256Z-t1-zeroshot-r2-gemma-4-31b-paid-train-3dec18a9ab",
+    "experiments/20260711-101957-407352Z-t1-zeroshot-r3-gemma-4-31b-paid-train-9a44d56af8",
+    "experiments/20260711-103425-983156Z-t1-zeroshot-r4-gemma-4-31b-paid-train-28d7ceb9f0",
+    "--encoder-oof",
+    "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "--dev-rollouts",
+    "experiments/20260711-105157-289622Z-t1-zeroshot-r0-gemma-4-31b-paid-dev-b2fd6201e2",
+    "experiments/20260711-110055-412002Z-t1-zeroshot-r1-gemma-4-31b-paid-dev-0cc57a8310",
+    "experiments/20260711-110724-967791Z-t1-zeroshot-r2-gemma-4-31b-paid-dev-e7bc7ac31a",
+    "experiments/20260711-111253-789755Z-t1-zeroshot-r3-gemma-4-31b-paid-dev-d3b39d7c43",
+    "experiments/20260711-111820-946879Z-t1-zeroshot-r4-gemma-4-31b-paid-dev-2bf56f49bf",
+    "--encoder-deploy",
+    "experiments/20260711-113659-191241Z-t1-encoder-deploy-camelbert-msa-quarter-dev_in-ef31d4719e",
+    "--dev-span",
+    "experiments/20260711-033302-645188Z-v3-decomposed-gemma-4-31b-paid-both-dev_in-78718d42e5",
+    "--input",
+    "../resources/repos/Daleel2026/data/dev/dev_in.jsonl",
+    "--source-id",
+    "daleel2026:dev-input"
+  ],
+  "milestone": "HEADROOM_AUDIT.md P0",
+  "router_v2": {
+    "vote_sourced": [
+      "AS",
+      "TE"
+    ],
+    "st": "votes ± judge filter",
+    "an": "enc | (span & votes>=1)",
+    "ot": "2-of-3(enc, span, votes>=2)",
+    "co": {
+      "budget_mult": 2.0,
+      "prior": 0.058823529411764705,
+      "ranker": "rank-mean(enc sigmoid, vote fraction, span presence)",
+      "k": 26
+    },
+    "n_rollouts": 5,
+    "deployment_thetas": {
+      "AS": 2,
+      "TE": 4,
+      "ST": 4
+    },
+    "thetas_by_fold": {
+      "0": {
+        "AS": 1,
+        "TE": 4,
+        "ST": 4
+      },
+      "1": {
+        "AS": 2,
+        "TE": 5,
+        "ST": 4
+      },
+      "2": {
+        "AS": 2,
+        "TE": 4,
+        "ST": 4
+      },
+      "3": {
+        "AS": 2,
+        "TE": 5,
+        "ST": 4
+      },
+      "4": {
+        "AS": 2,
+        "TE": 4,
+        "ST": 5
+      }
+    },
+    "st_judge": null
+  },
+  "inputs": {
+    "train_rollouts": [
+      "experiments/20260711-105038-863885Z-t1-zeroshot-r0-gemma-4-31b-paid-train-0f9f7cebfb",
+      "experiments/20260711-105041-193190Z-t1-zeroshot-r1-gemma-4-31b-paid-train-08cec06199",
+      "experiments/20260711-100552-274256Z-t1-zeroshot-r2-gemma-4-31b-paid-train-3dec18a9ab",
+      "experiments/20260711-101957-407352Z-t1-zeroshot-r3-gemma-4-31b-paid-train-9a44d56af8",
+      "experiments/20260711-103425-983156Z-t1-zeroshot-r4-gemma-4-31b-paid-train-28d7ceb9f0"
+    ],
+    "encoder_oof": "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "dev_rollouts": [
+      "experiments/20260711-105157-289622Z-t1-zeroshot-r0-gemma-4-31b-paid-dev-b2fd6201e2",
+      "experiments/20260711-110055-412002Z-t1-zeroshot-r1-gemma-4-31b-paid-dev-0cc57a8310",
+      "experiments/20260711-110724-967791Z-t1-zeroshot-r2-gemma-4-31b-paid-dev-e7bc7ac31a",
+      "experiments/20260711-111253-789755Z-t1-zeroshot-r3-gemma-4-31b-paid-dev-d3b39d7c43",
+      "experiments/20260711-111820-946879Z-t1-zeroshot-r4-gemma-4-31b-paid-dev-2bf56f49bf"
+    ],
+    "encoder_deploy": "experiments/20260711-113659-191241Z-t1-encoder-deploy-camelbert-msa-quarter-dev_in-ef31d4719e",
+    "dev_span": "experiments/20260711-033302-645188Z-v3-decomposed-gemma-4-31b-paid-both-dev_in-78718d42e5",
+    "dev_span_sha256": "a8c3e6a2d806475626e76de700220a82f8aff9eae61a6a8901bf2ce3d14d796d",
+    "target": {
+      "path": "../resources/repos/Daleel2026/data/dev/dev_in.jsonl",
+      "sha256": "b8a79224f4b239f2f968bcc62ea4a07ebf3a74f4895808ab62ea5231756acd34",
+      "source_id": "daleel2026:dev-input"
+    }
+  }
+}

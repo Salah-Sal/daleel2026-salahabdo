@@ -1,0 +1,17 @@
+{
+  "id": "salah1992/daleel-camelbert-t4-preflight",
+  "title": "Daleel CAMeLBERT T4 Preflight",
+  "code_file": "encoder_preflight.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": [
+    "salah1992/daleel-encoder-preflight-bundle-v1"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

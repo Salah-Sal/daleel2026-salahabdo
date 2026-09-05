@@ -1,0 +1,27 @@
+{
+  "stage": "judge-compile",
+  "model": "gemma-3-4b",
+  "optimizer": "gepa",
+  "wall_seconds": 127.9,
+  "demo_counts": {
+    "verify.predict": 0
+  },
+  "instructions_changed": {
+    "verify.predict": false
+  },
+  "seed_val_accuracy": {
+    "AN": 0.75,
+    "CO": 0.5,
+    "OT": 0.5,
+    "ST": 0.5,
+    "overall": 0.5625
+  },
+  "compiled_val_accuracy": {
+    "AN": 0.75,
+    "CO": 0.5,
+    "OT": 0.5,
+    "ST": 0.5,
+    "overall": 0.5625
+  },
+  "state_file": "<repo>/shared-task/experiments/20260710-t1-judge-gepa-gemma-3-4b/compiled/judge-gepa.json"
+}

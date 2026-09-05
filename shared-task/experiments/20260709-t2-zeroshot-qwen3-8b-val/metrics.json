@@ -1,0 +1,30 @@
+{
+  "task": 2,
+  "model": "qwen3-8b",
+  "litellm_id": "openrouter/qwen/qwen3-8b",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 0.9121,
+  "n_parse_failures": 1,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 1,
+  "wall_seconds": 1371.6,
+  "errors_sample": [
+    "223: AdapterParseError: LM response cannot be serialized to a JSON object.\n\nAdapter JSONAdapter failed to parse the LM response. \n\nLM Response: \"displayed in JSON format as requested, with reasoning and segment_labels as specified.\" \n\nExpected to find output fields in the LM response: [reasoning, segment_labels] \n\n"
+  ],
+  "n_length_mismatch": 15,
+  "granularity": "connective",
+  "s1_official_span_f1": 0.573,
+  "precision": 0.5562,
+  "recall": 0.5907,
+  "per_label_f1": {
+    "CO": 0.0,
+    "AS": 0.7083,
+    "TE": 0.4512,
+    "ST": 0.7981,
+    "AN": 0.1881,
+    "OT": 0.3042
+  },
+  "proxy_mean": 0.5291
+}

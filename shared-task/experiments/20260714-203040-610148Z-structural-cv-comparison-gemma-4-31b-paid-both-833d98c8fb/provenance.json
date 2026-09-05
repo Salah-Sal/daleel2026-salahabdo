@@ -1,0 +1,310 @@
+{
+  "manifest_schema_version": 1,
+  "architecture_version": "discourse-forest-structural-ablation-cv-v1",
+  "dspy_version": "3.3.0b1",
+  "tasks": [
+    1,
+    2
+  ],
+  "track": "closed",
+  "setting": "both",
+  "optimizer": "none",
+  "task_model": {
+    "key": "gemma-4-31b-paid",
+    "endpoint": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31.0,
+    "closed_track": true,
+    "license_status": "verified-open"
+  },
+  "auxiliary_models": {
+    "teacher": null,
+    "reflection": null,
+    "prompt": null
+  },
+  "training_ids": [],
+  "training_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "data_sources": [
+    "daleel2026:train-task-1",
+    "daleel2026:train-task-2"
+  ],
+  "code": {
+    "git_commit": "0a691a1c8e14de22745986de52b3d2daabe25cb8",
+    "git_dirty": true,
+    "python_tree_sha256": "bf16640cf45776623cd71d51bea51ea6cffcf5e88fe7f21c7ebbe571373a1c67"
+  },
+  "upstream_runs": {
+    "baseline": [
+      {
+        "run": "experiments/20260710-192111-135671Z-v3-role-none-gemma-4-31b-paid-both-outer0-inner0-d7f278312a",
+        "fold": 0,
+        "config_sha256": "ad74ff18bcdf77d1f17f775e8e72f90b4715edd14e449cfeabc23dd9a8e20c04",
+        "provenance_sha256": "de59461f705282f5389eb0fda0180a71130a22036a56404b34b2f1684ebf0471",
+        "task1_sha256": "8fa4c67ab7a832d26fb2e4b7a9a7f61b6097e9e9e3b5ab6aa2101d0244e98b9b",
+        "task2_sha256": "e9409ee7506dc8589b7e7927b4bdaf4bf32b01b081cad0f64828974180ab77d1",
+        "outer_decision": {
+          "n": 787,
+          "exact_accuracy": 0.6238881829733164,
+          "mean_set_f1": 0.6247352816603134,
+          "parse_failures": 0,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "NONE": 66,
+            "TE": 79,
+            "AS": 418,
+            "OT": 101,
+            "AN": 106,
+            "CO": 12,
+            "ST": 5
+          },
+          "confusions": {
+            "AN->AN": 28,
+            "AN->AS": 25,
+            "AN->CO": 25,
+            "AN->NONE": 5,
+            "AN->OT": 8,
+            "AN->ST": 6,
+            "AN->TE": 9,
+            "AS->AN": 12,
+            "AS->AS": 308,
+            "AS->CO": 25,
+            "AS->NONE": 18,
+            "AS->OT": 38,
+            "AS->ST": 2,
+            "AS->TE": 15,
+            "CO->AS": 5,
+            "CO->CO": 6,
+            "CO->NONE": 1,
+            "NONE->AS": 15,
+            "NONE->NONE": 16,
+            "NONE->OT": 32,
+            "NONE->ST": 1,
+            "NONE->TE": 2,
+            "OT->AN": 1,
+            "OT->AS": 22,
+            "OT->NONE": 2,
+            "OT->OT": 76,
+            "ST->AN": 1,
+            "ST->ST": 3,
+            "ST+TE->ST": 1,
+            "TE->AN": 2,
+            "TE->AS": 7,
+            "TE->CO": 4,
+            "TE->NONE": 1,
+            "TE->OT": 11,
+            "TE->TE": 54
+          }
+        }
+      }
+    ],
+    "flat": [
+      {
+        "run": "experiments/20260714-194441-229141Z-v4-structure-flat-none-gemma-4-31b-paid-both-outer0-inner0-18eabcbd18",
+        "fold": 0,
+        "config_sha256": "01c29929b31766ebcbf4ecaa21981b93cf9ec63f5d017a4332b20ffe8cd9d033",
+        "provenance_sha256": "a67d691dbfb936a6740c1102f15f8477a242b56aa8c11e3fa7bf2172c049c992",
+        "task1_sha256": "8af847e8cd89956ffbb32c96eb51daea73281e23186591112cf56fb15a4baa57",
+        "task2_sha256": "5400cb8eefdf901452b15688bc5991190f806fb0da50f216b43a2b5d1e7bb09b",
+        "outer_decision": {
+          "n": 787,
+          "exact_accuracy": 0.627700127064803,
+          "mean_set_f1": 0.6285472257518001,
+          "parse_failures": 0,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "NONE": 66,
+            "TE": 79,
+            "AS": 418,
+            "OT": 101,
+            "AN": 106,
+            "CO": 12,
+            "ST": 5
+          },
+          "confusions": {
+            "AN->AN": 35,
+            "AN->AS": 17,
+            "AN->CO": 27,
+            "AN->NONE": 5,
+            "AN->OT": 6,
+            "AN->ST": 5,
+            "AN->TE": 11,
+            "AS->AN": 14,
+            "AS->AS": 301,
+            "AS->CO": 26,
+            "AS->NONE": 25,
+            "AS->OT": 32,
+            "AS->ST": 2,
+            "AS->TE": 18,
+            "CO->AS": 2,
+            "CO->CO": 8,
+            "CO->NONE": 2,
+            "NONE->AS": 13,
+            "NONE->CO": 1,
+            "NONE->NONE": 17,
+            "NONE->OT": 33,
+            "NONE->TE": 2,
+            "OT->AN": 2,
+            "OT->AS": 21,
+            "OT->CO": 1,
+            "OT->NONE": 2,
+            "OT->OT": 75,
+            "ST->AN": 1,
+            "ST->ST": 3,
+            "ST+TE->ST": 1,
+            "TE->AN": 2,
+            "TE->AS": 6,
+            "TE->CO": 4,
+            "TE->NONE": 1,
+            "TE->OT": 11,
+            "TE->TE": 55
+          }
+        }
+      }
+    ],
+    "forest": [
+      {
+        "run": "experiments/20260714-195418-339025Z-v4-structure-forest-none-gemma-4-31b-paid-both-outer0-inner0-0efa3f106a",
+        "fold": 0,
+        "config_sha256": "52b8e88de6710616f45214c11573a50bac930dec7d245e01d5f08b8f0fe3d5aa",
+        "provenance_sha256": "d02a6c77090a40154e26dd93ead948679adb93a40a0449f4fc3f7f724111e2cd",
+        "task1_sha256": "800f40d86c15b199bac898ef6338ea72d96bc1af19ab30a5fc20d24884d00b1d",
+        "task2_sha256": "7be04f06f25405ec7d4f4fd843ebc306c4a0b6e5129444474e8efaae5522eb6d",
+        "outer_decision": {
+          "n": 787,
+          "exact_accuracy": 0.6315120711562897,
+          "mean_set_f1": 0.6332062685302837,
+          "parse_failures": 0,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "NONE": 66,
+            "TE": 79,
+            "AS": 418,
+            "OT": 101,
+            "AN": 106,
+            "CO": 12,
+            "ST": 5
+          },
+          "confusions": {
+            "AN->AN": 35,
+            "AN->AS": 17,
+            "AN->CO": 21,
+            "AN->NONE": 5,
+            "AN->OT": 10,
+            "AN->ST": 7,
+            "AN->TE": 11,
+            "AS->AN": 15,
+            "AS->AS": 305,
+            "AS->CO": 26,
+            "AS->NONE": 22,
+            "AS->OT": 31,
+            "AS->ST": 2,
+            "AS->TE": 17,
+            "CO->AS": 3,
+            "CO->CO": 7,
+            "CO->NONE": 2,
+            "NONE->AS": 15,
+            "NONE->CO": 1,
+            "NONE->NONE": 16,
+            "NONE->OT": 31,
+            "NONE->TE": 3,
+            "OT->AN": 2,
+            "OT->AS": 21,
+            "OT->NONE": 1,
+            "OT->OT": 77,
+            "ST->AN": 1,
+            "ST->ST": 3,
+            "ST+TE->ST": 1,
+            "TE->AN": 2,
+            "TE->AS": 6,
+            "TE->AS+TE": 1,
+            "TE->CO": 4,
+            "TE->NONE": 2,
+            "TE->OT": 10,
+            "TE->TE": 54
+          }
+        }
+      }
+    ],
+    "shuffled": [
+      {
+        "run": "experiments/20260714-200827-182035Z-v4-structure-shuffled-none-gemma-4-31b-paid-both-outer0-inner0-932b2ff487",
+        "fold": 0,
+        "config_sha256": "30112877b6109977f38a0054fa59b760093ba8972a5d7e4a63e0dba10be7e32d",
+        "provenance_sha256": "093c6b5ee462a31e0cbb6a4e9e948056f0dc1da85381bbc6a761008bbccc7f4d",
+        "task1_sha256": "15ae10ae3c759390a73966f318a3020bcfbf422b805505d54084788a220efd43",
+        "task2_sha256": "2265f9870fdf3d19f7632d7fc1cbb3fa60a5c09e505a00687c1c3d6388f52c08",
+        "outer_decision": {
+          "n": 787,
+          "exact_accuracy": 0.6315120711562897,
+          "mean_set_f1": 0.6323591698432868,
+          "parse_failures": 0,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "NONE": 66,
+            "TE": 79,
+            "AS": 418,
+            "OT": 101,
+            "AN": 106,
+            "CO": 12,
+            "ST": 5
+          },
+          "confusions": {
+            "AN->AN": 35,
+            "AN->AS": 18,
+            "AN->CO": 20,
+            "AN->NONE": 5,
+            "AN->OT": 10,
+            "AN->ST": 6,
+            "AN->TE": 12,
+            "AS->AN": 14,
+            "AS->AS": 304,
+            "AS->CO": 26,
+            "AS->NONE": 22,
+            "AS->OT": 38,
+            "AS->ST": 2,
+            "AS->TE": 12,
+            "CO->AS": 3,
+            "CO->CO": 7,
+            "CO->NONE": 2,
+            "NONE->AS": 16,
+            "NONE->NONE": 16,
+            "NONE->OT": 30,
+            "NONE->TE": 4,
+            "OT->AN": 2,
+            "OT->AS": 19,
+            "OT->CO": 1,
+            "OT->NONE": 1,
+            "OT->OT": 78,
+            "ST->AN": 1,
+            "ST->ST": 3,
+            "ST+TE->ST": 1,
+            "TE->AN": 3,
+            "TE->AS": 7,
+            "TE->CO": 4,
+            "TE->NONE": 1,
+            "TE->OT": 10,
+            "TE->TE": 54
+          }
+        }
+      }
+    ]
+  },
+  "adoption": {
+    "complete": false,
+    "required_delta": 0.02,
+    "forest_beats_baseline_gate": false,
+    "forest_beats_flat": true,
+    "forest_beats_shuffled": true,
+    "adopt": false
+  },
+  "outputs": [
+    {
+      "kind": "structural-cv-comparison",
+      "relative_path": "comparison_report.json",
+      "sha256": "57e20b481bf83fe94aa175af3f55cd1a18639acdbb90ae8e368ed7bd5c6beb8f"
+    }
+  ]
+}

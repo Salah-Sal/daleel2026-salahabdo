@@ -1,0 +1,10 @@
+{
+  "script": "t1_tapt_gate.py",
+  "argv": [
+    "--tapt-encoder-run",
+    "20260716-081636-519187Z-encoder-t1-camelbert-msa-quarter-tapt-both-legacy-train-e751c5e35a"
+  ],
+  "baseline_run": "<repo>/shared-task/experiments/20260715-003004-912987Z-t1-routed-v2-k5-n430-4f30d408fa",
+  "tapt_encoder_run": "<repo>/shared-task/experiments/20260716-081636-519187Z-encoder-t1-camelbert-msa-quarter-tapt-both-legacy-train-e751c5e35a",
+  "registration": "CREATIVE_HEADROOM_RESEARCH.md TAPT (commit cd77061)"
+}

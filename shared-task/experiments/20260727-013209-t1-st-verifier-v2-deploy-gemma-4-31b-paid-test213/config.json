@@ -1,0 +1,31 @@
+{
+  "script": "st_verifier_v2_deploy.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--qwen-run",
+    "experiments/20260727-051803-344633Z-t1-zeroshot-qwen3-32b-test_in-6333dcb309",
+    "--llama-run",
+    "experiments/20260727-052425-291582Z-t1-zeroshot-llama-3-3-70b-paid-test_in-4065a0368e",
+    "--deploy-run",
+    "experiments/20260727-053009-327437Z-t1-routed-v2-deploy-test_in-8e4c404e08",
+    "--input",
+    "../resources/repos/Daleel2026/data/test/test_in.jsonl",
+    "--old-st-judge",
+    "experiments/20260727-012949-t1-st-seed-judge-deploy-gemma-4-31b-paid-test213/predictions/st_judge_test213.jsonl",
+    "--tag",
+    "test213",
+    "--threads",
+    "8"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended",
+    "license_status": "verified-open",
+    "lm_kwargs": []
+  },
+  "dspy_version": "3.3.0b1"
+}

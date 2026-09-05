@@ -1,0 +1,29 @@
+{
+  "task": 1,
+  "model": "qwen3-30b-a3b",
+  "litellm_id": "openrouter/qwen/qwen3-30b-a3b-instruct-2507",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 169.9,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.5928,
+  "micro_f1": 0.6985,
+  "s2_rare_recall": {
+    "ST": 1.0,
+    "CO": 0.9
+  },
+  "per_label_f1": {
+    "CO": 0.1875,
+    "AS": 0.9474,
+    "TE": 0.75,
+    "ST": 0.64,
+    "AN": 0.32,
+    "OT": 0.7121
+  },
+  "proxy_mean": 0.6691
+}

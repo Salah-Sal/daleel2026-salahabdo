@@ -1,0 +1,215 @@
+{
+  "compile_seconds": 0.0,
+  "n_candidates": 1,
+  "objective": "task2",
+  "selected_candidate_index": 0,
+  "candidates": [
+    {
+      "candidate_index": 0,
+      "dspy_proxy_score": null,
+      "eligible": true,
+      "ineligibility_reasons": [],
+      "external_objective": 0.6862190585604752,
+      "state": "compiled/candidate-000.json",
+      "metrics": {
+        "decision": {
+          "n": 903,
+          "exact_accuracy": 0.6423034330011074,
+          "mean_set_f1": 0.6496862310815799,
+          "parse_failures": 0,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "AS": 423,
+            "TE": 106,
+            "NONE": 75,
+            "CO": 16,
+            "OT": 126,
+            "AN": 140,
+            "ST": 17
+          },
+          "confusions": {
+            "AN->AN": 26,
+            "AN->AS": 49,
+            "AN->CO": 28,
+            "AN->NONE": 9,
+            "AN->OT": 5,
+            "AN->TE": 14,
+            "AN+OT->OT": 7,
+            "AN+TE->TE": 2,
+            "AS->AN": 9,
+            "AS->AS": 323,
+            "AS->CO": 23,
+            "AS->NONE": 25,
+            "AS->OT": 24,
+            "AS->ST": 3,
+            "AS->TE": 16,
+            "CO->AS": 2,
+            "CO->CO": 13,
+            "CO->OT": 1,
+            "NONE->AS": 5,
+            "NONE->CO": 2,
+            "NONE->NONE": 37,
+            "NONE->OT": 29,
+            "NONE->TE": 2,
+            "OT->AN": 1,
+            "OT->AS": 26,
+            "OT->AS+OT": 1,
+            "OT->NONE": 4,
+            "OT->OT": 93,
+            "OT->TE": 1,
+            "ST->AS": 1,
+            "ST->NONE": 1,
+            "ST->OT": 2,
+            "ST->ST": 12,
+            "ST->TE": 1,
+            "TE->AN": 2,
+            "TE->AS": 10,
+            "TE->CO": 4,
+            "TE->NONE": 10,
+            "TE->OT": 4,
+            "TE->TE": 76
+          }
+        },
+        "task1_macro_f1": 0.6964016066196593,
+        "task1_micro_f1": 0.7590027700831025,
+        "task1_per_label_f1": {
+          "CO": 0.27777777777777773,
+          "AS": 0.9411764705882353,
+          "TE": 0.7241379310344828,
+          "ST": 0.888888888888889,
+          "AN": 0.5714285714285714,
+          "OT": 0.775
+        },
+        "task2_f1": 0.6862190585604752,
+        "task2_precision": 0.641055614361676,
+        "task2_recall": 0.7382284953533387,
+        "task2_per_label_f1": {
+          "CO": 0.28849019008215937,
+          "AS": 0.7673261403948605,
+          "TE": 0.7479715275623338,
+          "ST": 0.7733507901150604,
+          "AN": 0.3923916946343531,
+          "OT": 0.6487803686345925
+        },
+        "assembly": {
+          "atoms": 903,
+          "parse_failures": 0,
+          "fallback_atoms": 0,
+          "none_atoms": 86,
+          "duplicate_same_label": 0
+        },
+        "fallback_assisted": {
+          "task1_macro_f1": 0.6964016066196593,
+          "task2_f1": 0.6862190585604752,
+          "assembly": {
+            "atoms": 903,
+            "parse_failures": 0,
+            "fallback_atoms": 0,
+            "none_atoms": 86,
+            "duplicate_same_label": 0
+          }
+        },
+        "failed_examples": 0,
+        "failure_sample": []
+      }
+    }
+  ],
+  "outer_holdout": {
+    "decision": {
+      "n": 787,
+      "exact_accuracy": 0.6315120711562897,
+      "mean_set_f1": 0.6323591698432868,
+      "parse_failures": 0,
+      "unknown_token_count": 0,
+      "mixed_unknown_outputs": 0,
+      "class_counts": {
+        "NONE": 66,
+        "TE": 79,
+        "AS": 418,
+        "OT": 101,
+        "AN": 106,
+        "CO": 12,
+        "ST": 5
+      },
+      "confusions": {
+        "AN->AN": 35,
+        "AN->AS": 18,
+        "AN->CO": 20,
+        "AN->NONE": 5,
+        "AN->OT": 10,
+        "AN->ST": 6,
+        "AN->TE": 12,
+        "AS->AN": 14,
+        "AS->AS": 304,
+        "AS->CO": 26,
+        "AS->NONE": 22,
+        "AS->OT": 38,
+        "AS->ST": 2,
+        "AS->TE": 12,
+        "CO->AS": 3,
+        "CO->CO": 7,
+        "CO->NONE": 2,
+        "NONE->AS": 16,
+        "NONE->NONE": 16,
+        "NONE->OT": 30,
+        "NONE->TE": 4,
+        "OT->AN": 2,
+        "OT->AS": 19,
+        "OT->CO": 1,
+        "OT->NONE": 1,
+        "OT->OT": 78,
+        "ST->AN": 1,
+        "ST->ST": 3,
+        "ST+TE->ST": 1,
+        "TE->AN": 3,
+        "TE->AS": 7,
+        "TE->CO": 4,
+        "TE->NONE": 1,
+        "TE->OT": 10,
+        "TE->TE": 54
+      }
+    },
+    "task1_macro_f1": 0.6377316685792214,
+    "task1_micro_f1": 0.7277936962750716,
+    "task1_per_label_f1": {
+      "CO": 0.17647058823529413,
+      "AS": 0.9160305343511451,
+      "TE": 0.7200000000000001,
+      "ST": 0.6666666666666666,
+      "AN": 0.6222222222222222,
+      "OT": 0.725
+    },
+    "task2_f1": 0.6489992734754738,
+    "task2_precision": 0.6202329284689284,
+    "task2_recall": 0.680563756629373,
+    "task2_per_label_f1": {
+      "CO": 0.2017216453073637,
+      "AS": 0.7705126352751678,
+      "TE": 0.6590643967625431,
+      "ST": 0.4660283926494064,
+      "AN": 0.4244075003078519,
+      "OT": 0.5377792863564143
+    },
+    "assembly": {
+      "atoms": 787,
+      "parse_failures": 0,
+      "fallback_atoms": 0,
+      "none_atoms": 47,
+      "duplicate_same_label": 0
+    },
+    "fallback_assisted": {
+      "task1_macro_f1": 0.6377316685792214,
+      "task2_f1": 0.6489992734754738,
+      "assembly": {
+        "atoms": 787,
+        "parse_failures": 0,
+        "fallback_atoms": 0,
+        "none_atoms": 47,
+        "duplicate_same_label": 0
+      }
+    },
+    "failed_examples": 0,
+    "failure_sample": []
+  }
+}

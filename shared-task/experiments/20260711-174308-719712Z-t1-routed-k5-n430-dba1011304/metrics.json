@@ -1,0 +1,102 @@
+{
+  "n_paragraphs": 430,
+  "champion_t0": {
+    "macro_f1": 0.6496,
+    "per_label_f1": {
+      "CO": 0.3107,
+      "AS": 0.9159,
+      "TE": 0.76,
+      "ST": 0.5806,
+      "AN": 0.5818,
+      "OT": 0.7486
+    }
+  },
+  "rollout_macros": [
+    0.6485,
+    0.646,
+    0.635,
+    0.6503,
+    0.6581
+  ],
+  "routed_composed_oof": {
+    "macro_f1": 0.6794,
+    "per_label_f1": {
+      "CO": 0.28,
+      "AS": 0.9192,
+      "TE": 0.7782,
+      "ST": 0.5902,
+      "AN": 0.7361,
+      "OT": 0.7726
+    }
+  },
+  "adoption": {
+    "rule": "routed >= champion_t0 + 0.02",
+    "gate": 0.6696,
+    "adopted": true
+  },
+  "vote_thresholds_by_fold": {
+    "0": {
+      "AS": 1,
+      "TE": 4,
+      "ST": 4
+    },
+    "1": {
+      "AS": 2,
+      "TE": 5,
+      "ST": 4
+    },
+    "2": {
+      "AS": 2,
+      "TE": 4,
+      "ST": 4
+    },
+    "3": {
+      "AS": 2,
+      "TE": 5,
+      "ST": 4
+    },
+    "4": {
+      "AS": 2,
+      "TE": 4,
+      "ST": 5
+    }
+  },
+  "co_budget": {
+    "prior": 0.058823529411764705,
+    "fired_per_fold": {
+      "0": 5,
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "4": 5
+    },
+    "gold_co_count": 25,
+    "co_f1_primary_perfold_encoder": 0.28,
+    "co_f1_diag_global_encoder": 0.32,
+    "co_f1_diag_llm_votes": 0.28
+  },
+  "diagnostics": {
+    "encoder_oof_alone": {
+      "macro_f1": 0.6438,
+      "per_label_f1": {
+        "CO": 0.2791,
+        "AS": 0.8964,
+        "TE": 0.6552,
+        "ST": 0.5238,
+        "AN": 0.7361,
+        "OT": 0.7726
+      }
+    },
+    "vote_majority_alone": {
+      "macro_f1": 0.655,
+      "per_label_f1": {
+        "CO": 0.3107,
+        "AS": 0.9178,
+        "TE": 0.7823,
+        "ST": 0.5938,
+        "AN": 0.5818,
+        "OT": 0.7438
+      }
+    }
+  }
+}

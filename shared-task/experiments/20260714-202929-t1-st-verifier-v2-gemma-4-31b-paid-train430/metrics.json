@@ -1,0 +1,19 @@
+{
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md registered ST verifier v2",
+  "model": "gemma-4-31b-paid",
+  "rollouts": 3,
+  "temperature": 0.7,
+  "n_fired": 37,
+  "n_eligible_by_cosignal": 17,
+  "n_majority_absent": 10,
+  "n_majority_absent_blocked_by_cosignal": 0,
+  "n_dropped": 10,
+  "dropped_gold_split": {
+    "gold_ST": 0,
+    "not_gold_ST": 10
+  },
+  "rollout_disagreement": 3,
+  "n_program_errors": 0,
+  "errors_sample": [],
+  "baseline_run": "<repo>/shared-task/experiments/20260714-230133-918438Z-t1-routed-v2-k5-n430-986aefa1c6"
+}

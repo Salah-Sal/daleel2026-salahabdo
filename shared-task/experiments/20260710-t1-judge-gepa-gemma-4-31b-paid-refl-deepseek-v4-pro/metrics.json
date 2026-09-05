@@ -1,0 +1,27 @@
+{
+  "stage": "judge-compile",
+  "model": "gemma-4-31b-paid",
+  "optimizer": "gepa",
+  "wall_seconds": 2321.1,
+  "demo_counts": {
+    "verify.predict": 0
+  },
+  "instructions_changed": {
+    "verify.predict": true
+  },
+  "seed_val_accuracy": {
+    "AN": 0.74,
+    "CO": 0.8529,
+    "OT": 0.86,
+    "ST": 0.9677,
+    "overall": 0.8424
+  },
+  "compiled_val_accuracy": {
+    "AN": 0.88,
+    "CO": 0.8529,
+    "OT": 0.8,
+    "ST": 0.9677,
+    "overall": 0.8667
+  },
+  "state_file": "<repo>/shared-task/experiments/20260710-t1-judge-gepa-gemma-4-31b-paid-refl-deepseek-v4-pro/compiled/judge-gepa.json"
+}

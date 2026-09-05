@@ -1,0 +1,14 @@
+{
+  "script": "t2_structural_gate_deploy.py",
+  "argv": [
+    "--encoder-deploy-run",
+    "experiments/20260730-222514-613928Z-t2-encoder-ensemble-quarter-dev-poolblend-old65-new35-s2-cfd610ca1e"
+  ],
+  "gate_run": "20260715-001221-t2-s1-structural-camelbert-quarter-n430",
+  "registration": "CREATIVE_HEADROOM_RESEARCH.md S1 (commit 46368f9)",
+  "encoder_oof_run": "<repo>/shared-task/experiments/20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+  "quote_oof_run": "20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b",
+  "v3_dev_run": "20260711-033302-645188Z-v3-decomposed-gemma-4-31b-paid-both-dev_in-78718d42e5",
+  "quote_dev_run": "20260711-032218-524548Z-t2-quote-gemma-4-31b-paid-dev-e955af86f9",
+  "encoder_deploy_run": "experiments/20260730-222514-613928Z-t2-encoder-ensemble-quarter-dev-poolblend-old65-new35-s2-cfd610ca1e"
+}

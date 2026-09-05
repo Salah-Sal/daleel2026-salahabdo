@@ -1,0 +1,43 @@
+{
+  "task": 2,
+  "model": "deepseek-v4-flash",
+  "program": "quote",
+  "compiled": null,
+  "litellm_id": "deepseek/deepseek-v4-flash",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 0.8956,
+  "n_parse_failures": 19,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 19,
+  "wall_seconds": 1971.5,
+  "errors_sample": [
+    "268: LMInvalidRequestError: [deepseek-v4-flash] litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"This response_format type is unavailable now\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+    "315: LMInvalidRequestError: [deepseek-v4-flash] litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"This response_format type is unavailable now\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+    "334: LMInvalidRequestError: [deepseek-v4-flash] litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"This response_format type is unavailable now\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+    "344: LMInvalidRequestError: [deepseek-v4-flash] litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"This response_format type is unavailable now\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+    "385: LMInvalidRequestError: [deepseek-v4-flash] litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"This response_format type is unavailable now\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+  ],
+  "align_stats": {
+    "exact": 536,
+    "ws": 10,
+    "norm": 0,
+    "fuzzy": 4,
+    "unaligned": 0,
+    "dropped_overlap": 4
+  },
+  "n_paragraphs_with_unaligned": 0,
+  "s1_official_span_f1": 0.6534,
+  "precision": 0.6562,
+  "recall": 0.6507,
+  "per_label_f1": {
+    "CO": 0.148,
+    "AS": 0.7529,
+    "TE": 0.6747,
+    "ST": 0.553,
+    "AN": 0.3089,
+    "OT": 0.4715
+  },
+  "proxy_mean": 0.5944
+}

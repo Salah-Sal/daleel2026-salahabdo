@@ -1,0 +1,36 @@
+{
+  "task": 2,
+  "stage": "relabel-blind",
+  "model": "gemma-4-31b-paid",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "source_preds": "<repo>/shared-task/experiments/20260709-t2-quote-gemma-4-31b-paid-val/predictions/preds.jsonl",
+  "n_paragraphs": 182,
+  "cot": true,
+  "n_program_errors": 0,
+  "n_length_mismatch": 0,
+  "n_spans": 710,
+  "n_spans_relabeled": 53,
+  "wall_seconds": 484.9,
+  "errors_sample": [],
+  "s1_official_span_f1_before": 0.6805,
+  "s1_official_span_f1": 0.6777,
+  "delta": -0.0027,
+  "precision": 0.6329,
+  "recall": 0.7294,
+  "per_label_f1_before": {
+    "CO": 0.2173,
+    "AS": 0.7792,
+    "TE": 0.7112,
+    "ST": 0.6374,
+    "AN": 0.3942,
+    "OT": 0.6285
+  },
+  "per_label_f1": {
+    "CO": 0.1965,
+    "AS": 0.7824,
+    "TE": 0.6881,
+    "ST": 0.6171,
+    "AN": 0.3968,
+    "OT": 0.6266
+  }
+}

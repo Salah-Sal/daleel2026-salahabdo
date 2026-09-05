@@ -1,0 +1,332 @@
+{
+  "report_schema_version": 1,
+  "architecture": "task1-fusion-v1",
+  "contract": {
+    "architecture": "proposal-atom-role-v3",
+    "model": "gemma-4-31b-paid",
+    "track": "closed",
+    "setting": "both",
+    "optimizer": "gepa",
+    "objective": "task2",
+    "pool": "legacy-train",
+    "n_folds": 5,
+    "n_inner_folds": 4,
+    "inner_fold": 0,
+    "fold_seed": 20260710,
+    "fold_manifest_sha256": "02677817d310a61858202428ede9dcb6408875f0b729a970e8eff57c1a95bef9",
+    "granularity": "connective",
+    "containment_threshold": 0.8,
+    "context_chars": 500,
+    "demo_context_chars": 350,
+    "role_cot": false,
+    "demo_selector": true,
+    "max_demos": 7,
+    "same_genre_bonus": 0.05,
+    "balance_per_class": 80,
+    "optimizer_val_max": 300,
+    "optimizer_val_distribution": "natural-without-replacement",
+    "optimizer_train_distribution": "class-balanced-with-cycling",
+    "auto": "light",
+    "max_metric_calls": null,
+    "max_tokens": 2500,
+    "max_rerank_candidates": 0,
+    "proposal_sha256": "fcd44c03f2e96829de9671d7a34ead82d5a9db02f8d53334b6de77fac50aa0a1",
+    "accept_delta": 0.02
+  },
+  "contract_sha256": "61ac2d3f463f2e27500f892bc416ae7188e809b05e45fc6449ee2b669cbf7cbf",
+  "setting": "both",
+  "pool": "legacy-train",
+  "n_paragraphs": 430,
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "span_macro_f1": 0.6737680381238582,
+  "direct_macro_f1": 0.653275912085569,
+  "crossfit_macro_f1": 0.6969015682511408,
+  "crossfit_micro_f1": 0.7926605504587156,
+  "crossfit_per_label_f1": {
+    "CO": 0.32989690721649484,
+    "AS": 0.9194029850746269,
+    "TE": 0.7741935483870968,
+    "ST": 0.7037037037037037,
+    "AN": 0.6637931034482759,
+    "OT": 0.7904191616766467
+  },
+  "adoption": {
+    "candidate_score": 0.6969015682511408,
+    "baseline_score": 0.653275912085569,
+    "delta": 0.04362565616557179,
+    "required_delta": 0.02,
+    "adopt": true
+  },
+  "fold_policies": {
+    "0": {
+      "CO": "intersection",
+      "AS": "spans",
+      "TE": "intersection",
+      "ST": "intersection",
+      "AN": "spans",
+      "OT": "intersection"
+    },
+    "1": {
+      "CO": "intersection",
+      "AS": "intersection",
+      "TE": "spans",
+      "ST": "intersection",
+      "AN": "spans",
+      "OT": "intersection"
+    },
+    "2": {
+      "CO": "intersection",
+      "AS": "spans",
+      "TE": "spans",
+      "ST": "intersection",
+      "AN": "spans",
+      "OT": "intersection"
+    },
+    "3": {
+      "CO": "intersection",
+      "AS": "spans",
+      "TE": "intersection",
+      "ST": "intersection",
+      "AN": "union",
+      "OT": "intersection"
+    },
+    "4": {
+      "CO": "direct",
+      "AS": "spans",
+      "TE": "intersection",
+      "ST": "intersection",
+      "AN": "spans",
+      "OT": "intersection"
+    }
+  },
+  "fold_selection_scores": {
+    "0": {
+      "CO": {
+        "direct": 0.3448275862068966,
+        "spans": 0.2945736434108527,
+        "intersection": 0.375,
+        "union": 0.27941176470588236
+      },
+      "AS": {
+        "direct": 0.9128014842300557,
+        "spans": 0.9301470588235294,
+        "intersection": 0.9227871939736346,
+        "union": 0.9202898550724639
+      },
+      "TE": {
+        "direct": 0.7777777777777778,
+        "spans": 0.7943925233644861,
+        "intersection": 0.8105263157894738,
+        "union": 0.7657657657657658
+      },
+      "ST": {
+        "direct": 0.6153846153846153,
+        "spans": 0.5818181818181819,
+        "intersection": 0.7111111111111111,
+        "union": 0.5161290322580645
+      },
+      "AN": {
+        "direct": 0.5664739884393063,
+        "spans": 0.6704545454545455,
+        "intersection": 0.5620915032679739,
+        "union": 0.663265306122449
+      },
+      "OT": {
+        "direct": 0.7346938775510203,
+        "spans": 0.7837837837837837,
+        "intersection": 0.7910447761194029,
+        "union": 0.732919254658385
+      }
+    },
+    "1": {
+      "CO": {
+        "direct": 0.3132530120481927,
+        "spans": 0.27868852459016397,
+        "intersection": 0.32,
+        "union": 0.27692307692307694
+      },
+      "AS": {
+        "direct": 0.9141791044776119,
+        "spans": 0.9165120593692022,
+        "intersection": 0.9184060721062619,
+        "union": 0.9124087591240877
+      },
+      "TE": {
+        "direct": 0.736318407960199,
+        "spans": 0.7846889952153111,
+        "intersection": 0.783068783068783,
+        "union": 0.742081447963801
+      },
+      "ST": {
+        "direct": 0.6,
+        "spans": 0.6,
+        "intersection": 0.7142857142857143,
+        "union": 0.5172413793103449
+      },
+      "AN": {
+        "direct": 0.5762711864406779,
+        "spans": 0.6703910614525139,
+        "intersection": 0.5786163522012578,
+        "union": 0.6598984771573605
+      },
+      "OT": {
+        "direct": 0.7285223367697594,
+        "spans": 0.7661016949152543,
+        "intersection": 0.7790262172284644,
+        "union": 0.7210031347962382
+      }
+    },
+    "2": {
+      "CO": {
+        "direct": 0.3421052631578948,
+        "spans": 0.29310344827586204,
+        "intersection": 0.36363636363636365,
+        "union": 0.2857142857142857
+      },
+      "AS": {
+        "direct": 0.9213483146067415,
+        "spans": 0.9380863039399625,
+        "intersection": 0.9292543021032504,
+        "union": 0.9301470588235294
+      },
+      "TE": {
+        "direct": 0.75,
+        "spans": 0.7962085308056872,
+        "intersection": 0.7936507936507935,
+        "union": 0.7567567567567567
+      },
+      "ST": {
+        "direct": 0.5882352941176471,
+        "spans": 0.5660377358490566,
+        "intersection": 0.6976744186046512,
+        "union": 0.4918032786885246
+      },
+      "AN": {
+        "direct": 0.5647058823529411,
+        "spans": 0.6847826086956521,
+        "intersection": 0.5696202531645569,
+        "union": 0.6734693877551021
+      },
+      "OT": {
+        "direct": 0.726027397260274,
+        "spans": 0.7766323024054982,
+        "intersection": 0.7803030303030303,
+        "union": 0.7272727272727273
+      }
+    },
+    "3": {
+      "CO": {
+        "direct": 0.3333333333333333,
+        "spans": 0.28346456692913385,
+        "intersection": 0.3466666666666666,
+        "union": 0.27941176470588236
+      },
+      "AS": {
+        "direct": 0.9132075471698113,
+        "spans": 0.9202226345083487,
+        "intersection": 0.9139579349904398,
+        "union": 0.9194139194139194
+      },
+      "TE": {
+        "direct": 0.76,
+        "spans": 0.7751196172248803,
+        "intersection": 0.8042328042328043,
+        "union": 0.7363636363636363
+      },
+      "ST": {
+        "direct": 0.625,
+        "spans": 0.5769230769230769,
+        "intersection": 0.6818181818181819,
+        "union": 0.5357142857142857
+      },
+      "AN": {
+        "direct": 0.5795454545454546,
+        "spans": 0.6666666666666667,
+        "intersection": 0.5625,
+        "union": 0.6733668341708543
+      },
+      "OT": {
+        "direct": 0.7456445993031358,
+        "spans": 0.7681660899653979,
+        "intersection": 0.787878787878788,
+        "union": 0.7307692307692307
+      }
+    },
+    "4": {
+      "CO": {
+        "direct": 0.3170731707317073,
+        "spans": 0.27868852459016397,
+        "intersection": 0.3157894736842105,
+        "union": 0.28125
+      },
+      "AS": {
+        "direct": 0.9124767225325885,
+        "spans": 0.9242144177449167,
+        "intersection": 0.9204545454545455,
+        "union": 0.9163636363636363
+      },
+      "TE": {
+        "direct": 0.7918781725888324,
+        "spans": 0.8038277511961723,
+        "intersection": 0.8342245989304812,
+        "union": 0.767123287671233
+      },
+      "ST": {
+        "direct": 0.5882352941176471,
+        "spans": 0.6,
+        "intersection": 0.7142857142857143,
+        "union": 0.5084745762711864
+      },
+      "AN": {
+        "direct": 0.5568181818181819,
+        "spans": 0.6989247311827956,
+        "intersection": 0.5696202531645569,
+        "union": 0.6764705882352942
+      },
+      "OT": {
+        "direct": 0.7635135135135136,
+        "spans": 0.7906976744186047,
+        "intersection": 0.8131868131868132,
+        "union": 0.7469135802469136
+      }
+    }
+  },
+  "policy_stability": {
+    "CO": {
+      "intersection": 4,
+      "direct": 1
+    },
+    "AS": {
+      "spans": 4,
+      "intersection": 1
+    },
+    "TE": {
+      "intersection": 3,
+      "spans": 2
+    },
+    "ST": {
+      "intersection": 5
+    },
+    "AN": {
+      "spans": 4,
+      "union": 1
+    },
+    "OT": {
+      "intersection": 5
+    }
+  },
+  "final_majority_policy": {
+    "CO": "intersection",
+    "AS": "spans",
+    "TE": "intersection",
+    "ST": "intersection",
+    "AN": "spans",
+    "OT": "intersection"
+  }
+}

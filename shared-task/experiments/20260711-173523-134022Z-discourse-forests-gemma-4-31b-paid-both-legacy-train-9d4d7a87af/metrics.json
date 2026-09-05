@@ -1,0 +1,16 @@
+{
+  "paragraphs": 430,
+  "nodes": 4171,
+  "raw_edges": 3158,
+  "accepted_edges": 3153,
+  "dropped_edges": 5,
+  "roots": 1018,
+  "status_ok": 381,
+  "status_deterministic": 45,
+  "status_validated_repair": 4,
+  "parser_calls": 385,
+  "parser_errors": 0,
+  "program_failed_examples": 0,
+  "failure_sample": [],
+  "wall_seconds": 776.8
+}

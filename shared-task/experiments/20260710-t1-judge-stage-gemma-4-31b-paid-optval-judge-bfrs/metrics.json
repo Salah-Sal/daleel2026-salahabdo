@@ -1,0 +1,54 @@
+{
+  "task": 1,
+  "stage": "judge",
+  "model": "gemma-4-31b-paid",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "compiled": "experiments/20260710-t1-judge-bfrs-gemma-4-31b-paid/compiled/judge-bfrs.json",
+  "drop_labels": [
+    "CO",
+    "OT",
+    "ST"
+  ],
+  "arbiter_labels": [
+    "AN"
+  ],
+  "source_preds": "experiments/20260710-t1-zeroshot-gemma-4-31b-paid-optval/predictions/preds.jsonl",
+  "n_paragraphs": 149,
+  "cot": true,
+  "n_program_errors": 0,
+  "n_dropped_by_label": {
+    "OT": 15,
+    "AN": 5,
+    "CO": 7,
+    "ST": 4
+  },
+  "n_added_by_label": {
+    "AN": 8
+  },
+  "wall_seconds": 261.1,
+  "errors_sample": [],
+  "s1_official_macro_f1_before": 0.6653,
+  "s1_official_macro_f1": 0.6912,
+  "delta": 0.0259,
+  "micro_f1": 0.7948,
+  "s2_rare_recall": {
+    "ST": 1.0,
+    "CO": 0.5556
+  },
+  "per_label_f1_before": {
+    "CO": 0.4,
+    "AS": 0.9156,
+    "TE": 0.7368,
+    "ST": 0.5217,
+    "AN": 0.6579,
+    "OT": 0.7597
+  },
+  "per_label_f1": {
+    "CO": 0.3571,
+    "AS": 0.9156,
+    "TE": 0.7368,
+    "ST": 0.6316,
+    "AN": 0.7342,
+    "OT": 0.7719
+  }
+}

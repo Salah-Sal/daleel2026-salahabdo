@@ -1,0 +1,74 @@
+{
+  "script": "deploy_encoder_task2.py",
+  "argv": [
+    "--oof-run",
+    "experiments/20260730-212958-943559Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-8dcdf5d136",
+    "--seed-from-oof-run",
+    "--input",
+    "../resources/repos/Daleel2026/data/test/test_in.jsonl",
+    "--source-id",
+    "daleel2026:test-input-seed20260711"
+  ],
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md S1 deploy",
+  "campaign_argv": [
+    "--task",
+    "2",
+    "--model",
+    "camelbert-msa-quarter",
+    "--track",
+    "closed",
+    "--pool",
+    "legacy-train",
+    "--setting",
+    "both",
+    "--folds",
+    "5",
+    "--fold-seed",
+    "20260710",
+    "--seed",
+    "20260710",
+    "--epochs",
+    "4",
+    "--batch-size",
+    "16",
+    "--learning-rate",
+    "2e-5",
+    "--class-weighting",
+    "none",
+    "--stride",
+    "128",
+    "--granularity",
+    "connective",
+    "--device",
+    "cpu",
+    "--precision",
+    "fp32"
+  ],
+  "precision": "fp32",
+  "model": {
+    "key": "camelbert-msa-quarter",
+    "repository": "CAMeL-Lab/bert-base-arabic-camelbert-msa-quarter",
+    "revision": "3e48534705c153737cbec1c5748bb02359b7b239",
+    "license_id": "apache-2.0",
+    "license_url": "https://huggingface.co/CAMeL-Lab/bert-base-arabic-camelbert-msa-quarter",
+    "closed_track_verified": true
+  },
+  "fit_pool": "contract",
+  "train_ids_count": 430,
+  "training_sources": [
+    {
+      "path": "<repo>/resources/repos/Daleel2026/data/train/train_task_2.jsonl",
+      "sha256": "4ef331404670e39a3cd46ec4dfcfe3be4cb6d71e5d764d998ad87d74d31d1a66",
+      "record_count": 612,
+      "selected_record_count": 430
+    }
+  ],
+  "oof_run": "experiments/20260730-212958-943559Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-8dcdf5d136",
+  "oof_run_sha256": "e70d78a697e4d8b4689e609a73616c6fcfbf492c1f8441d277785018895c699d",
+  "input": {
+    "path": "../resources/repos/Daleel2026/data/test/test_in.jsonl",
+    "sha256": "65a95069ef68584ddb7720150de7be5797bdbadb1e507a2ec68ce07cd336e6ef",
+    "source_id": "daleel2026:test-input-seed20260711",
+    "record_count": 213
+  }
+}

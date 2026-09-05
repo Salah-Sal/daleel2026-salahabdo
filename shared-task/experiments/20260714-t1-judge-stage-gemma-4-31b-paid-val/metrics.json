@@ -1,0 +1,45 @@
+{
+  "task": 1,
+  "stage": "judge",
+  "model": "gemma-4-31b-paid",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "compiled": null,
+  "drop_labels": [
+    "ST"
+  ],
+  "arbiter_labels": [],
+  "source_preds": "experiments/20260714-194454-761621Z-t1-routed-v2-deploy-dev_in-c75de50ea4/predictions/task_1.jsonl",
+  "n_paragraphs": 217,
+  "cot": true,
+  "n_program_errors": 0,
+  "n_dropped_by_label": {
+    "ST": 5
+  },
+  "n_added_by_label": {},
+  "wall_seconds": 19.0,
+  "errors_sample": [],
+  "s1_official_macro_f1_before": 0.0,
+  "s1_official_macro_f1": 0.0,
+  "delta": 0.0,
+  "micro_f1": 0.0,
+  "s2_rare_recall": {
+    "ST": 0.0,
+    "CO": 0.0
+  },
+  "per_label_f1_before": {
+    "CO": 0.0,
+    "AS": 0.0,
+    "TE": 0.0,
+    "ST": 0.0,
+    "AN": 0.0,
+    "OT": 0.0
+  },
+  "per_label_f1": {
+    "CO": 0.0,
+    "AS": 0.0,
+    "TE": 0.0,
+    "ST": 0.0,
+    "AN": 0.0,
+    "OT": 0.0
+  }
+}

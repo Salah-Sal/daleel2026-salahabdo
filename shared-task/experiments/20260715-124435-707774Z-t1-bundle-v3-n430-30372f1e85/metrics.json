@@ -1,0 +1,145 @@
+{
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md bundle-v3 (commit 56d6f30)",
+  "control_v22_macro": 0.7298,
+  "gate": 0.7498,
+  "primary_bundle_full": {
+    "macro": 0.7458,
+    "delta": 0.016,
+    "fold_wins": 4,
+    "fold_slices": {
+      "0": {
+        "v22": 0.684,
+        "bundle_full": 0.7186
+      },
+      "1": {
+        "v22": 0.7361,
+        "bundle_full": 0.7652
+      },
+      "2": {
+        "v22": 0.7528,
+        "bundle_full": 0.7444
+      },
+      "3": {
+        "v22": 0.7996,
+        "bundle_full": 0.8107
+      },
+      "4": {
+        "v22": 0.699,
+        "bundle_full": 0.7117
+      }
+    },
+    "passed": false
+  },
+  "secondary_ensemble_only": {
+    "macro": 0.7436,
+    "delta": 0.0138,
+    "fold_wins": 4,
+    "fold_slices": {
+      "0": {
+        "v22": 0.684,
+        "ensemble_only": 0.7186
+      },
+      "1": {
+        "v22": 0.7361,
+        "ensemble_only": 0.7612
+      },
+      "2": {
+        "v22": 0.7528,
+        "ensemble_only": 0.7416
+      },
+      "3": {
+        "v22": 0.7996,
+        "ensemble_only": 0.8064
+      },
+      "4": {
+        "v22": 0.699,
+        "ensemble_only": 0.7117
+      }
+    },
+    "passed": false
+  },
+  "adopted": null,
+  "composed_macros": {
+    "v22_control": 0.7298,
+    "bundle_full": 0.7458,
+    "ensemble_only": 0.7436,
+    "te_only_ablation": 0.732,
+    "co_only_ablation": 0.7298
+  },
+  "per_label": {
+    "v22_control": {
+      "CO": 0.4,
+      "AS": 0.9192,
+      "TE": 0.7782,
+      "ST": 0.7826,
+      "AN": 0.7243,
+      "OT": 0.7744
+    },
+    "bundle_full": {
+      "CO": 0.4267,
+      "AS": 0.9192,
+      "TE": 0.7917,
+      "ST": 0.7826,
+      "AN": 0.7643,
+      "OT": 0.7906
+    },
+    "ensemble_only": {
+      "CO": 0.4267,
+      "AS": 0.9192,
+      "TE": 0.7782,
+      "ST": 0.7826,
+      "AN": 0.7643,
+      "OT": 0.7906
+    },
+    "te_only_ablation": {
+      "CO": 0.4,
+      "AS": 0.9192,
+      "TE": 0.7917,
+      "ST": 0.7826,
+      "AN": 0.7243,
+      "OT": 0.7744
+    },
+    "co_only_ablation": {
+      "CO": 0.4,
+      "AS": 0.9192,
+      "TE": 0.7782,
+      "ST": 0.7826,
+      "AN": 0.7243,
+      "OT": 0.7744
+    }
+  },
+  "theta_te_6vote_by_fold": {
+    "0": 5,
+    "1": 5,
+    "2": 5,
+    "3": 5,
+    "4": 5
+  },
+  "theta5_by_fold": {
+    "0": {
+      "AS": 1,
+      "TE": 4,
+      "ST": 4
+    },
+    "1": {
+      "AS": 2,
+      "TE": 5,
+      "ST": 4
+    },
+    "2": {
+      "AS": 2,
+      "TE": 4,
+      "ST": 4
+    },
+    "3": {
+      "AS": 2,
+      "TE": 5,
+      "ST": 4
+    },
+    "4": {
+      "AS": 2,
+      "TE": 4,
+      "ST": 5
+    }
+  }
+}

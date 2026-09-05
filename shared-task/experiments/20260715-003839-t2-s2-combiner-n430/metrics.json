@@ -1,0 +1,141 @@
+{
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md registered T2 S2 combiner",
+  "s1_run": "20260715-001221-t2-s1-structural-camelbert-quarter-n430",
+  "t1_run": "20260715-003004-912987Z-t1-routed-v2-k5-n430-4f30d408fa",
+  "recorded_f1": 0.7206,
+  "combined_f1": 0.7218,
+  "delta": 0.0013,
+  "n_flips": 142,
+  "flip_matrix": {
+    "AS->AN": 47,
+    "AS->CO": 33,
+    "OT->TE": 16,
+    "AS->OT": 8,
+    "ST->AN": 6,
+    "AS->TE": 6,
+    "TE->AN": 5,
+    "OT->CO": 5,
+    "OT->AN": 4,
+    "AS->ST": 3,
+    "CO->AN": 2,
+    "TE->ST": 2,
+    "OT->ST": 1,
+    "ST->CO": 1,
+    "AN->ST": 1,
+    "TE->CO": 1,
+    "AN->TE": 1
+  },
+  "flip_precision_vs_dominant_gold": 0.4672,
+  "n_flips_with_gold_overlap": 137,
+  "n_dedup_dropped": 1,
+  "mass_ratio_vs_gold_s1": {
+    "CO": 1.78,
+    "AS": 1.08,
+    "TE": 1.09,
+    "ST": 1.07,
+    "AN": 0.49,
+    "OT": 1.04
+  },
+  "mass_ratio_vs_gold_s2": {
+    "CO": 2.18,
+    "AS": 1.04,
+    "TE": 1.1,
+    "ST": 1.07,
+    "AN": 0.59,
+    "OT": 1.02
+  },
+  "fitted": {
+    "0": {
+      "tau": 0.8,
+      "tau_fit_f1": 0.7371,
+      "n_train_spans": 2972,
+      "train_class_counts": {
+        "AN": 422,
+        "AS": 1601,
+        "CO": 69,
+        "OT": 443,
+        "ST": 56,
+        "TE": 381
+      }
+    },
+    "1": {
+      "tau": 0.8,
+      "tau_fit_f1": 0.7171,
+      "n_train_spans": 2941,
+      "train_class_counts": {
+        "AN": 428,
+        "AS": 1598,
+        "CO": 54,
+        "OT": 452,
+        "ST": 47,
+        "TE": 362
+      }
+    },
+    "2": {
+      "tau": 0.7,
+      "tau_fit_f1": 0.7376,
+      "n_train_spans": 2950,
+      "train_class_counts": {
+        "AN": 412,
+        "AS": 1614,
+        "CO": 63,
+        "OT": 435,
+        "ST": 45,
+        "TE": 381
+      }
+    },
+    "3": {
+      "tau": 0.65,
+      "tau_fit_f1": 0.7262,
+      "n_train_spans": 2873,
+      "train_class_counts": {
+        "AN": 428,
+        "AS": 1560,
+        "CO": 70,
+        "OT": 419,
+        "ST": 44,
+        "TE": 352
+      }
+    },
+    "4": {
+      "tau": 0.8,
+      "tau_fit_f1": 0.7316,
+      "n_train_spans": 2900,
+      "train_class_counts": {
+        "AN": 406,
+        "AS": 1599,
+        "CO": 64,
+        "OT": 419,
+        "ST": 48,
+        "TE": 364
+      }
+    }
+  },
+  "gate": {
+    "rule": "pooled >= 0.7406 AND >=3/5 fold wins",
+    "per_fold": {
+      "0": {
+        "recorded": 0.6917,
+        "combined": 0.6939
+      },
+      "1": {
+        "recorded": 0.7702,
+        "combined": 0.775
+      },
+      "2": {
+        "recorded": 0.6865,
+        "combined": 0.6908
+      },
+      "3": {
+        "recorded": 0.736,
+        "combined": 0.7344
+      },
+      "4": {
+        "recorded": 0.7145,
+        "combined": 0.7117
+      }
+    },
+    "fold_wins": 3,
+    "adopted": false
+  }
+}

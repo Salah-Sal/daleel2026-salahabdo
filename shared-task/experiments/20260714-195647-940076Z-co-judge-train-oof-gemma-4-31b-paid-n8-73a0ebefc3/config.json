@@ -1,0 +1,19 @@
+{
+  "script": "co_judge_rank.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--limit",
+    "8",
+    "--encoder",
+    "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4"
+  ],
+  "milestone": "HEADROOM_AUDIT.md P1",
+  "mode": "train-oof",
+  "model": "gemma-4-31b-paid",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "exemplar_chars": 350,
+  "max_exemplars": 20,
+  "n_gold_co_exemplar_pool": 25,
+  "target": "train-430"
+}

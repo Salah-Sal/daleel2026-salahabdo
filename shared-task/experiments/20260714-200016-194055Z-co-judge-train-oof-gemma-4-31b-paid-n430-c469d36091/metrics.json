@@ -1,0 +1,51 @@
+{
+  "mode": "train-oof",
+  "n_targets": 430,
+  "n_errors": 0,
+  "errors_sample": [],
+  "unscored": 0,
+  "wall_seconds": 182.1,
+  "score_histogram": {
+    "0": 172,
+    "1": 21,
+    "2": 100,
+    "3": 48,
+    "4": 14,
+    "5": 0,
+    "6": 6,
+    "7": 35,
+    "8": 17,
+    "9": 7,
+    "10": 10
+  },
+  "co_rank_diagnostics": {
+    "k_mult": 2.0,
+    "per_fold_f1": {
+      "0": {
+        "control_3feat": 0.1333,
+        "plus_judge": 0.1333
+      },
+      "1": {
+        "control_3feat": 0.5333,
+        "plus_judge": 0.5333
+      },
+      "2": {
+        "control_3feat": 0.4,
+        "plus_judge": 0.4
+      },
+      "3": {
+        "control_3feat": 0.5333,
+        "plus_judge": 0.4
+      },
+      "4": {
+        "control_3feat": 0.4,
+        "plus_judge": 0.4
+      }
+    },
+    "pooled_control_3feat": 0.4,
+    "pooled_plus_judge": 0.3733,
+    "judge_alone_topk": 0.32,
+    "fold_wins_plus_judge": 4,
+    "plateau_pass": true
+  }
+}

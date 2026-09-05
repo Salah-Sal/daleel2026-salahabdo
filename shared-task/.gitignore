@@ -1,0 +1,37 @@
+# The dataset is distributed to registered participants only — never commit it.
+data/raw/*
+data/external/*
+data/processed/*
+!data/*/.gitkeep
+
+# Submission files contain dataset text (the output format includes the
+# paragraph text), so they fall under the same no-redistribution rule.
+submissions/**/*.zip
+submissions/**/*.jsonl
+
+# Model artifacts and run outputs (regenerable; large)
+models/
+outputs/
+experiments/*/checkpoints/
+experiments/*/predictions/
+
+# Python build artifacts
+dist/
+*.egg-info/
+
+# DSPy disk cache (shared across runs; resumes throttled compiles free)
+.dspy_cache/
+# MLflow local tracking store (DSPy autolog traces embed dataset text)
+mlruns/
+# Compiled program states embed bootstrapped demos (= dataset text); GEPA
+# logs embed full trajectories. Committed artifacts: instructions.json,
+# config.json, metrics.json only.
+experiments/*/compiled/
+experiments/*/gepa_logs/
+
+# paper build intermediates (PDF + sources are committed)
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out

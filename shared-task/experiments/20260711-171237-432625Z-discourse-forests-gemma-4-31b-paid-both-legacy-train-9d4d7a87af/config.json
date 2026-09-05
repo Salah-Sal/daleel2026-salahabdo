@@ -1,0 +1,77 @@
+{
+  "script": "freeze_discourse_forests.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--track",
+    "closed",
+    "--setting",
+    "both",
+    "--pool",
+    "legacy-train",
+    "--proposals",
+    "experiments/20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b/predictions/preds.jsonl",
+    "--granularity",
+    "connective",
+    "--threads",
+    "8",
+    "--max-tokens",
+    "1800"
+  ],
+  "preflight_ok": true,
+  "contract": {
+    "architecture": "proposal-atom-discourse-forest-v1",
+    "model": "gemma-4-31b-paid",
+    "track": "closed",
+    "setting": "both",
+    "pool": "legacy-train",
+    "source_id": "daleel2026:train-task-1",
+    "source_sha256": "240b4299df7d9e3b9297843acd271463d7aa7d10ce991576ed51f4c43ab241af",
+    "proposal_sha256": "fcd44c03f2e96829de9671d7a34ead82d5a9db02f8d53334b6de77fac50aa0a1",
+    "granularity": "connective",
+    "parser_cot": false,
+    "parser_signature_sha256": "e4d57d7c89f52c1c0f80129f0ac23c80b47f60891382c247d0cb2491da64c026",
+    "relation_inventory": [
+      "ELABORATION",
+      "CAUSE_REASON",
+      "CONTRAST",
+      "ATTRIBUTION",
+      "SEQUENCE",
+      "META_COMMENT",
+      "OTHER_COHERENCE"
+    ],
+    "max_tokens": 1800
+  },
+  "contract_sha256": "9d4d7a87afc756feb65a513163bad9378d32c1816d9de630c04e1aeb7eab0462",
+  "counts": {
+    "paragraphs": 430,
+    "atoms": 4171,
+    "planned_parser_calls": 385,
+    "deterministic_zero_or_one_atom": 45
+  },
+  "proposal_lineage": {
+    "kind": "forest-quote-proposals",
+    "path": "experiments/20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b/predictions/preds.jsonl",
+    "sha256": "fcd44c03f2e96829de9671d7a34ead82d5a9db02f8d53334b6de77fac50aa0a1",
+    "verified": true,
+    "manifest": "experiments/20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b/provenance.json",
+    "manifest_sha256": "3ffb5f190ba1ccdac3750e8b277bea00bdb733953145d333aa2c748e28794b0d",
+    "output_bound": true,
+    "producer": {
+      "architecture_version": "stage0-quote-v1",
+      "track": "closed",
+      "setting": "both",
+      "task_model": {
+        "key": "gemma-4-31b-paid",
+        "endpoint": "openrouter/google/gemma-4-31b-it",
+        "params_b": 31.0,
+        "closed_track": true,
+        "license_status": "verified-open"
+      },
+      "optimizer": null,
+      "data_sources": [
+        "daleel2026:train-task-2"
+      ]
+    }
+  }
+}

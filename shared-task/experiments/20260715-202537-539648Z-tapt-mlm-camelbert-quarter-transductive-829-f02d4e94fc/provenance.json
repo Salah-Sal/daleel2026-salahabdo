@@ -1,0 +1,10 @@
+{
+  "derivation": "apache-2.0 base checkpoint + organizer-provided input text only (no labels, no external data)",
+  "legality": "transductive (includes dev_in.jsonl inputs); OOF-measurement-only pending written organizer ruling; must not deploy",
+  "base": {
+    "repository": "CAMeL-Lab/bert-base-arabic-camelbert-msa-quarter",
+    "revision": "3e48534705c153737cbec1c5748bb02359b7b239",
+    "license": "apache-2.0"
+  },
+  "weights_git_hash_object": "1577e68b0fa6226ea37b3b3c3cfc4f4b2db2bfb4"
+}

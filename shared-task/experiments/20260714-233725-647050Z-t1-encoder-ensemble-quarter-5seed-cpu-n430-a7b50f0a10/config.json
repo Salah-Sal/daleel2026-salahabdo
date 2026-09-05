@@ -1,0 +1,29 @@
+{
+  "script": "ensemble_encoder_seeds.py",
+  "argv": [
+    "--runs",
+    "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "experiments/20260714-214717-602968Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-64ee8a2da2",
+    "experiments/20260714-221008-917661Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-5127cff275",
+    "experiments/20260714-223217-424450Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-2eb41ad417",
+    "experiments/20260714-225500-439036Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-47b1ee1013",
+    "--name",
+    "quarter-5seed-cpu"
+  ],
+  "milestone": "HEADROOM_AUDIT.md P5",
+  "method": "mean sigmoid across seeds, cross-fitted thresholds re-fit on the ensembled scores with trainer machinery",
+  "inputs": [
+    "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "experiments/20260714-214717-602968Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-64ee8a2da2",
+    "experiments/20260714-221008-917661Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-5127cff275",
+    "experiments/20260714-223217-424450Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-2eb41ad417",
+    "experiments/20260714-225500-439036Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-47b1ee1013"
+  ],
+  "input_scores_sha256": [
+    "0f95d5cb9cbc2cd8a43b55aba21a587ff1669748a8e1319acda578190e6054e1",
+    "7de732b52ab6770530c9877e28c856013c46feb5fd0287b020ec573a3f6016c5",
+    "9448a713a8d2bd57053ccbfd8492c8395b17af095fd672b933958dce7459026a",
+    "8d5ea2007d6e5b4a0e47715d4f653a79bd95b50e0cc70e42776040372921980a",
+    "76b8ea3765a1063c7f7678ee3445c7ba00fe2ac5b2f1fca87e251f31a04275a3"
+  ]
+}

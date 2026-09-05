@@ -1,0 +1,30 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "2",
+    "--model",
+    "gemma-4-31b-paid",
+    "--program",
+    "quote",
+    "--on",
+    "val",
+    "--threads",
+    "8",
+    "--max-tokens",
+    "6000",
+    "--compiled",
+    "experiments/20260709-t2-gepa-gemma-4-31b-paid-refl-deepseek-v4-pro/compiled/gepa.json"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended",
+    "lm_kwargs": []
+  },
+  "temperature": 0.0,
+  "max_tokens": 6000,
+  "dspy_version": "3.3.0b1"
+}

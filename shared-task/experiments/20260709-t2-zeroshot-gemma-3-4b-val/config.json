@@ -1,0 +1,23 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "2",
+    "--model",
+    "gemma-3-4b",
+    "--on",
+    "val",
+    "--threads",
+    "6"
+  ],
+  "model": {
+    "key": "gemma-3-4b",
+    "litellm_id": "openrouter/google/gemma-3-4b-it",
+    "params_b": 4,
+    "closed_track": true,
+    "notes": "paid (cheap); smallest dense Gemma"
+  },
+  "temperature": 0.0,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1"
+}

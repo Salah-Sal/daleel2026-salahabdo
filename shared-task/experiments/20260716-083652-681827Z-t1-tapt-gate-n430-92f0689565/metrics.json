@@ -1,0 +1,56 @@
+{
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md TAPT gate (commit cd77061)",
+  "control_v22_macro": 0.7298,
+  "gate": 0.7498,
+  "tapt_swap": {
+    "macro": 0.7364,
+    "delta": 0.0066,
+    "fold_wins": 3,
+    "fold_slices": {
+      "0": {
+        "v22": 0.684,
+        "tapt": 0.7167
+      },
+      "1": {
+        "v22": 0.7361,
+        "tapt": 0.736
+      },
+      "2": {
+        "v22": 0.7528,
+        "tapt": 0.7339
+      },
+      "3": {
+        "v22": 0.7996,
+        "tapt": 0.8065
+      },
+      "4": {
+        "v22": 0.699,
+        "tapt": 0.7128
+      }
+    },
+    "passed": false
+  },
+  "encoder_only_oof_macro": {
+    "baseline": 0.5948,
+    "tapt": 0.6424
+  },
+  "per_label": {
+    "v22_control": {
+      "CO": 0.4,
+      "AS": 0.9192,
+      "TE": 0.7782,
+      "ST": 0.7826,
+      "AN": 0.7243,
+      "OT": 0.7744
+    },
+    "tapt_swap": {
+      "CO": 0.3733,
+      "AS": 0.9192,
+      "TE": 0.7782,
+      "ST": 0.7826,
+      "AN": 0.7557,
+      "OT": 0.8095
+    }
+  },
+  "deployment": "BLOCKED regardless of verdict pending organizer ruling on transductive input use"
+}

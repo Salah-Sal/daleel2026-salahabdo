@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "tasks": [
+    2
+  ],
+  "track": "closed",
+  "setting": "both",
+  "architecture": "arabic-encoder-connective-segment-v1",
+  "dspy_used": false,
+  "generative_inference_used": false,
+  "external_labeled_data_used": false,
+  "model": {
+    "key": "camelbert-msa",
+    "repository": "CAMeL-Lab/bert-base-arabic-camelbert-msa",
+    "revision": "277069fd3645fedb22b746caf38d111aadee0241",
+    "license_id": "apache-2.0",
+    "license_url": "https://huggingface.co/CAMeL-Lab/bert-base-arabic-camelbert-msa",
+    "closed_track_verified": true,
+    "resolved_commit": "277069fd3645fedb22b746caf38d111aadee0241"
+  },
+  "data_sources": [
+    {
+      "id": "daleel2026:train-task-1",
+      "path": "<repo>/resources/repos/Daleel2026/data/train/train_task_1.jsonl",
+      "sha256": "240b4299df7d9e3b9297843acd271463d7aa7d10ce991576ed51f4c43ab241af"
+    },
+    {
+      "id": "daleel2026:train-task-2",
+      "path": "<repo>/resources/repos/Daleel2026/data/train/train_task_2.jsonl",
+      "sha256": "4ef331404670e39a3cd46ec4dfcfe3be4cb6d71e5d764d998ad87d74d31d1a66"
+    }
+  ],
+  "training_ids": [
+    192,
+    259,
+    388,
+    493,
+    693,
+    790,
+    845,
+    960
+  ],
+  "training_ids_sha256": "8a3eb23ad99f75bdf76b2aaba73a5f17abbda53438bd4508891d4dafb562302f",
+  "fold_manifest_sha256": "5e33625f22f7c57f93e404bd7045757882aeedce76c184b694ff2faad452cf93",
+  "cleaning_policy": "daleel.splits clean_task1_gold/clean_task2_gold",
+  "dependencies": {
+    "torch": "2.13.0",
+    "transformers": "4.57.6",
+    "safetensors": "0.8.0"
+  },
+  "outputs": [
+    {
+      "kind": "encoder-task-2-oof-predictions",
+      "relative_path": "predictions/oof_task_2.jsonl",
+      "sha256": "f8ebc94908570ff73cc7505be6f97339a1b4579974db01def94794b694268c9d"
+    },
+    {
+      "kind": "encoder-oof-scores",
+      "relative_path": "predictions/oof_task_2_segment_scores.jsonl",
+      "sha256": "feb56e8e57c3b9f1eeb30d4fae1262adda431d3580d3b1504ec64d21508ad683"
+    },
+    {
+      "kind": "encoder-oof-metrics",
+      "relative_path": "metrics.json",
+      "sha256": "5ba17c11285a1a4cd1f5a9f09c75292d9ce19522c7a2ca697111f38d3cf3f35d"
+    },
+    {
+      "kind": "encoder-training-history",
+      "relative_path": "training_history.json",
+      "sha256": "abbcf2451ab2c28eb1c2fd40467a91fea91205e647b51d8494290013bac79e84"
+    },
+    {
+      "kind": "paragraph-fold-manifest",
+      "relative_path": "folds.json",
+      "sha256": "2e91682017f76d95772ef0fe206ace3ffd024dfaa11ae73735c99583e3422615"
+    }
+  ],
+  "primary_metric": {
+    "name": "official_task2_partial_f1_oof",
+    "score": 0.15251970105742932
+  },
+  "comparable_run": false
+}

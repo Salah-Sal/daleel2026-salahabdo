@@ -1,0 +1,29 @@
+{
+  "task": 1,
+  "model": "gemma-3-4b",
+  "litellm_id": "openrouter/google/gemma-3-4b-it",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 339.3,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.5326,
+  "micro_f1": 0.6542,
+  "s2_rare_recall": {
+    "ST": 0.875,
+    "CO": 0.5
+  },
+  "per_label_f1": {
+    "CO": 0.2326,
+    "AS": 0.8978,
+    "TE": 0.6557,
+    "ST": 0.5185,
+    "AN": 0.3908,
+    "OT": 0.5
+  },
+  "proxy_mean": 0.6137
+}

@@ -1,0 +1,19 @@
+{
+  "script": "st_verifier_v2.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--threads",
+    "8"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended",
+    "license_status": "verified-open",
+    "lm_kwargs": []
+  },
+  "dspy_version": "3.3.0b1"
+}

@@ -1,0 +1,28 @@
+{
+  "task": 2,
+  "model": "nemotron-nano-9b",
+  "litellm_id": "openrouter/nvidia/nemotron-nano-9b-v2:free",
+  "on": "train:8",
+  "n_paragraphs": 8,
+  "cot": true,
+  "g1_format_compliance": 0.875,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 76.6,
+  "errors_sample": [],
+  "n_length_mismatch": 1,
+  "granularity": "connective",
+  "s1_official_span_f1": 0.5892,
+  "precision": 0.5132,
+  "recall": 0.6918,
+  "per_label_f1": {
+    "CO": 0.0,
+    "AS": 0.74,
+    "TE": 0.3665,
+    "ST": 0.0,
+    "AN": 0.0,
+    "OT": 0.1215
+  },
+  "proxy_mean": 0.3942
+}

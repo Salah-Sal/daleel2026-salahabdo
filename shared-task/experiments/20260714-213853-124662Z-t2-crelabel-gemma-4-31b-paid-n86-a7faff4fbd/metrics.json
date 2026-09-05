@@ -1,0 +1,23 @@
+{
+  "recorded_f1": 0.7169,
+  "relabeled_f1": 0.7176,
+  "delta": 0.0007,
+  "per_label_f1": {
+    "CO": 0.2395,
+    "AS": 0.789,
+    "TE": 0.7941,
+    "ST": 0.6812,
+    "AN": 0.4988,
+    "OT": 0.5873
+  },
+  "n_violating": 46,
+  "n_reassigned": 39,
+  "n_dropped": 7,
+  "n_kept_by_error": 0,
+  "errors_sample": [],
+  "wall_seconds": 57.5,
+  "screen": {
+    "rule": "relabeled >= recorded + 0.015",
+    "pass": false
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "script": "t2_constrained_relabel.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--role-run",
+    "experiments/20260710-221215-667710Z-v3-role-gepa-gemma-4-31b-paid-both-outer4-inner0-49f2e2dad5",
+    "--v2-run",
+    "experiments/20260715-003004-912987Z-t1-routed-v2-k5-n430-4f30d408fa",
+    "--encoder-oof",
+    "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "--threads",
+    "8"
+  ],
+  "milestone": "HEADROOM_AUDIT.md P3",
+  "model": "gemma-4-31b-paid",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "role_run": "experiments/20260710-221215-667710Z-v3-role-gepa-gemma-4-31b-paid-both-outer4-inner0-49f2e2dad5",
+  "v2_run": "experiments/20260715-003004-912987Z-t1-routed-v2-k5-n430-4f30d408fa",
+  "encoder_oof": "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+  "recorded_sha256": "afd55d80afbec0b4e2ff237cf2d8dde3a134135190c779d9abd29ccc8044d2fc",
+  "allowed_rule": "v2 composition with OT from encoder leg (v2.1)",
+  "n_paragraphs": 86,
+  "n_spans": 792,
+  "n_violating": 82
+}

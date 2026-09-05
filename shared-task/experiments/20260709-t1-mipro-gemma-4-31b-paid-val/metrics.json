@@ -1,0 +1,31 @@
+{
+  "task": 1,
+  "model": "gemma-4-31b-paid",
+  "program": "seed",
+  "compiled": "experiments/20260709-t1-mipro-gemma-4-31b-paid/compiled/mipro.json",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 265.5,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.6616,
+  "micro_f1": 0.7637,
+  "s2_rare_recall": {
+    "ST": 0.875,
+    "CO": 0.6
+  },
+  "per_label_f1": {
+    "CO": 0.3333,
+    "AS": 0.9057,
+    "TE": 0.8468,
+    "ST": 0.6364,
+    "AN": 0.5455,
+    "OT": 0.702
+  },
+  "proxy_mean": 0.7052
+}

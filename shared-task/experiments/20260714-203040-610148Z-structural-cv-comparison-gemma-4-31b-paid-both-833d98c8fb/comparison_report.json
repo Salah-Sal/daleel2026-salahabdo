@@ -1,0 +1,653 @@
+{
+  "report_schema_version": 1,
+  "architecture": "discourse-forest-structural-ablation-cv-v1",
+  "controlled_contract": {
+    "model": "gemma-4-31b-paid",
+    "track": "closed",
+    "setting": "both",
+    "optimizer": "none",
+    "objective": "task2",
+    "pool": "legacy-train",
+    "n_folds": 5,
+    "n_inner_folds": 4,
+    "inner_fold": 0,
+    "fold_seed": 20260710,
+    "fold_manifest_sha256": "02677817d310a61858202428ede9dcb6408875f0b729a970e8eff57c1a95bef9",
+    "granularity": "connective",
+    "containment_threshold": 0.8,
+    "context_chars": 500,
+    "demo_context_chars": 350,
+    "role_cot": false,
+    "demo_selector": true,
+    "max_demos": 7,
+    "same_genre_bonus": 0.05,
+    "balance_per_class": 80,
+    "optimizer_val_max": 300,
+    "optimizer_val_distribution": "natural-without-replacement",
+    "optimizer_train_distribution": "class-balanced-with-cycling",
+    "auto": "light",
+    "max_metric_calls": null,
+    "max_tokens": 2500,
+    "max_rerank_candidates": 0,
+    "proposal_sha256": "fcd44c03f2e96829de9671d7a34ead82d5a9db02f8d53334b6de77fac50aa0a1",
+    "accept_delta": 0.02
+  },
+  "forest_sha256": "0758d176d827301eb52a210de41c8bf32f228abf5ef30133b9a5ee5146523e90",
+  "forest_contract_sha256": "9d4d7a87afc756feb65a513163bad9378d32c1816d9de630c04e1aeb7eab0462",
+  "shuffle_seed": 20260711,
+  "results": {
+    "baseline": {
+      "n_paragraphs": 86,
+      "task1_macro_f1": 0.6257720057720059,
+      "task1_per_label_f1": {
+        "CO": 0.2285714285714286,
+        "AS": 0.9242424242424243,
+        "TE": 0.7200000000000001,
+        "ST": 0.5454545454545454,
+        "AN": 0.6363636363636364,
+        "OT": 0.7000000000000001
+      },
+      "task2_f1": 0.6393966798190278,
+      "task2_precision": 0.6088746384409466,
+      "task2_recall": 0.6731402681033265,
+      "task2_per_label_f1": {
+        "CO": 0.16798556188622824,
+        "AS": 0.7628131545494773,
+        "TE": 0.6705605480074521,
+        "ST": 0.43928467766667306,
+        "AN": 0.3653344838372597,
+        "OT": 0.5283173280214936
+      },
+      "task2_by_genre": {
+        "editorial": 0.5812792339024718,
+        "debate": 0.6585402521060866
+      },
+      "task2_by_length": {
+        "short_le_300": {
+          "n": 45,
+          "task2_f1": 0.6333307817404491
+        },
+        "medium_301_769": {
+          "n": 28,
+          "task2_f1": 0.627434088590922
+        },
+        "long_gt_769": {
+          "n": 13,
+          "task2_f1": 0.651268569471545
+        }
+      },
+      "decision": {
+        "n": 787,
+        "exact_accuracy": 0.6238881829733164,
+        "mean_set_f1": 0.6247352816603134,
+        "parse_failures": 0,
+        "confusions": {
+          "AN->AN": 28,
+          "AN->AS": 25,
+          "AN->CO": 25,
+          "AN->NONE": 5,
+          "AN->OT": 8,
+          "AN->ST": 6,
+          "AN->TE": 9,
+          "AS->AN": 12,
+          "AS->AS": 308,
+          "AS->CO": 25,
+          "AS->NONE": 18,
+          "AS->OT": 38,
+          "AS->ST": 2,
+          "AS->TE": 15,
+          "CO->AS": 5,
+          "CO->CO": 6,
+          "CO->NONE": 1,
+          "NONE->AS": 15,
+          "NONE->NONE": 16,
+          "NONE->OT": 32,
+          "NONE->ST": 1,
+          "NONE->TE": 2,
+          "OT->AN": 1,
+          "OT->AS": 22,
+          "OT->NONE": 2,
+          "OT->OT": 76,
+          "ST+TE->ST": 1,
+          "ST->AN": 1,
+          "ST->ST": 3,
+          "TE->AN": 2,
+          "TE->AS": 7,
+          "TE->CO": 4,
+          "TE->NONE": 1,
+          "TE->OT": 11,
+          "TE->TE": 54
+        }
+      }
+    },
+    "flat": {
+      "n_paragraphs": 86,
+      "task1_macro_f1": 0.6477261918918414,
+      "task1_per_label_f1": {
+        "CO": 0.2631578947368421,
+        "AS": 0.9160305343511451,
+        "TE": 0.7169811320754716,
+        "ST": 0.6666666666666666,
+        "AN": 0.6222222222222222,
+        "OT": 0.7012987012987012
+      },
+      "task2_f1": 0.6443760970230652,
+      "task2_precision": 0.6183606294032428,
+      "task2_recall": 0.6726767341661443,
+      "task2_per_label_f1": {
+        "CO": 0.20537781569427133,
+        "AS": 0.7694852510473474,
+        "TE": 0.6576383212508136,
+        "ST": 0.49623952714085723,
+        "AN": 0.39018942967526415,
+        "OT": 0.5368524992651126
+      },
+      "task2_by_genre": {
+        "editorial": 0.597278314197495,
+        "debate": 0.6598123725909668
+      },
+      "task2_by_length": {
+        "short_le_300": {
+          "n": 45,
+          "task2_f1": 0.6308992138209811
+        },
+        "medium_301_769": {
+          "n": 28,
+          "task2_f1": 0.6441042814475101
+        },
+        "long_gt_769": {
+          "n": 13,
+          "task2_f1": 0.6506399411783781
+        }
+      },
+      "decision": {
+        "n": 787,
+        "exact_accuracy": 0.627700127064803,
+        "mean_set_f1": 0.6285472257518001,
+        "parse_failures": 0,
+        "confusions": {
+          "AN->AN": 35,
+          "AN->AS": 17,
+          "AN->CO": 27,
+          "AN->NONE": 5,
+          "AN->OT": 6,
+          "AN->ST": 5,
+          "AN->TE": 11,
+          "AS->AN": 14,
+          "AS->AS": 301,
+          "AS->CO": 26,
+          "AS->NONE": 25,
+          "AS->OT": 32,
+          "AS->ST": 2,
+          "AS->TE": 18,
+          "CO->AS": 2,
+          "CO->CO": 8,
+          "CO->NONE": 2,
+          "NONE->AS": 13,
+          "NONE->CO": 1,
+          "NONE->NONE": 17,
+          "NONE->OT": 33,
+          "NONE->TE": 2,
+          "OT->AN": 2,
+          "OT->AS": 21,
+          "OT->CO": 1,
+          "OT->NONE": 2,
+          "OT->OT": 75,
+          "ST+TE->ST": 1,
+          "ST->AN": 1,
+          "ST->ST": 3,
+          "TE->AN": 2,
+          "TE->AS": 6,
+          "TE->CO": 4,
+          "TE->NONE": 1,
+          "TE->OT": 11,
+          "TE->TE": 55
+        }
+      }
+    },
+    "forest": {
+      "n_paragraphs": 86,
+      "task1_macro_f1": 0.6447769742572927,
+      "task1_per_label_f1": {
+        "CO": 0.2857142857142857,
+        "AS": 0.9160305343511451,
+        "TE": 0.7058823529411765,
+        "ST": 0.6,
+        "AN": 0.6521739130434783,
+        "OT": 0.7088607594936708
+      },
+      "task2_f1": 0.6492949572134962,
+      "task2_precision": 0.6214557312565143,
+      "task2_recall": 0.679745372364056,
+      "task2_per_label_f1": {
+        "CO": 0.20066035417171615,
+        "AS": 0.7691430191338926,
+        "TE": 0.6576383212508136,
+        "ST": 0.43928467766667306,
+        "AN": 0.41159782916121884,
+        "OT": 0.5465491244068199
+      },
+      "task2_by_genre": {
+        "editorial": 0.5713208845615075,
+        "debate": 0.6749940740578243
+      },
+      "task2_by_length": {
+        "short_le_300": {
+          "n": 45,
+          "task2_f1": 0.6510303479722118
+        },
+        "medium_301_769": {
+          "n": 28,
+          "task2_f1": 0.6409436908611186
+        },
+        "long_gt_769": {
+          "n": 13,
+          "task2_f1": 0.6543517160101304
+        }
+      },
+      "decision": {
+        "n": 787,
+        "exact_accuracy": 0.6315120711562897,
+        "mean_set_f1": 0.6332062685302837,
+        "parse_failures": 0,
+        "confusions": {
+          "AN->AN": 35,
+          "AN->AS": 17,
+          "AN->CO": 21,
+          "AN->NONE": 5,
+          "AN->OT": 10,
+          "AN->ST": 7,
+          "AN->TE": 11,
+          "AS->AN": 15,
+          "AS->AS": 305,
+          "AS->CO": 26,
+          "AS->NONE": 22,
+          "AS->OT": 31,
+          "AS->ST": 2,
+          "AS->TE": 17,
+          "CO->AS": 3,
+          "CO->CO": 7,
+          "CO->NONE": 2,
+          "NONE->AS": 15,
+          "NONE->CO": 1,
+          "NONE->NONE": 16,
+          "NONE->OT": 31,
+          "NONE->TE": 3,
+          "OT->AN": 2,
+          "OT->AS": 21,
+          "OT->NONE": 1,
+          "OT->OT": 77,
+          "ST+TE->ST": 1,
+          "ST->AN": 1,
+          "ST->ST": 3,
+          "TE->AN": 2,
+          "TE->AS": 6,
+          "TE->AS+TE": 1,
+          "TE->CO": 4,
+          "TE->NONE": 2,
+          "TE->OT": 10,
+          "TE->TE": 54
+        }
+      }
+    },
+    "shuffled": {
+      "n_paragraphs": 86,
+      "task1_macro_f1": 0.6377316685792214,
+      "task1_per_label_f1": {
+        "CO": 0.17647058823529413,
+        "AS": 0.9160305343511451,
+        "TE": 0.7200000000000001,
+        "ST": 0.6666666666666666,
+        "AN": 0.6222222222222222,
+        "OT": 0.725
+      },
+      "task2_f1": 0.6489992734754738,
+      "task2_precision": 0.6202329284689284,
+      "task2_recall": 0.680563756629373,
+      "task2_per_label_f1": {
+        "CO": 0.2017216453073637,
+        "AS": 0.7705126352751678,
+        "TE": 0.6590643967625431,
+        "ST": 0.4660283926494064,
+        "AN": 0.4244075003078519,
+        "OT": 0.5377792863564143
+      },
+      "task2_by_genre": {
+        "editorial": 0.5881391271141644,
+        "debate": 0.6692214550703192
+      },
+      "task2_by_length": {
+        "short_le_300": {
+          "n": 45,
+          "task2_f1": 0.6348446342426401
+        },
+        "medium_301_769": {
+          "n": 28,
+          "task2_f1": 0.6501754220813949
+        },
+        "long_gt_769": {
+          "n": 13,
+          "task2_f1": 0.6544818539591273
+        }
+      },
+      "decision": {
+        "n": 787,
+        "exact_accuracy": 0.6315120711562897,
+        "mean_set_f1": 0.6323591698432868,
+        "parse_failures": 0,
+        "confusions": {
+          "AN->AN": 35,
+          "AN->AS": 18,
+          "AN->CO": 20,
+          "AN->NONE": 5,
+          "AN->OT": 10,
+          "AN->ST": 6,
+          "AN->TE": 12,
+          "AS->AN": 14,
+          "AS->AS": 304,
+          "AS->CO": 26,
+          "AS->NONE": 22,
+          "AS->OT": 38,
+          "AS->ST": 2,
+          "AS->TE": 12,
+          "CO->AS": 3,
+          "CO->CO": 7,
+          "CO->NONE": 2,
+          "NONE->AS": 16,
+          "NONE->NONE": 16,
+          "NONE->OT": 30,
+          "NONE->TE": 4,
+          "OT->AN": 2,
+          "OT->AS": 19,
+          "OT->CO": 1,
+          "OT->NONE": 1,
+          "OT->OT": 78,
+          "ST+TE->ST": 1,
+          "ST->AN": 1,
+          "ST->ST": 3,
+          "TE->AN": 3,
+          "TE->AS": 7,
+          "TE->CO": 4,
+          "TE->NONE": 1,
+          "TE->OT": 10,
+          "TE->TE": 54
+        }
+      }
+    }
+  },
+  "task2_deltas": {
+    "flat_minus_baseline": 0.004979417204037384,
+    "forest_minus_baseline": 0.009898277394468358,
+    "forest_minus_flat": 0.004918860190430974,
+    "forest_minus_shuffled": 0.0002956837380223565,
+    "shuffled_minus_flat": 0.004623176452408617
+  },
+  "adoption": {
+    "complete": false,
+    "required_delta": 0.02,
+    "forest_beats_baseline_gate": false,
+    "forest_beats_flat": true,
+    "forest_beats_shuffled": true,
+    "adopt": false
+  },
+  "upstream_runs": {
+    "baseline": [
+      {
+        "run": "experiments/20260710-192111-135671Z-v3-role-none-gemma-4-31b-paid-both-outer0-inner0-d7f278312a",
+        "fold": 0,
+        "config_sha256": "ad74ff18bcdf77d1f17f775e8e72f90b4715edd14e449cfeabc23dd9a8e20c04",
+        "provenance_sha256": "de59461f705282f5389eb0fda0180a71130a22036a56404b34b2f1684ebf0471",
+        "task1_sha256": "8fa4c67ab7a832d26fb2e4b7a9a7f61b6097e9e9e3b5ab6aa2101d0244e98b9b",
+        "task2_sha256": "e9409ee7506dc8589b7e7927b4bdaf4bf32b01b081cad0f64828974180ab77d1",
+        "outer_decision": {
+          "n": 787,
+          "exact_accuracy": 0.6238881829733164,
+          "mean_set_f1": 0.6247352816603134,
+          "parse_failures": 0,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "NONE": 66,
+            "TE": 79,
+            "AS": 418,
+            "OT": 101,
+            "AN": 106,
+            "CO": 12,
+            "ST": 5
+          },
+          "confusions": {
+            "AN->AN": 28,
+            "AN->AS": 25,
+            "AN->CO": 25,
+            "AN->NONE": 5,
+            "AN->OT": 8,
+            "AN->ST": 6,
+            "AN->TE": 9,
+            "AS->AN": 12,
+            "AS->AS": 308,
+            "AS->CO": 25,
+            "AS->NONE": 18,
+            "AS->OT": 38,
+            "AS->ST": 2,
+            "AS->TE": 15,
+            "CO->AS": 5,
+            "CO->CO": 6,
+            "CO->NONE": 1,
+            "NONE->AS": 15,
+            "NONE->NONE": 16,
+            "NONE->OT": 32,
+            "NONE->ST": 1,
+            "NONE->TE": 2,
+            "OT->AN": 1,
+            "OT->AS": 22,
+            "OT->NONE": 2,
+            "OT->OT": 76,
+            "ST->AN": 1,
+            "ST->ST": 3,
+            "ST+TE->ST": 1,
+            "TE->AN": 2,
+            "TE->AS": 7,
+            "TE->CO": 4,
+            "TE->NONE": 1,
+            "TE->OT": 11,
+            "TE->TE": 54
+          }
+        }
+      }
+    ],
+    "flat": [
+      {
+        "run": "experiments/20260714-194441-229141Z-v4-structure-flat-none-gemma-4-31b-paid-both-outer0-inner0-18eabcbd18",
+        "fold": 0,
+        "config_sha256": "01c29929b31766ebcbf4ecaa21981b93cf9ec63f5d017a4332b20ffe8cd9d033",
+        "provenance_sha256": "a67d691dbfb936a6740c1102f15f8477a242b56aa8c11e3fa7bf2172c049c992",
+        "task1_sha256": "8af847e8cd89956ffbb32c96eb51daea73281e23186591112cf56fb15a4baa57",
+        "task2_sha256": "5400cb8eefdf901452b15688bc5991190f806fb0da50f216b43a2b5d1e7bb09b",
+        "outer_decision": {
+          "n": 787,
+          "exact_accuracy": 0.627700127064803,
+          "mean_set_f1": 0.6285472257518001,
+          "parse_failures": 0,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "NONE": 66,
+            "TE": 79,
+            "AS": 418,
+            "OT": 101,
+            "AN": 106,
+            "CO": 12,
+            "ST": 5
+          },
+          "confusions": {
+            "AN->AN": 35,
+            "AN->AS": 17,
+            "AN->CO": 27,
+            "AN->NONE": 5,
+            "AN->OT": 6,
+            "AN->ST": 5,
+            "AN->TE": 11,
+            "AS->AN": 14,
+            "AS->AS": 301,
+            "AS->CO": 26,
+            "AS->NONE": 25,
+            "AS->OT": 32,
+            "AS->ST": 2,
+            "AS->TE": 18,
+            "CO->AS": 2,
+            "CO->CO": 8,
+            "CO->NONE": 2,
+            "NONE->AS": 13,
+            "NONE->CO": 1,
+            "NONE->NONE": 17,
+            "NONE->OT": 33,
+            "NONE->TE": 2,
+            "OT->AN": 2,
+            "OT->AS": 21,
+            "OT->CO": 1,
+            "OT->NONE": 2,
+            "OT->OT": 75,
+            "ST->AN": 1,
+            "ST->ST": 3,
+            "ST+TE->ST": 1,
+            "TE->AN": 2,
+            "TE->AS": 6,
+            "TE->CO": 4,
+            "TE->NONE": 1,
+            "TE->OT": 11,
+            "TE->TE": 55
+          }
+        }
+      }
+    ],
+    "forest": [
+      {
+        "run": "experiments/20260714-195418-339025Z-v4-structure-forest-none-gemma-4-31b-paid-both-outer0-inner0-0efa3f106a",
+        "fold": 0,
+        "config_sha256": "52b8e88de6710616f45214c11573a50bac930dec7d245e01d5f08b8f0fe3d5aa",
+        "provenance_sha256": "d02a6c77090a40154e26dd93ead948679adb93a40a0449f4fc3f7f724111e2cd",
+        "task1_sha256": "800f40d86c15b199bac898ef6338ea72d96bc1af19ab30a5fc20d24884d00b1d",
+        "task2_sha256": "7be04f06f25405ec7d4f4fd843ebc306c4a0b6e5129444474e8efaae5522eb6d",
+        "outer_decision": {
+          "n": 787,
+          "exact_accuracy": 0.6315120711562897,
+          "mean_set_f1": 0.6332062685302837,
+          "parse_failures": 0,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "NONE": 66,
+            "TE": 79,
+            "AS": 418,
+            "OT": 101,
+            "AN": 106,
+            "CO": 12,
+            "ST": 5
+          },
+          "confusions": {
+            "AN->AN": 35,
+            "AN->AS": 17,
+            "AN->CO": 21,
+            "AN->NONE": 5,
+            "AN->OT": 10,
+            "AN->ST": 7,
+            "AN->TE": 11,
+            "AS->AN": 15,
+            "AS->AS": 305,
+            "AS->CO": 26,
+            "AS->NONE": 22,
+            "AS->OT": 31,
+            "AS->ST": 2,
+            "AS->TE": 17,
+            "CO->AS": 3,
+            "CO->CO": 7,
+            "CO->NONE": 2,
+            "NONE->AS": 15,
+            "NONE->CO": 1,
+            "NONE->NONE": 16,
+            "NONE->OT": 31,
+            "NONE->TE": 3,
+            "OT->AN": 2,
+            "OT->AS": 21,
+            "OT->NONE": 1,
+            "OT->OT": 77,
+            "ST->AN": 1,
+            "ST->ST": 3,
+            "ST+TE->ST": 1,
+            "TE->AN": 2,
+            "TE->AS": 6,
+            "TE->AS+TE": 1,
+            "TE->CO": 4,
+            "TE->NONE": 2,
+            "TE->OT": 10,
+            "TE->TE": 54
+          }
+        }
+      }
+    ],
+    "shuffled": [
+      {
+        "run": "experiments/20260714-200827-182035Z-v4-structure-shuffled-none-gemma-4-31b-paid-both-outer0-inner0-932b2ff487",
+        "fold": 0,
+        "config_sha256": "30112877b6109977f38a0054fa59b760093ba8972a5d7e4a63e0dba10be7e32d",
+        "provenance_sha256": "093c6b5ee462a31e0cbb6a4e9e948056f0dc1da85381bbc6a761008bbccc7f4d",
+        "task1_sha256": "15ae10ae3c759390a73966f318a3020bcfbf422b805505d54084788a220efd43",
+        "task2_sha256": "2265f9870fdf3d19f7632d7fc1cbb3fa60a5c09e505a00687c1c3d6388f52c08",
+        "outer_decision": {
+          "n": 787,
+          "exact_accuracy": 0.6315120711562897,
+          "mean_set_f1": 0.6323591698432868,
+          "parse_failures": 0,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "NONE": 66,
+            "TE": 79,
+            "AS": 418,
+            "OT": 101,
+            "AN": 106,
+            "CO": 12,
+            "ST": 5
+          },
+          "confusions": {
+            "AN->AN": 35,
+            "AN->AS": 18,
+            "AN->CO": 20,
+            "AN->NONE": 5,
+            "AN->OT": 10,
+            "AN->ST": 6,
+            "AN->TE": 12,
+            "AS->AN": 14,
+            "AS->AS": 304,
+            "AS->CO": 26,
+            "AS->NONE": 22,
+            "AS->OT": 38,
+            "AS->ST": 2,
+            "AS->TE": 12,
+            "CO->AS": 3,
+            "CO->CO": 7,
+            "CO->NONE": 2,
+            "NONE->AS": 16,
+            "NONE->NONE": 16,
+            "NONE->OT": 30,
+            "NONE->TE": 4,
+            "OT->AN": 2,
+            "OT->AS": 19,
+            "OT->CO": 1,
+            "OT->NONE": 1,
+            "OT->OT": 78,
+            "ST->AN": 1,
+            "ST->ST": 3,
+            "ST+TE->ST": 1,
+            "TE->AN": 3,
+            "TE->AS": 7,
+            "TE->CO": 4,
+            "TE->NONE": 1,
+            "TE->OT": 10,
+            "TE->TE": 54
+          }
+        }
+      }
+    ]
+  }
+}

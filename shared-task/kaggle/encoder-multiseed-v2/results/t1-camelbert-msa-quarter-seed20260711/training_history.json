@@ -1,0 +1,312 @@
+[
+  {
+    "fold": 0,
+    "train_paragraph_count": 344,
+    "validation_paragraph_count": 86,
+    "train_item_count": 344,
+    "validation_item_count": 86,
+    "optimizer_step_attempts": 172,
+    "optimizer_steps": 172,
+    "skipped_optimizer_steps": 0,
+    "scheduler_steps": 172,
+    "training_seconds": 45.054628984000374,
+    "validation_loss": 0.30876413334247677,
+    "max_cuda_memory_allocated_bytes": 4943903232,
+    "max_cuda_memory_reserved_bytes": 5920260096,
+    "class_weights": null,
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_training_loss": 0.47425607366617334,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 43,
+        "optimizer_steps_total": 43,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 43,
+        "learning_rate": 1.6645161290322583e-05,
+        "seconds": 12.978474497999741
+      },
+      {
+        "epoch": 2,
+        "mean_training_loss": 0.32818447027442066,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 86,
+        "optimizer_steps_total": 86,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 86,
+        "learning_rate": 1.1096774193548388e-05,
+        "seconds": 10.396048218000033
+      },
+      {
+        "epoch": 3,
+        "mean_training_loss": 0.2755099424962388,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 129,
+        "optimizer_steps_total": 129,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 129,
+        "learning_rate": 5.548387096774194e-06,
+        "seconds": 10.451570575999995
+      },
+      {
+        "epoch": 4,
+        "mean_training_loss": 0.23958775782307914,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 172,
+        "optimizer_steps_total": 172,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 172,
+        "learning_rate": 0.0,
+        "seconds": 10.48342664599977
+      }
+    ]
+  },
+  {
+    "fold": 1,
+    "train_paragraph_count": 344,
+    "validation_paragraph_count": 86,
+    "train_item_count": 344,
+    "validation_item_count": 86,
+    "optimizer_step_attempts": 172,
+    "optimizer_steps": 171,
+    "skipped_optimizer_steps": 1,
+    "scheduler_steps": 171,
+    "training_seconds": 42.43897484199988,
+    "validation_loss": 0.2945002961990445,
+    "max_cuda_memory_allocated_bytes": 4935842304,
+    "max_cuda_memory_reserved_bytes": 6264193024,
+    "class_weights": null,
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_training_loss": 0.46597143834413485,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 43,
+        "optimizer_steps_total": 43,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 43,
+        "learning_rate": 1.6645161290322583e-05,
+        "seconds": 10.390801273999841
+      },
+      {
+        "epoch": 2,
+        "mean_training_loss": 0.33174195539119633,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 86,
+        "optimizer_steps_total": 86,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 86,
+        "learning_rate": 1.1096774193548388e-05,
+        "seconds": 10.377070259999982
+      },
+      {
+        "epoch": 3,
+        "mean_training_loss": 0.27789402120681694,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 129,
+        "optimizer_steps_total": 128,
+        "skipped_optimizer_steps_total": 1,
+        "scheduler_steps_total": 128,
+        "learning_rate": 5.677419354838711e-06,
+        "seconds": 10.43157350499996
+      },
+      {
+        "epoch": 4,
+        "mean_training_loss": 0.23367595360722654,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 172,
+        "optimizer_steps_total": 171,
+        "skipped_optimizer_steps_total": 1,
+        "scheduler_steps_total": 171,
+        "learning_rate": 1.2903225806451614e-07,
+        "seconds": 10.441881021999961
+      }
+    ]
+  },
+  {
+    "fold": 2,
+    "train_paragraph_count": 344,
+    "validation_paragraph_count": 86,
+    "train_item_count": 344,
+    "validation_item_count": 86,
+    "optimizer_step_attempts": 172,
+    "optimizer_steps": 172,
+    "skipped_optimizer_steps": 0,
+    "scheduler_steps": 172,
+    "training_seconds": 43.39557294899987,
+    "validation_loss": 0.3071765227373256,
+    "max_cuda_memory_allocated_bytes": 4950735360,
+    "max_cuda_memory_reserved_bytes": 5381292032,
+    "class_weights": null,
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_training_loss": 0.48282136768102646,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 43,
+        "optimizer_steps_total": 43,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 43,
+        "learning_rate": 1.6645161290322583e-05,
+        "seconds": 10.592506141000285
+      },
+      {
+        "epoch": 2,
+        "mean_training_loss": 0.32476325610349344,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 86,
+        "optimizer_steps_total": 86,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 86,
+        "learning_rate": 1.1096774193548388e-05,
+        "seconds": 10.547574801000337
+      },
+      {
+        "epoch": 3,
+        "mean_training_loss": 0.26881552712861884,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 129,
+        "optimizer_steps_total": 129,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 129,
+        "learning_rate": 5.548387096774194e-06,
+        "seconds": 10.772636174000127
+      },
+      {
+        "epoch": 4,
+        "mean_training_loss": 0.23004262556516847,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 172,
+        "optimizer_steps_total": 172,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 172,
+        "learning_rate": 0.0,
+        "seconds": 10.613947774999815
+      }
+    ]
+  },
+  {
+    "fold": 3,
+    "train_paragraph_count": 344,
+    "validation_paragraph_count": 86,
+    "train_item_count": 344,
+    "validation_item_count": 86,
+    "optimizer_step_attempts": 172,
+    "optimizer_steps": 171,
+    "skipped_optimizer_steps": 1,
+    "scheduler_steps": 171,
+    "training_seconds": 43.15115296199974,
+    "validation_loss": 0.29621351943459623,
+    "max_cuda_memory_allocated_bytes": 4945377792,
+    "max_cuda_memory_reserved_bytes": 5454692352,
+    "class_weights": null,
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_training_loss": 0.4866965437351271,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 43,
+        "optimizer_steps_total": 43,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 43,
+        "learning_rate": 1.6645161290322583e-05,
+        "seconds": 10.502120671999819
+      },
+      {
+        "epoch": 2,
+        "mean_training_loss": 0.3305203604490258,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 86,
+        "optimizer_steps_total": 86,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 86,
+        "learning_rate": 1.1096774193548388e-05,
+        "seconds": 10.492114589000266
+      },
+      {
+        "epoch": 3,
+        "mean_training_loss": 0.27832773431789043,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 129,
+        "optimizer_steps_total": 128,
+        "skipped_optimizer_steps_total": 1,
+        "scheduler_steps_total": 128,
+        "learning_rate": 5.677419354838711e-06,
+        "seconds": 10.625632140000107
+      },
+      {
+        "epoch": 4,
+        "mean_training_loss": 0.2430807786105677,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 172,
+        "optimizer_steps_total": 171,
+        "skipped_optimizer_steps_total": 1,
+        "scheduler_steps_total": 171,
+        "learning_rate": 1.2903225806451614e-07,
+        "seconds": 10.676114702999712
+      }
+    ]
+  },
+  {
+    "fold": 4,
+    "train_paragraph_count": 344,
+    "validation_paragraph_count": 86,
+    "train_item_count": 344,
+    "validation_item_count": 86,
+    "optimizer_step_attempts": 172,
+    "optimizer_steps": 172,
+    "skipped_optimizer_steps": 0,
+    "scheduler_steps": 172,
+    "training_seconds": 42.686913272999846,
+    "validation_loss": 0.29500395094239434,
+    "max_cuda_memory_allocated_bytes": 4954929664,
+    "max_cuda_memory_reserved_bytes": 5781848064,
+    "class_weights": null,
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_training_loss": 0.47755437309658805,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 43,
+        "optimizer_steps_total": 43,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 43,
+        "learning_rate": 1.6645161290322583e-05,
+        "seconds": 10.658429260000048
+      },
+      {
+        "epoch": 2,
+        "mean_training_loss": 0.31908705085515976,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 86,
+        "optimizer_steps_total": 86,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 86,
+        "learning_rate": 1.1096774193548388e-05,
+        "seconds": 10.278217710999797
+      },
+      {
+        "epoch": 3,
+        "mean_training_loss": 0.2508100304146146,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 129,
+        "optimizer_steps_total": 129,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 129,
+        "learning_rate": 5.548387096774194e-06,
+        "seconds": 10.312187175000417
+      },
+      {
+        "epoch": 4,
+        "mean_training_loss": 0.22085766416302946,
+        "examples_seen": 344,
+        "optimizer_step_attempts_total": 172,
+        "optimizer_steps_total": 172,
+        "skipped_optimizer_steps_total": 0,
+        "scheduler_steps_total": 172,
+        "learning_rate": 0.0,
+        "seconds": 10.565016487999856
+      }
+    ]
+  }
+]

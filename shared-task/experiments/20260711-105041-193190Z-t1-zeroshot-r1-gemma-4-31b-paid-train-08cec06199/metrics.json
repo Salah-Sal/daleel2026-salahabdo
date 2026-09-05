@@ -1,0 +1,33 @@
+{
+  "task": 1,
+  "model": "gemma-4-31b-paid",
+  "program": "seed",
+  "compiled": null,
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "on": "train",
+  "n_paragraphs": 430,
+  "cot": true,
+  "g1_format_compliance": 0.9977,
+  "n_parse_failures": 1,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 1,
+  "wall_seconds": 1.5,
+  "errors_sample": [
+    "742: AdapterParseError: Adapter JSONAdapter failed to parse the LM response. \n\nLM Response: {} \n\nExpected to find output fields in the LM response: [reasoning, adu_labels] \n\nActual output fields parsed from the LM response: [] \n\n"
+  ],
+  "s1_official_macro_f1": 0.646,
+  "micro_f1": 0.7603,
+  "s2_rare_recall": {
+    "ST": 1.0,
+    "CO": 0.6
+  },
+  "per_label_f1": {
+    "CO": 0.2778,
+    "AS": 0.9208,
+    "TE": 0.7724,
+    "ST": 0.5846,
+    "AN": 0.5766,
+    "OT": 0.7438
+  },
+  "proxy_mean": 0.7174
+}

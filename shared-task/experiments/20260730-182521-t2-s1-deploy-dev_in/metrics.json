@@ -1,0 +1,49 @@
+{
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md S1 deploy twin",
+  "v3_dev_run": "20260711-033302-645188Z-v3-decomposed-gemma-4-31b-paid-both-dev_in-78718d42e5",
+  "quote_dev_run": "20260711-032218-524548Z-t2-quote-gemma-4-31b-paid-dev-e955af86f9",
+  "encoder_oof_run": "<repo>/shared-task/experiments/20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+  "encoder_deploy_run": "experiments/20260730-222514-613928Z-t2-encoder-ensemble-quarter-dev-poolblend-old65-new35-s2-cfd610ca1e",
+  "fit": {
+    "lambda": 0.9,
+    "lambda_fit_f1_all430_insample": 0.7198,
+    "calibration_weights": {
+      "CO": 0.9501,
+      "AS": 0.9584,
+      "TE": 0.9924,
+      "ST": 1.2414,
+      "AN": 1.155,
+      "OT": 1.0179
+    }
+  },
+  "n_dev_paragraphs": 217,
+  "n_dev_spans": 1857,
+  "n_label_changes": 161,
+  "n_decode_changes": 133,
+  "n_rule_a_changes": 28,
+  "n_dedup_dropped": 1,
+  "dev_mass_fraction_recorded": {
+    "CO": 0.0971,
+    "AS": 0.553,
+    "TE": 0.1507,
+    "ST": 0.0183,
+    "AN": 0.0732,
+    "OT": 0.1077
+  },
+  "dev_mass_fraction_bundle": {
+    "CO": 0.034,
+    "AS": 0.6249,
+    "TE": 0.1483,
+    "ST": 0.0157,
+    "AN": 0.0716,
+    "OT": 0.1055
+  },
+  "train_gold_mass_fraction": {
+    "CO": 0.0199,
+    "AS": 0.5635,
+    "TE": 0.1244,
+    "ST": 0.0176,
+    "AN": 0.156,
+    "OT": 0.1186
+  }
+}

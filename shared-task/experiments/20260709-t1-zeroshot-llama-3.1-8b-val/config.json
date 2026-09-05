@@ -1,0 +1,23 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "1",
+    "--model",
+    "llama-3.1-8b",
+    "--on",
+    "val",
+    "--threads",
+    "6"
+  ],
+  "model": {
+    "key": "llama-3.1-8b",
+    "litellm_id": "openrouter/meta-llama/llama-3.1-8b-instruct",
+    "params_b": 8,
+    "closed_track": true,
+    "notes": "cheapest paid rung ($0.02/M)"
+  },
+  "temperature": 0.0,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1"
+}

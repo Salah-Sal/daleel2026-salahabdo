@@ -1,0 +1,49 @@
+{
+  "task": 1,
+  "model": "gemma-4-31b-paid",
+  "program": "guideline",
+  "compiled": null,
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "on": "train",
+  "n_paragraphs": 430,
+  "cot": true,
+  "g1_format_compliance": 0.9977,
+  "n_parse_failures": 1,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 1,
+  "wall_seconds": 4.3,
+  "errors_sample": [
+    "540: ValidationError: 1 validation error for list[str]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type"
+  ],
+  "align_stats": {
+    "exact": 2191,
+    "ws": 47,
+    "norm": 8,
+    "fuzzy": 56,
+    "unaligned": 0,
+    "dropped_overlap": 35
+  },
+  "n_paragraphs_with_unaligned": 0,
+  "n_length_mismatch": 1,
+  "guideline_units": {
+    "units": 2302,
+    "multi": 46,
+    "unlabeled": 1
+  },
+  "guideline_demos": "none",
+  "s1_official_macro_f1": 0.6395,
+  "micro_f1": 0.7245,
+  "s2_rare_recall": {
+    "ST": 0.9474,
+    "CO": 0.84
+  },
+  "per_label_f1": {
+    "CO": 0.271,
+    "AS": 0.9262,
+    "TE": 0.786,
+    "ST": 0.72,
+    "AN": 0.6201,
+    "OT": 0.5141
+  },
+  "proxy_mean": 0.7174
+}

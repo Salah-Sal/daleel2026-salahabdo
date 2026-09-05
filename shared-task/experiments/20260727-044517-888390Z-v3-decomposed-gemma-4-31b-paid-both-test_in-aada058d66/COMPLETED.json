@@ -1,0 +1,34 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "config.json",
+      "sha256": "7890b52801e9be25fd94a2863c51489195fd08b3e20e1e632066b4daf5d0f481"
+    },
+    {
+      "relative_path": "metrics.json",
+      "sha256": "6c22058d2df9d1c49b08372ffccaf0b9e02e99a2bcb015c9a8b542e3836121e5"
+    },
+    {
+      "relative_path": "predictions/quote_proposals.jsonl",
+      "sha256": "97b19850a7aa406ead801a06187ecf7302462df91b57483ab36a68a84bd8191c"
+    },
+    {
+      "relative_path": "predictions/task_1.jsonl",
+      "sha256": "2563eaafcacb27f0e55fb087507c0a329f844b1f77d6b851fe2c97b07e848b1c"
+    },
+    {
+      "relative_path": "predictions/task_2.jsonl",
+      "sha256": "3a52c480d6eaddc55ed17b1a6a4561ce47b4b1749e580ca8ad7b5637f489b146"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "c8fc3ddef2f697277fb6ca938ebc9153aea3c1f872cbf0d204369f3104d65479"
+    }
+  ],
+  "metadata": {
+    "architecture": "proposal-atom-role-v3",
+    "source_id": "daleel2026:test-input"
+  }
+}

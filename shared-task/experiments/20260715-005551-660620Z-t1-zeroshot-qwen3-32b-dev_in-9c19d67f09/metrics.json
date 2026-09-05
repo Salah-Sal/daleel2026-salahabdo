@@ -1,0 +1,16 @@
+{
+  "task": 1,
+  "model": "qwen3-32b",
+  "program": "seed",
+  "compiled": null,
+  "litellm_id": "openrouter/qwen/qwen3-32b",
+  "on": null,
+  "n_paragraphs": 217,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 346.1,
+  "errors_sample": []
+}

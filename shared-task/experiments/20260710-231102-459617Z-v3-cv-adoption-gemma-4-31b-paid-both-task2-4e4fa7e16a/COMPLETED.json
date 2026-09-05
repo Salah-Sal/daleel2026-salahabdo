@@ -1,0 +1,21 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "adoption_report.json",
+      "sha256": "83a9efe90766e56511561d35539aac47c1c894145cf712b3a3b64a80205395d2"
+    },
+    {
+      "relative_path": "config.json",
+      "sha256": "f21031b346074fba298fe16393be98f01dc481e85305de34dc29905fb91aa0d1"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "a98cfd2ab13b8d038c1c7a105fb4f845f0a03f6f015e35d9257054b388e31d9c"
+    }
+  ],
+  "metadata": {
+    "adopt": true
+  }
+}

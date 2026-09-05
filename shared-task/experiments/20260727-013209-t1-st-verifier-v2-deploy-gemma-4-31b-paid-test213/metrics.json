@@ -1,0 +1,17 @@
+{
+  "milestone": "ST verifier v2 deploy twin (adopted OOF gate 0.7298)",
+  "model": "gemma-4-31b-paid",
+  "rollouts": 3,
+  "temperature": 0.7,
+  "deploy_run": "experiments/20260727-053009-327437Z-t1-routed-v2-deploy-test_in-8e4c404e08",
+  "qwen_run": "experiments/20260727-051803-344633Z-t1-zeroshot-qwen3-32b-test_in-6333dcb309",
+  "llama_run": "experiments/20260727-052425-291582Z-t1-zeroshot-llama-3-3-70b-paid-test_in-4065a0368e",
+  "n_fired": 15,
+  "n_eligible_by_cosignal": 2,
+  "n_majority_absent": 1,
+  "n_dropped": 0,
+  "dropped_paragraphs": [],
+  "rollout_disagreement": 1,
+  "n_program_errors": 0,
+  "errors_sample": []
+}

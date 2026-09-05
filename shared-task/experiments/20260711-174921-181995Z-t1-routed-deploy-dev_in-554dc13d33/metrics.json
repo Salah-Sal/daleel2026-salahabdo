@@ -1,0 +1,18 @@
+{
+  "n_target_paragraphs": 217,
+  "deployment_thetas": {
+    "AS": 2,
+    "TE": 4,
+    "ST": 4
+  },
+  "co_k": 13,
+  "predicted_label_counts": {
+    "CO": 13,
+    "AS": 168,
+    "TE": 96,
+    "ST": 17,
+    "AN": 55,
+    "OT": 75
+  },
+  "n_empty_predictions": 22
+}

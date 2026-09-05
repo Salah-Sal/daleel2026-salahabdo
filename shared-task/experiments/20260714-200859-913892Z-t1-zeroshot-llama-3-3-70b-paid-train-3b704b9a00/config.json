@@ -1,0 +1,38 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "1",
+    "--model",
+    "llama-3.3-70b-paid",
+    "--track",
+    "closed",
+    "--on",
+    "train",
+    "--threads",
+    "8",
+    "--max-tokens",
+    "6000"
+  ],
+  "model": {
+    "key": "llama-3.3-70b-paid",
+    "litellm_id": "openrouter/meta-llama/llama-3.3-70b-instruct",
+    "params_b": 70,
+    "closed_track": true,
+    "notes": "paid serving of the same checkpoint; :free starved the D10 bake-off and the 2026-07-14 P4 voter run",
+    "license_status": "verified-open",
+    "lm_kwargs": []
+  },
+  "temperature": 0.0,
+  "rollout_id": null,
+  "max_tokens": 6000,
+  "dspy_version": "3.3.0b1",
+  "track": "closed",
+  "architecture": "stage0-task1-v1",
+  "adapter": "ChatAdapter",
+  "source_id": "daleel2026:train-task-1",
+  "source_path": "<repo>/resources/repos/Daleel2026/data/train/train_task_1.jsonl",
+  "source_sha256": "240b4299df7d9e3b9297843acd271463d7aa7d10ce991576ed51f4c43ab241af",
+  "selection": "train",
+  "max_error_rate": 0.0
+}

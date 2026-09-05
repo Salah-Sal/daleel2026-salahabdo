@@ -1,0 +1,31 @@
+{
+  "task": 1,
+  "model": "gemma-4-31b-paid",
+  "program": "seed",
+  "compiled": null,
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "on": "train",
+  "n_paragraphs": 430,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 844.1,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.635,
+  "micro_f1": 0.7521,
+  "s2_rare_recall": {
+    "ST": 1.0,
+    "CO": 0.6
+  },
+  "per_label_f1": {
+    "CO": 0.2941,
+    "AS": 0.9132,
+    "TE": 0.7631,
+    "ST": 0.5588,
+    "AN": 0.5413,
+    "OT": 0.7397
+  },
+  "proxy_mean": 0.7071
+}

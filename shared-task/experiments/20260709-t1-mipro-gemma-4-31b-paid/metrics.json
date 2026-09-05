@@ -1,0 +1,13 @@
+{
+  "task": 1,
+  "model": "gemma-4-31b-paid",
+  "optimizer": "mipro",
+  "wall_seconds": 932.4,
+  "demo_counts": {
+    "classify.predict": 4
+  },
+  "state_file": "<repo>/shared-task/experiments/20260709-t1-mipro-gemma-4-31b-paid/compiled/mipro.json",
+  "instructions_changed": {
+    "classify.predict": false
+  }
+}

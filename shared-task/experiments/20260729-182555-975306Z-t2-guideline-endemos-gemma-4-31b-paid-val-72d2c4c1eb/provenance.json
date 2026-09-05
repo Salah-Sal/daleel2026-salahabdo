@@ -1,0 +1,57 @@
+{
+  "manifest_schema_version": 1,
+  "architecture_version": "stage0-guideline-v1",
+  "dspy_version": "3.3.0b1",
+  "tasks": [
+    2
+  ],
+  "track": "closed",
+  "setting": "both",
+  "optimizer": null,
+  "task_model": {
+    "key": "gemma-4-31b-paid",
+    "endpoint": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31.0,
+    "closed_track": true,
+    "license_status": "verified-open"
+  },
+  "auxiliary_models": {
+    "teacher": null,
+    "reflection": null,
+    "prompt": null
+  },
+  "training_ids": [],
+  "training_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "data_sources": [
+    "daleel2026:train-task-2"
+  ],
+  "code": {
+    "git_commit": "056a3294c49b9c61f6391b6e5192b458098c1ffc",
+    "git_dirty": true,
+    "python_tree_sha256": "504e80996572e916ba8b9a0312013fe4448d0dedce8e6dfaf5da9bd9144e54f0"
+  },
+  "input": {
+    "source_id": "daleel2026:train-task-2",
+    "path": "<repo>/resources/repos/Daleel2026/data/train/train_task_2.jsonl",
+    "sha256": "4ef331404670e39a3cd46ec4dfcfe3be4cb6d71e5d764d998ad87d74d31d1a66",
+    "selected_ids_sha256": "3e750d892cd68675941b18f78d1b86fbf275769c03a937446e5929b29b9bfe96",
+    "record_count": 182
+  },
+  "program_config": {
+    "adapter": "ChatAdapter",
+    "cot": true,
+    "granularity": "connective",
+    "max_tokens": 6000,
+    "temperature": 0.0,
+    "rollout_id": null,
+    "guideline_demos": "en",
+    "emit_dual_spans": false
+  },
+  "outputs": [
+    {
+      "kind": "task-2-predictions",
+      "relative_path": "predictions/preds.jsonl",
+      "sha256": "2288bb231107b69f422673b71ee27f51b3612aebdad186f942e1480632253f1c"
+    }
+  ]
+}

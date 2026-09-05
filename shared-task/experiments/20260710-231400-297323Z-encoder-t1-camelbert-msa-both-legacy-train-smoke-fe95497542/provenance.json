@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "tasks": [
+    1
+  ],
+  "track": "closed",
+  "setting": "both",
+  "architecture": "arabic-encoder-multilabel-window-v1",
+  "dspy_used": false,
+  "generative_inference_used": false,
+  "external_labeled_data_used": false,
+  "model": {
+    "key": "camelbert-msa",
+    "repository": "CAMeL-Lab/bert-base-arabic-camelbert-msa",
+    "revision": "277069fd3645fedb22b746caf38d111aadee0241",
+    "license_id": "apache-2.0",
+    "license_url": "https://huggingface.co/CAMeL-Lab/bert-base-arabic-camelbert-msa",
+    "closed_track_verified": true,
+    "resolved_commit": "277069fd3645fedb22b746caf38d111aadee0241"
+  },
+  "data_sources": [
+    {
+      "id": "daleel2026:train-task-1",
+      "path": "<repo>/resources/repos/Daleel2026/data/train/train_task_1.jsonl",
+      "sha256": "240b4299df7d9e3b9297843acd271463d7aa7d10ce991576ed51f4c43ab241af"
+    },
+    {
+      "id": "daleel2026:train-task-2",
+      "path": "<repo>/resources/repos/Daleel2026/data/train/train_task_2.jsonl",
+      "sha256": "4ef331404670e39a3cd46ec4dfcfe3be4cb6d71e5d764d998ad87d74d31d1a66"
+    }
+  ],
+  "training_ids": [
+    192,
+    259,
+    388,
+    493,
+    693,
+    790,
+    845,
+    960
+  ],
+  "training_ids_sha256": "8a3eb23ad99f75bdf76b2aaba73a5f17abbda53438bd4508891d4dafb562302f",
+  "fold_manifest_sha256": "5e33625f22f7c57f93e404bd7045757882aeedce76c184b694ff2faad452cf93",
+  "cleaning_policy": "daleel.splits clean_task1_gold/clean_task2_gold",
+  "dependencies": {
+    "torch": "2.13.0",
+    "transformers": "4.57.6",
+    "safetensors": "0.8.0"
+  },
+  "outputs": [
+    {
+      "kind": "encoder-task-1-oof-predictions",
+      "relative_path": "predictions/oof_task_1.jsonl",
+      "sha256": "91ca99d3b37e857b3a575412938d350572f0e0584f8a6a0df3066bc0c1c752b1"
+    },
+    {
+      "kind": "encoder-oof-scores",
+      "relative_path": "predictions/oof_task_1_scores.jsonl",
+      "sha256": "f99834c6a991972e086ce5cc2963248f7e54f2f6fe0a3241afd93b24942710aa"
+    },
+    {
+      "kind": "encoder-oof-metrics",
+      "relative_path": "metrics.json",
+      "sha256": "1c5b3e16b572921f075157f146d43815650f2ea4de03e2e4d037ca3532a4cf8b"
+    },
+    {
+      "kind": "encoder-training-history",
+      "relative_path": "training_history.json",
+      "sha256": "6cb014829e0010e4e820c10393dd623104d109d9d10532eae1cf50c5be6ce6d2"
+    },
+    {
+      "kind": "paragraph-fold-manifest",
+      "relative_path": "folds.json",
+      "sha256": "2e91682017f76d95772ef0fe206ace3ffd024dfaa11ae73735c99583e3422615"
+    }
+  ],
+  "primary_metric": {
+    "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+    "score": 0.20707070707070707
+  },
+  "comparable_run": false
+}

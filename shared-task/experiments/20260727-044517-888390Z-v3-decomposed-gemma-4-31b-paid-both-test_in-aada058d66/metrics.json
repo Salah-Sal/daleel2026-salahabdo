@@ -1,0 +1,51 @@
+{
+  "architecture": "proposal-atom-role-v3",
+  "model": "gemma-4-31b-paid",
+  "track": "closed",
+  "setting": "both",
+  "source_id": "daleel2026:test-input",
+  "n_paragraphs": 213,
+  "n_atoms": 1912,
+  "role_seconds": 840.85,
+  "demo_selector": "balanced",
+  "memory_decisions": 4171,
+  "memory_paragraphs": 430,
+  "role_state": "experiments/20260710-231222-222547Z-v3-role-gepa-gemma-4-31b-paid-both-final-inner0-bc5f4625f5/compiled/role.json",
+  "fusion": "direct",
+  "fusion_policy": null,
+  "assembly": {
+    "atoms": 1912,
+    "parse_failures": 0,
+    "fallback_atoms": 0,
+    "none_atoms": 116,
+    "duplicate_same_label": 0
+  },
+  "decision": {
+    "n": 1912,
+    "exact_accuracy": 0.060669456066945605,
+    "mean_set_f1": 0.060669456066945605,
+    "parse_failures": 0,
+    "unknown_token_count": 0,
+    "mixed_unknown_outputs": 0,
+    "class_counts": {
+      "NONE": 1912
+    },
+    "confusions": {
+      "NONE->AN": 128,
+      "NONE->AS": 997,
+      "NONE->CO": 171,
+      "NONE->NONE": 116,
+      "NONE->OT": 331,
+      "NONE->ST": 47,
+      "NONE->TE": 122
+    }
+  },
+  "n_failed_role_calls": 0,
+  "role_failure_sample": [],
+  "proposals": {
+    "source": "experiments/20260727-043727-769789Z-t2-quote-gemma-4-31b-paid-test_in-e0cb44f029/predictions/task_2.jsonl",
+    "sha256": "97b19850a7aa406ead801a06187ecf7302462df91b57483ab36a68a84bd8191c",
+    "adapter": "ChatAdapter",
+    "errors": []
+  }
+}

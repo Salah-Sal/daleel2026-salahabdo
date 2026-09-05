@@ -1,0 +1,23 @@
+{
+  "script": "st_judge_seed_deploy.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--preds",
+    "experiments/20260714-194454-761621Z-t1-routed-v2-deploy-dev_in-c75de50ea4/predictions/task_1.jsonl",
+    "--tag",
+    "dev217-control"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended",
+    "license_status": "verified-open",
+    "lm_kwargs": []
+  },
+  "temperature": 0.0,
+  "max_tokens": 6000,
+  "dspy_version": "3.3.0b1"
+}

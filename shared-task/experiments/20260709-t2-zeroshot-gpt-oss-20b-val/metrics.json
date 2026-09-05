@@ -1,0 +1,28 @@
+{
+  "task": 2,
+  "model": "gpt-oss-20b",
+  "litellm_id": "openrouter/openai/gpt-oss-20b:free",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 0.9835,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 1175.6,
+  "errors_sample": [],
+  "n_length_mismatch": 3,
+  "granularity": "connective",
+  "s1_official_span_f1": 0.6396,
+  "precision": 0.6127,
+  "recall": 0.6688,
+  "per_label_f1": {
+    "CO": 0.0196,
+    "AS": 0.7811,
+    "TE": 0.4693,
+    "ST": 0.6173,
+    "AN": 0.1707,
+    "OT": 0.3678
+  },
+  "proxy_mean": 0.5525
+}

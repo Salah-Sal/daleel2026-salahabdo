@@ -1,0 +1,23 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "1",
+    "--model",
+    "nemotron-nano-9b",
+    "--on",
+    "val",
+    "--threads",
+    "3"
+  ],
+  "model": {
+    "key": "nemotron-nano-9b",
+    "litellm_id": "openrouter/nvidia/nemotron-nano-9b-v2:free",
+    "params_b": 9,
+    "closed_track": true,
+    "notes": "smallest bake-off candidate"
+  },
+  "temperature": 0.0,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1"
+}

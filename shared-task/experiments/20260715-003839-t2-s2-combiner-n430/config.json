@@ -1,0 +1,26 @@
+{
+  "script": "t2_s2_combiner_gate.py",
+  "argv": [],
+  "s1_run": "20260715-001221-t2-s1-structural-camelbert-quarter-n430",
+  "t1_run": "20260715-003004-912987Z-t1-routed-v2-k5-n430-4f30d408fa",
+  "encoder_run": "20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+  "quote_run": "20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b",
+  "tau_grid": [
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95
+  ],
+  "model": "LogisticRegression(lbfgs, C=1.0, class_weight=balanced, max_iter=1000)",
+  "standardized_columns": [
+    32,
+    33
+  ],
+  "registration": "CREATIVE_HEADROOM_RESEARCH.md S2 (commit 53382af)"
+}

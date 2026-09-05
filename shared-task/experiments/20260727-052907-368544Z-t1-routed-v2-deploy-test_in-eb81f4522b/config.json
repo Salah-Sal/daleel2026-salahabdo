@@ -1,0 +1,102 @@
+{
+  "script": "route_task1_v2_deploy.py",
+  "argv": [
+    "--train-rollouts",
+    "experiments/20260711-105038-863885Z-t1-zeroshot-r0-gemma-4-31b-paid-train-0f9f7cebfb",
+    "experiments/20260711-105041-193190Z-t1-zeroshot-r1-gemma-4-31b-paid-train-08cec06199",
+    "experiments/20260711-100552-274256Z-t1-zeroshot-r2-gemma-4-31b-paid-train-3dec18a9ab",
+    "experiments/20260711-101957-407352Z-t1-zeroshot-r3-gemma-4-31b-paid-train-9a44d56af8",
+    "experiments/20260711-103425-983156Z-t1-zeroshot-r4-gemma-4-31b-paid-train-28d7ceb9f0",
+    "--encoder-oof",
+    "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "--dev-rollouts",
+    "experiments/20260727-044313-306988Z-t1-zeroshot-r0-gemma-4-31b-paid-test_in-69003f790e",
+    "experiments/20260727-044845-392580Z-t1-zeroshot-r1-gemma-4-31b-paid-test_in-d42c4f9ac1",
+    "experiments/20260727-045955-578494Z-t1-zeroshot-r2-gemma-4-31b-paid-test_in-2fdf4486b9",
+    "experiments/20260727-050633-192312Z-t1-zeroshot-r3-gemma-4-31b-paid-test_in-a70b8920e7",
+    "experiments/20260727-051224-310081Z-t1-zeroshot-r4-gemma-4-31b-paid-test_in-b2273f27d9",
+    "--encoder-deploy",
+    "experiments/20260727-045149-099267Z-t1-encoder-deploy-camelbert-msa-quarter-test_in-c49bfe1c7b",
+    "--dev-span",
+    "experiments/20260727-044517-888390Z-v3-decomposed-gemma-4-31b-paid-both-test_in-aada058d66",
+    "--input",
+    "../resources/repos/Daleel2026/data/test/test_in.jsonl",
+    "--source-id",
+    "daleel2026:test-input"
+  ],
+  "milestone": "HEADROOM_AUDIT.md P0",
+  "router_v2": {
+    "vote_sourced": [
+      "AS",
+      "TE"
+    ],
+    "st": "votes ± judge filter",
+    "an": "enc | (span & votes>=1)",
+    "ot": "2-of-3(enc, span, votes>=2)",
+    "co": {
+      "budget_mult": 2.0,
+      "prior": 0.058823529411764705,
+      "ranker": "rank-mean(enc sigmoid, vote fraction, span presence)",
+      "k": 25
+    },
+    "n_rollouts": 5,
+    "deployment_thetas": {
+      "AS": 2,
+      "TE": 4,
+      "ST": 4
+    },
+    "thetas_by_fold": {
+      "0": {
+        "AS": 1,
+        "TE": 4,
+        "ST": 4
+      },
+      "1": {
+        "AS": 2,
+        "TE": 5,
+        "ST": 4
+      },
+      "2": {
+        "AS": 2,
+        "TE": 4,
+        "ST": 4
+      },
+      "3": {
+        "AS": 2,
+        "TE": 5,
+        "ST": 4
+      },
+      "4": {
+        "AS": 2,
+        "TE": 4,
+        "ST": 5
+      }
+    },
+    "st_judge": null
+  },
+  "inputs": {
+    "train_rollouts": [
+      "experiments/20260711-105038-863885Z-t1-zeroshot-r0-gemma-4-31b-paid-train-0f9f7cebfb",
+      "experiments/20260711-105041-193190Z-t1-zeroshot-r1-gemma-4-31b-paid-train-08cec06199",
+      "experiments/20260711-100552-274256Z-t1-zeroshot-r2-gemma-4-31b-paid-train-3dec18a9ab",
+      "experiments/20260711-101957-407352Z-t1-zeroshot-r3-gemma-4-31b-paid-train-9a44d56af8",
+      "experiments/20260711-103425-983156Z-t1-zeroshot-r4-gemma-4-31b-paid-train-28d7ceb9f0"
+    ],
+    "encoder_oof": "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "dev_rollouts": [
+      "experiments/20260727-044313-306988Z-t1-zeroshot-r0-gemma-4-31b-paid-test_in-69003f790e",
+      "experiments/20260727-044845-392580Z-t1-zeroshot-r1-gemma-4-31b-paid-test_in-d42c4f9ac1",
+      "experiments/20260727-045955-578494Z-t1-zeroshot-r2-gemma-4-31b-paid-test_in-2fdf4486b9",
+      "experiments/20260727-050633-192312Z-t1-zeroshot-r3-gemma-4-31b-paid-test_in-a70b8920e7",
+      "experiments/20260727-051224-310081Z-t1-zeroshot-r4-gemma-4-31b-paid-test_in-b2273f27d9"
+    ],
+    "encoder_deploy": "experiments/20260727-045149-099267Z-t1-encoder-deploy-camelbert-msa-quarter-test_in-c49bfe1c7b",
+    "dev_span": "experiments/20260727-044517-888390Z-v3-decomposed-gemma-4-31b-paid-both-test_in-aada058d66",
+    "dev_span_sha256": "3a52c480d6eaddc55ed17b1a6a4561ce47b4b1749e580ca8ad7b5637f489b146",
+    "target": {
+      "path": "../resources/repos/Daleel2026/data/test/test_in.jsonl",
+      "sha256": "65a95069ef68584ddb7720150de7be5797bdbadb1e507a2ec68ce07cd336e6ef",
+      "source_id": "daleel2026:test-input"
+    }
+  }
+}

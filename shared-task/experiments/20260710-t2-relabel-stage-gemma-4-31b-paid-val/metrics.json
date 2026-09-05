@@ -1,0 +1,38 @@
+{
+  "task": 2,
+  "stage": "relabel",
+  "model": "gemma-4-31b-paid",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "source_preds": "<repo>/shared-task/experiments/20260709-t2-quote-gemma-4-31b-paid-val/predictions/preds.jsonl",
+  "n_paragraphs": 182,
+  "cot": true,
+  "n_program_errors": 1,
+  "n_length_mismatch": 0,
+  "n_spans": 710,
+  "n_spans_relabeled": 23,
+  "wall_seconds": 402.9,
+  "errors_sample": [
+    "673: ValidationError: 1 validation error for list[literal['CO','AS','TE','ST','AN','OT']]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type"
+  ],
+  "s1_official_span_f1_before": 0.6805,
+  "s1_official_span_f1": 0.6784,
+  "delta": -0.0021,
+  "precision": 0.6337,
+  "recall": 0.7299,
+  "per_label_f1_before": {
+    "CO": 0.2173,
+    "AS": 0.7792,
+    "TE": 0.7112,
+    "ST": 0.6374,
+    "AN": 0.3942,
+    "OT": 0.6285
+  },
+  "per_label_f1": {
+    "CO": 0.1827,
+    "AS": 0.7826,
+    "TE": 0.7012,
+    "ST": 0.6374,
+    "AN": 0.3988,
+    "OT": 0.6276
+  }
+}

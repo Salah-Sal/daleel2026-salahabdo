@@ -1,0 +1,132 @@
+{
+  "compile_seconds": 0.0,
+  "objective": "task2",
+  "candidates": [
+    {
+      "candidate_index": 0,
+      "dspy_proxy_score": null,
+      "eligible": false,
+      "ineligibility_reasons": [
+        "25 program failures",
+        "25 parse failures",
+        "fallback-assisted atoms"
+      ],
+      "external_objective": null,
+      "state": "compiled/candidate-000.json",
+      "metrics": {
+        "decision": {
+          "n": 903,
+          "exact_accuracy": 0.6245847176079734,
+          "mean_set_f1": 0.6304909560723515,
+          "parse_failures": 25,
+          "unknown_token_count": 0,
+          "mixed_unknown_outputs": 0,
+          "class_counts": {
+            "AS": 423,
+            "TE": 106,
+            "NONE": 75,
+            "CO": 16,
+            "OT": 126,
+            "AN": 140,
+            "ST": 17
+          },
+          "confusions": {
+            "AN->AN": 23,
+            "AN->AS": 54,
+            "AN->CO": 24,
+            "AN->NONE": 8,
+            "AN->OT": 4,
+            "AN->PARSE_FAIL": 3,
+            "AN->ST": 3,
+            "AN->TE": 12,
+            "AN+OT->OT": 7,
+            "AN+TE->AS": 1,
+            "AN+TE->TE": 1,
+            "AS->AN": 7,
+            "AS->AS": 323,
+            "AS->CO": 16,
+            "AS->NONE": 32,
+            "AS->OT": 24,
+            "AS->PARSE_FAIL": 9,
+            "AS->ST": 3,
+            "AS->TE": 9,
+            "CO->AS": 4,
+            "CO->CO": 10,
+            "CO->NONE": 1,
+            "CO->OT": 1,
+            "NONE->AS": 6,
+            "NONE->CO": 2,
+            "NONE->NONE": 35,
+            "NONE->OT": 28,
+            "NONE->PARSE_FAIL": 2,
+            "NONE->TE": 2,
+            "OT->AS": 25,
+            "OT->NONE": 3,
+            "OT->OT": 91,
+            "OT->PARSE_FAIL": 7,
+            "ST->AS": 1,
+            "ST->NONE": 1,
+            "ST->OT": 1,
+            "ST->ST": 13,
+            "ST->TE": 1,
+            "TE->AN": 2,
+            "TE->AS": 10,
+            "TE->CO": 6,
+            "TE->NONE": 11,
+            "TE->OT": 4,
+            "TE->PARSE_FAIL": 4,
+            "TE->TE": 69
+          }
+        },
+        "task1_macro_f1": 0.6838146646540807,
+        "task1_micro_f1": 0.7605633802816901,
+        "task1_per_label_f1": {
+          "CO": 0.2857142857142857,
+          "AS": 0.9343065693430657,
+          "TE": 0.7636363636363637,
+          "ST": 0.8,
+          "AN": 0.55,
+          "OT": 0.7692307692307693
+        },
+        "task2_f1": 0.6795605587021734,
+        "task2_precision": 0.6459612675057169,
+        "task2_recall": 0.7168469252317792,
+        "task2_per_label_f1": {
+          "CO": 0.2653543392104455,
+          "AS": 0.7616295358304844,
+          "TE": 0.7425061450294765,
+          "ST": 0.7155520487626653,
+          "AN": 0.34961053788582946,
+          "OT": 0.6354289108351816
+        },
+        "assembly": {
+          "atoms": 903,
+          "parse_failures": 25,
+          "fallback_atoms": 0,
+          "none_atoms": 116,
+          "duplicate_same_label": 0
+        },
+        "fallback_assisted": {
+          "task1_macro_f1": 0.6828157456171869,
+          "task2_f1": 0.683753528949393,
+          "assembly": {
+            "atoms": 903,
+            "parse_failures": 25,
+            "fallback_atoms": 25,
+            "none_atoms": 91,
+            "duplicate_same_label": 0
+          }
+        },
+        "failed_examples": 25,
+        "failure_sample": [
+          "ValidationError: 1 validation error for list[str]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type",
+          "ValidationError: 1 validation error for list[str]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type",
+          "ValidationError: 1 validation error for list[str]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type",
+          "ValidationError: 1 validation error for list[str]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type",
+          "AdapterParseError: LM response cannot be serialized to a JSON object.\n\nAdapter JSONAdapter failed to parse the LM response. \n\nLM Response: {\"L) [ a la la l'//- a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ aB] - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a laS] - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a로S] - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l'SS la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a la l' - [ a \n\nExpected to find output fields in the LM response: [adu_roles] \n\n"
+        ]
+      }
+    }
+  ],
+  "failure": "no retained candidate passed native-output eligibility"
+}

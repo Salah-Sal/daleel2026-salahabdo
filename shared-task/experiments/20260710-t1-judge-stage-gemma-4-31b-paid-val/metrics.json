@@ -1,0 +1,45 @@
+{
+  "task": 1,
+  "stage": "judge",
+  "model": "gemma-4-31b-paid",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "source_preds": "<repo>/shared-task/experiments/20260709-t1-zeroshot-gemma-4-31b-paid-val/predictions/preds.jsonl",
+  "n_paragraphs": 182,
+  "cot": true,
+  "n_program_errors": 0,
+  "n_dropped_by_label": {
+    "AN": 11,
+    "CO": 12,
+    "OT": 12,
+    "ST": 1
+  },
+  "n_added_by_label": {
+    "AN": 10
+  },
+  "wall_seconds": 415.7,
+  "errors_sample": [],
+  "s1_official_macro_f1_before": 0.7024,
+  "s1_official_macro_f1": 0.7043,
+  "delta": 0.0019,
+  "micro_f1": 0.7976,
+  "s2_rare_recall": {
+    "ST": 1.0,
+    "CO": 0.6
+  },
+  "per_label_f1_before": {
+    "CO": 0.4615,
+    "AS": 0.9286,
+    "TE": 0.8182,
+    "ST": 0.6957,
+    "AN": 0.5934,
+    "OT": 0.7172
+  },
+  "per_label_f1": {
+    "CO": 0.4444,
+    "AS": 0.9286,
+    "TE": 0.8182,
+    "ST": 0.7273,
+    "AN": 0.5556,
+    "OT": 0.7519
+  }
+}

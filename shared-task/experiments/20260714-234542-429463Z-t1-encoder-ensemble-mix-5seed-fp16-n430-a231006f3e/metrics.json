@@ -1,0 +1,128 @@
+{
+  "n_paragraphs": 430,
+  "n_seeds": 5,
+  "per_seed_oof": [
+    {
+      "run": "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260710",
+      "scores_sha256": "a954b76a83909b64c6b7187a171a90a052c2738773cc40254dfdddcc736af6b8",
+      "macro_f1": 0.6318,
+      "per_label_f1": {
+        "CO": 0.2667,
+        "AS": 0.9176,
+        "TE": 0.6561,
+        "ST": 0.4186,
+        "AN": 0.7303,
+        "OT": 0.8012
+      }
+    },
+    {
+      "run": "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260711",
+      "scores_sha256": "20ad29db3d5069502309d234bbbf98e790c2e0462cdcbc68845623a4445fb9e9",
+      "macro_f1": 0.6145,
+      "per_label_f1": {
+        "CO": 0.2727,
+        "AS": 0.9195,
+        "TE": 0.6419,
+        "ST": 0.3636,
+        "AN": 0.6926,
+        "OT": 0.7965
+      }
+    },
+    {
+      "run": "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260712",
+      "scores_sha256": "cf7f301e9403f76f5b05d0611cd8eb50580fec918375e51690545df7a6f713ab",
+      "macro_f1": 0.6262,
+      "per_label_f1": {
+        "CO": 0.3256,
+        "AS": 0.9159,
+        "TE": 0.6862,
+        "ST": 0.32,
+        "AN": 0.7131,
+        "OT": 0.7963
+      }
+    },
+    {
+      "run": "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260713",
+      "scores_sha256": "6ea66e62ed24ff01d406ce7cd1203d5e563c68dae2096cb4de0f62925420b054",
+      "macro_f1": 0.6282,
+      "per_label_f1": {
+        "CO": 0.2609,
+        "AS": 0.9181,
+        "TE": 0.6352,
+        "ST": 0.4314,
+        "AN": 0.7323,
+        "OT": 0.7914
+      }
+    },
+    {
+      "run": "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260714",
+      "scores_sha256": "c08f8bbd00d7b880ab3042e0fc69b5b87029c24b94c34d63e4607bca3bd76935",
+      "macro_f1": 0.6252,
+      "per_label_f1": {
+        "CO": 0.2414,
+        "AS": 0.9104,
+        "TE": 0.619,
+        "ST": 0.5128,
+        "AN": 0.7055,
+        "OT": 0.7622
+      }
+    }
+  ],
+  "ensemble_oof": {
+    "macro_f1": 0.6566,
+    "per_label_f1": {
+      "CO": 0.3043,
+      "AS": 0.9199,
+      "TE": 0.6926,
+      "ST": 0.5,
+      "AN": 0.748,
+      "OT": 0.775
+    },
+    "thresholds_by_fold": {
+      "0": {
+        "CO": 0.131573486328125,
+        "AS": 0.540625,
+        "TE": 0.28125,
+        "ST": 0.203369140625,
+        "AN": 0.452294921875,
+        "OT": 0.329248046875
+      },
+      "1": {
+        "CO": 0.131573486328125,
+        "AS": 0.528955078125,
+        "TE": 0.28125,
+        "ST": 0.203369140625,
+        "AN": 0.452294921875,
+        "OT": 0.34150390625
+      },
+      "2": {
+        "CO": 0.131573486328125,
+        "AS": 0.4694091796875,
+        "TE": 0.294384765625,
+        "ST": 0.203369140625,
+        "AN": 0.452294921875,
+        "OT": 0.578173828125
+      },
+      "3": {
+        "CO": 0.14404296875,
+        "AS": 0.528955078125,
+        "TE": 0.28125,
+        "ST": 0.203369140625,
+        "AN": 0.452294921875,
+        "OT": 0.34150390625
+      },
+      "4": {
+        "CO": 0.131573486328125,
+        "AS": 0.528955078125,
+        "TE": 0.294384765625,
+        "ST": 0.21337890625,
+        "AN": 0.41171875,
+        "OT": 0.57001953125
+      }
+    }
+  },
+  "seed_macro_range": [
+    0.6145,
+    0.6318
+  ]
+}

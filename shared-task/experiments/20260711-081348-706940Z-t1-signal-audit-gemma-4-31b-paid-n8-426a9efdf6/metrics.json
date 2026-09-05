@@ -1,0 +1,229 @@
+{
+  "model": "gemma-4-31b-paid",
+  "n_paragraphs": 8,
+  "n_units": 68,
+  "wall_seconds": 30.8,
+  "n_program_errors": 0,
+  "n_parse_failures": 0,
+  "n_length_mismatch": 1,
+  "unknown_rate_by_axis": {
+    "source": 0.0147,
+    "form": 0.0147,
+    "stance": 0.0147
+  },
+  "errors_sample": [],
+  "reference": {
+    "champion_local_val": 0.7024,
+    "champion_dev": 0.6159
+  },
+  "theory_mapping": {
+    "macro_f1": 0.4756,
+    "per_label_f1": {
+      "CO": 0.3333,
+      "AS": 0.9091,
+      "TE": 0.5,
+      "ST": 0.0,
+      "AN": 0.6667,
+      "OT": 0.4444
+    },
+    "unit_accuracy_on_gold_units": 0.3898
+  },
+  "fitted_mapping_optimistic": {
+    "macro_f1": 0.6556,
+    "per_label_f1": {
+      "CO": 0.6667,
+      "AS": 1.0,
+      "TE": 0.6667,
+      "ST": 0.0,
+      "AN": 0.8,
+      "OT": 0.8
+    },
+    "cells": {
+      "CO": [
+        [
+          "attributed",
+          "generic",
+          "none"
+        ]
+      ],
+      "AS": [
+        [
+          "author",
+          "generic",
+          "argued"
+        ],
+        [
+          "attributed",
+          "generic",
+          "presupposed"
+        ]
+      ],
+      "TE": [
+        [
+          "attributed",
+          "generic",
+          "none"
+        ]
+      ],
+      "ST": [],
+      "AN": [
+        [
+          "author",
+          "generic",
+          "argued"
+        ],
+        [
+          "attributed",
+          "generic",
+          "presupposed"
+        ]
+      ],
+      "OT": [
+        [
+          "author",
+          "instance",
+          "none"
+        ],
+        [
+          "attributed",
+          "generic",
+          "none"
+        ]
+      ]
+    }
+  },
+  "crossfit_mapping": {
+    "macro_f1": 0.1953,
+    "per_label_f1": {
+      "CO": 0.0,
+      "AS": 0.7273,
+      "TE": 0.0,
+      "ST": 0.0,
+      "AN": 0.4444,
+      "OT": 0.0
+    }
+  },
+  "cell_contingency": {
+    "author|generic|argued": {
+      "AS": 17,
+      "AN": 2,
+      "NONE": 1,
+      "CO": 1
+    },
+    "attributed|generic|none": {
+      "AS": 5,
+      "AN": 4,
+      "TE": 1
+    },
+    "author|generic|presupposed": {
+      "AS": 6,
+      "AN": 1,
+      "OT": 1
+    },
+    "author|question-or-filler|none": {
+      "NONE": 5,
+      "CO": 1,
+      "OT": 1
+    },
+    "procedural|question-or-filler|none": {
+      "OT": 4,
+      "NONE": 2
+    },
+    "author|instance|none": {
+      "AS": 6
+    },
+    "attributed|instance|none": {
+      "AN": 2
+    },
+    "attributed|generic|presupposed": {
+      "AS": 2
+    },
+    "author|instance|presupposed": {
+      "AS": 2
+    },
+    "?|?|?": {
+      "AS": 1
+    },
+    "author|instance|argued": {
+      "AS": 1
+    },
+    "attributed|instance|presupposed": {
+      "AS": 1
+    },
+    "author|quantitative|presupposed": {
+      "AN": 1
+    }
+  },
+  "axis_contingency": {
+    "source": {
+      "?": {
+        "AS": 1
+      },
+      "attributed": {
+        "AS": 8,
+        "AN": 6,
+        "TE": 1
+      },
+      "author": {
+        "AS": 32,
+        "NONE": 6,
+        "AN": 4,
+        "CO": 2,
+        "OT": 2
+      },
+      "procedural": {
+        "OT": 4,
+        "NONE": 2
+      }
+    },
+    "form": {
+      "?": {
+        "AS": 1
+      },
+      "generic": {
+        "AS": 30,
+        "AN": 7,
+        "TE": 1,
+        "NONE": 1,
+        "CO": 1,
+        "OT": 1
+      },
+      "instance": {
+        "AS": 10,
+        "AN": 2
+      },
+      "quantitative": {
+        "AN": 1
+      },
+      "question-or-filler": {
+        "NONE": 7,
+        "OT": 5,
+        "CO": 1
+      }
+    },
+    "stance": {
+      "?": {
+        "AS": 1
+      },
+      "argued": {
+        "AS": 18,
+        "AN": 2,
+        "NONE": 1,
+        "CO": 1
+      },
+      "none": {
+        "AS": 11,
+        "NONE": 7,
+        "AN": 6,
+        "OT": 5,
+        "TE": 1,
+        "CO": 1
+      },
+      "presupposed": {
+        "AS": 11,
+        "AN": 2,
+        "OT": 1
+      }
+    }
+  }
+}

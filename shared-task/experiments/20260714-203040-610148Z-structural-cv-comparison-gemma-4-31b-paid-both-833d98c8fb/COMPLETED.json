@@ -1,0 +1,21 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "comparison_report.json",
+      "sha256": "57e20b481bf83fe94aa175af3f55cd1a18639acdbb90ae8e368ed7bd5c6beb8f"
+    },
+    {
+      "relative_path": "config.json",
+      "sha256": "858e9ecd148da7ffc58b974f8c2d164a0064439a28ade6917a8711c2506c14f4"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "e4fb8baacefdabf1f184cd9e6031670c2266a9f4dfb1266a8ee727dfcaaa40dd"
+    }
+  ],
+  "metadata": {
+    "adopt": false
+  }
+}

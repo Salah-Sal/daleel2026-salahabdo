@@ -1,0 +1,51 @@
+{
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md registered CO specialist",
+  "model": "gemma-4-31b-paid",
+  "rollouts": 3,
+  "temperature": 0.7,
+  "n_scored": 430,
+  "n_gold_co": 25,
+  "n_unanimous_fp_pool": 41,
+  "n_program_errors": 2,
+  "errors_sample": [
+    "r0 p500: AdapterParseError",
+    "r1 p1011: AdapterParseError"
+  ],
+  "specialist_alone": {
+    "gold_co_fraction_mean": 0.7333,
+    "unanimous_fp_fraction_mean": 0.5447
+  },
+  "baseline_run": "<repo>/shared-task/experiments/20260715-003004-912987Z-t1-routed-v2-k5-n430-4f30d408fa",
+  "gate": {
+    "co_f1_base": 0.4,
+    "co_f1_v3": 0.3733,
+    "composed_base": 0.7298,
+    "composed_v3": 0.7254,
+    "rule": "composed >= 0.7498 AND >=3/5 fold wins",
+    "fold_slices": {
+      "0": {
+        "base": 0.684,
+        "v3": 0.684
+      },
+      "1": {
+        "base": 0.7361,
+        "v3": 0.7361
+      },
+      "2": {
+        "base": 0.7528,
+        "v3": 0.7528
+      },
+      "3": {
+        "base": 0.7996,
+        "v3": 0.7773
+      },
+      "4": {
+        "base": 0.699,
+        "v3": 0.699
+      }
+    },
+    "fold_wins": 4,
+    "adopted": false
+  },
+  "errors_sample_note": "full error text in predictions/errors_full.jsonl (gitignored; LM responses may quote input)"
+}

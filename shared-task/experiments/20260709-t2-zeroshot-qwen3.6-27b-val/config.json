@@ -1,0 +1,23 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "2",
+    "--model",
+    "qwen3.6-27b",
+    "--on",
+    "val",
+    "--threads",
+    "6"
+  ],
+  "model": {
+    "key": "qwen3.6-27b",
+    "litellm_id": "openrouter/qwen/qwen3.6-27b",
+    "params_b": 27,
+    "closed_track": true,
+    "notes": "latest mid dense Qwen; license TBV for closed track"
+  },
+  "temperature": 0.0,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1"
+}

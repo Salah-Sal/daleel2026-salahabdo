@@ -1,0 +1,66 @@
+{
+  "script": "route_task1_v2.py",
+  "argv": [
+    "--llm-t0",
+    "experiments/20260711-105036-341443Z-t1-zeroshot-gemma-4-31b-paid-train-9f164b0cf8",
+    "--rollouts",
+    "experiments/20260711-105038-863885Z-t1-zeroshot-r0-gemma-4-31b-paid-train-0f9f7cebfb",
+    "experiments/20260711-105041-193190Z-t1-zeroshot-r1-gemma-4-31b-paid-train-08cec06199",
+    "experiments/20260711-100552-274256Z-t1-zeroshot-r2-gemma-4-31b-paid-train-3dec18a9ab",
+    "experiments/20260711-101957-407352Z-t1-zeroshot-r3-gemma-4-31b-paid-train-9a44d56af8",
+    "experiments/20260711-103425-983156Z-t1-zeroshot-r4-gemma-4-31b-paid-train-28d7ceb9f0",
+    "--encoder",
+    "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "--span-runs",
+    "experiments/20260710-193247-709106Z-v3-role-gepa-gemma-4-31b-paid-both-outer0-inner0-1447e7ced5",
+    "experiments/20260710-210609-072093Z-v3-role-gepa-gemma-4-31b-paid-both-outer1-inner0-d9995eddba",
+    "experiments/20260710-211213-843183Z-v3-role-gepa-gemma-4-31b-paid-both-outer2-inner0-1ce74f2e9a",
+    "experiments/20260710-215536-635075Z-v3-role-gepa-gemma-4-31b-paid-both-outer3-inner0-30cdb1492f",
+    "experiments/20260710-221215-667710Z-v3-role-gepa-gemma-4-31b-paid-both-outer4-inner0-49f2e2dad5",
+    "--st-judge",
+    "experiments/20260714-t1-judge-stage-gemma-4-31b-paid-val/predictions/st_judge_train430.jsonl"
+  ],
+  "milestone": "HEADROOM_AUDIT.md P0",
+  "router_v2": {
+    "vote_sourced": [
+      "AS",
+      "TE"
+    ],
+    "st": "votes ± judge filter",
+    "an": "enc | (span & votes>=1)",
+    "ot": "2-of-3(enc, span, votes>=2)",
+    "co": {
+      "budget_mult": 2.0,
+      "prior": 0.058823529411764705,
+      "ranker": "fold-local rank-mean(enc sigmoid, vote fraction, span presence)"
+    },
+    "n_rollouts": 5,
+    "st_judge": "experiments/20260714-t1-judge-stage-gemma-4-31b-paid-val/predictions/st_judge_train430.jsonl"
+  },
+  "inputs": {
+    "llm_t0": "experiments/20260711-105036-341443Z-t1-zeroshot-gemma-4-31b-paid-train-9f164b0cf8",
+    "rollouts": [
+      "experiments/20260711-105038-863885Z-t1-zeroshot-r0-gemma-4-31b-paid-train-0f9f7cebfb",
+      "experiments/20260711-105041-193190Z-t1-zeroshot-r1-gemma-4-31b-paid-train-08cec06199",
+      "experiments/20260711-100552-274256Z-t1-zeroshot-r2-gemma-4-31b-paid-train-3dec18a9ab",
+      "experiments/20260711-101957-407352Z-t1-zeroshot-r3-gemma-4-31b-paid-train-9a44d56af8",
+      "experiments/20260711-103425-983156Z-t1-zeroshot-r4-gemma-4-31b-paid-train-28d7ceb9f0"
+    ],
+    "encoder": "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "span_runs": [
+      "experiments/20260710-193247-709106Z-v3-role-gepa-gemma-4-31b-paid-both-outer0-inner0-1447e7ced5",
+      "experiments/20260710-210609-072093Z-v3-role-gepa-gemma-4-31b-paid-both-outer1-inner0-d9995eddba",
+      "experiments/20260710-211213-843183Z-v3-role-gepa-gemma-4-31b-paid-both-outer2-inner0-1ce74f2e9a",
+      "experiments/20260710-215536-635075Z-v3-role-gepa-gemma-4-31b-paid-both-outer3-inner0-30cdb1492f",
+      "experiments/20260710-221215-667710Z-v3-role-gepa-gemma-4-31b-paid-both-outer4-inner0-49f2e2dad5"
+    ],
+    "encoder_oof_sha256": "83600d90924211d9ad597136d26c738e240c82d5db7b905c33be6b332c66314e",
+    "span_sha256": [
+      "9801b6c9ddc0d6a197ea30ac70baadb1ba86beb2ee68eb73127992bdeb664761",
+      "50cc649803d91437aefcc59ee6aa44f43aba673ae6ae203304002507a0e49cba",
+      "a5af3c91dbdde74080762315dd2d11cf2c6e1fe2c530f351345e5738d1ee531c",
+      "ea71a3210405fce3178e3c73c2f82f0235e1fff2438bc3a7d09e451020270049",
+      "5261c167a4ebee19e16ce5cd86f99a9a2f4fd746f16ad158bd655eadbad5ffe6"
+    ]
+  }
+}

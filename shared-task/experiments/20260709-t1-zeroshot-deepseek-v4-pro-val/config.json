@@ -1,0 +1,25 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "1",
+    "--model",
+    "deepseek-v4-pro",
+    "--on",
+    "val",
+    "--threads",
+    "8",
+    "--max-tokens",
+    "8000"
+  ],
+  "model": {
+    "key": "deepseek-v4-pro",
+    "litellm_id": "deepseek/deepseek-v4-pro",
+    "params_b": 0,
+    "closed_track": false,
+    "notes": "teacher/reflection only; strongest available teacher"
+  },
+  "temperature": 0.0,
+  "max_tokens": 8000,
+  "dspy_version": "3.3.0b1"
+}

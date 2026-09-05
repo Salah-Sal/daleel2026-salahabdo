@@ -1,0 +1,8 @@
+{
+  "script": "t1_bundle_v3_gate.py",
+  "argv": [],
+  "baseline_run": "<repo>/shared-task/experiments/20260715-003004-912987Z-t1-routed-v2-k5-n430-4f30d408fa",
+  "ensemble_run": "<repo>/shared-task/experiments/20260714-233725-647050Z-t1-encoder-ensemble-quarter-5seed-cpu-n430-a7b50f0a10",
+  "llama_run": "<repo>/shared-task/experiments/20260714-200859-913892Z-t1-zeroshot-llama-3-3-70b-paid-train-3b704b9a00",
+  "registration": "CREATIVE_HEADROOM_RESEARCH.md bundle-v3 (commit 56d6f30)"
+}

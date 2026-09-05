@@ -1,0 +1,181 @@
+{
+  "report_schema_version": 1,
+  "architecture": "proposal-atom-role-v3-cv",
+  "contract": {
+    "architecture": "proposal-atom-role-v3",
+    "model": "gemma-4-31b-paid",
+    "track": "closed",
+    "setting": "both",
+    "optimizer": "gepa",
+    "objective": "task2",
+    "pool": "legacy-train",
+    "n_folds": 5,
+    "n_inner_folds": 4,
+    "inner_fold": 0,
+    "fold_seed": 20260710,
+    "fold_manifest_sha256": "02677817d310a61858202428ede9dcb6408875f0b729a970e8eff57c1a95bef9",
+    "granularity": "connective",
+    "containment_threshold": 0.8,
+    "context_chars": 500,
+    "demo_context_chars": 350,
+    "role_cot": false,
+    "demo_selector": true,
+    "max_demos": 7,
+    "same_genre_bonus": 0.05,
+    "balance_per_class": 80,
+    "optimizer_val_max": 300,
+    "optimizer_val_distribution": "natural-without-replacement",
+    "optimizer_train_distribution": "class-balanced-with-cycling",
+    "auto": "light",
+    "max_metric_calls": null,
+    "max_tokens": 2500,
+    "max_rerank_candidates": 0,
+    "proposal_sha256": "fcd44c03f2e96829de9671d7a34ead82d5a9db02f8d53334b6de77fac50aa0a1",
+    "accept_delta": 0.02
+  },
+  "contract_sha256": "61ac2d3f463f2e27500f892bc416ae7188e809b05e45fc6449ee2b669cbf7cbf",
+  "outer_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "n_paragraphs": 430,
+  "complete": true,
+  "task1": {
+    "candidate_macro_f1": 0.6737680381238582,
+    "baseline_macro_f1": 0.653275912085569,
+    "delta": 0.020492126038289205,
+    "required_delta": 0.02,
+    "adopt": true,
+    "candidate_micro_f1": 0.7732724157624215,
+    "candidate_per_label_f1": {
+      "CO": 0.2857142857142857,
+      "AS": 0.9258160237388724,
+      "TE": 0.7908745247148288,
+      "ST": 0.5846153846153846,
+      "AN": 0.6784140969162995,
+      "OT": 0.7771739130434783
+    }
+  },
+  "task2": {
+    "candidate_f1": 0.6934388539490965,
+    "baseline_f1": 0.6547132274893255,
+    "delta": 0.03872562645977107,
+    "required_delta": 0.02,
+    "adopt": true,
+    "candidate_precision": 0.663233440176195,
+    "candidate_recall": 0.7265268163079621,
+    "candidate_per_label_f1": {
+      "CO": 0.2979064701130561,
+      "AS": 0.7867362505926483,
+      "TE": 0.7507299316586681,
+      "ST": 0.5974133526914333,
+      "AN": 0.47995244804706005,
+      "OT": 0.5965292639318353
+    }
+  },
+  "primary": {
+    "objective": "task2",
+    "candidate_score": 0.6934388539490965,
+    "baseline_score": 0.6547132274893255,
+    "delta": 0.03872562645977107,
+    "required_delta": 0.02,
+    "adopt": true
+  },
+  "baselines": {
+    "task1": {
+      "kind": "task1-champion-baseline",
+      "path": "experiments/20260710-184448-663663Z-t1-zeroshot-gemma-4-31b-paid-alltrain-d4d015ac6c/predictions/preds.jsonl",
+      "sha256": "2f8e9beb1e6a6f6cfcaa0246f68daf45833ea1929c9774f5c597aa0f33b425f1",
+      "verified": true,
+      "manifest": "experiments/20260710-184448-663663Z-t1-zeroshot-gemma-4-31b-paid-alltrain-d4d015ac6c/provenance.json",
+      "manifest_sha256": "aa1bd2bf83b5ae1f59358158f3969674f827a0163da9aff9c9ac8c27050f130f",
+      "output_bound": true,
+      "producer": {
+        "architecture_version": "stage0-task1-v1",
+        "track": "closed",
+        "setting": "both",
+        "task_model": {
+          "key": "gemma-4-31b-paid",
+          "endpoint": "openrouter/google/gemma-4-31b-it",
+          "params_b": 31.0,
+          "closed_track": true,
+          "license_status": "verified-open"
+        },
+        "optimizer": null,
+        "data_sources": [
+          "daleel2026:train-task-1"
+        ]
+      }
+    },
+    "task2": {
+      "kind": "task2-champion-baseline",
+      "path": "experiments/20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b/predictions/preds.jsonl",
+      "sha256": "fcd44c03f2e96829de9671d7a34ead82d5a9db02f8d53334b6de77fac50aa0a1",
+      "verified": true,
+      "manifest": "experiments/20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b/provenance.json",
+      "manifest_sha256": "3ffb5f190ba1ccdac3750e8b277bea00bdb733953145d333aa2c748e28794b0d",
+      "output_bound": true,
+      "producer": {
+        "architecture_version": "stage0-quote-v1",
+        "track": "closed",
+        "setting": "both",
+        "task_model": {
+          "key": "gemma-4-31b-paid",
+          "endpoint": "openrouter/google/gemma-4-31b-it",
+          "params_b": 31.0,
+          "closed_track": true,
+          "license_status": "verified-open"
+        },
+        "optimizer": null,
+        "data_sources": [
+          "daleel2026:train-task-2"
+        ]
+      }
+    }
+  },
+  "upstream_runs": [
+    {
+      "run": "experiments/20260710-193247-709106Z-v3-role-gepa-gemma-4-31b-paid-both-outer0-inner0-1447e7ced5",
+      "config_sha256": "a1fce9bd0afaf65cf0ab678a2cc43b860d661a60a37bc52bcee117ea08151fd1",
+      "provenance_sha256": "695b826feeb9c06cbaf7b07a390471fcd775fdbce78caf0ad787f8cda9ac8a8d",
+      "task1_sha256": "9801b6c9ddc0d6a197ea30ac70baadb1ba86beb2ee68eb73127992bdeb664761",
+      "task2_sha256": "0b8188e97f35d9776b1cdb0441e3f20ac9c6a2f393bfb09aba5795e51a7fe5a0",
+      "outer_fold": 0
+    },
+    {
+      "run": "experiments/20260710-210609-072093Z-v3-role-gepa-gemma-4-31b-paid-both-outer1-inner0-d9995eddba",
+      "config_sha256": "147077bef5279729b648beb17a628372cd6c04aea1ff57e932fafc800dcbe992",
+      "provenance_sha256": "9fc8bb1781efe4fab70497cc1d5fd81ffd4cbea3b17c119179960a0a44b9bbae",
+      "task1_sha256": "50cc649803d91437aefcc59ee6aa44f43aba673ae6ae203304002507a0e49cba",
+      "task2_sha256": "d12a9d2a6c903f5a8142cd45caea9651754c1a641eb6997054b8f049394e6ac5",
+      "outer_fold": 1
+    },
+    {
+      "run": "experiments/20260710-211213-843183Z-v3-role-gepa-gemma-4-31b-paid-both-outer2-inner0-1ce74f2e9a",
+      "config_sha256": "6d608ca2541b863db3c031d9e5d932c623829c98f930bd31da7fd448b40b48b2",
+      "provenance_sha256": "cc7e6cd0261ee368ea6bb3e65d933a4825297b1172eb7e78b3abf87485f8ebc9",
+      "task1_sha256": "a5af3c91dbdde74080762315dd2d11cf2c6e1fe2c530f351345e5738d1ee531c",
+      "task2_sha256": "0964d5ab8f7a6752111db01b91ae15fac615e73ce138efa80de20b4089be371c",
+      "outer_fold": 2
+    },
+    {
+      "run": "experiments/20260710-215536-635075Z-v3-role-gepa-gemma-4-31b-paid-both-outer3-inner0-30cdb1492f",
+      "config_sha256": "5d1a0c6bd6bab29e37b81e440db2d0e1e248e011230bb85cda5cba280ab5a2ff",
+      "provenance_sha256": "87e45bcb74b8f29a8592f4e924ff3001f7166111f21aecfaf54ce7ddae17bd5e",
+      "task1_sha256": "ea71a3210405fce3178e3c73c2f82f0235e1fff2438bc3a7d09e451020270049",
+      "task2_sha256": "01ab4393afde664185fa9d82f1407a42084afe2d33c54e9516dc44d906a63cf2",
+      "outer_fold": 3
+    },
+    {
+      "run": "experiments/20260710-221215-667710Z-v3-role-gepa-gemma-4-31b-paid-both-outer4-inner0-49f2e2dad5",
+      "config_sha256": "5260e52a09f5ca43bed7bb00b39b00378cb4722ae794ae865c1ff1c2e109b875",
+      "provenance_sha256": "16a2faf9d9fd604ff5ebd0bb11ebab7993a20dd299389b3e02d9d0a47b1f3390",
+      "task1_sha256": "5261c167a4ebee19e16ce5cd86f99a9a2f4fd746f16ad158bd655eadbad5ffe6",
+      "task2_sha256": "afd55d80afbec0b4e2ff237cf2d8dde3a134135190c779d9abd29ccc8044d2fc",
+      "outer_fold": 4
+    }
+  ]
+}

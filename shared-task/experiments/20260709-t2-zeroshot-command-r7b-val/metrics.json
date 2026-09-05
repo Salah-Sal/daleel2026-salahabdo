@@ -1,0 +1,28 @@
+{
+  "task": 2,
+  "model": "command-r7b",
+  "litellm_id": "openrouter/cohere/command-r7b-12-2024",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 0.6593,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 262.7,
+  "errors_sample": [],
+  "n_length_mismatch": 62,
+  "granularity": "connective",
+  "s1_official_span_f1": 0.5081,
+  "precision": 0.4918,
+  "recall": 0.5256,
+  "per_label_f1": {
+    "CO": 0.0344,
+    "AS": 0.6627,
+    "TE": 0.1248,
+    "ST": 0.2405,
+    "AN": 0.0454,
+    "OT": 0.1621
+  },
+  "proxy_mean": 0.4203
+}

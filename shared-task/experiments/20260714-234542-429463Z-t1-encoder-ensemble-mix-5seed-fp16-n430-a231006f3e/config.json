@@ -1,0 +1,29 @@
+{
+  "script": "ensemble_encoder_seeds.py",
+  "argv": [
+    "--runs",
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260710",
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260711",
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260712",
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260713",
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260714",
+    "--name",
+    "mix-5seed-fp16"
+  ],
+  "milestone": "HEADROOM_AUDIT.md P5",
+  "method": "mean sigmoid across seeds, cross-fitted thresholds re-fit on the ensembled scores with trainer machinery",
+  "inputs": [
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260710",
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260711",
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260712",
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260713",
+    "<tmp>/daleel-multiseed-v2-run2/encoder_multiseed_v2_artifacts/t1-camelbert-mix-seed20260714"
+  ],
+  "input_scores_sha256": [
+    "a954b76a83909b64c6b7187a171a90a052c2738773cc40254dfdddcc736af6b8",
+    "20ad29db3d5069502309d234bbbf98e790c2e0462cdcbc68845623a4445fb9e9",
+    "cf7f301e9403f76f5b05d0611cd8eb50580fec918375e51690545df7a6f713ab",
+    "6ea66e62ed24ff01d406ce7cd1203d5e563c68dae2096cb4de0f62925420b054",
+    "c08f8bbd00d7b880ab3042e0fc69b5b87029c24b94c34d63e4607bca3bd76935"
+  ]
+}

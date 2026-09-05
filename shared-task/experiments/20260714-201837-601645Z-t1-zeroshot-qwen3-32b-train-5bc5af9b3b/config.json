@@ -1,0 +1,38 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "1",
+    "--model",
+    "qwen3-32b",
+    "--track",
+    "closed",
+    "--on",
+    "train",
+    "--threads",
+    "8",
+    "--max-tokens",
+    "6000"
+  ],
+  "model": {
+    "key": "qwen3-32b",
+    "litellm_id": "openrouter/qwen/qwen3-32b",
+    "params_b": 32,
+    "closed_track": true,
+    "notes": "the original D10 closed-track default, verified open",
+    "license_status": "verified-open",
+    "lm_kwargs": []
+  },
+  "temperature": 0.0,
+  "rollout_id": null,
+  "max_tokens": 6000,
+  "dspy_version": "3.3.0b1",
+  "track": "closed",
+  "architecture": "stage0-task1-v1",
+  "adapter": "ChatAdapter",
+  "source_id": "daleel2026:train-task-1",
+  "source_path": "<repo>/resources/repos/Daleel2026/data/train/train_task_1.jsonl",
+  "source_sha256": "240b4299df7d9e3b9297843acd271463d7aa7d10ce991576ed51f4c43ab241af",
+  "selection": "train",
+  "max_error_rate": 0.0
+}

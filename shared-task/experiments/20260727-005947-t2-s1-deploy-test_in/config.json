@@ -1,0 +1,20 @@
+{
+  "script": "t2_structural_gate_deploy.py",
+  "argv": [
+    "--encoder-deploy-run",
+    "experiments/20260727-045700-912449Z-t2-encoder-deploy-camelbert-msa-quarter-test_in-d6963ed563",
+    "--v3-run",
+    "20260727-044517-888390Z-v3-decomposed-gemma-4-31b-paid-both-test_in-aada058d66",
+    "--quote-run",
+    "20260727-043727-769789Z-t2-quote-gemma-4-31b-paid-test_in-e0cb44f029",
+    "--tag",
+    "test_in"
+  ],
+  "gate_run": "20260715-001221-t2-s1-structural-camelbert-quarter-n430",
+  "registration": "CREATIVE_HEADROOM_RESEARCH.md S1 (commit 46368f9)",
+  "encoder_oof_run": "20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+  "quote_oof_run": "20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b",
+  "v3_dev_run": "20260727-044517-888390Z-v3-decomposed-gemma-4-31b-paid-both-test_in-aada058d66",
+  "quote_dev_run": "20260727-043727-769789Z-t2-quote-gemma-4-31b-paid-test_in-e0cb44f029",
+  "encoder_deploy_run": "experiments/20260727-045700-912449Z-t2-encoder-deploy-camelbert-msa-quarter-test_in-d6963ed563"
+}

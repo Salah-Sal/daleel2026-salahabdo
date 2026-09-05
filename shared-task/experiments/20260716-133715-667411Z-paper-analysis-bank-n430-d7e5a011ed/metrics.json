@@ -1,0 +1,516 @@
+{
+  "milestone": "literature-review zero-risk paper analyses",
+  "a1_lipton_threshold_audit": {
+    "per_label_encoder": {
+      "CO": {
+        "f_star": 0.35,
+        "theta_star": 0.1779,
+        "fires_at_star": 15,
+        "lipton_theta": 0.175,
+        "at_lipton": {
+          "f1": 0.3415,
+          "fires": 16
+        },
+        "flat95_interval": [
+          0.1721,
+          0.1779
+        ],
+        "n_pos": 25,
+        "deployed_theta": 0.1809,
+        "at_deployed": {
+          "f1": 0.35,
+          "fires": 15
+        }
+      },
+      "AS": {
+        "f_star": 0.9164,
+        "theta_star": 0.4714,
+        "fires_at_star": 369,
+        "lipton_theta": 0.4582,
+        "at_lipton": {
+          "f1": 0.9125,
+          "fires": 372
+        },
+        "flat95_interval": [
+          0.0323,
+          0.806
+        ],
+        "n_pos": 325,
+        "deployed_theta": 0.473,
+        "at_deployed": {
+          "f1": 0.9164,
+          "fires": 369
+        }
+      },
+      "TE": {
+        "f_star": 0.6612,
+        "theta_star": 0.2859,
+        "fires_at_star": 131,
+        "lipton_theta": 0.3306,
+        "at_lipton": {
+          "f1": 0.6335,
+          "fires": 110
+        },
+        "flat95_interval": [
+          0.2164,
+          0.3746
+        ],
+        "n_pos": 111,
+        "deployed_theta": 0.2882,
+        "at_deployed": {
+          "f1": 0.6612,
+          "fires": 131
+        }
+      },
+      "ST": {
+        "f_star": 0.3256,
+        "theta_star": 0.1639,
+        "fires_at_star": 24,
+        "lipton_theta": 0.1628,
+        "at_lipton": {
+          "f1": 0.3182,
+          "fires": 25
+        },
+        "flat95_interval": [
+          0.1477,
+          0.1639
+        ],
+        "n_pos": 19,
+        "deployed_theta": 0.1644,
+        "at_deployed": {
+          "f1": 0.3256,
+          "fires": 24
+        }
+      },
+      "AN": {
+        "f_star": 0.717,
+        "theta_star": 0.3836,
+        "fires_at_star": 136,
+        "lipton_theta": 0.3585,
+        "at_lipton": {
+          "f1": 0.7037,
+          "fires": 141
+        },
+        "flat95_interval": [
+          0.2429,
+          0.5304
+        ],
+        "n_pos": 129,
+        "deployed_theta": 0.3839,
+        "at_deployed": {
+          "f1": 0.717,
+          "fires": 136
+        }
+      },
+      "OT": {
+        "f_star": 0.8141,
+        "theta_star": 0.4823,
+        "fires_at_star": 152,
+        "lipton_theta": 0.4071,
+        "at_lipton": {
+          "f1": 0.8025,
+          "fires": 164
+        },
+        "flat95_interval": [
+          0.1649,
+          0.5411
+        ],
+        "n_pos": 160,
+        "deployed_theta": 0.4844,
+        "at_deployed": {
+          "f1": 0.8141,
+          "fires": 152
+        }
+      }
+    },
+    "per_label_votes": {
+      "AS": {
+        "f1_by_theta": {
+          "1": 0.9197,
+          "2": 0.9219,
+          "3": 0.9178,
+          "4": 0.9135,
+          "5": 0.9071
+        },
+        "theta_star": 2,
+        "deployed_theta": 2,
+        "deployed_is_optimal": true
+      },
+      "TE": {
+        "f1_by_theta": {
+          "1": 0.749,
+          "2": 0.7668,
+          "3": 0.7823,
+          "4": 0.7934,
+          "5": 0.7915
+        },
+        "theta_star": 4,
+        "deployed_theta": 4,
+        "deployed_is_optimal": true
+      },
+      "ST": {
+        "f1_by_theta": {
+          "1": 0.5205,
+          "2": 0.5758,
+          "3": 0.5938,
+          "4": 0.6129,
+          "5": 0.6102
+        },
+        "theta_star": 4,
+        "deployed_theta": 4,
+        "deployed_is_optimal": true
+      }
+    },
+    "co_budget": {
+      "pooled_budget_fires": 50,
+      "encoder_sigmoid_fires_at_star": 15,
+      "note": "budget rule fires a fixed count per fold; the rank fusion adds vote/span features on top of the sigmoid audited above"
+    }
+  },
+  "a2_vote_scaling": {
+    "CO": {
+      "alpha_prevalence": 0.0581,
+      "p1_fire_rate_on_gold": 0.632,
+      "p2_fire_rate_on_negatives": 0.1595,
+      "inverted_gold_frac": 0.36,
+      "inverted_neg_count": 62,
+      "f1_by_k_optimal_theta": {
+        "1": 0.2998,
+        "3": 0.3224,
+        "5": 0.3265,
+        "7": 0.3269,
+        "9": 0.3284,
+        "11": 0.329,
+        "15": 0.3304,
+        "21": 0.3316,
+        "31": 0.3332,
+        "51": 0.3349
+      },
+      "f1_by_k_majority_rule": {
+        "1": 0.2998,
+        "3": 0.3037,
+        "5": 0.3057,
+        "7": 0.3068,
+        "9": 0.3076,
+        "11": 0.308,
+        "15": 0.3086,
+        "21": 0.3091,
+        "31": 0.3095,
+        "51": 0.31
+      },
+      "f1_at_k_inf": 0.3368,
+      "k_star_995pct_of_peak": 51
+    },
+    "AS": {
+      "alpha_prevalence": 0.7558,
+      "p1_fire_rate_on_gold": 0.9409,
+      "p2_fire_rate_on_negatives": 0.3505,
+      "inverted_gold_frac": 0.0554,
+      "inverted_neg_count": 37,
+      "f1_by_k_optimal_theta": {
+        "1": 0.9161,
+        "3": 0.9196,
+        "5": 0.9201,
+        "7": 0.9203,
+        "9": 0.9204,
+        "11": 0.9206,
+        "15": 0.9208,
+        "21": 0.921,
+        "31": 0.9213,
+        "51": 0.9216
+      },
+      "f1_by_k_majority_rule": {
+        "1": 0.9161,
+        "3": 0.9169,
+        "5": 0.9173,
+        "7": 0.9175,
+        "9": 0.9176,
+        "11": 0.9177,
+        "15": 0.9178,
+        "21": 0.9178,
+        "31": 0.9178,
+        "51": 0.9178
+      },
+      "f1_at_k_inf": 0.9219,
+      "k_star_995pct_of_peak": 3
+    },
+    "TE": {
+      "alpha_prevalence": 0.2581,
+      "p1_fire_rate_on_gold": 0.8649,
+      "p2_fire_rate_on_negatives": 0.1266,
+      "inverted_gold_frac": 0.1261,
+      "inverted_neg_count": 40,
+      "f1_by_k_optimal_theta": {
+        "1": 0.7761,
+        "3": 0.7888,
+        "5": 0.791,
+        "7": 0.7915,
+        "9": 0.7916,
+        "11": 0.7918,
+        "15": 0.7919,
+        "21": 0.7922,
+        "31": 0.7925,
+        "51": 0.7929
+      },
+      "f1_by_k_majority_rule": {
+        "1": 0.7761,
+        "3": 0.7783,
+        "5": 0.7795,
+        "7": 0.7801,
+        "9": 0.7805,
+        "11": 0.7808,
+        "15": 0.7811,
+        "21": 0.7814,
+        "31": 0.7816,
+        "51": 0.7819
+      },
+      "f1_at_k_inf": 0.7934,
+      "k_star_995pct_of_peak": 5
+    },
+    "ST": {
+      "alpha_prevalence": 0.0442,
+      "p1_fire_rate_on_gold": 0.9895,
+      "p2_fire_rate_on_negatives": 0.0657,
+      "inverted_gold_frac": 0.0,
+      "inverted_neg_count": 26,
+      "f1_by_k_optimal_theta": {
+        "1": 0.5802,
+        "3": 0.6054,
+        "5": 0.6093,
+        "7": 0.6102,
+        "9": 0.6103,
+        "11": 0.6104,
+        "15": 0.6107,
+        "21": 0.6111,
+        "31": 0.6115,
+        "51": 0.6122
+      },
+      "f1_by_k_majority_rule": {
+        "1": 0.5802,
+        "3": 0.5867,
+        "5": 0.5898,
+        "7": 0.5915,
+        "9": 0.5924,
+        "11": 0.593,
+        "15": 0.5935,
+        "21": 0.5937,
+        "31": 0.5937,
+        "51": 0.5937
+      },
+      "f1_at_k_inf": 0.6129,
+      "k_star_995pct_of_peak": 5
+    },
+    "AN": {
+      "alpha_prevalence": 0.3,
+      "p1_fire_rate_on_gold": 0.4868,
+      "p2_fire_rate_on_negatives": 0.0957,
+      "inverted_gold_frac": 0.5039,
+      "inverted_neg_count": 27,
+      "f1_by_k_optimal_theta": {
+        "1": 0.5694,
+        "3": 0.5959,
+        "5": 0.6028,
+        "7": 0.606,
+        "9": 0.6078,
+        "11": 0.609,
+        "15": 0.6101,
+        "21": 0.6107,
+        "31": 0.6109,
+        "51": 0.6109
+      },
+      "f1_by_k_majority_rule": {
+        "1": 0.5694,
+        "3": 0.5714,
+        "5": 0.5727,
+        "7": 0.5737,
+        "9": 0.5744,
+        "11": 0.575,
+        "15": 0.576,
+        "21": 0.5771,
+        "31": 0.5783,
+        "51": 0.5798
+      },
+      "f1_at_k_inf": 0.6109,
+      "k_star_995pct_of_peak": 11
+    },
+    "OT": {
+      "alpha_prevalence": 0.3721,
+      "p1_fire_rate_on_gold": 0.8438,
+      "p2_fire_rate_on_negatives": 0.2526,
+      "inverted_gold_frac": 0.1562,
+      "inverted_neg_count": 68,
+      "f1_by_k_optimal_theta": {
+        "1": 0.7434,
+        "3": 0.7454,
+        "5": 0.7456,
+        "7": 0.7459,
+        "9": 0.7461,
+        "11": 0.7462,
+        "15": 0.7465,
+        "21": 0.7468,
+        "31": 0.7472,
+        "51": 0.7476
+      },
+      "f1_by_k_majority_rule": {
+        "1": 0.7434,
+        "3": 0.7441,
+        "5": 0.7444,
+        "7": 0.7445,
+        "9": 0.7445,
+        "11": 0.7445,
+        "15": 0.7445,
+        "21": 0.7444,
+        "31": 0.7442,
+        "51": 0.7441
+      },
+      "f1_at_k_inf": 0.748,
+      "k_star_995pct_of_peak": 3
+    }
+  },
+  "a3_confusion_families": {
+    "mass_confusion_recorded_v3": {
+      "CO": {
+        "CO": 0.7145,
+        "AS": 0.1169,
+        "TE": 0.0212,
+        "ST": 0.0245,
+        "AN": 0.0475,
+        "OT": 0.0395,
+        "UNCOVERED": 0.0359
+      },
+      "AS": {
+        "CO": 0.0598,
+        "AS": 0.8103,
+        "TE": 0.029,
+        "ST": 0.0078,
+        "AN": 0.0235,
+        "OT": 0.0409,
+        "UNCOVERED": 0.0287
+      },
+      "TE": {
+        "CO": 0.0391,
+        "AS": 0.0849,
+        "TE": 0.7745,
+        "ST": 0.0123,
+        "AN": 0.0169,
+        "OT": 0.0456,
+        "UNCOVERED": 0.0266
+      },
+      "ST": {
+        "CO": 0.0101,
+        "AS": 0.0663,
+        "TE": 0.1109,
+        "ST": 0.7327,
+        "AN": 0.0231,
+        "OT": 0.0166,
+        "UNCOVERED": 0.0403
+      },
+      "AN": {
+        "CO": 0.1525,
+        "AS": 0.2606,
+        "TE": 0.1141,
+        "ST": 0.0324,
+        "AN": 0.3745,
+        "OT": 0.0289,
+        "UNCOVERED": 0.037
+      },
+      "OT": {
+        "CO": 0.0192,
+        "AS": 0.2568,
+        "TE": 0.0183,
+        "ST": 0.0,
+        "AN": 0.0054,
+        "OT": 0.6585,
+        "UNCOVERED": 0.0418
+      }
+    },
+    "mass_confusion_s1_relabeled": {
+      "CO": {
+        "CO": 0.5632,
+        "AS": 0.2861,
+        "TE": 0.0212,
+        "ST": 0.0245,
+        "AN": 0.0296,
+        "OT": 0.0395,
+        "UNCOVERED": 0.0359
+      },
+      "AS": {
+        "CO": 0.0147,
+        "AS": 0.8627,
+        "TE": 0.0271,
+        "ST": 0.0037,
+        "AN": 0.0241,
+        "OT": 0.0389,
+        "UNCOVERED": 0.0287
+      },
+      "TE": {
+        "CO": 0.0213,
+        "AS": 0.0966,
+        "TE": 0.7888,
+        "ST": 0.0076,
+        "AN": 0.0143,
+        "OT": 0.0447,
+        "UNCOVERED": 0.0266
+      },
+      "ST": {
+        "CO": 0.0,
+        "AS": 0.1024,
+        "TE": 0.1109,
+        "ST": 0.6784,
+        "AN": 0.0514,
+        "OT": 0.0166,
+        "UNCOVERED": 0.0403
+      },
+      "AN": {
+        "CO": 0.0791,
+        "AS": 0.33,
+        "TE": 0.1116,
+        "ST": 0.0245,
+        "AN": 0.3818,
+        "OT": 0.0359,
+        "UNCOVERED": 0.037
+      },
+      "OT": {
+        "CO": 0.0125,
+        "AS": 0.2695,
+        "TE": 0.0183,
+        "ST": 0.0,
+        "AN": 0.0057,
+        "OT": 0.6522,
+        "UNCOVERED": 0.0418
+      }
+    },
+    "within_family_share_of_wrong_mass": {
+      "recorded_v3": 0.2577,
+      "s1_relabeled": 0.1821
+    },
+    "six_label_pooled_f1": {
+      "recorded_v3": 0.6934,
+      "s1_relabeled": 0.7206
+    },
+    "family_level_pooled_f1": {
+      "recorded_v3": 0.7512,
+      "s1_relabeled": 0.7541
+    },
+    "human_juxtaposition": {
+      "model_CO->AS": 0.2861,
+      "model_AN->AS": 0.33,
+      "model_CO->CO": 0.5632,
+      "human_cpm": {
+        "CO->AS": 0.562,
+        "AN->AS": 0.277,
+        "CO->CO": 0.129
+      }
+    },
+    "families": {
+      "TE": "EVID",
+      "ST": "EVID",
+      "AN": "EVID",
+      "CO": "SUBJ",
+      "AS": "SUBJ",
+      "OT": "OTH"
+    }
+  },
+  "inputs_note": "T1 = v2.2 gate-run inputs (rollouts/encoder); T2 = S1 gate-run recorded+relabeled spans",
+  "s1_recorded_f1_check": 0.6934
+}

@@ -1,0 +1,27 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "config.json",
+      "sha256": "7c257674e50e51054548ddef6223b637a803f1b9fcb58626dacc8c5701d26b98"
+    },
+    {
+      "relative_path": "metrics.json",
+      "sha256": "753c834483daf6b4ec14de3379d9fadea60267db7f7de7a09ed62629a3473d23"
+    },
+    {
+      "relative_path": "predictions/preds.jsonl",
+      "sha256": "6aeb79553335aae8df4d7bbe2aabbc8f2b4cf6fb18f9e9f12034e3d7f592cd71"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "ee41848a1b6faa3100ec9b8d486c261cf1460f660fe7bc5be47f416d86d2aba3"
+    }
+  ],
+  "metadata": {
+    "architecture": "stage0-task1-v1",
+    "task": 1,
+    "source_id": "daleel2026:train-task-1"
+  }
+}

@@ -1,0 +1,526 @@
+{
+  "model": "gemma-4-31b-paid",
+  "n_paragraphs": 430,
+  "n_units": 3715,
+  "wall_seconds": 2452.2,
+  "n_program_errors": 3,
+  "n_parse_failures": 3,
+  "n_length_mismatch": 14,
+  "unknown_rate_by_axis": {
+    "source": 0.0022,
+    "form": 0.0019,
+    "stance": 0.0016
+  },
+  "errors_sample": [
+    "429: ValidationError: 4 validation errors for list[UnitSignal]\n2.stance\n  Field required [type=missing, input_value={'form': 'generic', 'source': 'S'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\n4.stance\n  Field required [type=missing, input_value={'form': 'question-or-fil...', 'source': 'authorSS'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\n5.source\n  Field required [type=missing, input_value={'form': 'question-or-filler'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\n5.stance\n  Field required [type=missing, input_value={'form': 'question-or-filler'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+    "902: ValidationError: 1 validation error for list[UnitSignal]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type",
+    "998: ValidationError: 1 validation error for list[UnitSignal]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type"
+  ],
+  "reference": {
+    "champion_local_val": 0.7024,
+    "champion_dev": 0.6159
+  },
+  "theory_mapping": {
+    "macro_f1": 0.6064,
+    "per_label_f1": {
+      "CO": 0.1949,
+      "AS": 0.9091,
+      "TE": 0.7132,
+      "ST": 0.5135,
+      "AN": 0.6792,
+      "OT": 0.6286
+    },
+    "unit_accuracy_on_gold_units": 0.6372
+  },
+  "fitted_mapping_optimistic": {
+    "macro_f1": 0.6417,
+    "per_label_f1": {
+      "CO": 0.2056,
+      "AS": 0.9265,
+      "TE": 0.7469,
+      "ST": 0.5806,
+      "AN": 0.7063,
+      "OT": 0.6845
+    },
+    "cells": {
+      "CO": [
+        [
+          "author",
+          "generic",
+          "presupposed"
+        ],
+        [
+          "author",
+          "quantitative",
+          "argued"
+        ],
+        [
+          "attributed",
+          "instance",
+          "presupposed"
+        ]
+      ],
+      "AS": [
+        [
+          "author",
+          "generic",
+          "argued"
+        ],
+        [
+          "author",
+          "generic",
+          "presupposed"
+        ],
+        [
+          "author",
+          "question-or-filler",
+          "argued"
+        ],
+        [
+          "author",
+          "instance",
+          "argued"
+        ],
+        [
+          "author",
+          "instance",
+          "none"
+        ],
+        [
+          "procedural",
+          "generic",
+          "none"
+        ]
+      ],
+      "TE": [
+        [
+          "attributed",
+          "generic",
+          "argued"
+        ],
+        [
+          "attributed",
+          "generic",
+          "none"
+        ],
+        [
+          "attributed",
+          "quantitative",
+          "presupposed"
+        ],
+        [
+          "attributed",
+          "question-or-filler",
+          "none"
+        ],
+        [
+          "attributed",
+          "instance",
+          "none"
+        ],
+        [
+          "attributed",
+          "quantitative",
+          "argued"
+        ],
+        [
+          "author",
+          "quantitative",
+          "none"
+        ]
+      ],
+      "ST": [
+        [
+          "attributed",
+          "quantitative",
+          "presupposed"
+        ],
+        [
+          "author",
+          "quantitative",
+          "presupposed"
+        ],
+        [
+          "attributed",
+          "quantitative",
+          "argued"
+        ],
+        [
+          "attributed",
+          "quantitative",
+          "none"
+        ]
+      ],
+      "AN": [
+        [
+          "author",
+          "instance",
+          "presupposed"
+        ],
+        [
+          "author",
+          "instance",
+          "argued"
+        ],
+        [
+          "attributed",
+          "instance",
+          "presupposed"
+        ],
+        [
+          "attributed",
+          "quantitative",
+          "argued"
+        ],
+        [
+          "attributed",
+          "question-or-filler",
+          "argued"
+        ],
+        [
+          "attributed",
+          "instance",
+          "none"
+        ]
+      ],
+      "OT": [
+        [
+          "procedural",
+          "question-or-filler",
+          "none"
+        ],
+        [
+          "author",
+          "instance",
+          "none"
+        ],
+        [
+          "author",
+          "question-or-filler",
+          "presupposed"
+        ],
+        [
+          "procedural",
+          "generic",
+          "none"
+        ],
+        [
+          "attributed",
+          "quantitative",
+          "none"
+        ],
+        [
+          "author",
+          "quantitative",
+          "argued"
+        ]
+      ]
+    }
+  },
+  "crossfit_mapping": {
+    "macro_f1": 0.5771,
+    "per_label_f1": {
+      "CO": 0.0714,
+      "AS": 0.9153,
+      "TE": 0.722,
+      "ST": 0.4364,
+      "AN": 0.669,
+      "OT": 0.6486
+    }
+  },
+  "cell_contingency": {
+    "author|generic|argued": {
+      "AS": 1213,
+      "OT": 83,
+      "AN": 72,
+      "NONE": 25,
+      "TE": 23,
+      "CO": 7,
+      "ST": 4
+    },
+    "procedural|question-or-filler|none": {
+      "OT": 253,
+      "NONE": 83,
+      "AS": 44,
+      "TE": 17,
+      "AN": 7,
+      "CO": 2
+    },
+    "author|generic|presupposed": {
+      "AS": 181,
+      "AN": 103,
+      "CO": 44,
+      "OT": 31,
+      "TE": 14,
+      "NONE": 6,
+      "ST": 2
+    },
+    "author|question-or-filler|none": {
+      "AS": 160,
+      "NONE": 109,
+      "OT": 60,
+      "AN": 28,
+      "TE": 16,
+      "CO": 5,
+      "ST": 3
+    },
+    "author|instance|presupposed": {
+      "AN": 161,
+      "AS": 57,
+      "TE": 10,
+      "OT": 8,
+      "CO": 6,
+      "ST": 2
+    },
+    "attributed|generic|argued": {
+      "TE": 138,
+      "AS": 48,
+      "AN": 14,
+      "NONE": 4,
+      "OT": 2
+    },
+    "author|instance|argued": {
+      "AS": 61,
+      "AN": 49,
+      "OT": 3,
+      "NONE": 2
+    },
+    "attributed|generic|presupposed": {
+      "TE": 50,
+      "AS": 20,
+      "AN": 20,
+      "CO": 14,
+      "ST": 4,
+      "NONE": 2,
+      "OT": 1
+    },
+    "attributed|generic|none": {
+      "TE": 63,
+      "AS": 19,
+      "AN": 12,
+      "OT": 5,
+      "NONE": 3
+    },
+    "attributed|instance|presupposed": {
+      "TE": 22,
+      "AN": 16,
+      "AS": 5,
+      "NONE": 2
+    },
+    "author|quantitative|presupposed": {
+      "ST": 20,
+      "AN": 16,
+      "AS": 5,
+      "NONE": 2
+    },
+    "attributed|question-or-filler|none": {
+      "TE": 23,
+      "AS": 6,
+      "NONE": 3,
+      "ST": 2,
+      "AN": 2,
+      "OT": 1
+    },
+    "author|question-or-filler|argued": {
+      "AS": 27,
+      "OT": 2,
+      "NONE": 1,
+      "TE": 1
+    },
+    "attributed|instance|argued": {
+      "TE": 14,
+      "AN": 8,
+      "AS": 6
+    },
+    "author|quantitative|argued": {
+      "AN": 11,
+      "AS": 9,
+      "ST": 2,
+      "CO": 1
+    },
+    "author|generic|none": {
+      "OT": 15,
+      "AS": 6,
+      "TE": 1,
+      "NONE": 1
+    },
+    "attributed|instance|none": {
+      "TE": 18,
+      "AN": 2,
+      "AS": 1
+    },
+    "procedural|generic|none": {
+      "OT": 15,
+      "AS": 6
+    },
+    "attributed|quantitative|presupposed": {
+      "ST": 12,
+      "TE": 2,
+      "AN": 2,
+      "CO": 1
+    },
+    "author|instance|none": {
+      "AS": 11,
+      "TE": 2,
+      "NONE": 1,
+      "OT": 1
+    },
+    "author|question-or-filler|presupposed": {
+      "AS": 5,
+      "OT": 3,
+      "AN": 1
+    },
+    "procedural|generic|presupposed": {
+      "AS": 4,
+      "OT": 2,
+      "TE": 1
+    },
+    "attributed|quantitative|argued": {
+      "TE": 3,
+      "ST": 3,
+      "AS": 1
+    },
+    "?|?|?": {
+      "TE": 2,
+      "NONE": 1,
+      "AS": 1,
+      "OT": 1,
+      "AN": 1
+    },
+    "attributed|question-or-filler|argued": {
+      "AN": 1,
+      "AS": 1,
+      "TE": 1
+    },
+    "?|generic|argued": {
+      "AS": 1,
+      "AN": 1
+    },
+    "attributed|quantitative|none": {
+      "TE": 2
+    },
+    "attributed|?|argued": {
+      "TE": 1
+    },
+    "author|quantitative|none": {
+      "AN": 1
+    }
+  },
+  "axis_contingency": {
+    "source": {
+      "?": {
+        "AS": 2,
+        "TE": 2,
+        "AN": 2,
+        "NONE": 1,
+        "OT": 1
+      },
+      "attributed": {
+        "TE": 337,
+        "AS": 107,
+        "AN": 77,
+        "ST": 21,
+        "CO": 15,
+        "NONE": 14,
+        "OT": 9
+      },
+      "author": {
+        "AS": 1735,
+        "AN": 442,
+        "OT": 206,
+        "NONE": 147,
+        "TE": 67,
+        "CO": 63,
+        "ST": 33
+      },
+      "procedural": {
+        "OT": 270,
+        "NONE": 83,
+        "AS": 54,
+        "TE": 18,
+        "AN": 7,
+        "CO": 2
+      }
+    },
+    "form": {
+      "?": {
+        "TE": 3,
+        "NONE": 1,
+        "AS": 1,
+        "OT": 1,
+        "AN": 1
+      },
+      "generic": {
+        "AS": 1498,
+        "TE": 290,
+        "AN": 222,
+        "OT": 154,
+        "CO": 65,
+        "NONE": 41,
+        "ST": 10
+      },
+      "instance": {
+        "AN": 236,
+        "AS": 141,
+        "TE": 66,
+        "OT": 12,
+        "CO": 6,
+        "NONE": 5,
+        "ST": 2
+      },
+      "quantitative": {
+        "ST": 37,
+        "AN": 30,
+        "AS": 15,
+        "TE": 7,
+        "CO": 2,
+        "NONE": 2
+      },
+      "question-or-filler": {
+        "OT": 319,
+        "AS": 243,
+        "NONE": 196,
+        "TE": 58,
+        "AN": 39,
+        "CO": 7,
+        "ST": 5
+      }
+    },
+    "stance": {
+      "?": {
+        "TE": 2,
+        "NONE": 1,
+        "AS": 1,
+        "OT": 1,
+        "AN": 1
+      },
+      "argued": {
+        "AS": 1367,
+        "TE": 181,
+        "AN": 156,
+        "OT": 90,
+        "NONE": 32,
+        "ST": 9,
+        "CO": 8
+      },
+      "none": {
+        "OT": 350,
+        "AS": 253,
+        "NONE": 200,
+        "TE": 142,
+        "AN": 52,
+        "CO": 7,
+        "ST": 5
+      },
+      "presupposed": {
+        "AN": 319,
+        "AS": 277,
+        "TE": 99,
+        "CO": 65,
+        "OT": 45,
+        "ST": 40,
+        "NONE": 12
+      }
+    }
+  }
+}

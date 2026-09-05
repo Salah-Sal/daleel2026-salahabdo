@@ -1,0 +1,39 @@
+{
+  "task": 2,
+  "model": "gemma-4-31b-paid",
+  "program": "quote",
+  "compiled": null,
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "on": "alltrain",
+  "n_paragraphs": 612,
+  "cot": true,
+  "g1_format_compliance": 0.9984,
+  "n_parse_failures": 1,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 1,
+  "wall_seconds": 2.2,
+  "errors_sample": [
+    "745: ValidationError: 1 validation error for list[ADUQuote]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type"
+  ],
+  "align_stats": {
+    "exact": 2459,
+    "ws": 29,
+    "norm": 11,
+    "fuzzy": 11,
+    "unaligned": 0,
+    "dropped_overlap": 2
+  },
+  "n_paragraphs_with_unaligned": 0,
+  "s1_official_span_f1": 0.6633,
+  "precision": 0.6172,
+  "recall": 0.7168,
+  "per_label_f1": {
+    "CO": 0.2043,
+    "AS": 0.7736,
+    "TE": 0.7371,
+    "ST": 0.5961,
+    "AN": 0.3941,
+    "OT": 0.5503
+  },
+  "proxy_mean": 0.6099
+}

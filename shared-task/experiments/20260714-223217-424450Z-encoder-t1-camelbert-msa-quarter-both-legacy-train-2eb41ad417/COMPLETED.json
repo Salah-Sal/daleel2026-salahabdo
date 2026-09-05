@@ -1,0 +1,39 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "config.json",
+      "sha256": "9a31e804b73f9db93854d8ce1f4aee816f35eb184f68ba30d630480e5380a16f"
+    },
+    {
+      "relative_path": "folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "metrics.json",
+      "sha256": "f6cf537d1a5a931b32858ff88f8b735216365f8972e9daa5ec74fb1180f62797"
+    },
+    {
+      "relative_path": "predictions/oof_task_1.jsonl",
+      "sha256": "2958a3b9f3d385e4afe0942bdb210c5177e626e60ae09d5c61d8f0ead8922476"
+    },
+    {
+      "relative_path": "predictions/oof_task_1_scores.jsonl",
+      "sha256": "8d5ea2007d6e5b4a0e47715d4f653a79bd95b50e0cc70e42776040372921980a"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "65131502d082ca59466133bbadd071bae79d01fd374c7fd5aa6fd2333888169a"
+    },
+    {
+      "relative_path": "training_history.json",
+      "sha256": "d0430fb1b6436f9e797362eeb09ac4112ba574e6c7bc750878a3636e9e7e0dae"
+    }
+  ],
+  "metadata": {
+    "task": 1,
+    "primary_score": 0.6127189171738358,
+    "comparable_run": true
+  }
+}

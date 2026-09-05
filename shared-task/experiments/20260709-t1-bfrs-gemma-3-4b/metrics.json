@@ -1,0 +1,13 @@
+{
+  "task": 1,
+  "model": "gemma-3-4b",
+  "optimizer": "bfrs",
+  "wall_seconds": 562.6,
+  "demo_counts": {
+    "classify.predict": 4
+  },
+  "state_file": "<repo>/shared-task/experiments/20260709-t1-bfrs-gemma-3-4b/compiled/t1-bfrs.json",
+  "instructions_changed": {
+    "classify.predict": false
+  }
+}

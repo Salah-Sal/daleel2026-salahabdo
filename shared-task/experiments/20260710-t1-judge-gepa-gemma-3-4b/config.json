@@ -1,0 +1,43 @@
+{
+  "script": "compile_judge.py",
+  "argv": [
+    "--optimizer",
+    "gepa",
+    "--model",
+    "gemma-3-4b",
+    "--max-metric-calls",
+    "40",
+    "--train-pos",
+    "3",
+    "--train-neg",
+    "3",
+    "--val-pos",
+    "2",
+    "--val-neg",
+    "2",
+    "--threads",
+    "4"
+  ],
+  "model": {
+    "key": "gemma-3-4b",
+    "litellm_id": "openrouter/google/gemma-3-4b-it",
+    "params_b": 4,
+    "closed_track": true,
+    "notes": "paid (cheap); smallest dense Gemma",
+    "lm_kwargs": []
+  },
+  "optimizer": "gepa",
+  "reflection_model": "gemma-3-4b",
+  "teacher_model": null,
+  "judged_labels": [
+    "CO",
+    "ST",
+    "OT",
+    "AN"
+  ],
+  "n_train_decisions": 24,
+  "n_val_decisions": 16,
+  "seed": 20260709,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1"
+}

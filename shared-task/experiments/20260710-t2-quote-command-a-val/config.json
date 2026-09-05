@@ -1,0 +1,28 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "2",
+    "--model",
+    "command-a",
+    "--program",
+    "quote",
+    "--on",
+    "val",
+    "--threads",
+    "8",
+    "--max-tokens",
+    "6000"
+  ],
+  "model": {
+    "key": "command-a",
+    "litellm_id": "cohere_chat/command-a-03-2025",
+    "params_b": 111,
+    "closed_track": false,
+    "notes": "open weights but over the 70B cap; $2.5/$10 per M",
+    "lm_kwargs": []
+  },
+  "temperature": 0.0,
+  "max_tokens": 6000,
+  "dspy_version": "3.3.0b1"
+}

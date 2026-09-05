@@ -1,0 +1,31 @@
+{
+  "task": 1,
+  "model": "command-a",
+  "program": "seed",
+  "compiled": null,
+  "litellm_id": "cohere_chat/command-a-03-2025",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 62.8,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.6317,
+  "micro_f1": 0.7129,
+  "s2_rare_recall": {
+    "ST": 0.875,
+    "CO": 0.8
+  },
+  "per_label_f1": {
+    "CO": 0.3404,
+    "AS": 0.8947,
+    "TE": 0.74,
+    "ST": 0.7368,
+    "AN": 0.4944,
+    "OT": 0.5841
+  },
+  "proxy_mean": 0.6741
+}

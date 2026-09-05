@@ -1,0 +1,28 @@
+{
+  "task": 2,
+  "model": "gemma-4-26b-paid",
+  "litellm_id": "openrouter/google/gemma-4-26b-a4b-it",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 0.9615,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 283.9,
+  "errors_sample": [],
+  "n_length_mismatch": 7,
+  "granularity": "connective",
+  "s1_official_span_f1": 0.6629,
+  "precision": 0.643,
+  "recall": 0.6841,
+  "per_label_f1": {
+    "CO": 0.2749,
+    "AS": 0.7873,
+    "TE": 0.6445,
+    "ST": 0.513,
+    "AN": 0.3543,
+    "OT": 0.4786
+  },
+  "proxy_mean": 0.6017
+}

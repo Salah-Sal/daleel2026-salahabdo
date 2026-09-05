@@ -1,0 +1,24 @@
+{
+  "script": "judge_stage_test.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--threads",
+    "8",
+    "--preds",
+    "experiments/20260710-t1-zeroshot-gemma-4-31b-paid-optval/predictions/preds.jsonl",
+    "--compiled",
+    "experiments/20260710-t1-judge-bfrs-gemma-4-31b-paid/compiled/judge-bfrs.json"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended",
+    "lm_kwargs": []
+  },
+  "temperature": 0.0,
+  "max_tokens": 6000,
+  "dspy_version": "3.3.0b1"
+}

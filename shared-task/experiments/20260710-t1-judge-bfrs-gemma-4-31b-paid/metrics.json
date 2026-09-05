@@ -1,0 +1,27 @@
+{
+  "stage": "judge-compile",
+  "model": "gemma-4-31b-paid",
+  "optimizer": "bfrs",
+  "wall_seconds": 1643.8,
+  "demo_counts": {
+    "verify.predict": 4
+  },
+  "instructions_changed": {
+    "verify.predict": false
+  },
+  "seed_val_accuracy": {
+    "AN": 0.76,
+    "CO": 0.8529,
+    "OT": 0.86,
+    "ST": 0.9677,
+    "overall": 0.8485
+  },
+  "compiled_val_accuracy": {
+    "AN": 0.8,
+    "CO": 0.8235,
+    "OT": 0.88,
+    "ST": 0.9677,
+    "overall": 0.8606
+  },
+  "state_file": "<repo>/shared-task/experiments/20260710-t1-judge-bfrs-gemma-4-31b-paid/compiled/judge-bfrs.json"
+}

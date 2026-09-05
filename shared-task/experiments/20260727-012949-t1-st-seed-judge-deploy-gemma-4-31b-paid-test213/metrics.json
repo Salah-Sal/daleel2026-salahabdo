@@ -1,0 +1,13 @@
+{
+  "milestone": "v2.1 ST seed judge deploy twin (dev process scripted for eval)",
+  "model": "gemma-4-31b-paid",
+  "temperature": 0.0,
+  "max_tokens": 6000,
+  "source_preds": "experiments/20260727-052907-368544Z-t1-routed-v2-deploy-test_in-eb81f4522b/predictions/task_1.jsonl",
+  "n_source_paragraphs": 213,
+  "n_st_fired": 16,
+  "n_judged_absent": 1,
+  "n_program_errors": 0,
+  "errors_sample": [],
+  "wall_seconds": 30.7
+}

@@ -1,0 +1,311 @@
+{
+  "primary": {
+    "name": "official_task2_partial_f1_oof",
+    "score": 0.15251970105742932
+  },
+  "official": {
+    "precision": 0.15415821196206422,
+    "recall": 0.150915654523228,
+    "f1": 0.15251970105742932,
+    "per_label": {
+      "CO": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "AS": {
+        "precision": 0.46164720608345666,
+        "recall": 0.22250256003629157,
+        "f1": 0.3002783608909155
+      },
+      "TE": {
+        "precision": 0.03810764427351488,
+        "recall": 0.9906542056074766,
+        "f1": 0.07339210346829701
+      },
+      "ST": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "AN": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "OT": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    }
+  },
+  "per_genre": {
+    "editorial": {
+      "precision": 0.10578235550731743,
+      "recall": 0.14241210502892745,
+      "f1": 0.12139423168564611,
+      "per_label": {
+        "CO": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "AS": {
+          "precision": 0.22938848416923507,
+          "recall": 0.15384615384615385,
+          "f1": 0.18417195381289655
+        },
+        "TE": {
+          "precision": 0.06915831738526775,
+          "recall": 0.9906542056074766,
+          "f1": 0.12929074998469556
+        },
+        "ST": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "AN": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "OT": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    "debate": {
+      "precision": 0.19648708635996773,
+      "recall": 0.16083646226657866,
+      "f1": 0.17688332029991,
+      "per_label": {
+        "CO": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "AS": {
+          "precision": 0.6045756503383622,
+          "recall": 0.3216729245331573,
+          "f1": 0.41992100786304004
+        },
+        "TE": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ST": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "AN": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "OT": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    }
+  },
+  "diagnostics": {
+    "segment_accuracy": 0.16,
+    "segment_count": 75,
+    "gold_segment_class_counts": {
+      "AN": 15,
+      "AS": 38,
+      "NONE": 4,
+      "OT": 16,
+      "TE": 2
+    },
+    "predicted_segment_class_counts": {
+      "CO": 4,
+      "AS": 21,
+      "TE": 49,
+      "ST": 0,
+      "AN": 1,
+      "OT": 0,
+      "NONE": 0
+    },
+    "confusion_matrix": {
+      "row_labels_gold": [
+        "CO",
+        "AS",
+        "TE",
+        "ST",
+        "AN",
+        "OT",
+        "NONE"
+      ],
+      "column_labels_predicted": [
+        "CO",
+        "AS",
+        "TE",
+        "ST",
+        "AN",
+        "OT",
+        "NONE"
+      ],
+      "values": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          10,
+          26,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8,
+          7,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          10,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "deterministic_segmentation_oracle": {
+      "precision": 0.9173308734465635,
+      "recall": 0.964027872961448,
+      "f1": 0.9400998426472057,
+      "per_label": {
+        "CO": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "AS": {
+          "precision": 0.9360139955171176,
+          "recall": 0.9418167526227731,
+          "f1": 0.9389064084083539
+        },
+        "TE": {
+          "precision": 0.9336372847011145,
+          "recall": 0.9906542056074766,
+          "f1": 0.961301037040682
+        },
+        "ST": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "AN": {
+          "precision": 0.910808407128155,
+          "recall": 0.9950941539393252,
+          "f1": 0.9510875737365947
+        },
+        "OT": {
+          "precision": 0.8770349692956873,
+          "recall": 0.990088128104868,
+          "f1": 0.9301388989739345
+        }
+      }
+    },
+    "task1_derived_from_predicted_spans": {
+      "macro_f1": 0.14814814814814814,
+      "micro_f1": 0.3448275862068966,
+      "per_label": {
+        "CO": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AS": {
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "f1": 0.6666666666666666,
+          "support": 6
+        },
+        "TE": {
+          "precision": 0.125,
+          "recall": 1.0,
+          "f1": 0.2222222222222222,
+          "support": 1
+        },
+        "ST": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "AN": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4
+        },
+        "OT": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        }
+      }
+    }
+  },
+  "task": 2,
+  "architecture": "arabic-encoder-connective-segment-v1",
+  "comparable_run": false,
+  "paragraph_count": 8,
+  "training_item_count": 75,
+  "fold_count": 2,
+  "mean_validation_loss": 1.9210382348631134,
+  "total_training_seconds": 0.6586176669807173
+}

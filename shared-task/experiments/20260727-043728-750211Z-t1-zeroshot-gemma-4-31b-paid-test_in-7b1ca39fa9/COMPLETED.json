@@ -1,0 +1,27 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "config.json",
+      "sha256": "a9e1740f8610e6f6464c9f5b04755303f45589fdf0822ac817ad388e91449f3c"
+    },
+    {
+      "relative_path": "metrics.json",
+      "sha256": "448721dcc3b795ef655625ab2e1aa98dc585ddda01f82638574cd7b6971146cc"
+    },
+    {
+      "relative_path": "predictions/task_1.jsonl",
+      "sha256": "2563eaafcacb27f0e55fb087507c0a329f844b1f77d6b851fe2c97b07e848b1c"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "212004dd2db9fb8e9c2fbb896ac9512bab6a0c5b985fc48043fddc0127f33a7f"
+    }
+  ],
+  "metadata": {
+    "architecture": "stage0-task1-v1",
+    "task": 1,
+    "source_id": "daleel2026:test-input"
+  }
+}

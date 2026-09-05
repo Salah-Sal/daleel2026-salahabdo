@@ -1,0 +1,430 @@
+{"paragraph_id": 3, "labels": ["AS"]}
+{"paragraph_id": 6, "labels": ["AS", "OT"]}
+{"paragraph_id": 7, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 11, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 14, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 15, "labels": ["CO", "AS", "AN"]}
+{"paragraph_id": 18, "labels": []}
+{"paragraph_id": 19, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 20, "labels": ["AS", "AN"]}
+{"paragraph_id": 21, "labels": ["OT"]}
+{"paragraph_id": 25, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 26, "labels": []}
+{"paragraph_id": 31, "labels": []}
+{"paragraph_id": 33, "labels": ["AS"]}
+{"paragraph_id": 34, "labels": ["AS", "OT"]}
+{"paragraph_id": 42, "labels": ["CO", "AS", "AN"]}
+{"paragraph_id": 51, "labels": []}
+{"paragraph_id": 52, "labels": ["AS"]}
+{"paragraph_id": 57, "labels": ["ST", "AN"]}
+{"paragraph_id": 60, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 61, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 62, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 66, "labels": []}
+{"paragraph_id": 69, "labels": []}
+{"paragraph_id": 71, "labels": ["CO", "AS", "ST", "AN"]}
+{"paragraph_id": 72, "labels": ["AS"]}
+{"paragraph_id": 74, "labels": ["AS", "OT"]}
+{"paragraph_id": 75, "labels": ["OT"]}
+{"paragraph_id": 76, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 77, "labels": ["AS", "TE"]}
+{"paragraph_id": 79, "labels": ["AS"]}
+{"paragraph_id": 82, "labels": ["AS"]}
+{"paragraph_id": 84, "labels": ["AS"]}
+{"paragraph_id": 86, "labels": ["AS", "AN"]}
+{"paragraph_id": 88, "labels": ["AS", "TE"]}
+{"paragraph_id": 91, "labels": []}
+{"paragraph_id": 96, "labels": ["AS", "OT"]}
+{"paragraph_id": 100, "labels": ["AS", "AN"]}
+{"paragraph_id": 107, "labels": ["AS"]}
+{"paragraph_id": 110, "labels": ["AS", "AN"]}
+{"paragraph_id": 111, "labels": ["AN"]}
+{"paragraph_id": 113, "labels": ["AS", "TE"]}
+{"paragraph_id": 115, "labels": ["TE", "ST", "AN"]}
+{"paragraph_id": 116, "labels": ["AS"]}
+{"paragraph_id": 119, "labels": ["AS", "OT"]}
+{"paragraph_id": 123, "labels": ["AS", "OT"]}
+{"paragraph_id": 128, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 132, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 133, "labels": []}
+{"paragraph_id": 138, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 140, "labels": ["AS", "AN"]}
+{"paragraph_id": 142, "labels": ["CO", "AS", "AN"]}
+{"paragraph_id": 143, "labels": ["AS", "AN"]}
+{"paragraph_id": 145, "labels": ["AS"]}
+{"paragraph_id": 146, "labels": []}
+{"paragraph_id": 148, "labels": ["TE", "AN"]}
+{"paragraph_id": 151, "labels": []}
+{"paragraph_id": 153, "labels": ["AS", "TE", "AN", "OT"]}
+{"paragraph_id": 154, "labels": ["AS", "AN"]}
+{"paragraph_id": 155, "labels": ["AS", "OT"]}
+{"paragraph_id": 157, "labels": ["AS"]}
+{"paragraph_id": 160, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 165, "labels": ["AS", "OT"]}
+{"paragraph_id": 168, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 169, "labels": ["AS", "AN"]}
+{"paragraph_id": 171, "labels": ["AS"]}
+{"paragraph_id": 172, "labels": ["AS"]}
+{"paragraph_id": 174, "labels": ["AS"]}
+{"paragraph_id": 175, "labels": ["AS", "AN"]}
+{"paragraph_id": 177, "labels": []}
+{"paragraph_id": 178, "labels": ["AS", "OT"]}
+{"paragraph_id": 180, "labels": ["AS", "AN"]}
+{"paragraph_id": 181, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 182, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 185, "labels": ["OT"]}
+{"paragraph_id": 188, "labels": []}
+{"paragraph_id": 190, "labels": ["AS", "OT"]}
+{"paragraph_id": 192, "labels": ["AS", "OT"]}
+{"paragraph_id": 195, "labels": ["AS", "OT"]}
+{"paragraph_id": 196, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 198, "labels": ["AS"]}
+{"paragraph_id": 199, "labels": ["AS", "OT"]}
+{"paragraph_id": 200, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 203, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 204, "labels": ["AS"]}
+{"paragraph_id": 205, "labels": ["AS", "OT"]}
+{"paragraph_id": 206, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 208, "labels": ["CO", "AS", "ST", "AN"]}
+{"paragraph_id": 209, "labels": ["AS", "OT"]}
+{"paragraph_id": 212, "labels": ["AS", "ST", "AN"]}
+{"paragraph_id": 213, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 214, "labels": ["AN"]}
+{"paragraph_id": 216, "labels": []}
+{"paragraph_id": 217, "labels": ["AS"]}
+{"paragraph_id": 218, "labels": ["CO", "AS", "AN"]}
+{"paragraph_id": 225, "labels": ["AS", "OT"]}
+{"paragraph_id": 226, "labels": ["AS", "OT"]}
+{"paragraph_id": 229, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 230, "labels": []}
+{"paragraph_id": 231, "labels": ["AS", "OT"]}
+{"paragraph_id": 232, "labels": ["OT"]}
+{"paragraph_id": 234, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 236, "labels": ["CO", "AS"]}
+{"paragraph_id": 239, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 241, "labels": ["AS", "OT"]}
+{"paragraph_id": 247, "labels": ["AS", "OT"]}
+{"paragraph_id": 250, "labels": ["AS", "OT"]}
+{"paragraph_id": 251, "labels": ["AS", "OT"]}
+{"paragraph_id": 258, "labels": ["AS", "AN", "OT"]}
+{"paragraph_id": 259, "labels": ["AS"]}
+{"paragraph_id": 260, "labels": ["AS", "OT"]}
+{"paragraph_id": 271, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 274, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 275, "labels": []}
+{"paragraph_id": 276, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 283, "labels": ["AS"]}
+{"paragraph_id": 284, "labels": ["AS", "AN"]}
+{"paragraph_id": 289, "labels": ["CO", "AS", "TE", "AN"]}
+{"paragraph_id": 292, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 297, "labels": ["AS"]}
+{"paragraph_id": 302, "labels": ["AN"]}
+{"paragraph_id": 303, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 307, "labels": ["CO", "AS"]}
+{"paragraph_id": 310, "labels": ["AS"]}
+{"paragraph_id": 312, "labels": ["CO", "AS", "ST", "AN"]}
+{"paragraph_id": 313, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 317, "labels": ["CO", "AS"]}
+{"paragraph_id": 319, "labels": ["AS", "AN"]}
+{"paragraph_id": 322, "labels": ["AS", "OT"]}
+{"paragraph_id": 323, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 324, "labels": ["AS"]}
+{"paragraph_id": 326, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 327, "labels": []}
+{"paragraph_id": 328, "labels": ["TE", "ST", "AN"]}
+{"paragraph_id": 329, "labels": ["AS", "TE", "AN", "OT"]}
+{"paragraph_id": 330, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 331, "labels": ["AS", "ST", "AN"]}
+{"paragraph_id": 335, "labels": []}
+{"paragraph_id": 336, "labels": ["AS", "ST", "AN"]}
+{"paragraph_id": 337, "labels": ["CO", "AS", "AN"]}
+{"paragraph_id": 343, "labels": ["AS", "TE"]}
+{"paragraph_id": 349, "labels": []}
+{"paragraph_id": 356, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 358, "labels": []}
+{"paragraph_id": 359, "labels": ["AS"]}
+{"paragraph_id": 362, "labels": ["AS", "OT"]}
+{"paragraph_id": 363, "labels": []}
+{"paragraph_id": 364, "labels": ["AS"]}
+{"paragraph_id": 366, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 371, "labels": ["AS", "TE"]}
+{"paragraph_id": 372, "labels": ["AS"]}
+{"paragraph_id": 373, "labels": ["AS", "TE"]}
+{"paragraph_id": 377, "labels": ["AS"]}
+{"paragraph_id": 378, "labels": []}
+{"paragraph_id": 380, "labels": ["CO", "AS", "ST", "AN"]}
+{"paragraph_id": 384, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 387, "labels": ["AS"]}
+{"paragraph_id": 388, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 391, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 395, "labels": ["AS", "OT"]}
+{"paragraph_id": 398, "labels": ["AS", "OT"]}
+{"paragraph_id": 401, "labels": ["AS"]}
+{"paragraph_id": 403, "labels": ["AS", "OT"]}
+{"paragraph_id": 406, "labels": ["CO", "AS"]}
+{"paragraph_id": 407, "labels": ["AS", "OT"]}
+{"paragraph_id": 410, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 417, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 423, "labels": ["AS"]}
+{"paragraph_id": 424, "labels": []}
+{"paragraph_id": 426, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 429, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 433, "labels": ["AS"]}
+{"paragraph_id": 434, "labels": []}
+{"paragraph_id": 441, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 443, "labels": ["AS", "AN"]}
+{"paragraph_id": 445, "labels": ["AS", "OT"]}
+{"paragraph_id": 449, "labels": ["AS"]}
+{"paragraph_id": 450, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 453, "labels": ["AS"]}
+{"paragraph_id": 455, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 456, "labels": ["AS"]}
+{"paragraph_id": 457, "labels": ["AS"]}
+{"paragraph_id": 460, "labels": ["AS", "AN"]}
+{"paragraph_id": 463, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 466, "labels": ["AS"]}
+{"paragraph_id": 469, "labels": ["OT"]}
+{"paragraph_id": 471, "labels": ["TE", "ST", "AN"]}
+{"paragraph_id": 472, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 473, "labels": ["OT"]}
+{"paragraph_id": 476, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 477, "labels": ["AS"]}
+{"paragraph_id": 478, "labels": ["AS", "TE"]}
+{"paragraph_id": 480, "labels": ["AS"]}
+{"paragraph_id": 484, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 485, "labels": ["AS", "TE"]}
+{"paragraph_id": 489, "labels": ["AS", "TE"]}
+{"paragraph_id": 491, "labels": ["AS", "OT"]}
+{"paragraph_id": 493, "labels": ["AS", "AN"]}
+{"paragraph_id": 495, "labels": ["AS", "OT"]}
+{"paragraph_id": 499, "labels": ["AS"]}
+{"paragraph_id": 500, "labels": ["AS"]}
+{"paragraph_id": 501, "labels": ["CO", "AS", "ST", "AN"]}
+{"paragraph_id": 505, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 506, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 507, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 509, "labels": []}
+{"paragraph_id": 510, "labels": ["CO", "AS", "TE"]}
+{"paragraph_id": 511, "labels": ["AS", "AN"]}
+{"paragraph_id": 512, "labels": ["AS", "AN"]}
+{"paragraph_id": 515, "labels": ["AS", "OT"]}
+{"paragraph_id": 516, "labels": ["AS"]}
+{"paragraph_id": 521, "labels": ["TE", "AN"]}
+{"paragraph_id": 522, "labels": []}
+{"paragraph_id": 523, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 524, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 525, "labels": ["AS", "AN"]}
+{"paragraph_id": 528, "labels": ["AS", "OT"]}
+{"paragraph_id": 532, "labels": ["AS"]}
+{"paragraph_id": 533, "labels": ["AS", "TE"]}
+{"paragraph_id": 534, "labels": ["AS", "AN"]}
+{"paragraph_id": 535, "labels": ["AS", "OT"]}
+{"paragraph_id": 537, "labels": ["AS", "OT"]}
+{"paragraph_id": 539, "labels": []}
+{"paragraph_id": 540, "labels": ["AS", "TE"]}
+{"paragraph_id": 546, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 547, "labels": ["AN"]}
+{"paragraph_id": 549, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 553, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 554, "labels": ["AS", "OT"]}
+{"paragraph_id": 555, "labels": ["AS", "AN"]}
+{"paragraph_id": 556, "labels": ["OT"]}
+{"paragraph_id": 558, "labels": ["AS"]}
+{"paragraph_id": 560, "labels": ["AS", "OT"]}
+{"paragraph_id": 562, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 564, "labels": ["TE", "AN"]}
+{"paragraph_id": 566, "labels": ["AS"]}
+{"paragraph_id": 567, "labels": ["AS"]}
+{"paragraph_id": 568, "labels": ["AS"]}
+{"paragraph_id": 569, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 574, "labels": ["CO", "AS", "TE", "AN"]}
+{"paragraph_id": 576, "labels": ["AN"]}
+{"paragraph_id": 577, "labels": ["AS"]}
+{"paragraph_id": 579, "labels": ["AS", "OT"]}
+{"paragraph_id": 581, "labels": ["AS", "OT"]}
+{"paragraph_id": 583, "labels": ["AS"]}
+{"paragraph_id": 586, "labels": ["AS"]}
+{"paragraph_id": 592, "labels": ["AS"]}
+{"paragraph_id": 596, "labels": ["AS", "OT"]}
+{"paragraph_id": 597, "labels": []}
+{"paragraph_id": 604, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 610, "labels": ["AS", "OT"]}
+{"paragraph_id": 617, "labels": ["AS"]}
+{"paragraph_id": 621, "labels": ["AS", "AN"]}
+{"paragraph_id": 629, "labels": ["AS"]}
+{"paragraph_id": 631, "labels": ["TE"]}
+{"paragraph_id": 639, "labels": ["AS", "OT"]}
+{"paragraph_id": 641, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 650, "labels": ["AS"]}
+{"paragraph_id": 651, "labels": ["CO", "TE", "ST", "AN"]}
+{"paragraph_id": 653, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 656, "labels": ["CO", "AS", "TE", "AN"]}
+{"paragraph_id": 659, "labels": ["AS", "AN"]}
+{"paragraph_id": 660, "labels": ["AS"]}
+{"paragraph_id": 661, "labels": ["AS", "OT"]}
+{"paragraph_id": 662, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 665, "labels": ["AS", "AN"]}
+{"paragraph_id": 666, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 667, "labels": ["ST", "AN"]}
+{"paragraph_id": 670, "labels": []}
+{"paragraph_id": 671, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 672, "labels": ["CO", "AS", "TE", "AN"]}
+{"paragraph_id": 676, "labels": ["AS", "TE", "AN", "OT"]}
+{"paragraph_id": 680, "labels": ["AS", "TE"]}
+{"paragraph_id": 683, "labels": ["AS", "OT"]}
+{"paragraph_id": 684, "labels": ["AS", "OT"]}
+{"paragraph_id": 688, "labels": ["AS", "OT"]}
+{"paragraph_id": 690, "labels": ["AS", "AN"]}
+{"paragraph_id": 692, "labels": ["AS"]}
+{"paragraph_id": 693, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 694, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 695, "labels": ["AS", "OT"]}
+{"paragraph_id": 696, "labels": ["AS", "AN"]}
+{"paragraph_id": 698, "labels": ["TE", "ST", "AN"]}
+{"paragraph_id": 701, "labels": ["AS"]}
+{"paragraph_id": 705, "labels": ["AS", "OT"]}
+{"paragraph_id": 708, "labels": ["AS", "OT"]}
+{"paragraph_id": 717, "labels": ["TE", "ST", "AN"]}
+{"paragraph_id": 719, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 720, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 721, "labels": ["AS"]}
+{"paragraph_id": 722, "labels": ["AS", "TE", "ST", "AN"]}
+{"paragraph_id": 726, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 727, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 728, "labels": ["AS", "OT"]}
+{"paragraph_id": 731, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 732, "labels": ["AS"]}
+{"paragraph_id": 736, "labels": ["CO", "AS", "ST", "AN"]}
+{"paragraph_id": 740, "labels": ["AS", "OT"]}
+{"paragraph_id": 741, "labels": ["AS"]}
+{"paragraph_id": 742, "labels": ["AS"]}
+{"paragraph_id": 744, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 750, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 751, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 752, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 753, "labels": ["OT"]}
+{"paragraph_id": 755, "labels": []}
+{"paragraph_id": 756, "labels": ["AS"]}
+{"paragraph_id": 758, "labels": ["AS"]}
+{"paragraph_id": 759, "labels": ["AS"]}
+{"paragraph_id": 763, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 764, "labels": ["TE"]}
+{"paragraph_id": 768, "labels": ["AS"]}
+{"paragraph_id": 770, "labels": ["AS"]}
+{"paragraph_id": 771, "labels": ["AS"]}
+{"paragraph_id": 773, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 775, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 776, "labels": []}
+{"paragraph_id": 777, "labels": []}
+{"paragraph_id": 778, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 779, "labels": ["AS", "AN"]}
+{"paragraph_id": 780, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 781, "labels": ["AS", "TE"]}
+{"paragraph_id": 782, "labels": ["AS", "OT"]}
+{"paragraph_id": 783, "labels": ["AS", "OT"]}
+{"paragraph_id": 784, "labels": ["AS", "OT"]}
+{"paragraph_id": 785, "labels": ["AS", "OT"]}
+{"paragraph_id": 787, "labels": ["AS", "OT"]}
+{"paragraph_id": 788, "labels": ["AS"]}
+{"paragraph_id": 789, "labels": ["AS", "OT"]}
+{"paragraph_id": 790, "labels": ["TE", "AN"]}
+{"paragraph_id": 793, "labels": ["AS", "AN"]}
+{"paragraph_id": 795, "labels": ["OT"]}
+{"paragraph_id": 797, "labels": ["AS"]}
+{"paragraph_id": 803, "labels": ["CO", "AS", "TE", "ST", "AN"]}
+{"paragraph_id": 806, "labels": ["AS"]}
+{"paragraph_id": 809, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 811, "labels": ["AS", "TE", "ST", "AN"]}
+{"paragraph_id": 813, "labels": ["CO", "AS", "ST", "AN"]}
+{"paragraph_id": 823, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 824, "labels": ["AS"]}
+{"paragraph_id": 825, "labels": []}
+{"paragraph_id": 832, "labels": ["AS"]}
+{"paragraph_id": 835, "labels": ["AS"]}
+{"paragraph_id": 837, "labels": []}
+{"paragraph_id": 843, "labels": ["AS"]}
+{"paragraph_id": 844, "labels": ["AS", "TE", "AN"]}
+{"paragraph_id": 845, "labels": ["AS", "TE", "ST", "AN"]}
+{"paragraph_id": 846, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 851, "labels": ["AS", "AN"]}
+{"paragraph_id": 853, "labels": []}
+{"paragraph_id": 854, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 858, "labels": ["AS", "OT"]}
+{"paragraph_id": 859, "labels": ["AS", "AN"]}
+{"paragraph_id": 860, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 865, "labels": ["AS", "OT"]}
+{"paragraph_id": 866, "labels": ["AS"]}
+{"paragraph_id": 869, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 870, "labels": ["AS", "OT"]}
+{"paragraph_id": 873, "labels": ["AS"]}
+{"paragraph_id": 874, "labels": ["AS", "ST", "AN"]}
+{"paragraph_id": 875, "labels": ["AS", "OT"]}
+{"paragraph_id": 878, "labels": []}
+{"paragraph_id": 879, "labels": ["AS"]}
+{"paragraph_id": 882, "labels": ["TE"]}
+{"paragraph_id": 885, "labels": ["AS"]}
+{"paragraph_id": 887, "labels": []}
+{"paragraph_id": 888, "labels": ["CO", "AS"]}
+{"paragraph_id": 890, "labels": ["AS", "AN"]}
+{"paragraph_id": 893, "labels": ["AS", "AN"]}
+{"paragraph_id": 898, "labels": []}
+{"paragraph_id": 899, "labels": ["AS", "TE", "AN", "OT"]}
+{"paragraph_id": 902, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 904, "labels": ["AS"]}
+{"paragraph_id": 905, "labels": []}
+{"paragraph_id": 910, "labels": ["AS"]}
+{"paragraph_id": 911, "labels": ["AS", "AN"]}
+{"paragraph_id": 920, "labels": ["AS"]}
+{"paragraph_id": 922, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 923, "labels": ["AS"]}
+{"paragraph_id": 925, "labels": ["AS", "TE"]}
+{"paragraph_id": 927, "labels": ["AS"]}
+{"paragraph_id": 930, "labels": []}
+{"paragraph_id": 932, "labels": ["AS", "AN"]}
+{"paragraph_id": 934, "labels": ["AS", "OT"]}
+{"paragraph_id": 941, "labels": []}
+{"paragraph_id": 944, "labels": []}
+{"paragraph_id": 945, "labels": ["AS", "OT"]}
+{"paragraph_id": 946, "labels": ["AS"]}
+{"paragraph_id": 947, "labels": ["AS", "OT"]}
+{"paragraph_id": 953, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 955, "labels": ["AS", "OT"]}
+{"paragraph_id": 960, "labels": ["AS", "OT"]}
+{"paragraph_id": 961, "labels": ["AS"]}
+{"paragraph_id": 963, "labels": ["CO", "AS"]}
+{"paragraph_id": 964, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 966, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 967, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 972, "labels": ["AS"]}
+{"paragraph_id": 973, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 975, "labels": ["AS", "AN"]}
+{"paragraph_id": 976, "labels": ["AS", "OT"]}
+{"paragraph_id": 978, "labels": ["AS", "OT"]}
+{"paragraph_id": 979, "labels": ["OT"]}
+{"paragraph_id": 981, "labels": ["AS"]}
+{"paragraph_id": 982, "labels": ["AS", "AN"]}
+{"paragraph_id": 985, "labels": ["AS", "OT"]}
+{"paragraph_id": 990, "labels": []}
+{"paragraph_id": 993, "labels": ["AS"]}
+{"paragraph_id": 994, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 995, "labels": ["AS", "OT"]}
+{"paragraph_id": 997, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 998, "labels": ["CO", "AS", "TE", "OT"]}
+{"paragraph_id": 999, "labels": ["AS", "TE", "OT"]}
+{"paragraph_id": 1000, "labels": ["AS"]}
+{"paragraph_id": 1001, "labels": ["AS", "OT"]}
+{"paragraph_id": 1002, "labels": ["CO", "AS", "TE", "AN", "OT"]}
+{"paragraph_id": 1003, "labels": ["AS"]}
+{"paragraph_id": 1007, "labels": ["AS"]}
+{"paragraph_id": 1010, "labels": ["AS", "TE", "AN", "OT"]}
+{"paragraph_id": 1011, "labels": ["AS", "OT"]}
+{"paragraph_id": 1014, "labels": ["AS"]}
+{"paragraph_id": 1015, "labels": ["AS"]}
+{"paragraph_id": 1018, "labels": ["AS", "AN"]}
+{"paragraph_id": 1023, "labels": []}
+{"paragraph_id": 1027, "labels": ["TE", "ST", "AN"]}
+{"paragraph_id": 1029, "labels": ["AS"]}
+{"paragraph_id": 1031, "labels": ["AS"]}
+{"paragraph_id": 1034, "labels": []}
+{"paragraph_id": 1037, "labels": ["AS"]}
+{"paragraph_id": 1040, "labels": ["AS", "OT"]}

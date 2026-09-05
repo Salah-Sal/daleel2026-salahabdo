@@ -1,0 +1,44 @@
+[
+  {
+    "fold": 0,
+    "train_paragraph_count": 4,
+    "validation_paragraph_count": 4,
+    "train_item_count": 4,
+    "validation_item_count": 4,
+    "optimizer_steps": 1,
+    "training_seconds": 0.1777934999554418,
+    "validation_loss": 0.7209629118442535,
+    "class_weights": null,
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_training_loss": 0.7156293988227844,
+        "examples_seen": 2,
+        "optimizer_steps_total": 1,
+        "learning_rate": 0.0,
+        "seconds": 0.08664299995871261
+      }
+    ]
+  },
+  {
+    "fold": 1,
+    "train_paragraph_count": 4,
+    "validation_paragraph_count": 4,
+    "train_item_count": 4,
+    "validation_item_count": 4,
+    "optimizer_steps": 1,
+    "training_seconds": 0.1849502919940278,
+    "validation_loss": 0.7326256632804871,
+    "class_weights": null,
+    "epochs": [
+      {
+        "epoch": 1,
+        "mean_training_loss": 0.6746323704719543,
+        "examples_seen": 2,
+        "optimizer_steps_total": 1,
+        "learning_rate": 0.0,
+        "seconds": 0.07444895897060633
+      }
+    ]
+  }
+]

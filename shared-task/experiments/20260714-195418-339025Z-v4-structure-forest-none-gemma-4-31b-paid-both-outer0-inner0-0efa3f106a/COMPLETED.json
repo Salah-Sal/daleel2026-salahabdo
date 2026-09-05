@@ -1,0 +1,48 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "compiled/instructions.json",
+      "sha256": "7044eedd3f152577ac1d83c094f530c51a3924546f03895226f2f86c36a19b9d"
+    },
+    {
+      "relative_path": "compiled/role.json",
+      "sha256": "ae15f7dbf7781a149634ac6c98d2f2923b031016770f68013edef1b29a50ee45"
+    },
+    {
+      "relative_path": "config.json",
+      "sha256": "52b8e88de6710616f45214c11573a50bac930dec7d245e01d5f08b8f0fe3d5aa"
+    },
+    {
+      "relative_path": "folds.json",
+      "sha256": "6669897f051a13a5da334c391d422911c779a740415fa2f9843ef958425cea08"
+    },
+    {
+      "relative_path": "metrics.json",
+      "sha256": "b232ffddf1a53d970fb72a63688f9eef070c6d61f7f1896e923249d0907937bc"
+    },
+    {
+      "relative_path": "pre_registration.json",
+      "sha256": "72c04035e1b94ced50b2d671822444f5ff86a7c0ad3183bb7738a809b9f901cc"
+    },
+    {
+      "relative_path": "predictions/outer_task_1.jsonl",
+      "sha256": "800f40d86c15b199bac898ef6338ea72d96bc1af19ab30a5fc20d24884d00b1d"
+    },
+    {
+      "relative_path": "predictions/outer_task_2.jsonl",
+      "sha256": "7be04f06f25405ec7d4f4fd843ebc306c4a0b6e5129444474e8efaae5522eb6d"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "d02a6c77090a40154e26dd93ead948679adb93a40a0449f4fc3f7f724111e2cd"
+    }
+  ],
+  "metadata": {
+    "architecture": "proposal-atom-role-v4-structure",
+    "structure_mode": "forest",
+    "outer_fold": 0,
+    "final": false
+  }
+}

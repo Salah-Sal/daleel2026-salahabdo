@@ -1,0 +1,41 @@
+{
+  "script": "co_specialist_rank.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--threads",
+    "8"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended",
+    "license_status": "verified-open",
+    "lm_kwargs": []
+  },
+  "baseline_argv": [
+    "--llm-t0",
+    "experiments/20260711-105036-341443Z-t1-zeroshot-gemma-4-31b-paid-train-9f164b0cf8",
+    "--rollouts",
+    "experiments/20260711-105038-863885Z-t1-zeroshot-r0-gemma-4-31b-paid-train-0f9f7cebfb",
+    "experiments/20260711-105041-193190Z-t1-zeroshot-r1-gemma-4-31b-paid-train-08cec06199",
+    "experiments/20260711-100552-274256Z-t1-zeroshot-r2-gemma-4-31b-paid-train-3dec18a9ab",
+    "experiments/20260711-101957-407352Z-t1-zeroshot-r3-gemma-4-31b-paid-train-9a44d56af8",
+    "experiments/20260711-103425-983156Z-t1-zeroshot-r4-gemma-4-31b-paid-train-28d7ceb9f0",
+    "--encoder",
+    "experiments/20260711-090448-516508Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-0e77e5faf4",
+    "--span-runs",
+    "experiments/20260710-193247-709106Z-v3-role-gepa-gemma-4-31b-paid-both-outer0-inner0-1447e7ced5",
+    "experiments/20260710-210609-072093Z-v3-role-gepa-gemma-4-31b-paid-both-outer1-inner0-d9995eddba",
+    "experiments/20260710-211213-843183Z-v3-role-gepa-gemma-4-31b-paid-both-outer2-inner0-1ce74f2e9a",
+    "experiments/20260710-215536-635075Z-v3-role-gepa-gemma-4-31b-paid-both-outer3-inner0-30cdb1492f",
+    "experiments/20260710-221215-667710Z-v3-role-gepa-gemma-4-31b-paid-both-outer4-inner0-49f2e2dad5",
+    "--st-judge",
+    "experiments/20260714-202929-t1-st-verifier-v2-gemma-4-31b-paid-train430/predictions/st_judge_v2_train430.jsonl",
+    "--ot-source",
+    "encoder"
+  ],
+  "dspy_version": "3.3.0b1"
+}

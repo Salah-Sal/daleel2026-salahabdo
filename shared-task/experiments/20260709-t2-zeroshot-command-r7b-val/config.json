@@ -1,0 +1,23 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "2",
+    "--model",
+    "command-r7b",
+    "--on",
+    "val",
+    "--threads",
+    "6"
+  ],
+  "model": {
+    "key": "command-r7b",
+    "litellm_id": "openrouter/cohere/command-r7b-12-2024",
+    "params_b": 8,
+    "closed_track": true,
+    "notes": "CC-BY-NC open weights (fine for non-commercial shared task)"
+  },
+  "temperature": 0.0,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1"
+}

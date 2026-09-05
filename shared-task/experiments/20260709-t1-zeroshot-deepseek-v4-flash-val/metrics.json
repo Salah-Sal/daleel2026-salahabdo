@@ -1,0 +1,35 @@
+{
+  "task": 1,
+  "model": "deepseek-v4-flash",
+  "program": "seed",
+  "compiled": null,
+  "litellm_id": "deepseek/deepseek-v4-flash",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 0.9835,
+  "n_parse_failures": 3,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 3,
+  "wall_seconds": 616.7,
+  "errors_sample": [
+    "643: LMInvalidRequestError: [deepseek-v4-flash] litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"This response_format type is unavailable now\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+    "810: LMInvalidRequestError: [deepseek-v4-flash] litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"This response_format type is unavailable now\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+    "1028: LMInvalidRequestError: [deepseek-v4-flash] litellm.BadRequestError: DeepseekException - {\"error\":{\"message\":\"This response_format type is unavailable now\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+  ],
+  "s1_official_macro_f1": 0.644,
+  "micro_f1": 0.7591,
+  "s2_rare_recall": {
+    "ST": 0.875,
+    "CO": 0.6
+  },
+  "per_label_f1": {
+    "CO": 0.3158,
+    "AS": 0.9386,
+    "TE": 0.785,
+    "ST": 0.7778,
+    "AN": 0.3429,
+    "OT": 0.704
+  },
+  "proxy_mean": 0.7198
+}

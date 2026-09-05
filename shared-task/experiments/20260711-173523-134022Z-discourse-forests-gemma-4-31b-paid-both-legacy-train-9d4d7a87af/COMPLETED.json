@@ -1,0 +1,25 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "config.json",
+      "sha256": "b9d194882606291b62dfd8d3e6a9e01108a7d34b867958761ac72d116626c9ec"
+    },
+    {
+      "relative_path": "metrics.json",
+      "sha256": "6fcd1a92ad7d506f1c586316d20ad74cffcebbfecc2061b2eeb29b231e30bcc9"
+    },
+    {
+      "relative_path": "predictions/forests.json",
+      "sha256": "0758d176d827301eb52a210de41c8bf32f228abf5ef30133b9a5ee5146523e90"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "4ad6288f97ac26794580a8aa53f189fc2c4e5022db7fecadadffb9c2c22880cc"
+    }
+  ],
+  "metadata": {
+    "architecture": "proposal-atom-discourse-forest-v1"
+  }
+}

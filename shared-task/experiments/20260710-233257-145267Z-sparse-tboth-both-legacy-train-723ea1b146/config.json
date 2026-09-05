@@ -1,0 +1,80 @@
+{
+  "script_version": 1,
+  "tasks": [
+    1,
+    2
+  ],
+  "architectures": {
+    "1": "char-tfidf-six-linearsvc-v1",
+    "2": "char-word-tfidf-connective-linearsvc-v1"
+  },
+  "pool": "legacy-train",
+  "setting": "both",
+  "fold_count": 5,
+  "fold_seed": 20260710,
+  "confirm": true,
+  "task_configs": {
+    "task1": {
+      "char_ngram_min": 2,
+      "char_ngram_max": 5,
+      "min_df": 2,
+      "sublinear_tf": true,
+      "c": 1.0,
+      "class_weight": null,
+      "max_iter": 10000,
+      "random_state": 20260710
+    },
+    "task2": {
+      "char_ngram_min": 2,
+      "char_ngram_max": 5,
+      "word_ngram_min": 1,
+      "word_ngram_max": 2,
+      "min_df": 2,
+      "sublinear_tf": true,
+      "c": 0.5,
+      "class_weight": null,
+      "max_iter": 10000,
+      "random_state": 20260710,
+      "context_chars": 0,
+      "granularity": "connective"
+    }
+  },
+  "selected_ids_sha256": "27fad5a61414756aa2cc1a362fbbe9c1921fc61e7c4429d73ff5adbe4c5c4456",
+  "confirmation_ids_sha256": "3e750d892cd68675941b18f78d1b86fbf275769c03a937446e5929b29b9bfe96",
+  "fold_manifest_sha256": "02677817d310a61858202428ede9dcb6408875f0b729a970e8eff57c1a95bef9",
+  "source_sha256": {
+    "task1": "240b4299df7d9e3b9297843acd271463d7aa7d10ce991576ed51f4c43ab241af",
+    "task2": "4ef331404670e39a3cd46ec4dfcfe3be4cb6d71e5d764d998ad87d74d31d1a66"
+  },
+  "script": "train_sparse_baseline.py",
+  "arguments": {
+    "task": "both",
+    "pool": "legacy-train",
+    "setting": "both",
+    "folds": 5,
+    "fold_seed": 20260710,
+    "seed": 20260710,
+    "confirm": true,
+    "task1_char_min": 2,
+    "task1_char_max": 5,
+    "task1_min_df": 2,
+    "task1_c": 1.0,
+    "task1_balanced": false,
+    "task2_char_min": 2,
+    "task2_char_max": 5,
+    "task2_word_min": 1,
+    "task2_word_max": 2,
+    "task2_min_df": 2,
+    "task2_c": 0.5,
+    "task2_balanced": false,
+    "context_chars": 0,
+    "granularity": "connective",
+    "max_iter": 10000
+  },
+  "runtime": {
+    "python": "3.12.8",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0"
+  }
+}

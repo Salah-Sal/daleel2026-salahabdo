@@ -1,0 +1,17 @@
+{
+  "n_target_paragraphs": 217,
+  "n_target_segments": 1780,
+  "training_seconds": 534.5,
+  "optimizer_steps": 940,
+  "skipped_optimizer_steps": 0,
+  "validation_loss_note": "dummy empty gold — loss is meaningless by design",
+  "predicted_segment_class_counts": {
+    "AN": 246,
+    "AS": 1027,
+    "CO": 5,
+    "NONE": 114,
+    "OT": 209,
+    "ST": 17,
+    "TE": 162
+  }
+}

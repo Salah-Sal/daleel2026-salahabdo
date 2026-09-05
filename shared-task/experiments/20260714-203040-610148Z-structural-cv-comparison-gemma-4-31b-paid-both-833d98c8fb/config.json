@@ -1,0 +1,14 @@
+{
+  "script": "compare_structural_cv.py",
+  "argv": [
+    "--baseline-runs",
+    "experiments/20260710-192111-135671Z-v3-role-none-gemma-4-31b-paid-both-outer0-inner0-d7f278312a",
+    "--flat-runs",
+    "experiments/20260714-194441-229141Z-v4-structure-flat-none-gemma-4-31b-paid-both-outer0-inner0-18eabcbd18",
+    "--forest-runs",
+    "experiments/20260714-195418-339025Z-v4-structure-forest-none-gemma-4-31b-paid-both-outer0-inner0-0efa3f106a",
+    "--shuffled-runs",
+    "experiments/20260714-200827-182035Z-v4-structure-shuffled-none-gemma-4-31b-paid-both-outer0-inner0-932b2ff487",
+    "--allow-partial"
+  ]
+}

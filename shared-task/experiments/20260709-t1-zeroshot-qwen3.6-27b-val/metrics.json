@@ -1,0 +1,29 @@
+{
+  "task": 1,
+  "model": "qwen3.6-27b",
+  "litellm_id": "openrouter/qwen/qwen3.6-27b",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 1334.1,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.6534,
+  "micro_f1": 0.7504,
+  "s2_rare_recall": {
+    "ST": 1.0,
+    "CO": 0.7
+  },
+  "per_label_f1": {
+    "CO": 0.2593,
+    "AS": 0.9265,
+    "TE": 0.8182,
+    "ST": 0.7619,
+    "AN": 0.4416,
+    "OT": 0.7133
+  },
+  "proxy_mean": 0.7187
+}

@@ -1,0 +1,29 @@
+{
+  "task": 1,
+  "model": "qwen3-8b",
+  "litellm_id": "openrouter/qwen/qwen3-8b",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 333.9,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.5939,
+  "micro_f1": 0.7013,
+  "s2_rare_recall": {
+    "ST": 1.0,
+    "CO": 0.8
+  },
+  "per_label_f1": {
+    "CO": 0.2623,
+    "AS": 0.9338,
+    "TE": 0.7115,
+    "ST": 0.7273,
+    "AN": 0.3333,
+    "OT": 0.595
+  },
+  "proxy_mean": 0.6762
+}

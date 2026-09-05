@@ -1,0 +1,9 @@
+{
+  "stage": "stage0-inference",
+  "error_count": 1,
+  "record_count": 612,
+  "allowed_rate": 0.0,
+  "errors_sample": [
+    "745: ValidationError: 1 validation error for list[ADUQuote]\n  Input should be a valid list [type=list_type, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type"
+  ]
+}

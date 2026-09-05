@@ -1,0 +1,42 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "1",
+    "--model",
+    "gemma-4-31b-paid",
+    "--input",
+    "../resources/repos/Daleel2026/data/test/test_in.jsonl",
+    "--source-id",
+    "daleel2026:test-input",
+    "--threads",
+    "4",
+    "--temperature",
+    "0.7",
+    "--rollout-id",
+    "2",
+    "--max-error-rate",
+    "0.01"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended",
+    "license_status": "verified-open",
+    "lm_kwargs": []
+  },
+  "temperature": 0.7,
+  "rollout_id": 2,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1",
+  "track": "closed",
+  "architecture": "stage0-task1-v1",
+  "adapter": "ChatAdapter",
+  "source_id": "daleel2026:test-input",
+  "source_path": "../resources/repos/Daleel2026/data/test/test_in.jsonl",
+  "source_sha256": "65a95069ef68584ddb7720150de7be5797bdbadb1e507a2ec68ce07cd336e6ef",
+  "selection": "test_in",
+  "max_error_rate": 0.01
+}

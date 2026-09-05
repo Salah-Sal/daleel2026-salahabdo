@@ -1,0 +1,33 @@
+{
+  "script": "compile_program.py",
+  "argv": [
+    "--task",
+    "1",
+    "--optimizer",
+    "bfrs",
+    "--model",
+    "gemma-3-4b",
+    "--opt-train-n",
+    "10",
+    "--opt-val-n",
+    "6",
+    "--candidates",
+    "2",
+    "--threads",
+    "4"
+  ],
+  "model": {
+    "key": "gemma-3-4b",
+    "litellm_id": "openrouter/google/gemma-3-4b-it",
+    "params_b": 4,
+    "closed_track": true,
+    "notes": "paid (cheap); smallest dense Gemma"
+  },
+  "optimizer": "bfrs",
+  "bootstrap_gate": 1.0,
+  "opt_train": 10,
+  "opt_val": 6,
+  "seed": 20260709,
+  "max_tokens": 6000,
+  "dspy_version": "3.3.0b1"
+}

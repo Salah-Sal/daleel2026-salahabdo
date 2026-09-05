@@ -1,0 +1,35 @@
+{
+  "script": "tapt_pretrain.py",
+  "registration": "CREATIVE_HEADROOM_RESEARCH.md TAPT (commit cd77061)",
+  "base": {
+    "repository": "CAMeL-Lab/bert-base-arabic-camelbert-msa-quarter",
+    "revision": "3e48534705c153737cbec1c5748bb02359b7b239"
+  },
+  "corpus": {
+    "paragraphs": 829,
+    "chars": 340743,
+    "windows": 838,
+    "sources": [
+      "train_task_1.jsonl",
+      "dev_in.jsonl"
+    ],
+    "transductive": true,
+    "labels_used": false
+  },
+  "hyperparameters": {
+    "seed": 20260710,
+    "epochs": 100,
+    "batch_size": 16,
+    "learning_rate": 5e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.06,
+    "max_grad_norm": 1.0,
+    "mlm_probability": 0.15,
+    "max_length": 512,
+    "stride": 128,
+    "pad_to_multiple_of": 8,
+    "device": "cpu",
+    "precision": "fp32"
+  },
+  "checkpoint_dir": "<repo>/shared-task/models/camelbert-msa-quarter-tapt-transductive-v1"
+}

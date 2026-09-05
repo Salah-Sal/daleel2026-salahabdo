@@ -1,0 +1,45 @@
+{
+  "recorded_outer_f1": 0.5146,
+  "replica_f1": [
+    0.5145,
+    0.5341,
+    0.5531
+  ],
+  "replica_wall_seconds": [
+    21.9,
+    39.2,
+    32.6
+  ],
+  "scores": {
+    "majority_vote": {
+      "f1": 0.5247,
+      "per_label_f1": {
+        "CO": 0.2517,
+        "AS": 0.5983,
+        "TE": 0.4709,
+        "ST": 0.0,
+        "AN": 0.5654,
+        "OT": 0.387
+      }
+    },
+    "plurality_anchor0": {
+      "f1": 0.5247,
+      "per_label_f1": {
+        "CO": 0.2517,
+        "AS": 0.5983,
+        "TE": 0.4709,
+        "ST": 0.0,
+        "AN": 0.5654,
+        "OT": 0.387
+      }
+    }
+  },
+  "spend_gate": {
+    "rule": "voted >= recorded_outer + 0.005 AND voted >= mean(replica f1)",
+    "recorded_outer_f1": 0.5146,
+    "mean_replica_f1": 0.5339,
+    "replica_f1_sd": 0.0158,
+    "voted_f1": 0.5247,
+    "pass": false
+  }
+}

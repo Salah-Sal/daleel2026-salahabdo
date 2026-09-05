@@ -1,0 +1,25 @@
+{
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md registered T2 AN-rescue",
+  "model": "gemma-4-31b-paid",
+  "folds": [
+    0
+  ],
+  "rollouts": 3,
+  "temperature": 0.7,
+  "source_labels": [
+    "AS",
+    "CO"
+  ],
+  "n_candidates": 228,
+  "n_flipped": 27,
+  "flips_dominant_gold_AN": 12,
+  "n_program_errors": 0,
+  "errors_sample": [],
+  "recorded_f1": 0.6644,
+  "relabeled_f1": 0.662,
+  "delta": -0.0024,
+  "screen": {
+    "rule": "relabeled >= recorded + 0.015",
+    "pass": false
+  }
+}

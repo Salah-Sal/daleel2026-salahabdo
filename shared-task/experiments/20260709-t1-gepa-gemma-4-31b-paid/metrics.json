@@ -1,0 +1,13 @@
+{
+  "task": 1,
+  "model": "gemma-4-31b-paid",
+  "optimizer": "gepa",
+  "wall_seconds": 2115.8,
+  "demo_counts": {
+    "classify.predict": 0
+  },
+  "state_file": "<repo>/shared-task/experiments/20260709-t1-gepa-gemma-4-31b-paid/compiled/gepa.json",
+  "instructions_changed": {
+    "classify.predict": false
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "1",
+    "--model",
+    "nemotron-nano-30b",
+    "--on",
+    "val",
+    "--threads",
+    "6"
+  ],
+  "model": {
+    "key": "nemotron-nano-30b",
+    "litellm_id": "openrouter/nvidia/nemotron-3-nano-30b-a3b",
+    "params_b": 30,
+    "closed_track": true,
+    "notes": "MoE (3B active); :free exists but quota-bound today"
+  },
+  "temperature": 0.0,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1"
+}

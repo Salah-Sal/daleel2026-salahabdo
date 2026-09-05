@@ -1,0 +1,29 @@
+{
+  "task": 1,
+  "model": "ministral-14b",
+  "litellm_id": "openrouter/mistralai/ministral-14b-2512",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 118.6,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.6119,
+  "micro_f1": 0.7237,
+  "s2_rare_recall": {
+    "ST": 0.75,
+    "CO": 0.8
+  },
+  "per_label_f1": {
+    "CO": 0.2254,
+    "AS": 0.9404,
+    "TE": 0.7767,
+    "ST": 0.5714,
+    "AN": 0.5,
+    "OT": 0.6577
+  },
+  "proxy_mean": 0.6599
+}

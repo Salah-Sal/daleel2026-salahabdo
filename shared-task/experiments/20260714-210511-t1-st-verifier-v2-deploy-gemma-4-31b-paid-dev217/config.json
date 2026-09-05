@@ -1,0 +1,23 @@
+{
+  "script": "st_verifier_v2_deploy.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--qwen-run",
+    "experiments/20260715-005551-660620Z-t1-zeroshot-qwen3-32b-dev_in-9c19d67f09",
+    "--llama-run",
+    "experiments/20260715-005552-781995Z-t1-zeroshot-llama-3-3-70b-paid-dev_in-8d1fd5e024",
+    "--threads",
+    "8"
+  ],
+  "model": {
+    "key": "gemma-4-31b-paid",
+    "litellm_id": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31,
+    "closed_track": true,
+    "notes": "paid fallback when the :free route is contended",
+    "license_status": "verified-open",
+    "lm_kwargs": []
+  },
+  "dspy_version": "3.3.0b1"
+}

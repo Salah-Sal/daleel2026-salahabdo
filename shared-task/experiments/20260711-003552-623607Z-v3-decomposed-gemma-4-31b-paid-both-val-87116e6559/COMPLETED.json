@@ -1,0 +1,34 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "config.json",
+      "sha256": "dc2928b70cec4fdab8907079a17e2c37aafa3fad7db2f39aa59b1f4633f4be05"
+    },
+    {
+      "relative_path": "metrics.json",
+      "sha256": "191299d3c3d3e2a9bbbebe082160dd5be0381463df74c54fe83822c1d7e31266"
+    },
+    {
+      "relative_path": "predictions/quote_proposals.jsonl",
+      "sha256": "9566ee55cbed6f1285d9740944a425326f67550c12bfe2faf1a71161699c5b2b"
+    },
+    {
+      "relative_path": "predictions/task_1.jsonl",
+      "sha256": "4656efc910477734fe84720b97eacf9dbe94142bd4a2e221eea4309c643200ea"
+    },
+    {
+      "relative_path": "predictions/task_2.jsonl",
+      "sha256": "6fa00d9a07181c2572c2e8d94b25b516b05892fe61ce171ff26317a5a03dfe27"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "68c3679969fd8a9b39dbe90e6bc8311553acf288ebe91be527f158a5452fe504"
+    }
+  ],
+  "metadata": {
+    "architecture": "proposal-atom-role-v3",
+    "source_id": "daleel2026:train-task-1"
+  }
+}

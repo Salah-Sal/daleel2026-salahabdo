@@ -1,0 +1,988 @@
+{
+  "campaign_completion_schema_version": 2,
+  "complete": true,
+  "jobs_total": 20,
+  "jobs_completed": 20,
+  "results": {
+    "t1-camelbert-msa-quarter-seed20260711": {
+      "status": "completed",
+      "job": "t1-camelbert-msa-quarter-seed20260711",
+      "run_directory": "20260714-225438-465789Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-cb2101ba99",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6044348317557392
+      },
+      "max_cuda_memory_reserved_bytes": 6264193024,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        45.054628984000374,
+        42.43897484199988,
+        43.39557294899987,
+        43.15115296199974,
+        42.686913272999846
+      ]
+    },
+    "t1-camelbert-msa-quarter-seed20260710": {
+      "status": "completed",
+      "job": "t1-camelbert-msa-quarter-seed20260710",
+      "run_directory": "20260714-225438-465734Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-96a257eed1",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.5966830200118002
+      },
+      "max_cuda_memory_reserved_bytes": 7023362048,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        45.516799128,
+        42.5736256629998,
+        42.93892909099986,
+        42.348376733999885,
+        43.14463947200011
+      ]
+    },
+    "t1-camelbert-msa-quarter-seed20260713": {
+      "status": "completed",
+      "job": "t1-camelbert-msa-quarter-seed20260713",
+      "run_directory": "20260714-225847-149730Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-78184a8c46",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.613524195582681
+      },
+      "max_cuda_memory_reserved_bytes": 5991563264,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        43.89785751499994,
+        42.784384574999876,
+        42.968538456999795,
+        42.55619405000016,
+        42.48654946400029
+      ]
+    },
+    "t1-camelbert-msa-quarter-seed20260712": {
+      "status": "completed",
+      "job": "t1-camelbert-msa-quarter-seed20260712",
+      "run_directory": "20260714-225847-249562Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-1106f8ede2",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6121924332437244
+      },
+      "max_cuda_memory_reserved_bytes": 6505365504,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        43.89042995,
+        42.793296589999954,
+        43.4879109819999,
+        42.4995675680002,
+        43.001423967999926
+      ]
+    },
+    "t1-camelbert-msa-quarter-seed20260714": {
+      "status": "completed",
+      "job": "t1-camelbert-msa-quarter-seed20260714",
+      "run_directory": "20260714-230246-153229Z-encoder-t1-camelbert-msa-quarter-both-legacy-train-272f569e9f",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6208704884513632
+      },
+      "max_cuda_memory_reserved_bytes": 6536822784,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        45.85570663899989,
+        42.750766513000144,
+        43.19265558699999,
+        42.69087010300018,
+        42.622890881999865
+      ]
+    },
+    "t1-camelbert-mix-seed20260710": {
+      "status": "completed",
+      "job": "t1-camelbert-mix-seed20260710",
+      "run_directory": "20260714-230248-854427Z-encoder-t1-camelbert-mix-both-legacy-train-efd8aa9cb9",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6317537098196898
+      },
+      "max_cuda_memory_reserved_bytes": 7023362048,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        44.82233209399965,
+        42.27945467099971,
+        42.66441602499981,
+        42.221607925999706,
+        42.20140982200019
+      ]
+    },
+    "t1-camelbert-mix-seed20260711": {
+      "status": "completed",
+      "job": "t1-camelbert-mix-seed20260711",
+      "run_directory": "20260714-230648-254512Z-encoder-t1-camelbert-mix-both-legacy-train-43e49f11f2",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6144692744823902
+      },
+      "max_cuda_memory_reserved_bytes": 6266290176,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        44.46310608900012,
+        43.27224265699988,
+        43.20296296000015,
+        42.950216905999696,
+        42.3910856790003
+      ]
+    },
+    "t1-camelbert-mix-seed20260712": {
+      "status": "completed",
+      "job": "t1-camelbert-mix-seed20260712",
+      "run_directory": "20260714-230653-533399Z-encoder-t1-camelbert-mix-both-legacy-train-a793027432",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6261834717131095
+      },
+      "max_cuda_memory_reserved_bytes": 6505365504,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        43.467194558999836,
+        42.72160465300021,
+        43.22116045999974,
+        42.506677885000045,
+        42.39643923899985
+      ]
+    },
+    "t1-camelbert-mix-seed20260713": {
+      "status": "completed",
+      "job": "t1-camelbert-mix-seed20260713",
+      "run_directory": "20260714-231049-835767Z-encoder-t1-camelbert-mix-both-legacy-train-5a8db409b5",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6282097349611141
+      },
+      "max_cuda_memory_reserved_bytes": 5991563264,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        43.971159884999906,
+        42.693269321000116,
+        42.95070310999972,
+        42.406920205000006,
+        41.90596500100037
+      ]
+    },
+    "t1-camelbert-mix-seed20260714": {
+      "status": "completed",
+      "job": "t1-camelbert-mix-seed20260714",
+      "run_directory": "20260714-231052-595767Z-encoder-t1-camelbert-mix-both-legacy-train-4ae44ac991",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6252241451354591
+      },
+      "max_cuda_memory_reserved_bytes": 6536822784,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        44.890944952000154,
+        43.26709895099975,
+        43.244020915999954,
+        43.20552602900034,
+        42.758282894999866
+      ]
+    },
+    "t1-camelbert-da-seed20260711": {
+      "status": "completed",
+      "job": "t1-camelbert-da-seed20260711",
+      "run_directory": "20260714-231455-326066Z-encoder-t1-camelbert-da-both-legacy-train-d112af0f0a",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6038099376535222
+      },
+      "max_cuda_memory_reserved_bytes": 6264193024,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        44.44546689500021,
+        41.876358561000416,
+        42.49978383500002,
+        42.433924375999595,
+        42.23249851899982
+      ]
+    },
+    "t1-camelbert-da-seed20260710": {
+      "status": "completed",
+      "job": "t1-camelbert-da-seed20260710",
+      "run_directory": "20260714-231448-880597Z-encoder-t1-camelbert-da-both-legacy-train-cf05b299fe",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6242928942095957
+      },
+      "max_cuda_memory_reserved_bytes": 7023362048,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        45.526329713999985,
+        42.67638536499999,
+        42.80834316699929,
+        42.625037226999666,
+        42.8873360689995
+      ]
+    },
+    "t1-camelbert-da-seed20260713": {
+      "status": "completed",
+      "job": "t1-camelbert-da-seed20260713",
+      "run_directory": "20260714-231856-087321Z-encoder-t1-camelbert-da-both-legacy-train-2e9de0187f",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6443545001395254
+      },
+      "max_cuda_memory_reserved_bytes": 5991563264,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        43.684894029000134,
+        42.592444236999654,
+        43.259475073999965,
+        42.43588719299987,
+        42.735090958
+      ]
+    },
+    "t1-camelbert-da-seed20260712": {
+      "status": "completed",
+      "job": "t1-camelbert-da-seed20260712",
+      "run_directory": "20260714-231854-038003Z-encoder-t1-camelbert-da-both-legacy-train-4a4daac11a",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6290407369800712
+      },
+      "max_cuda_memory_reserved_bytes": 6505365504,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        44.35110944799999,
+        43.513278205999995,
+        43.663155256999744,
+        43.67953436100015,
+        42.98092497400012
+      ]
+    },
+    "t1-camelbert-da-seed20260714": {
+      "status": "completed",
+      "job": "t1-camelbert-da-seed20260714",
+      "run_directory": "20260714-232255-818816Z-encoder-t1-camelbert-da-both-legacy-train-6218b104a6",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.636866918071599
+      },
+      "max_cuda_memory_reserved_bytes": 6536822784,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        43.80957086299986,
+        42.80771626600017,
+        42.56699497900081,
+        42.18388028500067,
+        41.98352948400043
+      ]
+    },
+    "t2-camelbert-msa-quarter-seed20260710": {
+      "status": "completed",
+      "job": "t2-camelbert-msa-quarter-seed20260710",
+      "run_directory": "20260714-232257-404332Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-f9e54efaf3",
+      "primary": {
+        "name": "official_task2_partial_f1_oof",
+        "score": 0.6645281997777288
+      },
+      "max_cuda_memory_reserved_bytes": 2619342848,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        101.55707621799957,
+        100.5880139539995,
+        101.51600067100026,
+        99.66795458099932,
+        101.1225814999998
+      ]
+    },
+    "t2-camelbert-mix-seed20260710": {
+      "status": "completed",
+      "job": "t2-camelbert-mix-seed20260710",
+      "run_directory": "20260714-232654-173295Z-encoder-t2-camelbert-mix-both-legacy-train-cf7938bf5e",
+      "primary": {
+        "name": "official_task2_partial_f1_oof",
+        "score": 0.6409015766791858
+      },
+      "max_cuda_memory_reserved_bytes": 2596274176,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        100.19196593200013,
+        100.31468400999984,
+        101.57815000799928,
+        99.11701606499992,
+        98.27086555699952
+      ]
+    },
+    "t1-camelbert-mix-sqrt-seed20260710": {
+      "status": "completed",
+      "job": "t1-camelbert-mix-sqrt-seed20260710",
+      "run_directory": "20260714-233538-196172Z-encoder-t1-camelbert-mix-both-legacy-train-5ed019f501",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6135632201496329
+      },
+      "max_cuda_memory_reserved_bytes": 7021264896,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        44.97344140399946,
+        43.28858276000028,
+        43.86743210399982,
+        43.3633587889999,
+        43.186116029000004
+      ]
+    },
+    "t2-camelbert-da-seed20260710": {
+      "status": "completed",
+      "job": "t2-camelbert-da-seed20260710",
+      "run_directory": "20260714-233147-081437Z-encoder-t2-camelbert-da-both-legacy-train-0cda6b3d18",
+      "primary": {
+        "name": "official_task2_partial_f1_oof",
+        "score": 0.627130511845723
+      },
+      "max_cuda_memory_reserved_bytes": 2617245696,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        104.11003111199989,
+        100.16732781100018,
+        101.62883688000056,
+        98.45168199099953,
+        100.47321228800047
+      ]
+    },
+    "t1-camelbert-da-sqrt-seed20260710": {
+      "status": "completed",
+      "job": "t1-camelbert-da-sqrt-seed20260710",
+      "run_directory": "20260714-233942-000475Z-encoder-t1-camelbert-da-both-legacy-train-6b89019330",
+      "primary": {
+        "name": "official_task1_macro_f1_cross_fitted_oof_thresholds",
+        "score": 0.6497674303984712
+      },
+      "max_cuda_memory_reserved_bytes": 7021264896,
+      "cuda_device_name": "Tesla T4",
+      "wall_by_fold_seconds": [
+        43.69582964199981,
+        41.853345522999916,
+        42.18288256699998,
+        41.75937741500002,
+        42.01021249899986
+      ]
+    }
+  },
+  "export_policy": "task1 runs export oof_task_1_scores.jsonl (paragraph_id + sigmoid floats + fold) and oof_decisions.jsonl (paragraph_id + label codes); no organizer text or offsets leave the ephemeral workspace",
+  "wall_seconds": 2960.7,
+  "files": [
+    {
+      "relative_path": "t1-camelbert-da-seed20260710/COMPLETED.json",
+      "sha256": "6008ee82c43501947110392f66b936b93e7457f6b2532d464bd883e964f3f89d"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260710/config.json",
+      "sha256": "8b6b0b332f06895543e4a2b34dcd6e7ac0138609b0184275d1f2702345cfc1f0"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260710/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260710/metrics.json",
+      "sha256": "d13160be5165f3022df6c20d7e8cfbf390f24601a6c98d3f11bacb8598647c5b"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260710/oof_decisions.jsonl",
+      "sha256": "2622bd032bd0c738adf92d0d70eeeb5f39e3f4c44987c03270a920b8eafdf33f"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260710/oof_task_1_scores.jsonl",
+      "sha256": "e589d5e97fca21bd1e3b3b3a66f12a21b35164742fff25e584d2aa32eb768217"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260710/provenance.json",
+      "sha256": "54d79e47eaab53f0617a64c2868e239741ead82301066c483758ecb8ae7c1633"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260710/training_history.json",
+      "sha256": "5c4e8e0b02105633b34a639b3a9fdd2ee48aa72715043db5749b74e43170af0c"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260711/COMPLETED.json",
+      "sha256": "bbd417d9d84ef09a87cec44310f9092a96a4683837e1873500d395e37fc835a8"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260711/config.json",
+      "sha256": "795f80e62866e29add739ba554f5d101e5380932abfbffca5022dc196ff5c12d"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260711/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260711/metrics.json",
+      "sha256": "674dd1daf61a2872a6deaf18fd088d1bb74b0a2dff8a2dadf13c2645896dc9ae"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260711/oof_decisions.jsonl",
+      "sha256": "9e844652b6209dc5d3bf33e6107ce145b3b697e1e81e796f824541685efb942b"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260711/oof_task_1_scores.jsonl",
+      "sha256": "d134da1635e1c88357d1469a77d48c94a1c5d83a1b8328649321de7213101611"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260711/provenance.json",
+      "sha256": "749518b1f00d0eef6e71fe13cf511aa2c14dff118cc0855c2506669dfe33e38e"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260711/training_history.json",
+      "sha256": "3f4275a803f8c68a995640461ba8c208500ed572b9a95cc06e1d052191606d11"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260712/COMPLETED.json",
+      "sha256": "5a00f307295a6508a707f20f820cf23fa27db9cdd0a198d270b9b63b8ae60b21"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260712/config.json",
+      "sha256": "357e349bbfc95910bd5c9e2bf9998e60829d8e8139db655bc36be8c77175dc99"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260712/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260712/metrics.json",
+      "sha256": "5c7d787db05438f7184a05709c237f9b9336e4e5b65815a282c5cf752745c183"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260712/oof_decisions.jsonl",
+      "sha256": "6683fc6c2724c6b0d13aa2149ed3f60064f494c3041649031f7072217e60539f"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260712/oof_task_1_scores.jsonl",
+      "sha256": "1de2a6de31f08c2df5a7209916bba9f1dabc246e7e0bd1b1e3cf881ff8879aeb"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260712/provenance.json",
+      "sha256": "3187e13c9ac914a8405e03ee4e0fe375d7e40fb7476969c95ede9d4ec02abd4c"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260712/training_history.json",
+      "sha256": "eeac95b44a2f4d98260d797b435a3a3f7f24f92ed4b97903d3f8ec0b627c85c6"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260713/COMPLETED.json",
+      "sha256": "d23321bd53747fab8a62304657ed401151992e123f972361ef816e67932f8666"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260713/config.json",
+      "sha256": "af4bd559feefdd72e7687579c18256e7fb27def86f90dd181fdc1463cc7c2b29"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260713/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260713/metrics.json",
+      "sha256": "65fda2254afde398074268241e98900d9b919ed07c3e1ec1b89f4fa379be5153"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260713/oof_decisions.jsonl",
+      "sha256": "beb188cdcbe1693959ca191685bdc09d03e621e47d23e3890ff7a7abdd1d03cd"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260713/oof_task_1_scores.jsonl",
+      "sha256": "be61197cea416ca25b5088886a2ac203a033bbb19099f1f6bfb9f8075e8794e8"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260713/provenance.json",
+      "sha256": "c26e993bacd2d96244c4f5fe87ef184b4ff361e01f0789ba0ada254b10e2cc2a"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260713/training_history.json",
+      "sha256": "7c88854f467cd68d9b3a1c7ed0565948faf48b2ddce50a1c9ef570114e4c15ee"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260714/COMPLETED.json",
+      "sha256": "787576569129249172072e486ecd3788002a5660d3d26b8fedf843edf0f1ccf6"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260714/config.json",
+      "sha256": "dd52166a0ff72355ccd15b1312a2515dc1c08ae8122d2824fb8be483f628b9c8"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260714/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260714/metrics.json",
+      "sha256": "8ca75f58177aa539f341410d63e7be6ed6b5f4043e450b9f17af93f7d15552b4"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260714/oof_decisions.jsonl",
+      "sha256": "3665c6beb4fe01e672ae4b90eb0811a257fa17915beec55cea987fc1ea4ad147"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260714/oof_task_1_scores.jsonl",
+      "sha256": "393806845a18c6dacda7c8586676d4af83804bb32e09516ffdace4fda45a007f"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260714/provenance.json",
+      "sha256": "cc56635041f352061084425fe253f9b86e77e6a983bd48baaed5ecc8e8e94501"
+    },
+    {
+      "relative_path": "t1-camelbert-da-seed20260714/training_history.json",
+      "sha256": "333f5d915820518160ad56dcf2e851e5751d7d6fa13474c44e798616e1941390"
+    },
+    {
+      "relative_path": "t1-camelbert-da-sqrt-seed20260710/COMPLETED.json",
+      "sha256": "f685d925f57e335fa046507307df91de2fedc6ac0db1aaf26e8af28da4785326"
+    },
+    {
+      "relative_path": "t1-camelbert-da-sqrt-seed20260710/config.json",
+      "sha256": "7b4713358c4b0ff95ed19e6114deeec1ee4cc04b6234e384ee86968b279c78d9"
+    },
+    {
+      "relative_path": "t1-camelbert-da-sqrt-seed20260710/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-da-sqrt-seed20260710/metrics.json",
+      "sha256": "b61aa85270c4ee9faa107e2ca2f22017b1190fa635b98f8ce6862f506bf5e45e"
+    },
+    {
+      "relative_path": "t1-camelbert-da-sqrt-seed20260710/oof_decisions.jsonl",
+      "sha256": "d0575faa102b6db05c4cef1488ce6c720c615bf59f9aa3c00ab557258ec9ccaa"
+    },
+    {
+      "relative_path": "t1-camelbert-da-sqrt-seed20260710/oof_task_1_scores.jsonl",
+      "sha256": "155774c1b47c3ec51f5034f74f7073831e2e30c66a3e633d0a9f35610ee13923"
+    },
+    {
+      "relative_path": "t1-camelbert-da-sqrt-seed20260710/provenance.json",
+      "sha256": "3da81f05493e0bf35f3b835e3e4fc6e9658aa15c34c45afa16b0013daeb5656d"
+    },
+    {
+      "relative_path": "t1-camelbert-da-sqrt-seed20260710/training_history.json",
+      "sha256": "46613568925f8fb11f0efb10ab4212b9ce6a96e2de863ffa4759cfc6e99dadc8"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260710/COMPLETED.json",
+      "sha256": "6b3af0a2924b94e8d6feb7a95e708dbac363c586760887efceb50b0341d39b28"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260710/config.json",
+      "sha256": "b74600b4b3d196317b9486b06de7c357d43dcd4ef4e6cc91614eb8b11f082873"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260710/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260710/metrics.json",
+      "sha256": "e6ae9595ef26111168d69dde8a54f1629b4c805c972058dab9bace78a4d01a36"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260710/oof_decisions.jsonl",
+      "sha256": "3190165215664cf80d656565c0ace6ffc7b91998c1769a249544a42efedc38d2"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260710/oof_task_1_scores.jsonl",
+      "sha256": "a954b76a83909b64c6b7187a171a90a052c2738773cc40254dfdddcc736af6b8"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260710/provenance.json",
+      "sha256": "8d7bed89d5bf2ce2df627f755af0f4d2acb2bc0f81d0988371f39b4af1768a3d"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260710/training_history.json",
+      "sha256": "4d95ee6afdf4718a654bd65167d54c313e5d2c94e8eab90adef2b63ac7040be0"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260711/COMPLETED.json",
+      "sha256": "419973aea5af572e0bb415b8c725b822019d7c33cb1c85b696cd8301bb724b43"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260711/config.json",
+      "sha256": "1566f068c21053967d9265193cdf08e86098b10006478d0c784c4f7a3dd3ee9b"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260711/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260711/metrics.json",
+      "sha256": "56454adad56e336ec6e6fc8c1813cb29575ef1bb30bfbe8203351ef501dea0b6"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260711/oof_decisions.jsonl",
+      "sha256": "75b6ae25bfc3ea5c43fccbeaae284880364be20c174bc027a2bfd866254ba376"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260711/oof_task_1_scores.jsonl",
+      "sha256": "20ad29db3d5069502309d234bbbf98e790c2e0462cdcbc68845623a4445fb9e9"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260711/provenance.json",
+      "sha256": "8fed4368e387bce1cdf3180bbb5fa1ac17eae41b10b2a2dc73c1c3d0c40a1891"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260711/training_history.json",
+      "sha256": "d4088361e56fce99e6625aeeb1e5cf5119ac56cb6cf31432d13ffa6b5b2c6602"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260712/COMPLETED.json",
+      "sha256": "174b253fdeff4c4cc43f1202e008ff711c7b5193db9dd24ba15c2985331e3c3d"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260712/config.json",
+      "sha256": "bb95f6ce8f7aa1e43200c02b9766c9c7b34f9ab6714502444ab8850e72982b9f"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260712/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260712/metrics.json",
+      "sha256": "64f8977b7987f51a1d7b86fa9a7195b4e61ee756c3bfde4bb459600b20b760df"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260712/oof_decisions.jsonl",
+      "sha256": "aac3a87c6977441ad6e6e29490375cd12155ecfe8400136fe569d4c675b4011f"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260712/oof_task_1_scores.jsonl",
+      "sha256": "cf7f301e9403f76f5b05d0611cd8eb50580fec918375e51690545df7a6f713ab"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260712/provenance.json",
+      "sha256": "ebf39deb6df3577d9283b6d38487992e35d099703952342c76246b1e14ac9ff6"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260712/training_history.json",
+      "sha256": "a57c89482049265369b02731f575120ff06ab6c8dd5eeabfdac1164e9edfc0e4"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260713/COMPLETED.json",
+      "sha256": "de3462dbfb9654da4f35913c24eebbe3ae5f4132232e7ecaae4e0cadc60290fa"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260713/config.json",
+      "sha256": "b5e402183f15c41758552a74cb23447285f573cf299295cfbbafdea418cf2f46"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260713/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260713/metrics.json",
+      "sha256": "1225ed5b0174f770ac1437b361aee5aec0620ec29f6861d2559607134d46da8f"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260713/oof_decisions.jsonl",
+      "sha256": "7a15d02972160386757d083dc6a6189702506e446b96faee6884b3ad73fb16e7"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260713/oof_task_1_scores.jsonl",
+      "sha256": "6ea66e62ed24ff01d406ce7cd1203d5e563c68dae2096cb4de0f62925420b054"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260713/provenance.json",
+      "sha256": "1d857ac7712343d5b2433051d3b308515a40eb1d856de0e8a634f610cd1560bd"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260713/training_history.json",
+      "sha256": "872aef942c391bf838873243bd1cc61ff63651f0e079d0f7eba6b561e8f18339"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260714/COMPLETED.json",
+      "sha256": "e04030d1b199532dd04fa328e6c5f2590852f00a529f49d64d8e0c73c1416bc0"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260714/config.json",
+      "sha256": "e25ad932ec49de5386ffb82b625f78f3a132f8136b5ff2454c06aae7a04b1680"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260714/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260714/metrics.json",
+      "sha256": "1537bf68a652b845e077e50d261cd0f764a9d61ded3b0d559c06e25767b289ec"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260714/oof_decisions.jsonl",
+      "sha256": "8aac3ceeac8de5d36ac3672fcf041432303377176074796d9c5a0aa62a7bb159"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260714/oof_task_1_scores.jsonl",
+      "sha256": "c08f8bbd00d7b880ab3042e0fc69b5b87029c24b94c34d63e4607bca3bd76935"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260714/provenance.json",
+      "sha256": "099ee32f6360c3241235d39da746f5c39e3f072c4eac25cbad234db8c15a6c48"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-seed20260714/training_history.json",
+      "sha256": "e5eaabdac0780decbbad0ee9a47767554218ff41228b26bbf9df5e57091aaea7"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-sqrt-seed20260710/COMPLETED.json",
+      "sha256": "5bdba248901ef2b1f3d9466ee3aae49759ae50d9a44a405fa8c25698bcc40e5f"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-sqrt-seed20260710/config.json",
+      "sha256": "70743670ace8814d14404ce9d4b1cb29e65656abbced675bd6e5cde7d4f84497"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-sqrt-seed20260710/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-sqrt-seed20260710/metrics.json",
+      "sha256": "2cf64c0b04794d2d9bfce015d2dde9beff84fc78c18ced3413ae3b5c3e35b11d"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-sqrt-seed20260710/oof_decisions.jsonl",
+      "sha256": "5f2d9a65a64d6c98c8013dfe307f73a7524be860d39002d01e3f3da8904da497"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-sqrt-seed20260710/oof_task_1_scores.jsonl",
+      "sha256": "09f6cc4ac1f6b0c8eac81afde639bb58f2c73f28fb71f83a16710b0ed65e79aa"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-sqrt-seed20260710/provenance.json",
+      "sha256": "731ca90f7203dffde178167529ee0733fbd371a98c396f8a8236594795985baa"
+    },
+    {
+      "relative_path": "t1-camelbert-mix-sqrt-seed20260710/training_history.json",
+      "sha256": "1c47d4f5ce9b6e0fdfe90b3701f6dc9b5ba7625b6d56411afb1d9a42f98f5d15"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260710/COMPLETED.json",
+      "sha256": "ed8a0afb8efab46f1da491008aa3d5817a6ed9e2c9af72ce0c5ed2f076ed5279"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260710/config.json",
+      "sha256": "6e87b80ab2000173ffb016e4fd6012f8e2d262cedf2830cda7d7e049b60a961e"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260710/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260710/metrics.json",
+      "sha256": "00bcd4385386bcb2de669ae763a6a1eb442493af188834922f7b21e73496fd9f"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260710/oof_decisions.jsonl",
+      "sha256": "1ab49dabd2e1b8267400617722940ad9c2175f8a0dbce13472cb5bd643957107"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260710/oof_task_1_scores.jsonl",
+      "sha256": "5e76ff5cd1ce6d43608881c3e6d11ff196e8a8f3166b3133746feef4f5c938e7"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260710/provenance.json",
+      "sha256": "fa1ecd8ddf42c9a5b4f813902e4b75293c5f448c5861c1663ad526ee7e4f43ff"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260710/training_history.json",
+      "sha256": "3711a6c95898513176c4d89f060ea6b466f2007e834cb8928ef19984a13b20ef"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260711/COMPLETED.json",
+      "sha256": "ff7990d91b7fd4957d27d7fc0302b32d903a048d8383dc516572debbfc93c472"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260711/config.json",
+      "sha256": "a093fe7696b5cf55fa427da9f0f0e0aca6cb9dbfbd72b59eb3b162a5a91717b3"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260711/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260711/metrics.json",
+      "sha256": "9d07decf049af12ca0e052d838a24d53a5769a57bb96cb4fde63585c91c496dd"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260711/oof_decisions.jsonl",
+      "sha256": "de1f56d24b6cb283e94d4b90cac50421513decddee904691fa4e1d6a19c319e4"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260711/oof_task_1_scores.jsonl",
+      "sha256": "959d2fc24d6f19312eaece484eab203c54a0c517efc36f3f5258751b011a6b12"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260711/provenance.json",
+      "sha256": "2d04aee6e0933e0ac5b7e5bf3ace2b21bec3fb6e7dd20fb16b5638b406a5f1d1"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260711/training_history.json",
+      "sha256": "0c5b763f6a73dc4993fa5c63f545cf8a6caeeb58da3f828a121c8ef81e3288ab"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260712/COMPLETED.json",
+      "sha256": "29233c2cc0eff923ff8e5d0bd95e1ee728626c64dc7f6fd7fbab95036e48c5ea"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260712/config.json",
+      "sha256": "9ffcfaa95bda345af42e576a12eea0baf8925d35277459c8094595bab6ba114b"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260712/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260712/metrics.json",
+      "sha256": "bfb3931ff6d093144f00f88e723bf07dd117e589ab749da6e3d2aab89317947b"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260712/oof_decisions.jsonl",
+      "sha256": "89c546c8c1447ed120b3867cbab86f1ca1673ad4da78861325c4a375dc4493cb"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260712/oof_task_1_scores.jsonl",
+      "sha256": "013164d24e40b9aed25aceb63026f6b65388600ca51d9f6f5d384b6f58a8a73a"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260712/provenance.json",
+      "sha256": "464c1888549823f981207142543a5e85140db82338f3eb5c5221b326811eddfc"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260712/training_history.json",
+      "sha256": "ae5dace7d103ded2be459061d7e4b8176f6c14b9d87d76552a4f52924d88833a"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260713/COMPLETED.json",
+      "sha256": "9a98873dc9db5329a2880414412fc33c63ea1a411d316e68cdb3ac826b631715"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260713/config.json",
+      "sha256": "e82138ee9bcba3d2179f71a876e9a0d0b6c31714c70a9ce17138976cc4783297"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260713/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260713/metrics.json",
+      "sha256": "5a3587611b1a9c323e8f97800d2b0baa16879d1edeec773bbc8ccd627933a42e"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260713/oof_decisions.jsonl",
+      "sha256": "b4182e76ae2e768154345883b40470220c2a3230fd2e4b17a1a4fdd7fb4bbb98"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260713/oof_task_1_scores.jsonl",
+      "sha256": "9e709ea427d2e33ac3c48ff312ff76509de8b697f01a04e85d41bcec412ed6e1"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260713/provenance.json",
+      "sha256": "ab6cd00d1d120daf7dc225122d838bdcd8724721bd5bfeaa69d9082f5f437529"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260713/training_history.json",
+      "sha256": "3af361483a7045c51a433aab97ffb6dc055c360c9fd092c03f04993f8097de39"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260714/COMPLETED.json",
+      "sha256": "116c69169e754b96f82907433560c15e78d115868fafdd3fad5246beafb8e60f"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260714/config.json",
+      "sha256": "529963301ee04698c2f6633cc094cd16a813a3977adbbc185eb9d3c57fd5aa7e"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260714/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260714/metrics.json",
+      "sha256": "aaa161697b1456a2b0e020bd34e07a06c1eb65ed533a1fa8c6c6280394f8d44b"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260714/oof_decisions.jsonl",
+      "sha256": "d0a2d2ad72e0820490b088022f2ddc6dc761d1aff21bedb6506824ee71a1eef3"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260714/oof_task_1_scores.jsonl",
+      "sha256": "cff89ba1029dfdd3f3e2fe6788018a50fe63fea974c370a38231c812435a3920"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260714/provenance.json",
+      "sha256": "24364a0dd723b31555d784d91d41755e8d8a0715697d569ca762d29ee88e3be7"
+    },
+    {
+      "relative_path": "t1-camelbert-msa-quarter-seed20260714/training_history.json",
+      "sha256": "5d4c14b47eddf9f6472a898197a10cce31cf4d5f40ee2882b14e738e147f7396"
+    },
+    {
+      "relative_path": "t2-camelbert-da-seed20260710/COMPLETED.json",
+      "sha256": "e14e613cf36d891d95fe3831614e029c9e6b26c3d61efa19de15081dedbc0c4f"
+    },
+    {
+      "relative_path": "t2-camelbert-da-seed20260710/config.json",
+      "sha256": "a1e2aa3b6a0a6237eb8e60dd913006f993e8edc0d95957724b79b29fb8aaad0b"
+    },
+    {
+      "relative_path": "t2-camelbert-da-seed20260710/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t2-camelbert-da-seed20260710/metrics.json",
+      "sha256": "33060220279146a4edbc45f17443b1b585799477ff9cb5e7c29efac91fa101d4"
+    },
+    {
+      "relative_path": "t2-camelbert-da-seed20260710/provenance.json",
+      "sha256": "a7c98cd62c0fa9dad762a7153257e1a7b6c1496a6c2f7d19d62d55c560398d16"
+    },
+    {
+      "relative_path": "t2-camelbert-da-seed20260710/training_history.json",
+      "sha256": "7f06e46612a4c96235a5c5d134dca916a91a20084440ace730eede4532de7b6e"
+    },
+    {
+      "relative_path": "t2-camelbert-mix-seed20260710/COMPLETED.json",
+      "sha256": "dc939d392dd7be894dcf40ab3c19832d410c28e84c1ccecaa339b3f25c215684"
+    },
+    {
+      "relative_path": "t2-camelbert-mix-seed20260710/config.json",
+      "sha256": "111e111f29798b726addfccc06477470f64518bb167fc4f060223721ee3f5a26"
+    },
+    {
+      "relative_path": "t2-camelbert-mix-seed20260710/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t2-camelbert-mix-seed20260710/metrics.json",
+      "sha256": "eb6262bddff6eef6af2cbff847a56d50a41723a2dc4de4e15b9082aa86cde4c6"
+    },
+    {
+      "relative_path": "t2-camelbert-mix-seed20260710/provenance.json",
+      "sha256": "4bbf612ac9a8e1badeb08e2fbf3a13c856972f0b0cf483535552d48daeb708cb"
+    },
+    {
+      "relative_path": "t2-camelbert-mix-seed20260710/training_history.json",
+      "sha256": "c146317adb3d98cbca2bd2f34e961c4b2ef4d119d8b76fa0450ac2e8c22fb839"
+    },
+    {
+      "relative_path": "t2-camelbert-msa-quarter-seed20260710/COMPLETED.json",
+      "sha256": "7c8bdba9af28eed8a868bc56f9ded27213b26c6094848eae733fd1bae1355b62"
+    },
+    {
+      "relative_path": "t2-camelbert-msa-quarter-seed20260710/config.json",
+      "sha256": "d8c1f934bb08abfad1e0dbc7055e481f37a3ec8a262243f2920a7e46957dc9da"
+    },
+    {
+      "relative_path": "t2-camelbert-msa-quarter-seed20260710/folds.json",
+      "sha256": "6f61b68460cfd178d707d3e85c8981443b5654e1a024ba7adc2cf749aaff71ef"
+    },
+    {
+      "relative_path": "t2-camelbert-msa-quarter-seed20260710/metrics.json",
+      "sha256": "d5ca7da59aa7ac12698120cf3b7fe575734bdd96057fff3572cb1c280a072c92"
+    },
+    {
+      "relative_path": "t2-camelbert-msa-quarter-seed20260710/provenance.json",
+      "sha256": "4775dac189f5d7785c8315d9b4bf900c88a5a1f9dcc52bb3babc1f42e2792e7f"
+    },
+    {
+      "relative_path": "t2-camelbert-msa-quarter-seed20260710/training_history.json",
+      "sha256": "2eb74e8b742eebe1e819a54490d583672fa205c29228d8869f4c9e46ec3b46d3"
+    }
+  ]
+}

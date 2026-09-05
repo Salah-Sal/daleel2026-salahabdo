@@ -1,0 +1,15 @@
+{
+  "n_target_paragraphs": 217,
+  "training_seconds": 288.9,
+  "optimizer_steps": 216,
+  "skipped_optimizer_steps": 0,
+  "validation_loss_note": "dummy zero labels — loss is meaningless by design",
+  "predicted_label_counts": {
+    "CO": 0,
+    "AS": 179,
+    "TE": 68,
+    "ST": 2,
+    "AN": 68,
+    "OT": 65
+  }
+}

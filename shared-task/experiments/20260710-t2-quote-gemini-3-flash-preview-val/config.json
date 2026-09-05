@@ -1,0 +1,33 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "2",
+    "--model",
+    "gemini-3-flash-preview",
+    "--program",
+    "quote",
+    "--on",
+    "val",
+    "--threads",
+    "8",
+    "--max-tokens",
+    "6000"
+  ],
+  "model": {
+    "key": "gemini-3-flash-preview",
+    "litellm_id": "gemini/gemini-3-flash-preview",
+    "params_b": 0,
+    "closed_track": false,
+    "notes": "thinking ON by default at high level, billed as output ($3/M) \u2014 reasoning_effort pinned to avoid the 4x premium",
+    "lm_kwargs": [
+      [
+        "reasoning_effort",
+        "minimal"
+      ]
+    ]
+  },
+  "temperature": 0.0,
+  "max_tokens": 6000,
+  "dspy_version": "3.3.0b1"
+}

@@ -1,0 +1,29 @@
+{
+  "task": 1,
+  "model": "llama-3.1-8b",
+  "litellm_id": "openrouter/meta-llama/llama-3.1-8b-instruct",
+  "on": "val",
+  "n_paragraphs": 182,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 759.4,
+  "errors_sample": [],
+  "s1_official_macro_f1": 0.4737,
+  "micro_f1": 0.5903,
+  "s2_rare_recall": {
+    "ST": 0.625,
+    "CO": 0.8
+  },
+  "per_label_f1": {
+    "CO": 0.1455,
+    "AS": 0.9236,
+    "TE": 0.6389,
+    "ST": 0.1613,
+    "AN": 0.4505,
+    "OT": 0.5227
+  },
+  "proxy_mean": 0.5488
+}

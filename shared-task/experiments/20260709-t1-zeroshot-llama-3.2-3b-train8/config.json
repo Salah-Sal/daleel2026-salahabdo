@@ -1,0 +1,23 @@
+{
+  "script": "run_zero_shot.py",
+  "argv": [
+    "--task",
+    "1",
+    "--model",
+    "llama-3.2-3b",
+    "--on",
+    "train:8",
+    "--threads",
+    "2"
+  ],
+  "model": {
+    "key": "llama-3.2-3b",
+    "litellm_id": "openrouter/meta-llama/llama-3.2-3b-instruct:free",
+    "params_b": 3,
+    "closed_track": true,
+    "notes": "plumbing smoke tests; not a serious candidate"
+  },
+  "temperature": 0.0,
+  "max_tokens": 4000,
+  "dspy_version": "3.3.0b1"
+}

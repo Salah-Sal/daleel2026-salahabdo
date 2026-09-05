@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "strategy": "iterative-multilabel-genre-v1",
+  "seed": 20260710,
+  "n_splits": 2,
+  "record_count": 8,
+  "record_ids": [
+    192,
+    259,
+    388,
+    493,
+    693,
+    790,
+    845,
+    960
+  ],
+  "folds": [
+    {
+      "index": 0,
+      "train_ids": [
+        192,
+        388,
+        790,
+        845
+      ],
+      "val_ids": [
+        259,
+        493,
+        693,
+        960
+      ]
+    },
+    {
+      "index": 1,
+      "train_ids": [
+        259,
+        493,
+        693,
+        960
+      ],
+      "val_ids": [
+        192,
+        388,
+        790,
+        845
+      ]
+    }
+  ]
+}

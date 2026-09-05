@@ -1,0 +1,106 @@
+{
+  "n_paragraphs": 430,
+  "champion_t0": {
+    "macro_f1": 0.6496,
+    "per_label_f1": {
+      "CO": 0.3107,
+      "AS": 0.9159,
+      "TE": 0.76,
+      "ST": 0.5806,
+      "AN": 0.5818,
+      "OT": 0.7486
+    }
+  },
+  "routed_v1_composed_oof": {
+    "macro_f1": 0.7068,
+    "per_label_f1": {
+      "CO": 0.44,
+      "AS": 0.9192,
+      "TE": 0.7782,
+      "ST": 0.5902,
+      "AN": 0.7229,
+      "OT": 0.7906
+    }
+  },
+  "routed_v2_composed_oof": {
+    "macro_f1": 0.7203,
+    "per_label_f1": {
+      "CO": 0.4267,
+      "AS": 0.9192,
+      "TE": 0.7782,
+      "ST": 0.6429,
+      "AN": 0.7643,
+      "OT": 0.7906
+    }
+  },
+  "adoption": {
+    "rule": "v2 >= v1 + 0.02 AND v2 >= v1 on >=3/5 fold slices",
+    "gate": 0.7268,
+    "fold_wins": 4,
+    "adopted": false,
+    "champion_gate_for_reference": 0.6696
+  },
+  "fold_slice_macros": {
+    "0": {
+      "v1": 0.657,
+      "v2": 0.7007
+    },
+    "1": {
+      "v1": 0.7203,
+      "v2": 0.7475
+    },
+    "2": {
+      "v1": 0.6934,
+      "v2": 0.7146
+    },
+    "3": {
+      "v1": 0.7776,
+      "v2": 0.7508
+    },
+    "4": {
+      "v1": 0.6889,
+      "v2": 0.7006
+    }
+  },
+  "vote_thresholds_by_fold": {
+    "0": {
+      "AS": 1,
+      "TE": 4,
+      "ST": 4
+    },
+    "1": {
+      "AS": 2,
+      "TE": 5,
+      "ST": 4
+    },
+    "2": {
+      "AS": 2,
+      "TE": 4,
+      "ST": 4
+    },
+    "3": {
+      "AS": 2,
+      "TE": 5,
+      "ST": 4
+    },
+    "4": {
+      "AS": 2,
+      "TE": 4,
+      "ST": 5
+    }
+  },
+  "co_budget_v2": {
+    "mult": 2.0,
+    "fired": 50,
+    "hits": 16,
+    "gold_co_count": 25,
+    "co_f1_v2_rank_fusion": 0.4267,
+    "co_f1_v1_encoder_k1": 0.44
+  },
+  "leg_f1": {
+    "an_v1_encoder_only": 0.7229,
+    "an_v2_consensus": 0.7643,
+    "ot_v1_encoder_only": 0.7906,
+    "ot_v2_consensus": 0.7906
+  }
+}

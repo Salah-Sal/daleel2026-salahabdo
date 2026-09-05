@@ -1,0 +1,69 @@
+{
+  "manifest_schema_version": 1,
+  "architecture_version": "proposal-atom-discourse-forest-v1",
+  "dspy_version": "3.3.0b1",
+  "tasks": [
+    1,
+    2
+  ],
+  "track": "closed",
+  "setting": "both",
+  "optimizer": null,
+  "task_model": {
+    "key": "gemma-4-31b-paid",
+    "endpoint": "openrouter/google/gemma-4-31b-it",
+    "params_b": 31.0,
+    "closed_track": true,
+    "license_status": "verified-open"
+  },
+  "auxiliary_models": {
+    "teacher": null,
+    "reflection": null,
+    "prompt": null
+  },
+  "training_ids": [],
+  "training_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "data_sources": [
+    "daleel2026:train-task-1",
+    "daleel2026:train-task-2"
+  ],
+  "code": {
+    "git_commit": "35377c269dcbaaaddf98f22ea1291be195942654",
+    "git_dirty": true,
+    "python_tree_sha256": "ea63ec767133ac338ed4be7ce26d9ad8b54e13e3d4a17b5cdb4993c96e88b9d4"
+  },
+  "upstream_artifacts": [
+    {
+      "kind": "forest-quote-proposals",
+      "path": "experiments/20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b/predictions/preds.jsonl",
+      "sha256": "fcd44c03f2e96829de9671d7a34ead82d5a9db02f8d53334b6de77fac50aa0a1",
+      "verified": true,
+      "manifest": "experiments/20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b/provenance.json",
+      "manifest_sha256": "3ffb5f190ba1ccdac3750e8b277bea00bdb733953145d333aa2c748e28794b0d",
+      "output_bound": true,
+      "producer": {
+        "architecture_version": "stage0-quote-v1",
+        "track": "closed",
+        "setting": "both",
+        "task_model": {
+          "key": "gemma-4-31b-paid",
+          "endpoint": "openrouter/google/gemma-4-31b-it",
+          "params_b": 31.0,
+          "closed_track": true,
+          "license_status": "verified-open"
+        },
+        "optimizer": null,
+        "data_sources": [
+          "daleel2026:train-task-2"
+        ]
+      }
+    }
+  ],
+  "data_artifacts": [
+    {
+      "source_id": "daleel2026:train-task-1",
+      "path": "<repo>/resources/repos/Daleel2026/data/train/train_task_1.jsonl",
+      "sha256": "240b4299df7d9e3b9297843acd271463d7aa7d10ce991576ed51f4c43ab241af"
+    }
+  ]
+}

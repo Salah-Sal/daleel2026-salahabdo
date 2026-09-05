@@ -1,0 +1,25 @@
+{
+  "completion_schema_version": 1,
+  "complete": true,
+  "files": [
+    {
+      "relative_path": "config.json",
+      "sha256": "d74d5ef1ce0c1e52523c50241e7b5cb10dbac08c64c98d3c7992c99472d286b1"
+    },
+    {
+      "relative_path": "policy.json",
+      "sha256": "04a7c5fa420cabdaa68eccfee89a788ca7ed674e9cfcf90c135b4491b6c85181"
+    },
+    {
+      "relative_path": "provenance.json",
+      "sha256": "41ae8fd292fe592cfe998f814eddfb4744028140582d0deabe27e983ad14e1aa"
+    },
+    {
+      "relative_path": "report.json",
+      "sha256": "1d7ba0d1de1ee8c49cd84ff625e65186f933fefd48630bee6d49c39ff467cc80"
+    }
+  ],
+  "metadata": {
+    "adopt": true
+  }
+}

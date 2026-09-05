@@ -1,0 +1,32 @@
+{
+  "script": "t2_vote_pilot.py",
+  "argv": [
+    "--model",
+    "gemma-4-31b-paid",
+    "--role-run",
+    "experiments/20260710-193247-709106Z-v3-role-gepa-gemma-4-31b-paid-both-outer0-inner0-1447e7ced5",
+    "--proposals",
+    "experiments/20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b/predictions/preds.jsonl",
+    "--replicas",
+    "5",
+    "--rollout-base",
+    "100",
+    "--temperature",
+    "0.7",
+    "--threads",
+    "8"
+  ],
+  "milestone": "HEADROOM_AUDIT.md P2",
+  "model": "gemma-4-31b-paid",
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "role_run": "experiments/20260710-193247-709106Z-v3-role-gepa-gemma-4-31b-paid-both-outer0-inner0-1447e7ced5",
+  "role_state_sha256": "655ec4ac9823a11651359be4d3fa60d7aef4a52c29e3ee77c9f062b90362d65e",
+  "proposals_sha256": "fcd44c03f2e96829de9671d7a34ead82d5a9db02f8d53334b6de77fac50aa0a1",
+  "replicas": 5,
+  "rollout_base": 100,
+  "temperature": 0.7,
+  "granularity": "connective",
+  "containment_threshold": 0.8,
+  "n_outer_paragraphs": 86,
+  "n_atoms": 787
+}

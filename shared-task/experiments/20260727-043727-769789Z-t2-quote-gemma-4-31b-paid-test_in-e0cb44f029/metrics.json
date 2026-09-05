@@ -1,0 +1,25 @@
+{
+  "task": 2,
+  "model": "gemma-4-31b-paid",
+  "program": "quote",
+  "compiled": null,
+  "litellm_id": "openrouter/google/gemma-4-31b-it",
+  "on": null,
+  "n_paragraphs": 213,
+  "cot": true,
+  "g1_format_compliance": 1.0,
+  "n_parse_failures": 0,
+  "n_unknown_label_outputs": 0,
+  "n_program_errors": 0,
+  "wall_seconds": 438.3,
+  "errors_sample": [],
+  "align_stats": {
+    "exact": 776,
+    "ws": 6,
+    "norm": 2,
+    "fuzzy": 2,
+    "unaligned": 0,
+    "dropped_overlap": 2
+  },
+  "n_paragraphs_with_unaligned": 0
+}
