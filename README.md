@@ -8,9 +8,9 @@ contains; macro-F1 0.712) and **fifth of eight** on Task 2 (where their spans ar
 span-F1 0.7316).
 
 Paper: Salah Abdo, *SalahAbdo at Daleel 2026: Routing Each Label to LLM Votes, a
-Fine-Tuned Encoder, or Sequence Structure*, ArabicNLP 2026 (to appear). The camera-ready
-PDF and BibTeX will be added under `shared-task/paper/` and attached to a GitHub release;
-`CITATION.cff` carries the citation.
+Fine-Tuned Encoder, or Sequence Structure*, ArabicNLP 2026 (to appear). `shared-task/paper/` holds the
+submitted version (tex, bib, ACL style files, PDF; revision of 2026-08-14). The camera-ready
+version will replace it and be attached to a GitHub release; `CITATION.cff` carries the citation.
 
 ## What is in this repository
 
@@ -21,6 +21,7 @@ PDF and BibTeX will be added under `shared-task/paper/` and attached to a GitHub
 | `shared-task/tests/` | 244 tests |
 | `shared-task/experiments/` | 239 run directories (config, metrics, provenance, completion receipt, reports), indexed in `experiments/README.md` |
 | `shared-task/kaggle/` | the Kaggle kernels used for GPU encoder training |
+| `shared-task/paper/` | the paper: tex, bib, ACL style files, PDF (submitted version until the camera-ready replaces it) |
 | `shared-task/CREATIVE_HEADROOM_RESEARCH.md` | the preregistration ledger, with its commit history: each gate registered before the corresponding fit, each verdict appended after |
 | `shared-task/HEADROOM_AUDIT.md`, `TIER1_ROUTING_MILESTONE.md`, `STRUCTURAL_FOREST_EXPERIMENT.md` | the three registered designs that the ledger and the code cite |
 | `COMMIT_MAP.md` | development commit to public commit, so the hashes cited in the paper and in the ledger resolve here |

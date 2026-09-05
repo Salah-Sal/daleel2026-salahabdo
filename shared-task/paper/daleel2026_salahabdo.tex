@@ -1,0 +1,811 @@
+% Daleel 2026 system description paper - SalahAbdo (closed track, both tasks).
+% Venue: ArabicNLP 2026 @ EMNLP (Budapest). ACL style files (acl.sty in
+% this directory). Compile: tectonic daleel2026_salahabdo.tex
+\documentclass[11pt]{article}
+\usepackage[final]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{xurl}
+\renewcommand{\UrlBreaks}{\do\/\do\-}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{0pt}
+
+% ---- label macros ----
+\newcommand{\lab}[1]{\textsc{#1}}
+\newcommand{\co}{\lab{co}}
+\newcommand{\as}{\lab{as}}
+\newcommand{\te}{\lab{te}}
+\newcommand{\st}{\lab{st}}
+\newcommand{\an}{\lab{an}}
+\newcommand{\ot}{\lab{ot}}
+
+\title{SalahAbdo at Daleel 2026: Routing Each Label to LLM Votes,\\
+a Fine-Tuned Encoder, or Sequence Structure}
+
+\author{Salah Abdo \\
+  Independent Researcher \\
+  \texttt{salah.abdo.tech@gmail.com}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We describe the SalahAbdo closed-track systems for both Daleel 2026
+subtasks: deciding which argumentative-unit types appear in an Arabic
+paragraph (Task~1) and locating their exact spans (Task~2), in
+editorials and debates. No single method was best for all six
+argumentative-unit types, so our Task~1 system routes each type to the
+method that measured best for it: assumption (\as), testimony (\te),
+and statistics (\st) are detected by sampling a \texttt{gemma-4-31b}
+classifier five times and firing when enough samples agree; anecdote
+(\an) and other (\ot) by a fine-tuned CAMeLBERT classifier; and the
+lowest-agreement type, common ground (\co), by ranking paragraphs and
+firing a fixed count. A final verifier shows the LLM examples of true and false
+\st{} paragraphs and removes likely false positives. Task~2 first
+extracts spans as verbatim LLM quotes, then re-labels them by blending
+encoder probabilities with label-sequence statistics under Viterbi
+decoding, with zero additional LLM calls. Every design change had to
+clear an adoption bar fixed before any experiment ran: 29 recorded
+decisions produced six adoptions, and composition arithmetic
+predicted two development scores digit-for-digit. Development scores
+are 0.7089 macro-$F_1$ (Task~1) and 0.7247 span $F_1$ (Task~2); the
+pinned recipes scored 0.6499 and 0.7055 on test, and our final official
+submissions scored \textbf{0.712} and \textbf{0.7316}: \textbf{first of
+ten} and \textbf{fifth of eight} closed-track teams
+(\S\ref{sec:results} discloses the evaluation-phase protocol).
+Residual errors track the scheme's measured
+human agreement ($\kappa$ as low as $0.114$): types whose definitions a
+model can check against the text improved under LLM verification, while
+types defined by annotation convention resisted every prompting attack
+and were learned only from supervision and sequence structure.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Argument mining is ``the automatic identification and extraction of the
+structure of inference and reasoning expressed as arguments presented in
+natural language'' \citep{lawrence-reed-2019-argument}. Daleel 2026
+\citep{nabhani-etal-2026-daleel} asks for its first two steps
+\citep{peldszus-stede-2013-argument} in Arabic: find the argumentative
+discourse units (ADUs) in a paragraph and decide which of six types
+each one is, in two genres. Prior Arabic resources target stance
+detection
+\citep{alhindi-etal-2021-arastance,alturayeif-etal-2022-mawqif} and
+debate component classification
+\citep{khader-etal-2024-munazarat,alzawqari-etal-2025-neural}, not this
+six-type evidence-unit scheme. The task is hard in a measurable way:
+whether a clause is \emph{common ground} or an \emph{assumption} is
+implicit content that, as \citet{moens-2018-argumentation} observes
+(quoted in the survey), ``resides in the mind of communicator and
+audience.'' Even trained annotators agreed only slightly on such labels
+($\kappa{=}0.114$; \S\ref{sec:task}).
+
+\paragraph{Criteria can be checked; conventions cannot.} Some Daleel
+labels are defined by criteria a model can \emph{check} against the text:
+a statistics (\st) unit contains numbers or study results, a testimony
+(\te) unit attributes a statement to a source. Others are defined by
+conventions with no text-checkable rule to appeal to: whether shared
+background is common ground (\co) rather than an assumption (\as), or a
+settled event an anecdote (\an) rather than \co, is a line the
+annotation team drew. The distinction predicted our results: every
+LLM verification stage aimed at a checkable label worked, every
+prompting attack on a convention label failed, and convention labels
+entered the system only through a fine-tuned encoder and sequence
+structure.
+
+\paragraph{Every change had to clear a bar set in advance.} A change
+was adopted only if it beat a score bar fixed before its results
+existed, with the design and both planned outcomes recorded in a
+ledger; failed changes were closed for good (\S\ref{sec:method}; all
+twenty-nine in Appendix~\ref{app:gates}). This caught two changes that
+looked good internally but failed externally, and predicted two
+development scores digit-for-digit (\S\ref{sec:results}).
+
+\paragraph{Contributions.} (1)~A Task~1 system that routes each label to
+the method that measured best for it, plus a verifier for the one label
+whose problem was precision (dev macro-$F_1$ 0.6159 $\rightarrow$
+0.7089). (2)~A Task~2 re-labeling stage that improves an LLM span
+pipeline by $+0.0400$ dev $F_1$ with no additional LLM calls, plus a
+placebo ablation separating structure's contribution from the
+encoder's. (3)~A gated adoption methodology for shared-task
+conditions, publishing the gate registry, negative results, transfer
+ledger, and an analysis tying residual errors to measured human
+agreement and vote statistics. Code, prompts, scorer ports, and
+analysis artifacts:
+\url{https://github.com/Salah-Sal/daleel-2026-arabic-argumentative-discourse-mining-shared-task}
+(public at camera-ready).
+
+\section{Task, Data, and the Human Ceiling}
+\label{sec:task}
+
+\paragraph{Setup.} Daleel 2026 \citep{nabhani-etal-2026-daleel} provides
+Arabic paragraphs from two genres: news editorials and transcribed
+competitive debates (the Munazarat lineage;
+\citealp{khader-etal-2024-munazarat,alsharafi-etal-2025-arabic}). Task~1
+asks for the \emph{set} of ADU types present in a paragraph (six labels,
+multi-label, empty sets legal); Task~2 asks for exact typed character
+spans. Example (editorial, translated): ``Apple says privacy lies at the
+core of all its products, yet these products come at elevated prices''
+$\rightarrow$ Task~1 $\{\te,\co\}$; Task~2 a \te{} span over the Apple
+claim and a \co{} span over the pricing clause. Task~1 is scored by
+macro-$F_1$ over all six labels; Task~2 by a partial-match span $F_1$ in
+which each overlapping same-label (prediction, gold) pair adds
+overlap/len(prediction) to precision and overlap/len(gold) to recall
+(scorer ports parity-tested; Appendix~\ref{app:repro}). The training
+release contains 612 paragraphs (357 debate, 255 editorial; 2{,}975 gold
+spans covering 91\% of all text); the development input contains 217 and
+the test input 213. Label priors are heavily skewed: \as{} appears in
+75\% of paragraphs, other (\ot) 36\%, \an{} 30\%, \te{} 26\%, \co{} 6\%, \st{}
+5\%. For all 612 paragraphs the Task~1 label set equals the Task~2
+span-label set, so one span model serves both tasks. We split the 612
+training paragraphs into a 430-paragraph working pool (five
+genre-balanced folds; Appendix~\ref{app:repro}) and a 182-paragraph
+held-out check. \emph{Out-of-fold} (OOF) scoring fits on four folds and
+predicts the fifth; all design decisions used OOF scores on the 430,
+the 182 serving only as a sanity guard (\S\ref{sec:method}).
+
+\paragraph{The scheme and its measured ceiling.} The six types, common
+ground (\co), assumption (\as), testimony (\te), statistics (\st),
+anecdote (\an), other (\ot), are those of the Webis-Editorials-16
+annotation model \citep{alkhatib-etal-2016-news}, whose original
+annotation study \emph{measured} per-type agreement (Fleiss' $\kappa$ at
+segment level, before annotator judgments were merged into gold labels):
+from 0.613 for \as{} down to \textbf{0.114} for \co{} --- slight
+agreement \citep{landis-koch-1977-measurement,fleiss-1971-measuring};
+full table in \S\ref{sec:criteria}. Given one annotator chose \co, the probability
+another chose \as{} is 0.562, and \co/\ot{} are also the rarest types in
+the source corpus (1.7\%/1.2\% of 14{,}313 units): low agreement and
+extreme rarity together bound what any system can learn. We extrapolate
+a pooled Task~2 ceiling of ${\approx}0.75$ (our estimate, not a
+published number) and read residual errors against it.
+
+\section{Task 1: Routed Multi-Source Composition}
+\label{sec:t1}
+
+No single method was best for all six labels
+(\S\ref{sec:analysis}), so our final Task~1 system
+(\textbf{v2.2}) \emph{routes} each label to the source that
+measured best for it, with every threshold fitted on training folds and
+applied to held-out folds (Table~\ref{tab:router}).
+
+\begin{table*}[t]
+\centering\tiny
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llp{7.2cm}rr}
+\toprule
+Label & Source & Decision rule (deployment twin identical) & OOF $F_1$ & Dev $F_1$ \\
+\midrule
+\as & LLM votes & fire iff $\geq\theta_{\as}{=}2$ of 5 rollout votes & 0.9192 & 0.9046 \\
+\te & LLM votes & fire iff $\geq\theta_{\te}{=}4$ of 5 & 0.7782 & 0.8256 \\
+\st & votes + verifier & fire iff $\geq\theta_{\st}{=}4$ of 5, then drop iff verifier says absent \emph{and} a second-family model omits \st & 0.7826 & 0.8421 \\
+\an & encoder $\cup$ spans & encoder OOF decision $\cup$ (span-derived \an{} $\wedge$ votes $\geq 1$) & 0.7243 & 0.6309 \\
+\ot & encoder & encoder OOF decision, as-is & 0.7744 & 0.7344 \\
+\co & budgeted rank & top $2\times$ prior per fold by rank-mean(encoder sigmoid, vote fraction, span presence) & 0.4000 & 0.3158 \\
+\midrule
+macro & & & 0.7298 & \textbf{0.7089} \\
+\bottomrule
+\end{tabular}
+\caption{The v2.2 Task~1 router. ``Votes'' = $k{=}5$, $T{=}0.7$ rollouts
+of the frozen zero-shot \texttt{gemma-4-31b} classifier; encoder =
+CAMeLBERT-MSA-quarter (5-fold OOF); ``spans'' = Task~2 label sets; Dev =
+the final submission's development scores.}
+\label{tab:router}
+\end{table*}
+
+\paragraph{Sources.} \emph{(a) Self-consistency votes:} the frozen
+zero-shot chain-of-thought classifier (\texttt{gemma-4-31b-it}, winner
+of a pre-registered 14-model bake-off) is sampled $k{=}5$ times at
+$T{=}0.7$ \citep{wang-etal-2023-selfconsistency}; a label fires when at
+least $\theta_L$ of the five samples propose it ($k{=}5$ suffices:
+\S\ref{sec:votes}). \emph{(b) Encoder:} CAMeLBERT-MSA-quarter
+\citep{inoue-etal-2021-camelbert} fine-tuned to output a probability per
+label per paragraph (Appendix~\ref{app:repro}), with decision thresholds
+fitted on OOF probabilities; the quarter-size variant was chosen in
+advance on external evidence \citep{alzawqari-etal-2025-neural}.
+\emph{(c) Span-derived labels:} the Task~2 pipeline's label sets, used
+only in the \an{} union rule and the \co{} ranker.
+
+\paragraph{The \st{} verifier.} An OOF error audit showed \st{} recall
+already at 0.947 (18 of 19 golds found) while 19 of 37 fired paragraphs
+were false positives: a pure precision problem. The verifier shows the LLM what true and false \st{}
+paragraphs look like: for a fired paragraph, its prompt holds the
+official definition plus all gold-\st{} paragraphs and all fired false
+positives from the \emph{other} folds ($\sim$15 each) as labeled
+examples; three samples at $T{=}0.7$ vote. A paragraph is dropped only
+if the verifier majority says absent \emph{and} an independent model
+family (qwen3-32b or llama-3.3-70b) also omits \st{} --- a two-key rule.
+On OOF it dropped 10 paragraphs, all false positives (\st{} $F_1$ 0.6429
+$\rightarrow$ 0.7826); on dev it dropped 2, again both false positives
+(0.7619 $\rightarrow$ 0.8421). The question is checkable, so
+verification transfers.
+
+\paragraph{The \co{} budget.} Nothing we tried could actually detect
+\co{} (\S\ref{sec:criteria}), and for a label this uncertain,
+over-predicting is exactly what macro-$F_1$ rewards
+\citep{lipton-etal-2014-thresholding}. So we control how
+\emph{much} fires rather than \emph{what}: paragraphs are ranked by the
+mean rank of three signals (encoder probability, vote fraction, span
+presence), and the top $2\times$ training-frequency count is fired --- a
+count, unlike a threshold, stays stable when scores drift across
+datasets (cf.\ \citealp{lin-lin-2023-thresholding}).
+
+\section{Task 2: Span Pipeline + Structural Re-Decode}
+\label{sec:t2}
+
+\paragraph{v3: proposal $\rightarrow$ atom $\rightarrow$ role.} LLMs are
+unreliable at character arithmetic, so the model never outputs offsets:
+the extraction stage asks for (label, \emph{verbatim quote}) pairs, and
+a staged aligner locates each quote in the paragraph (exact,
+whitespace-tolerant, orthography-normalized, then fuzzy; re-aligning
+gold spans' own text scores $F_1$ 0.999). The extracted text
+is then split at clause boundaries and connectives, and a classifier
+(\textsc{SpanRoleDecision}) labels each piece with one of the six types
+or \lab{none}; its prompt is the campaign's only adopted
+prompt-optimizer product (GEPA \citep{agrawal-etal-2026-gepa} under
+DSPy \citep{khattab-etal-2024-dspy}; prompt selection never saw the
+scored fold). Extraction misses little: at most $4.2\%$ of any label's
+gold mass falls outside every predicted span, so residual Task~2 error
+is overwhelmingly mislabeling of correctly extracted text.
+
+\paragraph{S1: the structural re-decode.} v3 labels each extracted span
+\emph{independently}, yet gold labels are strongly sequential: an \an{}
+span follows another \an{} 39\% of the time, against an 11.5\% base
+rate. S1 therefore re-labels each paragraph's span sequence in five
+frozen steps: (1)~a fine-tuned CAMeLBERT segment classifier gives each
+span a probability distribution over the six labels; (2)~each
+label's probability is rescaled by the
+ratio (gold share of text)\,/\,(expected share under the encoder) ---
+the $\tau{=}1$ point of logit adjustment \citep{menon-etal-2021-logit};
+(3)~each span's evidence is $p = (1{-}\lambda)\,p_{\text{enc}} +
+\lambda\,\text{onehot}(\text{v3 label})$, $\lambda{=}0.9$: the v3 label
+keeps most of the weight;
+(4)~Viterbi decoding \citep{viterbi-1967-error} picks the most probable
+label sequence under genre-specific transition matrices estimated on
+training folds (Laplace $\alpha{=}1$); (5)~Rule-A: a
+decoded \co{} span must also appear in an independent zero-shot run,
+else it takes that run's dominant label. Everything is fitted per fold,
+and the bundle
+changes only labels, never boundaries, so segmentation credit is
+preserved by construction \citep{widmoser-etal-2021-randomized}.
+
+\paragraph{What S1 fixed.} OOF pooled $F_1$ moved 0.6934 $\rightarrow$
+0.7206 ($+0.0272$, better on all 5 folds), changing 237 of 3{,}824 span
+labels. A \emph{placebo ablation} --- the identical decode with the
+encoder replaced by uniform distributions --- scores 0.7133: structure
+alone contributes $\sim$$+0.02$, encoder evidence the remaining
+$+0.0073$ (cf.\ the $\neg$DAPT control of
+\citealp{gururangan-etal-2020-dont}). What the decode repairs is
+over-prediction of rare labels: predicted \co{} text fell from
+$3.98\times$ the gold amount to $1.78\times$ and \st{} from $1.38\times$
+to $1.07\times$. The declared limit: predicted \an{} text sits at
+$0.48\times$ gold before and $0.49\times$ after: most gold \an{} text lies
+inside larger spans of another label, which re-labeling cannot split.
+
+\section{Adoption Discipline}
+\label{sec:method}
+
+\paragraph{Register, then run.} The adoption bar entered version
+control before any experiment ran; each candidate change was then
+written into the ledger: design, grid, baseline, and both planned
+outcomes. Where the entry's commit precedes its run --- both Task~2
+adoptions among them --- git order itself proves the plan came first;
+elsewhere design and verdict entered git together and precedence rests
+on the ledger (marked in Appendix~\ref{app:gates}). This is
+\emph{preregistration}: committing to the plan before the results exist
+\citep{vanmiltenburg-etal-2021-preregistering}. (Ten early decisions
+predate the ledger.)
+
+\paragraph{The gate.} A change is adopted only if the composed system's
+OOF score improves by at least $+0.02$ on the official metric \emph{and}
+wins on at least 3 of the 5 folds. The margin tracks measured noise
+(identical LLM configurations rerun at $\pm0.03$--$0.04$; estimated
+composed-OOF band $\sigma{\approx}0.015$); smaller gains are
+indistinguishable from it. The fold rule blocks adopting a spike on one
+lucky fold (\co{} has 25 positives, \st{} 19). Every gate run
+recomputes its baseline from identical inputs and aborts on mismatch;
+a rejected family closes permanently: 29 decisions, six adoptions,
+zero reopened families.
+
+\paragraph{One bundled probe; external checks are sacred.} Each adopted
+system earned exactly one development-set submission; nothing was tuned
+against the leaderboard. Two failures justify it: an encoder swap that
+won a 4-way internal comparison collapsed on dev
+($0.6955{\rightarrow}0.6364$), and a recomposed \ot{} source reversed
+($-0.10$ on its label); both were reverted. The 182-paragraph check
+proved unreliable too (its champion readout missed dev by $-0.087$), so
+composed OOF on the 430 became the honest predictor.
+
+\paragraph{Exact composition arithmetic.} Macro-$F_1$ averages six
+per-label scores and the router decides each label independently, so
+swapping one label's source moves the system score by an exactly
+computable amount. This let us \emph{predict} development scores: v2.1
+and v2.2 were predicted 0.6955 and 0.7089, and scored exactly that
+(Table~\ref{tab:transfer}).
+
+\section{Results}
+\label{sec:results}
+
+Tables~\ref{tab:transfer} and~\ref{tab:progression} give the transfer
+ledger and progression;
+adopted changes transferred, S1's dev gain ($+0.0400$)
+\emph{exceeding} its OOF gain ($+0.0272$). On test (213 paragraphs) the
+pinned recipes scored 0.6499 and 0.7055, the Task~2 move from dev
+($-0.019$) inside the noise band. The Task~1 drop ($-0.059$) decomposes
+by label, not by system: \as, \st{} and \ot{} improved on test, while
+the loss concentrates where frozen operating points met a shifted test
+set (\co, \te, \an); Appendix~\ref{app:analysis} decomposes both.
+
+\paragraph{Evaluation-phase protocol (post-freeze, disclosed).} When the
+organizers released the development gold labels and extended the
+deadline, we waived our own freeze for that window and ran one
+time-boxed, leaderboard-informed campaign: four probes per task in one
+evening plus two closing Task~2 uploads.
+Per-label scorer feedback moved the \as, \te, \an, and \co{} sourcing
+decisions across probes (Task~1 0.6499 $\rightarrow$ 0.712; Task~2
+0.7055 $\rightarrow$ 0.7316, via span-drop filters keyed to Task~1
+labels and encoder probabilities). Two stronger configurations missed
+the board through operational error (Appendix~\ref{app:disclosure}). In
+the organizers' final standings we place \textbf{first of ten}
+closed-track teams on Task~1 and \textbf{fifth of eight} on Task~2
+(leader 0.755). Our Task~1 lead is $3{\times}10^{-5}$, far inside our
+own noise band: we read the top two as tied. We report these gains
+separately: our
+methodological claims rest on the gated development phase, not the
+probe campaign.
+
+\paragraph{Analysis.}\label{sec:analysis} Appendix~\ref{app:analysis}
+develops it: prompting fails on convention labels while verification
+transfers on checkable ones (\S\ref{sec:criteria}); $k{=}5$ votes
+suffice and rare-label operating points sit on needles
+(\S\ref{sec:votes}); S1's residual mirrors the human confusion matrix
+(\S\ref{sec:families}). Paid API spend was ${\approx}$US\$60
+\citep{dodge-etal-2019-show}.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Both systems place every component where measured evidence routed it,
+and every adoption cleared a pre-declared gate; the ranks matter less
+than the ledger behind them. At this scheme's annotation ceiling \emph{verification}
+helps where definitions are checkable, while convention labels move
+only under supervision, priors, and structure. The registry guards
+against the winner's curse; extraction is the unreached lever.
+
+\section*{Limitations}
+
+All selection statistics rest on a 430-paragraph OOF pool with 25 \co{}
+and 19 \st{} positives; our estimated composed-OOF noise band is
+$\sigma{\approx}0.015$, and our $+0.02$ gate is calibrated to it, not to
+a universal standard. The ${\approx}0.75$ Task~2 ceiling is our
+extrapolation from the source corpus's agreement study (a different
+language, granularity, and consolidation stage) and serves as an
+interpretive anchor, not a bound; the comparison with the human
+confusion matrix in \S\ref{sec:families} sets differently normalized
+quantities side by side, so it is directional, not exact. LLM legs depend on a specific serving stack: the same
+checkpoint scored $0.048$ lower on a different provider and identical
+configurations rerun at $\pm0.03$--$0.04$; pinning the provider, caching
+artifacts, and count-based rare-label rules reduce but do not eliminate
+this risk. The \st{} verifier's exemplar block is label-sorted, which
+long-context evidence suggests is suboptimal
+\citep{bertsch-etal-2024-manyshot}; the recipe was dev-validated as-is.
+The TAPT (task-adaptive pretraining) measurement is single-seed. Our systems are tuned to
+this scheme's conventions by design; we make no
+claim that the specific routing transfers to other argument-annotation
+schemes (``each data set appears to conceptualize claims quite
+differently,''
+\citealp{daxenberger-etal-2017-essence,lawrence-reed-2019-argument}).
+Finally, the evaluation-phase probe campaign was leaderboard-informed
+(\S\ref{sec:results}); we report it separately and do not claim its
+gains as evidence for the methodology.
+
+\bibliography{refs}
+
+\appendix
+
+\section{Closed-Track Disclosure}
+\label{app:disclosure}
+
+Per the task rules, all models, tools, prompts, and processing steps:
+
+\paragraph{Models (all open-weight, ${\leq}70$B, licenses verified).}
+\texttt{gemma-4-31b-it} \citep{gemmateam-2026-gemma4}: every LLM stage
+(Task~1 classifier, quote proposals, role decisions, \st{} verifier);
+Apache-2.0; served via OpenRouter (paid route pinned after free-route
+starvation); $T{=}0$ for reference/deploy runs, $T{=}0.7$ for rollouts;
+ChatAdapter with a deterministic retry ladder (a JSON-adapter failure
+mode on ${\sim}2.8\%$ of atom decisions was eliminated this way; a rare
+whitespace-flood degeneration on ${\sim}1/430$ paragraphs is contained as
+an empty prediction). Pretraining cutoff precedes the task's label
+release, so gold-label leakage is impossible; the underlying news/debate
+text may predate the cutoff. \texttt{qwen3-32b}
+\citep{qwenteam-2025-qwen3} and \texttt{llama-3.3-70b}
+\citep{llamateam-2024-llama3}: one zero-shot Task~1 run each, used only
+as the verifier's co-signal (and in rejected bundle experiments);
+$T{=}0$, which deviates from Qwen's recommended stochastic sampling;
+Arabic is not among Llama~3's officially supported languages: we use it
+only as a redundant negative signal; Llama~3.3 has no dedicated report,
+so we cite the herd paper, and the exact checkpoint is identified by its
+pinned route in the released configs. CAMeLBERT-MSA-quarter
+\citep{inoue-etal-2021-camelbert}, Apache-2.0, pinned to an immutable
+revision: Task~1 paragraph classifier and Task~2 segment classifier.
+DSPy 3.3.0b1 \citep{khattab-etal-2024-dspy}; GEPA compile used
+\texttt{deepseek-v4-pro} as the reflection model (compile-time only; no task
+inference). No external labeled data; no dataset text in any committed
+artifact.
+
+\paragraph{Prompts.} All prompts are audit-informed zero-shot seeds with
+the official label definitions in a single canonical phrasing (shared
+between programs and metric feedback); the \st{} verifier and rejected
+\co{} specialist add fold-external labeled exemplars as described in the
+text. Verbatim prompt texts ship in the released repository (made public
+at camera-ready; see \S\ref{sec:intro}).
+
+\paragraph{Evaluation-phase upload record (\S\ref{sec:results}).}
+Stronger configurations missed the leaderboard on both tasks. Our final
+Task~1 package (predicted 0.7182 by the composition arithmetic) was
+never uploaded: the closing upload meant to carry it held an earlier
+probe configuration by mistake (scoring 0.711) and was never pushed to
+the board, so the scored Task~1 entry is probe-3 (0.712). Two closing
+Task~2 uploads scored 0.733 but were never pushed either, leaving
+probe-4 (0.7316) the scored Task~2 entry. Both are operational errors,
+not modeling choices, and neither is claimed as a result.
+
+\paragraph{Pre/post-processing.} Whitespace-only gold spans dropped
+(training side only); Task~1 gold re-derived from span labels with parity
+assertion; deterministic clause/connective atomization for role
+decisions; verbatim-quote alignment (exact/whitespace/normalized/fuzzy
+ladder) for offsets; per-label vote thresholds, encoder thresholds, \co{}
+budget, calibration weights, blend $\lambda$, and transition matrices all
+cross-fitted per fold on the 430-pool OOF artifacts and refit on all 430
+for deployment twins; exact-duplicate span dedup after decode. Empty
+prediction sets are legal outputs everywhere.
+
+\section{The Gate Registry}
+\label{app:gates}
+
+Every recorded decision, in order (Table~\ref{tab:registry}); gates are
+composed-OOF $+0.02$ with
+${\geq}3/5$ fold wins unless stated. ``Killed'' = failed a pre-declared
+cheaper screen before the full gate.
+
+\begin{table*}[t]
+\centering\tiny
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{rlllll}
+\toprule
+\# & Decision (task) & Gate / screen & Result & Verdict & Registered$\rightarrow$verdict \\
+\midrule
+1 & quote-then-align vs.\ segment (T2 program) & paired $+0.02$ on frozen val & 0.6805 vs.\ 0.6542 & \textbf{adopt} & pre-ledger \\
+2 & BFRS compile (T1) & paired $+0.02$ & $-0.042$ & reject & pre-ledger \\
+3 & MIPROv2 compile (T1) & paired $+0.02$ & negative & reject & pre-ledger \\
+4 & GEPA compile (T1, 3 variants) & paired $+0.02$ & $\leq +0.003$ & reject & pre-ledger \\
+5 & GEPA compile (T2) & paired $+0.02$ & $+0.003$ & reject & pre-ledger \\
+6 & zero-shot verify stage (T1) & paired $+0.02$ & $\pm 0.003$ & reject & pre-ledger \\
+7 & blind relabel stage (T2) & paired $+0.02$ & $-0.003$ & reject & pre-ledger \\
+8 & decision-level judge compile (T1) & optval select $\rightarrow$ frozen confirm & $+0.033 \rightarrow +0.001$ & reject & pre-ledger \\
+9 & v3 proposal-atom-role (T2) & OOF gate + frozen confirm & $+0.0387$; 0.6995 vs.\ 0.6805 & \textbf{adopt} & pre-ledger \\
+10 & v3 Task-1 fusion & OOF gate + frozen confirm & $+0.0436$; frozen transfer failed & reject & pre-ledger \\
+11 & theory-variables-alone design (T1) & fitted ceiling $\geq$ champion & 0.6417 $<$ ${\sim}0.70$ & killed & e15c8f9$^{\dagger}$ \\
+12 & tier-1 routed composition (T1) & OOF $+0.02$ vs.\ champion-$T0$ & $+0.0225$; dev 0.6642 & \textbf{adopt} & c603bad$^{\dagger}$ \\
+13 & mix-encoder amendment (T1) & one dev probe & 0.6364 vs.\ 0.6642 & reverted & 7127672 $\rightarrow$ bcd0aca \\
+14 & routed v2 recomposition (T1) & OOF $+0.02$ & $+0.0381$, 5/5; dev $+0.0146$; \ot{} leg reverted $\rightarrow$ v2.1 0.6955 & \textbf{adopt} & 5eafbde $\rightarrow$ 34324ce$^{\dagger}$ \\
+15 & \co{} many-shot rank feature (T1) & precision@k on $\geq 3/5$ folds & 0.3733 vs.\ 0.40 control & reject & 5eafbde $\rightarrow$ f4ef8e5$^{\dagger}$ \\
+16 & T2 atom-vote self-consistency & fold-0 spend gate $+0.005$ & $+0.0024$ & killed & 5eafbde $\rightarrow$ f4ef8e5$^{\dagger}$ \\
+17 & discourse-forest prompts (T2) & forest $>$ flat, shuffled; $+0.02$ & forest $-$ shuffled $= 0.0003$ & killed & 02e19a0 $\rightarrow$ 8e3414a$^{\dagger}$ \\
+18 & constrained relabel (T2) & OOF $+0.02$ & $+0.0182$ & reject & 5eafbde $\rightarrow$ 1ad20a0$^{\dagger}$ \\
+19 & constrained relabel regate (T2) & OOF $+0.02$ (v2.2 constraint) & 0.7133 vs.\ gate 0.7134 & reject & 9d094de \\
+20 & learned stacker (T1, screen) & beat hand rules on OOF & 0.7084 vs.\ 0.7203 & reject & 922670d$^{\dagger}$ \\
+21 & \st{} contrastive verifier v2 (T1) & OOF $+0.02$ & $+0.0233$, 5/5; dev exact & \textbf{adopt} & 922670d $\rightarrow$ 848c447$^{\dagger}$ \\
+22 & \co{} contrastive specialist (T1) & OOF $+0.02$, control-exact & 0.7254 $<$ 0.7498 & reject & d713a91 $\rightarrow$ 2d02ee4 \\
+23 & \an-rescue span judge (T2) & fold-0 screen $+0.015$ & $-0.0024$ & killed & 05ac51f $\rightarrow$ 49228a5 \\
+24 & S1 structural re-decode (T2) & OOF $+0.02$, control-exact & $+0.0272$, 5/5; dev $+0.0400$ & \textbf{adopt} & 46368f9 $\rightarrow$ fa28fa6 \\
+25 & S2 learned span combiner (T2) & OOF $+0.02$ & $+0.0013$, flip precision 0.467 & reject & 53382af $\rightarrow$ d0b1e84 \\
+26 & bundle-v3 full (T1) & fixed-sequence primary & $+0.0160$, 4/5 & reject & 56d6f30 $\rightarrow$ 4607866 \\
+27 & bundle-v3 ensemble-only (T1) & fixed-sequence secondary & $+0.0138$, 4/5 & reject & 56d6f30 $\rightarrow$ 4607866 \\
+28 & calibration temperature $\tau$ (T2) & OOF $+0.02$, control-exact & $-0.0003$; flat in $\tau$ & reject & 0f6b709 $\rightarrow$ a5c24f6 \\
+29 & transductive TAPT (T1; measurement-only) & OOF $+0.02$, control-exact & $+0.0066$ (encoder-only $+0.0476$) & reject & cd77061 $\rightarrow$ 1e88530 \\
+\bottomrule
+\end{tabular}
+\caption{The complete adoption registry. ``pre-ledger'' rows predate the
+in-repo registration convention and are documented in the corresponding
+campaign reports; later rows cite the ledger and verdict commits in the
+released repository. $^{\dagger}$: design and verdict entered git
+together (same commit or same-day batch), so precedence over the run
+rests on the ledger's contemporaneous record, not git order. Every
+reject/kill closed its design family permanently.}
+\label{tab:registry}
+\end{table*}
+
+Summary: 29 decisions, 6 adoptions, 2 external failures caught and
+reverted by the one-probe rule (row 13 and the \ot{} leg of row 14), 0
+families reopened. Rows 26--27 are the sharpest illustration of the
+margin's purpose: every banked component reproduced its estimate almost
+exactly and the honest sum was still $+0.016 < +0.02$; a $+0.016$ gain on
+430 paragraphs does not earn a leaderboard probe.
+
+\section{Analysis Detail}
+\label{app:analysis}
+
+The four subsections below are the full development of the patterns
+summarized in \S\ref{sec:analysis}.
+
+\subsection{Criteria verify; conventions require supervision or structure}
+\label{sec:criteria}
+
+The campaign ran four prompting attacks on convention-defined labels, all
+pre-declared, all failed: (i)~zero-shot \co{} definitions
+(cross-fitted $F_1$ 0.07); (ii)~a \co{} definition judge as a fourth rank
+feature (0.3733 vs.\ 0.40 control); (iii)~a \co{} contrastive many-shot
+specialist with the annotators' own exemplars and four induced
+not-\co{} conventions in context (0.3733
+again: the model argued false positives \emph{into} \co{} while quoting
+the rules); (iv)~a span-level \an-vs-\as{} judge (flip precision 0.44
+where ${\geq}0.75$ was needed). Meanwhile the
+\st{} verifier (aimed at a checkable
+criterion) validated twice and shipped. The Webis agreement numbers
+explain the asymmetry (Fleiss' $\kappa$, segment-level,
+pre-consolidation: \as{} 0.613, \te{} 0.591, \st{} 0.582, \an{} 0.399,
+\ot{} 0.152, \co{} 0.114; \citealp{alkhatib-etal-2016-news}): \co's
+convention ($\kappa{=}0.114$, 0.562 confusion into \as{} \emph{among
+humans}) is statistical, not definitional; there is nothing for a
+verifier to check. Consistently,
+gemma fired \co{} on \emph{every} call for 41 paragraphs
+whose gold is not \co, and on \emph{no} call for 7 gold \co{} paragraphs:
+a \emph{biased coin} no amount of
+voting, prompting, or calibration can flip. A dev example makes the
+convention concrete: the router fired \co{} on a debate opening that
+merely \emph{frames} the motion (``this House would ban for-profit
+companies from using social and political causes in marketing''): gold
+\as{}/\ot, because a motion is assumed for the sake of debate, not
+shared ground. Over-prediction of such
+labels is even metric-rational \citep{lipton-etal-2014-thresholding}.
+
+\subsection{Vote-scaling: why $k{=}5$, and why voting cannot fix \st{} or \an}
+\label{sec:votes}
+
+With $q_p$ the observed fraction of the five rollouts firing on paragraph
+$p$, Table~\ref{tab:votes} turns three design choices into consequences
+of vote statistics
+\citep{chen-etal-2024-llmcalls,wang-etal-2023-selfconsistency,loo-2025-selfconsistency-plateau}.
+(1)~\emph{$k{=}5$ suffices:} for the three vote-routed labels, $F_1$ at
+$k{=}5$ with an optimal threshold is over $99\%$ of the infinite-vote
+limit (${\geq}96.9\%$ for all six); more same-prompt rollouts buy almost
+nothing. (2)~\emph{Voting cannot fix
+\st:} the sampler already finds every gold \st{} ($p_1{=}0.99$, zero
+inverted golds), but 26 non-gold paragraphs fire on a majority of
+calls: correlated false positives that more votes make \emph{more}
+confident. Precision required an orthogonal signal: the verifier.
+(3)~\emph{Voting cannot fix \an:} half the gold \an{} paragraphs fire on
+a minority of calls (inv$^{+}{=}0.50$), capping the infinite-vote
+ceiling at 0.611, \emph{below} the supervised encoder's 0.717; routing
+\an{} to the encoder is not a preference but an inequality. Finally,
+deployed thresholds sit at their pooled-OOF optima
+(Table~\ref{tab:lipton}), but the interval retaining ${\geq}95\%$
+of peak $F_1$ spans 0.77 of the score range for \as{} against 0.016 for
+\st{} and \textbf{0.006} for \co: rare-label operating points sit on
+needles, and any dev$\rightarrow$eval score shift falls off the
+peak: the quantitative case for \co's count budget and \st's verifier.
+
+\subsection{What S1 did, seen against the human matrix}
+\label{sec:families}
+
+Grouping the six types into coarse families (evidence \te/\st/\an,
+subjective \co/\as, other) localizes S1's contribution: the within-family
+share of misassigned char mass fell 0.258 $\rightarrow$ 0.182 while
+family-level $F_1$ barely moved (0.7512 $\rightarrow$ 0.7541): S1's
+gain is within-family disambiguation. The residual concentrates in the
+one cross-family confusion the decoder cannot reach, gold-\an{} mass
+labeled \as{} (0.330): on dev, the gold \an{} span ``the reaffirmation
+to activate the Loss and Damage Fund'' (a settled
+event, hence anecdote by convention) was absorbed into a larger \as{}
+span. The same confusion leads the human matrix (0.277;
+\citealp{alkhatib-etal-2016-news}), and our 6-label OOF (0.7206) against
+the 3-family score (0.7541) bounds what finer typing can still add
+(\S\ref{sec:task}).
+
+\paragraph{Per-label test decomposition (\S\ref{sec:results}).} Task~1
+test $F_1$: \as{} 0.9408, \st{} 0.9286 (recall 1.0, so the verifier's
+zero drops were correct), \ot{} 0.7805, \te{} 0.6724 (editorial recall
+0.258 vs.\ 0.795 debate), \an{} 0.4628 (76 fired against 45 golds), \co{}
+0.1143 (the frozen budget fired 25 paragraphs against 10 test golds, the
+recorded overfiring risk realized). Editorial \ot{} scored 0.0 on 6
+supports, the blind spot dev had already exposed.
+
+\subsection{Negative results}
+\label{sec:negative}
+
+Every rejected family and its gate is in Appendix~\ref{app:gates}; the
+sharpest three: the \textbf{cross-model vote bundle} delivered every
+banked component's estimate almost exactly and the honest sum was still
+$+0.0160 < +0.02$: closed without a probe, exactly the case the
+winner's-curse guard exists for; a \textbf{shuffled-graph placebo}
+scored within 0.0003 of the true discourse forest: the
+structured-prompt gain was graph-shape, not attachment; and
+\textbf{transductive TAPT} \citep{gururangan-etal-2020-dont} lifted the
+raw encoder $+0.0476$ OOF but the composed system only
+$+0.0066$: textbook composition dilution (the encoder feeds only
+\an/\ot{} and \co{} rank features). Also closed at their gates: prompt
+optimizers on monolithic signatures ($-0.04$ to $+0.003$; the only win
+came after decomposition to single decisions), a decision-level judge
+compile ($+0.033$ selection, $+0.001$ confirmation), learned stacking,
+learned span arbitration, calibration temperature, and synthetic-label
+routes
+\citep{xu-etal-2023-supericl,fu-etal-2021-spanner,zhang-etal-2024-linkner,yung-etal-2025-synthetic,zhang-etal-2025-boxwrench,dipalo-etal-2024-pgkd,xiao-etal-2023-freeal}.
+
+\paragraph{Threshold audit (\S\ref{sec:votes}).} Deployed encoder
+thresholds vs.\ pooled-OOF optima, the $F^{*}/2$ plug-in point, and the
+width of the ${\geq}95\%$-of-peak interval:
+
+\begin{table}[h]
+\centering\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+ & $\theta_{\text{dep}}$ & $\theta^{*}$ & $F^{*}$ & $F^{*}/2$ & 95\%-width \\
+\midrule
+\co & .181 & .178 & .350 & .175 & \textbf{.006} \\
+\as & .473 & .471 & .916 & .458 & .774 \\
+\te & .288 & .286 & .661 & .331 & .158 \\
+\st & .164 & .164 & .326 & .163 & \textbf{.016} \\
+\an & .384 & .384 & .717 & .359 & .288 \\
+\ot & .484 & .482 & .814 & .407 & .376 \\
+\bottomrule
+\end{tabular}
+\caption{Every deployed threshold is at its pooled optimum and near the
+calibrated plug-in rule; what differs across labels by two orders of
+magnitude is the width of the safe operating region.}
+\label{tab:lipton}
+\end{table}
+
+\paragraph{Vote thresholds.} Deployed integer vote thresholds
+($\theta_{\as},\theta_{\te},\theta_{\st}$) $=(2,4,4)$ are exactly the
+pooled-OOF optima; the full $F_1$-by-$\theta$ and $F_1$-by-$k$ curves
+(including the fixed-majority inverse-U on \ot) accompany the released
+analysis artifacts. Table~\ref{tab:votes} gives the per-label vote model
+behind \S\ref{sec:votes}: with $q_p$ the observed vote fraction of
+paragraph $p$, expected $F_1$ at $k$ votes uses
+$E[\mathrm{TP}]=\sum_{\text{gold}} P(\mathrm{Binom}(k,q_p)\geq\theta)$
+(and $E[\mathrm{FP}]$ likewise) at the optimal integer $\theta$; the
+$k{\to}\infty$ limit fires $p$ iff $q_p>\tau$ at the best observed
+$\tau$; inv$^{+}$ is the share of gold paragraphs with $q_p<0.5$,
+unreachable by any majority.
+
+\begin{table}[h]
+\centering\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+ & $\alpha$ & $p_1$ & $p_2$ & inv$^{+}$ & $F_1@5$ & $F_1@\infty$ \\
+\midrule
+\co & .058 & .63 & .16 & .36 & .327 & .337 \\
+\as & .756 & .94 & .35 & .06 & .920 & .922 \\
+\te & .258 & .86 & .13 & .13 & .791 & .793 \\
+\st & .044 & .99 & .07 & .00 & .609 & .613 \\
+\an & .300 & .49 & .10 & .50 & .603 & .611 \\
+\ot & .372 & .84 & .25 & .16 & .746 & .748 \\
+\bottomrule
+\end{tabular}
+\caption{Per-label vote model from the five rollouts: prevalence
+$\alpha$, per-call fire rate on gold ($p_1$) and non-gold ($p_2$)
+paragraphs, fraction of gold items fired on ${<}50\%$ of calls
+(inv$^{+}$: unreachable by any majority), and expected $F_1$ at $k{=}5$
+vs.\ the infinite-vote limit, both at the optimal integer threshold.}
+\label{tab:votes}
+\end{table}
+
+\paragraph{Transfer ledger (\S\ref{sec:results}).} What each development
+submission was predicted to score externally, by which estimator, and
+what it scored:
+
+\begin{table}[h]
+\centering\scriptsize
+\begin{tabular}{lrrr}
+\toprule
+Submission & Predicted & Observed & $\Delta$ \\
+\midrule
+champion (val 182) & 0.7024 & 0.6159 & $-0.087$ \\
+routed v1 (OOF) & 0.6721 & 0.6642 & $-0.008$ \\
+mix amendment (OOF) & 0.6955 & 0.6364 & $-0.059$ \\
+routed v2 (OOF) & 0.7102 & 0.6788 & $-0.031$ \\
+v2.1 (arithmetic) & 0.6955 & 0.6955 & $\pm 0$ \\
+v2.2 (arithmetic) & 0.7089 & 0.7089 & $\pm 0$ \\
+v3 (frozen 182) & 0.6995 & 0.6847 & $-0.015$ \\
+S1 (arithmetic+OOF) & $\approx$0.712 & 0.7247 & $+0.013$ \\
+\bottomrule
+\end{tabular}
+\caption{The transfer ledger. Single-shot readouts on 182 paragraphs
+(rows 1, 7) carry $\pm 0.03$--$0.04$ provider noise; cross-fitted
+composed OOF transfers between $-0.008$ and $-0.059$; exact composition
+arithmetic transfers exactly.}
+\label{tab:transfer}
+\end{table}
+
+\paragraph{Progression and official scores (\S\ref{sec:results}).}
+Development-phase progression and official evaluation-phase scores:
+
+\begin{table}[h]
+\centering\scriptsize
+\begin{tabular}{lrr}
+\toprule
+System (chronological) & T1 dev & T2 dev \\
+\midrule
+zero-shot champion & 0.6159 & --- \\
+v3 pipeline & --- & 0.6847 \\
+\quad + mix-encoder amendment$^\dagger$ & 0.6364 & \\
+routed v2.1 (\ot{} revert) & 0.6955 & \\
+routed v2.2 ({+}\st{} verifier) & \textbf{0.7089} & \\
+S1 structural re-decode & & \textbf{0.7247} \\
+\midrule
+organizers' baseline & 0.358 & --- \\
+\midrule
+evaluation, frozen recipes (test, 213) & 0.6499 & 0.7055 \\
+\quad editorial only & 0.4595 & 0.6195 \\
+\quad debate only & 0.7112 & 0.7364 \\
+\textbf{evaluation, final probes} & \textbf{0.712} & \textbf{0.7316} \\
+\quad final rank (teams) & 1/10 & 5/8 \\
+\bottomrule
+\end{tabular}
+\caption{Progression and official scores (closed track, \emph{both}
+setting; intermediate routed v1 0.6642 and v2 0.6788 omitted for space).
+$^\dagger$Failed external check, reverted same day. The evaluation rows
+report (i)~the pinned recipes v2.2 and S1 run once, unchanged, on the
+test input, and (ii)~the final probe submissions of the disclosed
+evaluation-week campaign (\S\ref{sec:results}).}
+\label{tab:progression}
+\end{table}
+
+\paragraph{Confusion mass (\S\ref{sec:families}).} Row-normalized gold
+char-mass destinations for the final S1 output, selected rows: gold-\co{}
+mass goes 0.563 to \co, 0.286 to \as; gold-\an{} mass goes 0.382 to \an,
+0.330 to \as, 0.112 to \te, with only 0.037 uncovered by any predicted
+span: the \an{} deficit is typed-coverage, not extraction-coverage, and
+it is the one large cross-family residual. Full $6{\times}7$ matrices
+(before/after S1, including uncovered mass) are in the released analysis
+artifacts.
+
+\section{Reproducibility and Cost}
+\label{app:repro}
+
+Every run writes a hash-bound artifact set (exact config, data hashes,
+fold manifest, metrics, provenance, completion marker); adoption reports
+verify fold membership by hash; deployment twins reuse the immutable
+model/threshold contracts of their OOF runs. Split seeds: 20260709 for
+the stratified 430/182 selection/confirmation split, 20260710 for the
+5-fold paragraph-grouped, genre-stratified partition of the 430. Encoders are pinned to
+40-hex revisions and trained fp32 on CPU for bit-stable deployment
+parity (Task~1: six-sigmoid paragraph classifier, 4 epochs, lr
+$2{\cdot}10^{-5}$, 512-token windows with stride-128 overflow, max
+pooling; Task~2: seven-way segment classifier, same recipe); fp16 GPU
+replication of the primary encoder run reproduced digit-for-digit across
+duplicated jobs. LLM runs pin provider, model
+route, temperature, adapter, and date; the DSPy disk cache makes every
+reported number re-derivable without new API calls. Splits, fold seeds,
+and threshold-fitting code are released; the official scorers are used
+through parity-tested ports. Approximate paid-API ledger: model bake-off
+\$3.8; optimizer campaigns ${\approx}$\$4; v3 role campaign
+${\approx}$\$13.5; routing/rollout evidence ${\approx}$\$13; verifier,
+specialist, and rescue gates ${\approx}$\$6; development probes and
+deploy twins ${\approx}$\$6; total ${\approx}$US\$50. Encoder training:
+${\approx}$30 Kaggle GPU-hours (screens and multi-seed evidence) plus
+CPU runs; the one TAPT measurement added ${\approx}$12 CPU-hours.
+Evaluation-phase inference (2026-07-27) was one pass per pinned stage
+over the 213-paragraph test input: quote extraction, role decisions on
+1{,}912 atoms, five vote rollouts, two co-signal runs, the seed judge
+(16 calls) and verifier (45 calls), ${\approx}$3.9k LLM calls in
+total, for ${\approx}$US\$10, plus ${\approx}$35 CPU-minutes for the
+two encoder deploys; every stage completed error-free on the first
+attempt, and the two deploy-twin controls reproduced their development
+outputs byte-identically before any test inference ran.
+
+\end{document}

@@ -1,0 +1,501 @@
+% Bibliography for the Daleel 2026 system description paper.
+% Verified 2026-07-16 against PDF title pages in resources/paper-citations/
+% and metadata in resources/foundational-reading-list-local/metadata/.
+% Provenance caveats are inline comments.
+
+%% ============ Task & data background ============
+
+@inproceedings{alkhatib-etal-2016-news,
+  title     = {A News Editorial Corpus for Mining Argumentation Strategies},
+  author    = {Al-Khatib, Khalid and Wachsmuth, Henning and Kiesel, Johannes and Hagen, Matthias and Stein, Benno},
+  booktitle = {Proceedings of {COLING} 2016, the 26th International Conference on Computational Linguistics: Technical Papers},
+  year      = {2016},
+  address   = {Osaka, Japan},
+  publisher = {The COLING 2016 Organizing Committee},
+  pages     = {3433--3443},
+  url       = {https://aclanthology.org/C16-1324/}
+}
+
+@inproceedings{alkhatib-etal-2017-patterns,
+  title     = {Patterns of Argumentation Strategies across Topics},
+  author    = {Al-Khatib, Khalid and Wachsmuth, Henning and Hagen, Matthias and Stein, Benno},
+  booktitle = {Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing},
+  year      = {2017},
+  address   = {Copenhagen, Denmark},
+  publisher = {Association for Computational Linguistics},
+  pages     = {1351--1357},
+  doi       = {10.18653/v1/D17-1141}
+}
+
+@article{fleiss-1971-measuring,
+  title   = {Measuring Nominal Scale Agreement among Many Raters},
+  author  = {Fleiss, Joseph L.},
+  journal = {Psychological Bulletin},
+  volume  = {76},
+  number  = {5},
+  pages   = {378--382},
+  year    = {1971},
+  doi     = {10.1037/h0031619}
+}
+
+@article{alzawqari-etal-2025-neural,
+  title   = {Neural Classification of Argument Elements and Styles in {A}rabic Competitive Debates},
+  author  = {Al-Zawqari, Ali and Ahmed, Mohamed and Al-Sharafi, Abdul Gabbar and Khader, Mohammad Majed and Safa, Ali and Vandersteen, Gerd},
+  journal = {IEEE Access},
+  volume  = {13},
+  pages   = {115944--115959},
+  year    = {2025},
+  doi     = {10.1109/ACCESS.2025.3585299}
+}
+
+% OFFICIAL entry, supplied verbatim by the organizers (camera-ready mail
+% of 2026-08-31). The official record carries
+% no booktitle; kept as supplied rather than invented (BibTeX warns
+% "empty booktitle"; the reference renders without a proceedings line).
+% Only change from the supplied text: {A}rabic brace-protected, because
+% acl_natbib.bst lowercases titles and rendered "arabic". Replaced the
+% 2026-08-05 @misc placeholder on 2026-09-04.
+@inproceedings{nabhani-etal-2026-daleel,
+    title = "Daleel 2026 Shared Task on {A}rabic Argumentative Discourse Mining",
+    author = "Nabhani, Sara  and
+      Bassyouni, Nahla and
+      Al-Zawqari, Ali and
+      Khader, Mohammad and
+      Al-Khatib, Khalid",
+    month = Oct,
+    year = "2026",
+    address = "Budapest, Hungary",
+    publisher = "Association for Computational Linguistics",
+}
+
+%% ============ System, Task 1 ============
+
+@inproceedings{wang-etal-2023-selfconsistency,
+  title         = {Self-Consistency Improves Chain of Thought Reasoning in Language Models},
+  author        = {Wang, Xuezhi and Wei, Jason and Schuurmans, Dale and Le, Quoc and Chi, Ed H. and Narang, Sharan and Chowdhery, Aakanksha and Zhou, Denny},
+  booktitle     = {The Eleventh International Conference on Learning Representations ({ICLR})},
+  year          = {2023},
+  eprint        = {2203.11171},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{loo-2025-selfconsistency-plateau,
+  title         = {Self-Consistency Is Losing Its Edge: Diminishing Returns and Rising Costs in Modern {LLM}s},
+  author        = {Loo, Chiyan},
+  year          = {2025},
+  eprint        = {2511.00751},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+@misc{chen-etal-2024-llmcalls,
+  title         = {Are More {LM} Calls All You Need? Towards the Scaling Properties of Compound {AI} Systems},
+  author        = {Chen, Lingjiao and Davis, Jared Quincy and Hanin, Boris and Bailis, Peter and Stoica, Ion and Zaharia, Matei and Zou, James},
+  year          = {2024},
+  eprint        = {2403.02419},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  note          = {Title as in arXiv v2; earlier version titled ``Are More LLM Calls All You Need?''}
+}
+
+@inproceedings{inoue-etal-2021-camelbert,
+  title         = {The Interplay of Variant, Size, and Task Type in {A}rabic Pre-trained Language Models},
+  author        = {Inoue, Go and Alhafni, Bashar and Baimukan, Nurpeiis and Bouamor, Houda and Habash, Nizar},
+  booktitle     = {Proceedings of the Sixth Arabic Natural Language Processing Workshop ({WANLP})},
+  year          = {2021},
+  address       = {Kyiv, Ukraine (Virtual)},
+  publisher     = {Association for Computational Linguistics},
+  url           = {https://aclanthology.org/2021.wanlp-1.10/},
+  eprint        = {2103.06678},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{lipton-etal-2014-thresholding,
+  title         = {Thresholding Classifiers to Maximize {F1} Score},
+  author        = {Lipton, Zachary C. and Elkan, Charles and Naryanaswamy, Balakrishnan},
+  year          = {2014},
+  eprint        = {1402.1892},
+  archivePrefix = {arXiv},
+  primaryClass  = {stat.ML},
+  note          = {Published version: ``Optimal Thresholding of Classifiers to Maximize F1 Measure'', ECML PKDD 2014}
+}
+
+@inproceedings{lin-lin-2023-thresholding,
+  title     = {On the Thresholding Strategy for Infrequent Labels in Multi-label Classification},
+  author    = {Lin, Yu-Jen and Lin, Chih-Jen},
+  booktitle = {Proceedings of the 32nd ACM International Conference on Information and Knowledge Management ({CIKM} '23)},
+  year      = {2023},
+  address   = {Birmingham, United Kingdom},
+  publisher = {ACM},
+  doi       = {10.1145/3583780.3614996}
+}
+
+%% ============ System, Task 2 ============
+
+@inproceedings{khattab-etal-2024-dspy,
+  title         = {{DSPy}: Compiling Declarative Language Model Calls into Self-Improving Pipelines},
+  author        = {Khattab, Omar and Singhvi, Arnav and Maheshwari, Paridhi and Zhang, Zhiyuan and Santhanam, Keshav and Vardhamanan, Sri and Haq, Saiful and Sharma, Ashutosh and Joshi, Thomas T. and Moazam, Hanna and Miller, Heather and Zaharia, Matei and Potts, Christopher},
+  booktitle     = {The Twelfth International Conference on Learning Representations ({ICLR})},
+  year          = {2024},
+  eprint        = {2310.03714},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@inproceedings{agrawal-etal-2026-gepa,
+  title         = {{GEPA}: Reflective Prompt Evolution Can Outperform Reinforcement Learning},
+  author        = {Agrawal, Lakshya A and Tan, Shangyin and Soylu, Dilara and Ziems, Noah and Khare, Rishi and Opsahl-Ong, Krista and Singhvi, Arnav and Shandilya, Herumb and Ryan, Michael J and Jiang, Meng and Potts, Christopher and Sen, Koushik and Dimakis, Alexandros G. and Stoica, Ion and Klein, Dan and Zaharia, Matei and Khattab, Omar},
+  booktitle     = {The Fourteenth International Conference on Learning Representations ({ICLR})},
+  year          = {2026},
+  eprint        = {2507.19457},
+  archivePrefix = {arXiv}
+}
+
+@article{viterbi-1967-error,
+  title   = {Error Bounds for Convolutional Codes and an Asymptotically Optimum Decoding Algorithm},
+  author  = {Viterbi, Andrew J.},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {13},
+  number  = {2},
+  pages   = {260--269},
+  year    = {1967},
+  doi     = {10.1109/TIT.1967.1054010}
+}
+
+@inproceedings{menon-etal-2021-logit,
+  title         = {Long-Tail Learning via Logit Adjustment},
+  author        = {Menon, Aditya Krishna and Jayasumana, Sadeep and Rawat, Ankit Singh and Jain, Himanshu and Veit, Andreas and Kumar, Sanjiv},
+  booktitle     = {The Ninth International Conference on Learning Representations ({ICLR})},
+  year          = {2021},
+  eprint        = {2007.07314},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+@inproceedings{widmoser-etal-2021-randomized,
+  title         = {Randomized Deep Structured Prediction for Discourse-Level Processing},
+  author        = {Widmoser, Manuel and Pacheco, Maria Leonor and Honorio, Jean and Goldwasser, Dan},
+  booktitle     = {Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume ({EACL})},
+  year          = {2021},
+  publisher     = {Association for Computational Linguistics},
+  eprint        = {2101.10435},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+%% ============ Methodology ============
+
+@inproceedings{vanmiltenburg-etal-2021-preregistering,
+  title         = {Preregistering {NLP} Research},
+  author        = {van Miltenburg, Emiel and van der Lee, Chris and Krahmer, Emiel},
+  booktitle     = {Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies ({NAACL-HLT})},
+  year          = {2021},
+  publisher     = {Association for Computational Linguistics},
+  eprint        = {2103.06944},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@inproceedings{dodge-etal-2019-show,
+  title         = {Show Your Work: Improved Reporting of Experimental Results},
+  author        = {Dodge, Jesse and Gururangan, Suchin and Card, Dallas and Schwartz, Roy and Smith, Noah A.},
+  booktitle     = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing ({EMNLP-IJCNLP})},
+  year          = {2019},
+  address       = {Hong Kong, China},
+  publisher     = {Association for Computational Linguistics},
+  pages         = {2185--2194},
+  doi           = {10.18653/v1/D19-1224}
+}
+
+%% ============ Analysis: motivating and rejected families ============
+
+@misc{xu-etal-2023-supericl,
+  title         = {Small Models are Valuable Plug-ins for Large Language Models},
+  author        = {Xu, Canwen and Xu, Yichong and Wang, Shuohang and Liu, Yang and Zhu, Chenguang and McAuley, Julian},
+  year          = {2023},
+  eprint        = {2305.08848},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@inproceedings{fu-etal-2021-spanner,
+  title         = {{SpanNER}: Named Entity Re-/Recognition as Span Prediction},
+  author        = {Fu, Jinlan and Huang, Xuanjing and Liu, Pengfei},
+  booktitle     = {Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)},
+  year          = {2021},
+  publisher     = {Association for Computational Linguistics},
+  eprint        = {2106.00641},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@inproceedings{zhang-etal-2024-linkner,
+  title         = {{LinkNER}: Linking Local Named Entity Recognition Models to Large Language Models using Uncertainty},
+  author        = {Zhang, Zhen and Zhao, Yuhua and Gao, Hang and Hu, Mengting},
+  booktitle     = {Proceedings of the ACM Web Conference 2024 ({WWW} '24)},
+  year          = {2024},
+  address       = {Singapore},
+  publisher     = {ACM},
+  doi           = {10.1145/3589334.3645414}
+}
+
+@misc{bertsch-etal-2024-manyshot,
+  title         = {In-Context Learning with Long-Context Models: An In-Depth Exploration},
+  author        = {Bertsch, Amanda and Ivgi, Maor and Xiao, Emily and Alon, Uri and Berant, Jonathan and Gormley, Matthew R. and Neubig, Graham},
+  year          = {2024},
+  eprint        = {2405.00200},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{xiao-etal-2023-freeal,
+  title         = {{FreeAL}: Towards Human-Free Active Learning in the Era of Large Language Models},
+  author        = {Xiao, Ruixuan and Dong, Yiwen and Zhao, Junbo and Wu, Runze and Lin, Minmin and Chen, Gang and Wang, Haobo},
+  booktitle     = {Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing ({EMNLP})},
+  year          = {2023},
+  publisher     = {Association for Computational Linguistics},
+  eprint        = {2311.15614},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{dipalo-etal-2024-pgkd,
+  title         = {Performance-Guided {LLM} Knowledge Distillation for Efficient Text Classification at Scale},
+  author        = {Di Palo, Flavio and Singhi, Prateek and Fadlallah, Bilal},
+  year          = {2024},
+  eprint        = {2411.05045},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{zhang-etal-2025-boxwrench,
+  title         = {Stronger Than You Think: Benchmarking Weak Supervision on Realistic Tasks},
+  author        = {Zhang, Tianyi and Cai, Linrong and Li, Jeffrey and Roberts, Nicholas and Lee, Jinoh and Sala, Frederic and Guha, Neel},
+  year          = {2025},
+  eprint        = {2501.07727},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG}
+}
+
+@inproceedings{gururangan-etal-2020-dont,
+  title         = {Don't Stop Pretraining: Adapt Language Models to Domains and Tasks},
+  author        = {Gururangan, Suchin and Marasovi{\'c}, Ana and Swayamdipta, Swabha and Lo, Kyle and Beltagy, Iz and Downey, Doug and Smith, Noah A.},
+  booktitle     = {Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics ({ACL})},
+  year          = {2020},
+  publisher     = {Association for Computational Linguistics},
+  pages         = {8342--8360},
+  doi           = {10.18653/v1/2020.acl-main.740}
+}
+
+@misc{yung-etal-2025-synthetic,
+  title         = {Synthetic Data Augmentation for Cross-domain Implicit Discourse Relation Recognition},
+  author        = {Yung, Frances and Suresh, Varsha and Reza, Zaynab and Ahmad, Mansoor and Demberg, Vera},
+  year          = {2025},
+  eprint        = {2503.20588},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+%% ============ Models (disclosure appendix) ============
+
+@misc{gemmateam-2026-gemma4,
+  title         = {Gemma 4 Technical Report},
+  author        = {{Gemma Team, Google DeepMind}},
+  year          = {2026},
+  eprint        = {2607.02770},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{qwenteam-2025-qwen3,
+  title         = {Qwen3 Technical Report},
+  author        = {{Qwen Team}},
+  year          = {2025},
+  eprint        = {2505.09388},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{llamateam-2024-llama3,
+  title         = {The Llama 3 Herd of Models},
+  author        = {{Llama Team, AI @ Meta}},
+  year          = {2024},
+  eprint        = {2407.21783},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+% Covers Llama 3.0/3.1; the llama-3.3-70b checkpoint has no dedicated
+% report and is identified by its pinned route in the released configs
+% (stated in the disclosure appendix).
+
+%% ============ Argument-mining lineage ============
+
+@inproceedings{stab-gurevych-2014-identifying,
+  title     = {Identifying Argumentative Discourse Structures in Persuasive Essays},
+  author    = {Stab, Christian and Gurevych, Iryna},
+  booktitle = {Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing ({EMNLP})},
+  year      = {2014},
+  address   = {Doha, Qatar},
+  publisher = {Association for Computational Linguistics},
+  pages     = {46--56},
+  url       = {https://aclanthology.org/D14-1006/}
+}
+
+@article{stab-gurevych-2017-parsing,
+  title   = {Parsing Argumentation Structures in Persuasive Essays},
+  author  = {Stab, Christian and Gurevych, Iryna},
+  journal = {Computational Linguistics},
+  volume  = {43},
+  number  = {3},
+  pages   = {619--659},
+  year    = {2017},
+  doi     = {10.1162/COLI_a_00295}
+}
+
+@article{lawrence-reed-2019-argument,
+  title   = {Argument Mining: A Survey},
+  author  = {Lawrence, John and Reed, Chris},
+  journal = {Computational Linguistics},
+  volume  = {45},
+  number  = {4},
+  pages   = {765--818},
+  year    = {2019},
+  doi     = {10.1162/coli_a_00364}
+}
+
+@article{moens-2018-argumentation,
+  title   = {Argumentation Mining: How Can a Machine Acquire Common Sense and World Knowledge?},
+  author  = {Moens, Marie-Francine},
+  journal = {Argument \& Computation},
+  volume  = {9},
+  number  = {1},
+  pages   = {1--14},
+  year    = {2018},
+  doi     = {10.3233/AAC-170025}
+}
+% moens-2018: canonical entry; quoted via lawrence-reed-2019 in the text
+
+@inproceedings{daxenberger-etal-2017-essence,
+  title     = {What is the Essence of a Claim? Cross-Domain Claim Identification},
+  author    = {Daxenberger, Johannes and Eger, Steffen and Habernal, Ivan and Stab, Christian and Gurevych, Iryna},
+  booktitle = {Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing},
+  year      = {2017},
+  address   = {Copenhagen, Denmark},
+  publisher = {Association for Computational Linguistics},
+  pages     = {2055--2066},
+  doi       = {10.18653/v1/D17-1218}
+}
+
+@inproceedings{eger-etal-2017-neural,
+  title     = {Neural End-to-End Learning for Computational Argumentation Mining},
+  author    = {Eger, Steffen and Daxenberger, Johannes and Gurevych, Iryna},
+  booktitle = {Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  year      = {2017},
+  address   = {Vancouver, Canada},
+  publisher = {Association for Computational Linguistics},
+  pages     = {11--22},
+  doi       = {10.18653/v1/P17-1002}
+}
+
+@article{peldszus-stede-2013-argument,
+  title   = {From Argument Diagrams to Argumentation Mining in Texts: A Survey},
+  author  = {Peldszus, Andreas and Stede, Manfred},
+  journal = {International Journal of Cognitive Informatics and Natural Intelligence},
+  volume  = {7},
+  number  = {1},
+  pages   = {1--31},
+  year    = {2013},
+  doi     = {10.4018/jcini.2013010101}
+}
+
+@inproceedings{rinott-etal-2015-show,
+  title     = {Show Me Your Evidence -- an Automatic Method for Context Dependent Evidence Detection},
+  author    = {Rinott, Ruty and Dankin, Lena and Alzate Perez, Carlos and Khapra, Mitesh M. and Aharoni, Ehud and Slonim, Noam},
+  booktitle = {Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing},
+  year      = {2015},
+  address   = {Lisbon, Portugal},
+  publisher = {Association for Computational Linguistics},
+  pages     = {440--450},
+  doi       = {10.18653/v1/D15-1050}
+}
+
+%% ============ Arabic resources ============
+
+@inproceedings{khader-etal-2024-munazarat,
+  title     = {Munazarat 1.0: A Corpus of {A}rabic Competitive Debates},
+  author    = {Khader, Mohammad M. and Al-Sharafi, AbdulGabbar and Al-Sioufy, Mohamad Hamza and Zaghouani, Wajdi and Al-Zawqari, Ali},
+  booktitle = {Proceedings of the 6th Workshop on Open-Source Arabic Corpora and Processing Tools ({OSACT}) @ {LREC-COLING} 2024},
+  year      = {2024},
+  address   = {Torino, Italia},
+  publisher = {ELRA and ICCL},
+  pages     = {20--30},
+  url       = {https://aclanthology.org/2024.osact-1.3/}
+}
+
+@article{alsharafi-etal-2025-arabic,
+  title   = {{A}rabic Argumentation: Presentation or Proof},
+  author  = {Al-Sharafi, Abdul Gabbar and Khader, Mohammad Majed and Al-Sioufy, Mohamad Hamza and Ahmed, Mohamed and Al-Zawqari, Ali},
+  journal = {Informal Logic},
+  volume  = {45},
+  number  = {2},
+  pages   = {194--228},
+  year    = {2025}
+}
+
+@inproceedings{alturayeif-etal-2022-mawqif,
+  title     = {Mawqif: A Multi-label {A}rabic Dataset for Target-specific Stance Detection},
+  author    = {Alturayeif, Nora Saleh and Luqman, Hamzah Abdullah and Ahmed, Moataz Aly Kamaleldin},
+  booktitle = {Proceedings of the Seventh Arabic Natural Language Processing Workshop ({WANLP})},
+  year      = {2022},
+  publisher = {Association for Computational Linguistics},
+  pages     = {174--184},
+  doi       = {10.18653/v1/2022.wanlp-1.16}
+}
+
+@inproceedings{alhindi-etal-2021-arastance,
+  title         = {{AraStance}: A Multi-Country and Multi-Domain Dataset of {A}rabic Stance Detection for Fact Checking},
+  author        = {Alhindi, Tariq and Alabdulkarim, Amal and Alshehri, Ali and Abdul-Mageed, Muhammad and Nakov, Preslav},
+  booktitle     = {Proceedings of the Fourth Workshop on NLP for Internet Freedom: Censorship, Disinformation, and Propaganda ({NLP4IF})},
+  year          = {2021},
+  publisher     = {Association for Computational Linguistics},
+  eprint        = {2104.13559},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+%% ============ Discourse-structure lineage ============
+
+@article{mann-thompson-1988-rst,
+  title   = {Rhetorical Structure Theory: Toward a Functional Theory of Text Organization},
+  author  = {Mann, William C. and Thompson, Sandra A.},
+  journal = {Text --- Interdisciplinary Journal for the Study of Discourse},
+  volume  = {8},
+  number  = {3},
+  pages   = {243--281},
+  year    = {1988},
+  doi     = {10.1515/text.1.1988.8.3.243}
+}
+
+@inproceedings{prasad-etal-2008-pdtb,
+  title     = {The {P}enn {D}iscourse {T}ree{B}ank 2.0},
+  author    = {Prasad, Rashmi and Dinesh, Nikhil and Lee, Alan and Miltsakaki, Eleni and Robaldo, Livio and Joshi, Aravind and Webber, Bonnie},
+  booktitle = {Proceedings of the Sixth International Conference on Language Resources and Evaluation ({LREC}'08)},
+  year      = {2008},
+  address   = {Marrakech, Morocco},
+  publisher = {European Language Resources Association (ELRA)},
+  pages     = {2961--2968}
+}
+
+%% ============ Statistics ============
+
+@article{landis-koch-1977-measurement,
+  title   = {The Measurement of Observer Agreement for Categorical Data},
+  author  = {Landis, J. Richard and Koch, Gary G.},
+  journal = {Biometrics},
+  volume  = {33},
+  number  = {1},
+  pages   = {159--174},
+  year    = {1977},
+  doi     = {10.2307/2529310}
+}
