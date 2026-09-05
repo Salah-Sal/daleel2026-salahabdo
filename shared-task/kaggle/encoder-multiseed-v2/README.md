@@ -1,5 +1,8 @@
 # Encoder multiseed campaign v2 (HEADROOM_AUDIT.md P5)
 
+The kernel reads the private dataset named in `kernel/kernel-metadata.json`;
+rebuild it with `../encoder-preflight/prepare_assets.py` (see `../README.md`).
+
 Private T4 x2 kernel running twenty five-fold runs through two per-GPU
 worker processes (`CUDA_VISIBLE_DEVICES=0/1`) over a shared queue:
 

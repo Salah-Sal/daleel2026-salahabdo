@@ -38,7 +38,7 @@ def load_records(path: str | Path, genre: str | None = None) -> list[dict]:
     if not path.exists():
         raise FileNotFoundError(
             f"{path} not found — clone https://github.com/Argmining/Daleel2026 "
-            f"into {OFFICIAL_CLONE.parent}/ (see resources/repos/README.md)"
+            f"into {OFFICIAL_CLONE.parent}/ (see README.md, Setup)"
         )
     records = read_jsonl(path)
     if genre is not None:

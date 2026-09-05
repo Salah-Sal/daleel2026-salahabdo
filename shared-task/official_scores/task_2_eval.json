@@ -1,0 +1,22 @@
+{
+  "phase": "eval",
+  "task": "task_2",
+  "competition": 16936,
+  "setting": "both",
+  "system": "S1 structural re-decode, frozen recipe run once on the test input",
+  "submission_id": 864838,
+  "submitted_utc": "2026-07-27T05:37Z",
+  "archive_sha256": "e6ed5a2da8ec7b8d606672f6983d78af527787859374610771ecbd4f992ee98c",
+  "experiment": "20260727-005947-t2-s1-deploy-test_in",
+  "official_scores": {
+    "cf1": 0.7055260383809853,
+    "ef1": 0.619482914144704,
+    "df1": 0.7363791101001104,
+    "precision": 0.6645,
+    "recall": 0.752
+  },
+  "provenance": {
+    "scores_source": "Codabench scoring_result download of 2026-07-29 (scores.json); the prediction archive re-downloaded from Codabench was sha256-identical to the local package",
+    "note": "Codabench readouts of this entry's own submissions (closed track, training setting 'both'). Scores are macro-F1 over the six labels for Task 1 and partial span-F1 for Task 2; cf1/ef1/df1 = combined / editorials only / debates only."
+  }
+}

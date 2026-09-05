@@ -1,0 +1,30 @@
+{
+  "phase": "eval",
+  "task": "task_1",
+  "competition": 16942,
+  "setting": "both",
+  "system": "routed v2.2, frozen recipe run once on the test input",
+  "submission_id": 864836,
+  "submitted_utc": "2026-07-27T05:36Z",
+  "archive_sha256": "c2544a347047a4c14ff9870bdc7b644c4c87234d9cc524fa6c2cbfd7c1859cbe",
+  "experiment": "20260727-053238-214632Z-t1-routed-v2-deploy-test_in-b8d7aae3a3",
+  "official_scores": {
+    "cf1": 0.6498964378402273,
+    "ef1": 0.4595483407399657,
+    "df1": 0.7112302011664401,
+    "micro_f1": 0.7567,
+    "weighted_f1": 0.7758,
+    "per_label_f1": {
+      "AS": 0.9408,
+      "ST": 0.9286,
+      "OT": 0.7805,
+      "CO": 0.1143,
+      "TE": 0.6724,
+      "AN": 0.4628
+    }
+  },
+  "provenance": {
+    "scores_source": "Codabench scoring_result download of 2026-07-29 (scores.json, scorer exit code 0)",
+    "note": "Codabench readouts of this entry's own submissions (closed track, training setting 'both'). Scores are macro-F1 over the six labels for Task 1 and partial span-F1 for Task 2; cf1/ef1/df1 = combined / editorials only / debates only."
+  }
+}

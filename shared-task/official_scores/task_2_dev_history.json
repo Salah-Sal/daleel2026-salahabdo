@@ -1,0 +1,32 @@
+{
+  "phase": "dev",
+  "task": "task_2",
+  "competition": 16936,
+  "setting": "both",
+  "note": "Codabench readouts of this entry's own submissions (closed track, training setting 'both'). Scores are macro-F1 over the six labels for Task 1 and partial span-F1 for Task 2; cf1/ef1/df1 = combined / editorials only / debates only.",
+  "submissions": [
+    {
+      "scored_utc": "2026-07-11T06:22Z",
+      "system": "v3 proposal-atom-role (registry row 9)",
+      "experiment": "20260711-033302-645188Z-v3-decomposed-gemma-4-31b-paid-both-dev_in-78718d42e5",
+      "archive_sha256": "96479465e36aa58f2742d662e53f584eab4c740b0b4d71bf0de99788317d9940",
+      "official_scores": {
+        "cf1": 0.6847047821366744,
+        "ef1": 0.6428214694849463,
+        "df1": 0.6998525043882836
+      }
+    },
+    {
+      "scored_utc": "2026-07-15",
+      "system": "S1 structural re-decode (registry row 24); pinned evaluation recipe",
+      "experiment": "20260715-002802-t2-s1-deploy-dev_in",
+      "official_scores": {
+        "cf1": 0.7247,
+        "ef1": 0.6875,
+        "df1": 0.7381,
+        "precision": 0.684,
+        "recall": 0.7704
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "phase": "eval",
+  "setting": "both",
+  "note": "Official Codabench readouts of the evaluation-week probes described in ../EVAL_WEEK_PROBES.md. Scored entries: Task 1 probe 3, Task 2 probe 4.",
+  "probes": [
+    {
+      "probe": 1,
+      "task_1": {
+        "cf1": 0.6574,
+        "ef1": 0.4563,
+        "df1": 0.7258,
+        "per_label_f1_changed": {
+          "AS": 0.9342,
+          "AN": 0.4878,
+          "TE": 0.6992
+        }
+      },
+      "task_2": {
+        "cf1": 0.7154,
+        "ef1": 0.6282,
+        "df1": 0.7471
+      }
+    },
+    {
+      "probe": 2,
+      "task_1": {
+        "cf1": 0.6779,
+        "per_label_f1_changed": {
+          "AN": 0.5647,
+          "CO": 0.1538,
+          "AS": 0.9408
+        }
+      },
+      "task_2": {
+        "cf1": 0.7291,
+        "ef1": 0.6755
+      }
+    },
+    {
+      "probe": 3,
+      "task_1": {
+        "cf1": 0.7117,
+        "per_label_f1_changed": {
+          "CO": 0.3077,
+          "AN": 0.6136
+        }
+      },
+      "task_2": {
+        "cf1": 0.7302
+      },
+      "scored_entry": "task_1"
+    },
+    {
+      "probe": 4,
+      "task_1": {
+        "cf1": 0.7113,
+        "per_label_f1_changed": {
+          "AN": 0.6522,
+          "CO": 0.2667
+        }
+      },
+      "task_2": {
+        "cf1": 0.7316
+      },
+      "scored_entry": "task_2"
+    }
+  ],
+  "not_pushed_to_the_board": [
+    {
+      "task": "task_1",
+      "content": "probe-4 legs (uploaded in place of the intended closing package)",
+      "cf1": 0.711
+    },
+    {
+      "task": "task_2",
+      "content": "two uploads of 2026-07-30 restoring high-confidence encoder segments over probe 4",
+      "cf1": 0.733
+    }
+  ]
+}

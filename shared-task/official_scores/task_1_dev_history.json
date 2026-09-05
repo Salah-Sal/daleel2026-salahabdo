@@ -1,0 +1,125 @@
+{
+  "phase": "dev",
+  "task": "task_1",
+  "competition": 16942,
+  "setting": "both",
+  "note": "Codabench readouts of this entry's own submissions (closed track, training setting 'both'). Scores are macro-F1 over the six labels for Task 1 and partial span-F1 for Task 2; cf1/ef1/df1 = combined / editorials only / debates only.",
+  "submissions": [
+    {
+      "scored_utc": "2026-07-11T06:07Z",
+      "system": "stage-0 zero-shot champion",
+      "experiment": "20260711-033302-645188Z-v3-decomposed-gemma-4-31b-paid-both-dev_in-78718d42e5 (direct Task 1 view)",
+      "archive_sha256": "cc564b08586ca4f673b3ba3579fa62b65bff4442bf4625e53150d9051f85d27e",
+      "official_scores": {
+        "cf1": 0.6158761729413903,
+        "ef1": 0.5568075663313758,
+        "df1": 0.57668754748194,
+        "micro_f1": 0.7104,
+        "weighted_f1": 0.7237,
+        "per_label_f1": {
+          "AS": 0.9,
+          "TE": 0.79,
+          "ST": 0.67,
+          "OT": 0.57,
+          "AN": 0.46,
+          "CO": 0.3
+        }
+      }
+    },
+    {
+      "scored_utc": "2026-07-11",
+      "system": "tier-1 routed v1 (registry row 12)",
+      "experiment": "20260711-113730-194139Z-t1-routed-deploy-dev_in-009d4fd89e",
+      "archive_sha256": "c433666e61aaaca6b70872199b28a51fd0fd94655d8151ad023bc4cc26487087",
+      "official_scores": {
+        "cf1": 0.6642,
+        "ef1": 0.6034,
+        "df1": 0.5648,
+        "micro_f1": 0.7808,
+        "weighted_f1": 0.7796,
+        "per_label_f1": {
+          "AS": 0.9046,
+          "TE": 0.8256,
+          "OT": 0.7344,
+          "ST": 0.6923,
+          "AN": 0.5882,
+          "CO": 0.24
+        }
+      }
+    },
+    {
+      "scored_utc": "2026-07-12",
+      "system": "mix-encoder amendment (registry row 13), reverted the same day",
+      "experiment": "20260711-174921-181995Z-t1-routed-deploy-dev_in-554dc13d33",
+      "official_scores": {
+        "cf1": 0.6364,
+        "per_label_f1": {
+          "AN": 0.5691,
+          "OT": 0.6667,
+          "CO": 0.16
+        }
+      },
+      "reverted_to_archive_sha256": "c433666e61aaaca6b70872199b28a51fd0fd94655d8151ad023bc4cc26487087"
+    },
+    {
+      "scored_utc": "2026-07-14",
+      "system": "routed v2 (registry row 14)",
+      "experiment": "20260714-194633-252970Z-t1-routed-v2-deploy-dev_in-dd107f0d5b",
+      "official_scores": {
+        "cf1": 0.6788,
+        "ef1": 0.6185,
+        "df1": 0.6241,
+        "micro_f1": 0.7651,
+        "weighted_f1": 0.7747,
+        "per_label_f1": {
+          "AS": 0.9046,
+          "TE": 0.8256,
+          "ST": 0.7619,
+          "CO": 0.3158,
+          "AN": 0.6309,
+          "OT": 0.6338
+        }
+      }
+    },
+    {
+      "scored_utc": "2026-07-14",
+      "system": "routed v2.1 (OT leg reverted to the encoder)",
+      "experiment": "20260714-202259-830666Z-t1-routed-v2-deploy-dev_in-fba4d257e3",
+      "official_scores": {
+        "cf1": 0.6955,
+        "ef1": 0.5907,
+        "df1": 0.6452,
+        "micro_f1": 0.7827,
+        "weighted_f1": 0.7911,
+        "per_label_f1": {
+          "AS": 0.9046,
+          "TE": 0.8256,
+          "ST": 0.7619,
+          "AN": 0.6309,
+          "CO": 0.3158,
+          "OT": 0.7344
+        }
+      }
+    },
+    {
+      "scored_utc": "2026-07-15",
+      "system": "routed v2.2 (v2.1 + ST contrastive verifier, registry row 21); pinned evaluation recipe",
+      "experiment": "20260715-010537-864288Z-t1-routed-v2-deploy-dev_in-a650666233",
+      "official_scores": {
+        "cf1": 0.7089,
+        "ef1": 0.5993,
+        "df1": 0.673,
+        "micro_f1": 0.7846,
+        "weighted_f1": 0.793,
+        "per_label_f1": {
+          "AS": 0.9046,
+          "TE": 0.8256,
+          "ST": 0.8421,
+          "AN": 0.6309,
+          "CO": 0.3158,
+          "OT": 0.7344
+        }
+      }
+    }
+  ]
+}

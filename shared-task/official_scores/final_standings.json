@@ -1,0 +1,21 @@
+{
+  "source": "organizers' final rankings sheet, mail of 2026-08-11 (the ranking of record; Codabench boards were not final because of multiple submissions)",
+  "track": "closed",
+  "setting": "both",
+  "task_1": {
+    "score": 0.7117308109,
+    "editorial": 0.5190976204,
+    "debate": 0.7589418226,
+    "rank": 1,
+    "teams": 10,
+    "scored_entry": "evaluation-week probe 3"
+  },
+  "task_2": {
+    "score": 0.7315867359,
+    "editorial": 0.6838383095,
+    "debate": 0.7480736134,
+    "rank": 5,
+    "teams": 8,
+    "scored_entry": "evaluation-week probe 4"
+  }
+}

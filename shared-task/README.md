@@ -15,11 +15,16 @@ shared-task/
 ├── HEADROOM_AUDIT.md                measured-lever audit and the P0-P7 verdicts (2026-07-14)
 ├── TIER1_ROUTING_MILESTONE.md       registered design of the routed Task 1 system (2026-07-11)
 ├── STRUCTURAL_FOREST_EXPERIMENT.md  registered design of the discourse-forest experiment (2026-07-14)
+├── EVAL_WEEK_PROBES.md              the post-freeze evaluation-week probes, rule level, with official scores
+├── official_scores/                 Codabench readouts of every scored submission of this entry
 ├── pyproject.toml, uv.lock          dspy pinned to 3.3.0b1; the `train` group adds torch/transformers
 └── data/, configs/, notebooks/      empty placeholders; the data lives in ../resources/repos/Daleel2026
 ```
 
 ## Quickstart
+
+For replication, start with `../REPRODUCING.md`: it separates what the records let you
+verify, what re-runs deterministically, and what cannot be reproduced from this repository.
 
 ```bash
 uv sync                  # base environment

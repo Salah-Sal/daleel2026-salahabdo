@@ -25,11 +25,16 @@ version will replace it and be attached to a GitHub release; `CITATION.cff` carr
 | `shared-task/CREATIVE_HEADROOM_RESEARCH.md` | the preregistration ledger, with its commit history: each gate registered before the corresponding fit, each verdict appended after |
 | `shared-task/HEADROOM_AUDIT.md`, `TIER1_ROUTING_MILESTONE.md`, `STRUCTURAL_FOREST_EXPERIMENT.md` | the three registered designs that the ledger and the code cite |
 | `COMMIT_MAP.md` | development commit to public commit, so the hashes cited in the paper and in the ledger resolve here |
+| `REPRODUCING.md` | what can be verified from the records, what can be re-run, and what cannot be reproduced from this repository; where each paper number lives |
+| `shared-task/EVAL_WEEK_PROBES.md` | the post-freeze evaluation-week probes at rule level, with their official scores; the two scored leaderboard entries come from here |
+| `shared-task/official_scores/` | Codabench readouts of every scored submission of this entry (development phase, frozen test recipes, probes) and the organizers' final standings for it |
 
 Not distributed: prediction files, compiled prompt states, GEPA logs, and checkpoints inside
 run directories (they contain dataset text or are large); the organizers' data (clone it,
 see below); and three 2026-07-09 bake-off `metrics.json` files whose error samples embedded
-dataset paragraphs.
+dataset paragraphs. Because the prediction files are absent, the composition scripts cannot be
+replayed on the committed records; `REPRODUCING.md` says what can be verified, re-run, or not
+reproduced.
 
 ## Setup
 
@@ -37,6 +42,7 @@ dataset paragraphs.
 git clone https://github.com/Salah-Sal/daleel2026-salahabdo
 cd daleel2026-salahabdo
 git clone https://github.com/Argmining/Daleel2026 resources/repos/Daleel2026  # data and official scorer; the code loads from this path
+git -C resources/repos/Daleel2026 checkout 49f000c                            # the commit the recorded runs read
 cd shared-task
 uv sync                 # DSPy 3.3.0b1, pandas, scikit-learn, pytest: enough for the LLM pipeline
 uv sync --group train   # adds torch, transformers, safetensors; required for encoder work AND for the
@@ -54,7 +60,8 @@ determinism and caching notes.
   `provenance.json` (models, data hashes, fold membership, code fingerprint) and
   `COMPLETED.json`, a receipt listing the sha256 of the run's files.
   `daleel.artifacts.validate_completion_marker` checks the receipt before a run is used as
-  input to anything else. Earlier runs (the 2026-07-09 bake-off and the first campaigns)
+  input to anything else (here it raises on runs whose receipts list prediction files, which
+  are not distributed; `REPRODUCING.md` has a check over the distributed files only). Earlier runs (the 2026-07-09 bake-off and the first campaigns)
   predate the receipt convention and hold `config.json` and `metrics.json`; campaign folders
   hold a `REPORT.md`.
 - The ledger records each proposed change with its adoption bar before the run and the
