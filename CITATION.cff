@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this code or these records, please cite the system paper below."
+title: "SalahAbdo at Daleel 2026: system, experiment records, and preregistration ledger"
+authors:
+  - family-names: Abdo
+    given-names: Salah
+repository-code: "https://github.com/Salah-Sal/daleel2026-salahabdo"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "SalahAbdo at Daleel 2026: Routing Each Label to LLM Votes, a Fine-Tuned Encoder, or Sequence Structure"
+  authors:
+    - family-names: Abdo
+      given-names: Salah
+  collection-title: "Proceedings of the Arabic Natural Language Processing Conference (ArabicNLP 2026)"
+  publisher:
+    name: "Association for Computational Linguistics"
+  year: 2026
+  month: 10
+  location:
+    name: "Budapest, Hungary"
