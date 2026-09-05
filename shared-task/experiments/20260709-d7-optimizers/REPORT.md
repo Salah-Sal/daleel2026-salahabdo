@@ -4,7 +4,7 @@
 cells — BFRS (demos only), MIPROv2 light (joint instructions+demos), or
 GEPA light (reflective instruction evolution with our span-grounded
 feedback metric)? Stage 0 zero-shot baselines (frozen 182-para val,
-gemma-4-31b): **T1 0.7022 / T2 0.6805**.
+gemma-4-31b): **T1 0.7022 / T2 0.6805** (the T1 run's committed `metrics.json` records 0.7024; 0.7022 is the figure as reported at the time).
 
 ## Protocol
 

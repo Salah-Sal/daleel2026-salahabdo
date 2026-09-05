@@ -18,8 +18,8 @@ version will replace it and be attached to a GitHub release; `CITATION.cff` carr
 |---|---|
 | `shared-task/src/daleel/` | the `daleel` package: data loading and frozen splits, ports of the official scorers, label policy and verbatim prompts, DSPy programs and optimizer metrics, encoder and sparse baselines, provenance and completion receipts, submission packaging |
 | `shared-task/scripts/` | 47 command-line entry points: model bake-off, DSPy compiles, per-label routing, verifiers, registered gates, deployment twins, paper analyses |
-| `shared-task/tests/` | 244 tests |
-| `shared-task/experiments/` | 239 run directories (config, metrics, provenance, completion receipt, reports), indexed in `experiments/README.md` |
+| `shared-task/tests/` | 244 tests; 28 of them read the organizers' clone (18 fail and 10 skip without it) |
+| `shared-task/experiments/` | 239 run and campaign directories, indexed in `experiments/README.md`: 233 hold `config.json` and 219 `metrics.json`; the 72 runs from the evening of 2026-07-10 onward also hold `provenance.json` and a `COMPLETED.json` receipt (71); 5 campaign folders hold a `REPORT.md` |
 | `shared-task/kaggle/` | the Kaggle kernels used for GPU encoder training |
 | `shared-task/paper/` | the paper: tex, bib, ACL style files, PDF (submitted version until the camera-ready replaces it) |
 | `shared-task/CREATIVE_HEADROOM_RESEARCH.md` | the preregistration ledger, with its commit history: each gate registered before the corresponding fit, each verdict appended after |
@@ -38,9 +38,10 @@ git clone https://github.com/Salah-Sal/daleel2026-salahabdo
 cd daleel2026-salahabdo
 git clone https://github.com/Argmining/Daleel2026 resources/repos/Daleel2026  # data and official scorer; the code loads from this path
 cd shared-task
-uv sync                 # DSPy 3.3.0b1, pandas, scikit-learn, pytest
-uv sync --group train   # adds torch, transformers, safetensors for encoder work
-uv run pytest -q        # 244 tests, no network; 18 of them read the organizers' clone
+uv sync                 # DSPy 3.3.0b1, pandas, scikit-learn, pytest: enough for the LLM pipeline
+uv sync --group train   # adds torch, transformers, safetensors; required for encoder work AND for the
+                        # test suite (two test modules import torch and abort collection without it)
+uv run pytest -q        # 244 tests, no network calls; 28 read the organizers' clone (18 fail, 10 skip without it)
 ```
 
 LLM runs call OpenRouter and read `OPENROUTER_API_KEY` from a `.env` file at the repository
@@ -49,10 +50,13 @@ determinism and caching notes.
 
 ## How the records fit together
 
-- Each run directory holds `config.json`, `metrics.json`, `provenance.json` (models, data
-  hashes, fold membership, code fingerprint) and `COMPLETED.json`, a receipt listing the
-  sha256 of the run's files. `daleel.artifacts.validate_completion_marker` checks the
-  receipt before a run is used as input to anything else.
+- Run directories from the evening of 2026-07-10 onward hold `config.json`, `metrics.json`,
+  `provenance.json` (models, data hashes, fold membership, code fingerprint) and
+  `COMPLETED.json`, a receipt listing the sha256 of the run's files.
+  `daleel.artifacts.validate_completion_marker` checks the receipt before a run is used as
+  input to anything else. Earlier runs (the 2026-07-09 bake-off and the first campaigns)
+  predate the receipt convention and hold `config.json` and `metrics.json`; campaign folders
+  hold a `REPORT.md`.
 - The ledger records each proposed change with its adoption bar before the run and the
   verdict after. The registry table in the paper cites those ledger commits;
   `COMMIT_MAP.md` translates them to this repository's history.
@@ -79,6 +83,6 @@ verifying anything by hash.
 
 ## License
 
-MIT for everything in this repository (`LICENSE`). The paper, once added, is under the ACL
+MIT for everything in this repository (`LICENSE`). The paper in `shared-task/paper/` is under the ACL
 Anthology's CC BY 4.0. The organizers' data and guidelines are theirs; consult their
 repository for terms.

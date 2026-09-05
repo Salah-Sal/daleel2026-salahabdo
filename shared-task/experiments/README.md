@@ -1,18 +1,23 @@
 # Experiment log
 
-One folder per run: `YYYYMMDD-short-name/` containing
+One folder per run (`YYYYMMDD-HHMMSS-...Z-<name>-<hash>/`) or per campaign
+(`YYYYMMDD-<name>/`) containing
 
-- `config.yaml` (or a copy of the exact command) — enough to reproduce;
-- `metrics.json` — dev scores from `daleel.metrics`;
-- `notes.md` — what was tried, what happened, what to do differently.
+- `config.json` — the exact resolved configuration, enough to reproduce;
+- `metrics.json` — scores from `daleel.metrics` (official-scorer ports);
+- from the evening of 2026-07-10 onward, `provenance.json` (models, data
+  hashes, fold membership, code fingerprint) and `COMPLETED.json` (sha256
+  receipt of the run's files, checked by `daleel.artifacts`);
+- `REPORT.md` in campaign folders — what was tried, what happened, the verdict.
 
 Checkpoints and prediction files inside experiment folders are gitignored;
-configs, metrics, and notes are committed. Keep the index current:
+configs, metrics, provenance, receipts, and reports are committed. Keep the
+index current:
 
 | Folder | Task | Track | Setting | Model | Dev macro-F1 | One-line takeaway |
 |---|---|---|---|---|---|---|
-| `20260709-d10-bakeoff/` | 1+2 | closed | — | 14 models | local-val, not dev | **Bake-off report**: gemma-4-31b wins both tasks (T1 0.702 / T2 0.654 local val); the `20260709-t{1,2}-zeroshot-*-val/` folders are its per-run inputs — regenerate the table with `scripts/bakeoff_table.py` |
-| `20260709-d3-quote-vs-segment/` | 1+2 | closed | — | gemma-4-31b/26b | local-val, not dev | **D3 revision report**: quote-then-align adopted for Task 2 (0.6805 vs 0.6542, aligner oracle 0.999, 0 unaligned quotes); Task-1-via-extraction rejected (0.664 < 0.702); inputs in `20260709-t{1,2}-quote-*-val/` |
+| `20260709-d10-bakeoff/` | 1+2 | closed | — | 14 models | local-val, not dev | **Bake-off report**: gemma-4-31b wins both tasks (T1 0.7024 / T2 0.654 local val); the `20260709-t{1,2}-zeroshot-*-val/` folders are its per-run inputs — regenerate the table with `scripts/bakeoff_table.py` |
+| `20260709-d3-quote-vs-segment/` | 1+2 | closed | — | gemma-4-31b/26b | local-val, not dev | **D3 revision report**: quote-then-align adopted for Task 2 (0.6805 vs 0.6542, aligner oracle 0.999, 0 unaligned quotes); Task-1-via-extraction rejected (0.664 < 0.7024); inputs in `20260709-t{1,2}-quote-*-val/` |
 | `20260709-t*-zeroshot-*-train8/` | 1+2 | closed | — | 3B/9B | smoke only | pipeline plumbing validation; llama-3.2-3b `:free` starved upstream |
 | `20260709-d7-optimizers/` | 1+2 | closed | — | gemma-4-31b | local-val, not dev | **D7 optimizer report**: BFRS/MIPROv2/GEPA(×3 variants) on T1 and GEPA on T2 ALL rejected at the +0.02 paired bar — both tasks ship zero-shot seeds; incl. DeepSeek/Gemini/Cohere bake-off rows (gemma wins everything; free Gemini serving of the same checkpoint scores −0.048) |
 | `20260710-v2-stage-architecture/` | 1+2 | closed | — | gemma-4-31b | local-val, not dev | **v2 architecture report**: error anatomy (labeling, not detection: T2 gold mass 0% unpredicted), oracle ceilings (0.86/0.88), zero-shot verify stages flat, decision-level judge compiles lift decision accuracy (GEPA AN 0.74→0.88) and optval macro (+0.033) but FAIL frozen-val transfer (+0.001, winner's curse) — champions unchanged |

@@ -23,8 +23,8 @@ shared-task/
 
 ```bash
 uv sync                  # base environment
-uv sync --group train    # encoder work (torch, transformers, safetensors)
-uv run pytest -q         # 244 tests; 18 read ../resources/repos/Daleel2026
+uv sync --group train    # encoder work (torch, transformers, safetensors); also required by the test suite
+uv run pytest -q         # 244 tests; 28 read ../resources/repos/Daleel2026 (18 fail, 10 skip without it)
 ```
 
 `daleel.data` loads the organizers' files straight from `../resources/repos/Daleel2026`:

@@ -48,7 +48,7 @@ hand-tuned component — and it also scores better.
 | T2 gemma-4-31b | segment | 0.6542 | 0.98 | P 0.634 / R 0.675 |
 | T2 gemma-4-26b | quote | 0.6762 | 1.00 | ordering check passed |
 | T2 gemma-4-26b | segment | 0.663 | 0.96 | bake-off row |
-| T1 gemma-4-31b | classifier | **0.7022** | 1.00 | dedicated program stays |
+| T1 gemma-4-31b | classifier | **0.7022** (committed `metrics.json`: 0.7024) | 1.00 | dedicated program stays |
 | T1 gemma-4-31b | quote-derived | 0.6641 | 1.00 | unification rejected |
 
 - Quote beats segment by **+0.026**, above the pre-registered 0.02
