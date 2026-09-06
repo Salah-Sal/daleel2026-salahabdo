@@ -1,0 +1,118 @@
+{
+  "milestone": "CREATIVE_HEADROOM_RESEARCH.md registered T2 S1 structural bundle",
+  "encoder_run": "20260906-022503-t2-s1-placebo-uniform-scores-n430",
+  "quote_run": "20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b",
+  "recorded_f1": 0.6934,
+  "decoded_f1_pre_rule_a": 0.7111,
+  "bundle_f1": 0.7133,
+  "delta": 0.0199,
+  "n_spans": 3824,
+  "n_label_changes": 256,
+  "n_rule_a_changes": 28,
+  "n_dedup_dropped": 0,
+  "mass_ratio_vs_gold_recorded": {
+    "CO": 3.98,
+    "AS": 1.0,
+    "TE": 1.09,
+    "ST": 1.38,
+    "AN": 0.48,
+    "OT": 1.05
+  },
+  "mass_ratio_vs_gold_bundle": {
+    "CO": 1.87,
+    "AS": 1.11,
+    "TE": 1.06,
+    "ST": 0.96,
+    "AN": 0.43,
+    "OT": 1.02
+  },
+  "fitted": {
+    "0": {
+      "lambda": 0.9,
+      "lambda_fit_f1": 0.7202,
+      "calibration_weights": {
+        "CO": 0.128,
+        "AS": 3.3567,
+        "TE": 0.7606,
+        "ST": 0.1165,
+        "AN": 0.9336,
+        "OT": 0.7046
+      }
+    },
+    "1": {
+      "lambda": 0.9,
+      "lambda_fit_f1": 0.7015,
+      "calibration_weights": {
+        "CO": 0.1021,
+        "AS": 3.3808,
+        "TE": 0.7193,
+        "ST": 0.1023,
+        "AN": 0.965,
+        "OT": 0.7304
+      }
+    },
+    "2": {
+      "lambda": 0.9,
+      "lambda_fit_f1": 0.7212,
+      "calibration_weights": {
+        "CO": 0.1161,
+        "AS": 3.3801,
+        "TE": 0.7751,
+        "ST": 0.105,
+        "AN": 0.9044,
+        "OT": 0.7192
+      }
+    },
+    "3": {
+      "lambda": 0.9,
+      "lambda_fit_f1": 0.7079,
+      "calibration_weights": {
+        "CO": 0.1289,
+        "AS": 3.3815,
+        "TE": 0.727,
+        "ST": 0.0976,
+        "AN": 0.9666,
+        "OT": 0.6984
+      }
+    },
+    "4": {
+      "lambda": 0.9,
+      "lambda_fit_f1": 0.7134,
+      "calibration_weights": {
+        "CO": 0.1222,
+        "AS": 3.4071,
+        "TE": 0.7494,
+        "ST": 0.106,
+        "AN": 0.9103,
+        "OT": 0.705
+      }
+    }
+  },
+  "gate": {
+    "rule": "pooled >= 0.7134 AND >=3/5 fold wins",
+    "per_fold": {
+      "0": {
+        "recorded": 0.6644,
+        "bundle": 0.6899
+      },
+      "1": {
+        "recorded": 0.7378,
+        "bundle": 0.7528
+      },
+      "2": {
+        "recorded": 0.6553,
+        "bundle": 0.6868
+      },
+      "3": {
+        "recorded": 0.7169,
+        "bundle": 0.7335
+      },
+      "4": {
+        "recorded": 0.6875,
+        "bundle": 0.6998
+      }
+    },
+    "fold_wins": 5,
+    "adopted": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "placebo encoder run (S1 ablation reconstruction)",
+  "created": "20260906-022503",
+  "construction": "segment layout (paragraph_id, fold, start_offset, end_offset) copied from the real encoder run; every 'scores' dict replaced by the uniform distribution 1/6 over the six span labels (NONE omitted; t2_structural_gate.py drops NONE and renormalizes anyway). Text and real scores are not copied.",
+  "source_layout_run": "20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+  "labels": [
+    "CO",
+    "AS",
+    "TE",
+    "ST",
+    "AN",
+    "OT"
+  ],
+  "uniform_value": 0.16666666666666666,
+  "n_segments": 3749,
+  "n_paragraphs": 430,
+  "reference": "CREATIVE_HEADROOM_RESEARCH.md S1 RESULT: placebo ablation (uniform scores -> 0.7133); commit 5cc2adf smoke test (fake run dir deleted)"
+}

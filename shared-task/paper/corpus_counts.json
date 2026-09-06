@@ -1,0 +1,94 @@
+{
+  "n_train_paragraphs": 612,
+  "train_genre": {
+    "editorial": 255,
+    "debate": 357
+  },
+  "n_gold_spans": 2975,
+  "n_gold_spans_cleaned": 2973,
+  "task1_label_set_equals_task2_span_labels_everywhere": true,
+  "coverage": {
+    "definition": "union of gold span character ranges / total paragraph characters",
+    "n_paragraph_chars": 254363,
+    "n_covered_chars": 230776,
+    "char_coverage": 0.9072703184032269,
+    "char_coverage_sum_of_span_lengths": 0.9110208638835051,
+    "n_overlapping_adjacent_gold_span_pairs": 9
+  },
+  "task1_gold": {
+    "definition": "paragraphs carrying the label / all training paragraphs (raw Task 1 labels)",
+    "n_paragraphs": 612,
+    "per_label": {
+      "CO": {
+        "count": 36,
+        "rate": 0.058823529411764705
+      },
+      "AS": {
+        "count": 462,
+        "rate": 0.7549019607843137
+      },
+      "TE": {
+        "count": 160,
+        "rate": 0.26143790849673204
+      },
+      "ST": {
+        "count": 28,
+        "rate": 0.0457516339869281
+      },
+      "AN": {
+        "count": 182,
+        "rate": 0.2973856209150327
+      },
+      "OT": {
+        "count": 222,
+        "rate": 0.3627450980392157
+      }
+    },
+    "n_paragraphs_without_labels": 60
+  },
+  "an": {
+    "definition": "AN spans / all raw gold spans (train_task_2)",
+    "n_an_spans": 343,
+    "n_gold_spans": 2975,
+    "an_base_rate": 0.11529411764705882,
+    "span_label_counts": {
+      "CO": 50,
+      "AS": 1739,
+      "TE": 313,
+      "ST": 38,
+      "AN": 343,
+      "OT": 492
+    },
+    "n_consecutive_span_pairs": 2423,
+    "an_to_an_given_an": 0.3888888888888889,
+    "next_is_an_over_all_pairs": 0.11143210895583987
+  },
+  "n_dev_paragraphs": 217,
+  "dev_genre": {
+    "editorial": 88,
+    "debate": 129
+  },
+  "n_test_paragraphs": 213,
+  "test_genre": {
+    "editorial": 87,
+    "debate": 126
+  },
+  "source": {
+    "train_task_1": {
+      "file": "train/train_task_1.jsonl",
+      "sha256": "240b4299df7d9e3b9297843acd271463d7aa7d10ce991576ed51f4c43ab241af"
+    },
+    "train_task_2": {
+      "file": "train/train_task_2.jsonl",
+      "sha256": "4ef331404670e39a3cd46ec4dfcfe3be4cb6d71e5d764d998ad87d74d31d1a66"
+    },
+    "dev_in": {
+      "file": "dev/dev_in.jsonl",
+      "sha256": "b8a79224f4b239f2f968bcc62ea4a07ebf3a74f4895808ab62ea5231756acd34"
+    },
+    "test_in": {
+      "file": "test/test_in.jsonl",
+      "sha256": "65a95069ef68584ddb7720150de7be5797bdbadb1e507a2ec68ce07cd336e6ef"
+    }
+  }
+}

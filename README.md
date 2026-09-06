@@ -56,9 +56,12 @@ determinism and caching notes.
 
 ## How the records fit together
 
-- Run directories from the evening of 2026-07-10 onward hold `config.json`, `metrics.json`,
-  `provenance.json` (models, data hashes, fold membership, code fingerprint) and
-  `COMPLETED.json`, a receipt listing the sha256 of the run's files.
+- LLM, encoder and sparse-baseline run directories from the evening of 2026-07-10 onward
+  hold `config.json`, `metrics.json`, `provenance.json` (models, data hashes, fold
+  membership, code fingerprint) and `COMPLETED.json`, a receipt listing the sha256 of the
+  run's files; composition, gate and judge runs (routers, structural re-decode, verifier,
+  registered gates) hold `config.json` and `metrics.json` only, with their argv, upstream
+  run names and, for Task 1, input hashes inside.
   `daleel.artifacts.validate_completion_marker` checks the receipt before a run is used as
   input to anything else (here it raises on runs whose receipts list prediction files, which
   are not distributed; `REPRODUCING.md` has a check over the distributed files only). Earlier runs (the 2026-07-09 bake-off and the first campaigns)

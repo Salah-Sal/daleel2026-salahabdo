@@ -112,8 +112,10 @@ test-phase recipes is:
    the quote run, and the Task 2 encoder deployment.
 
 The exact argument lists of every stage as it ran on the test input are in the
-`config.json` files of the `experiments/20260727-*` directories, and the upstream run
-names are in each `provenance.json` (`upstream_artifacts`). The paper prices the whole
+`config.json` files of the `experiments/20260727-*` directories; the upstream run
+names are in `provenance.json` (`upstream_artifacts`) for the LLM and encoder stages,
+and in the `config.json` argv for the router, judge, verifier and structural-decode
+stages, which write no provenance file or completion receipt. The paper prices the whole
 test-phase pass at roughly 3.9k calls and US$10.
 
 ## 5. What cannot be reproduced from this repository
@@ -132,9 +134,14 @@ test-phase pass at roughly 3.9k calls and US$10.
   `--help` without them.
 - **The deployed Task 2 role state** (`compiled/role.json` of the run ending in
   `bc5f4625f5`, a GEPA compile self-reflected with `gemma-4-31b-it`) is one of those
-  compiled states. The verbatim zero-shot prompts are in `src/daleel/policy.py`,
-  `guideline_policy.py`, `dspy_programs.py`, and `dspy_span_roles.py`; the compiled
-  instruction and its bootstrapped demonstrations are not.
+  compiled states. Its selected candidate is number 0, the unmodified seed with no
+  demonstrations, so the deployed instruction text is the `ClassifyOneAtom` docstring in
+  `src/daleel/dspy_span_roles.py` and is in the release; the five outer-fold compiles
+  selected rewritten instructions, which are not. What the deployment also needs and
+  the release withholds is the role bundle's demonstration-selector memory
+  (`role_bundle.json`, `role_memory.jsonl`), which holds training-paragraph text. The
+  verbatim zero-shot prompts are in `src/daleel/policy.py`, `guideline_policy.py`,
+  `dspy_programs.py`, and `dspy_span_roles.py`.
 - **Test scores.** No test references exist outside Codabench, so nothing on the 213 test
   paragraphs can be scored locally.
 - **Development-tree hashes.** `git_commit` and `python_tree_sha256` in `provenance.json`

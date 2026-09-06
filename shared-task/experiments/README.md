@@ -5,14 +5,26 @@ One folder per run (`YYYYMMDD-HHMMSS-...Z-<name>-<hash>/`) or per campaign
 
 - `config.json` — the exact resolved configuration, enough to reproduce;
 - `metrics.json` — scores from `daleel.metrics` (official-scorer ports);
-- from the evening of 2026-07-10 onward, `provenance.json` (models, data
-  hashes, fold membership, code fingerprint) and `COMPLETED.json` (sha256
-  receipt of the run's files, checked by `daleel.artifacts`);
+- from the evening of 2026-07-10 onward, for LLM, encoder and sparse-baseline
+  runs, `provenance.json` (models, data hashes, fold membership, code
+  fingerprint) and `COMPLETED.json` (sha256 receipt of the run's files, checked
+  by `daleel.artifacts`); the composition, gate and judge scripts
+  (`route_task1*.py`, `t2_structural_gate*.py`, `st_verifier_v2*.py`,
+  `st_judge_seed_deploy.py`, `judge_stage_test.py`, and the registered gate
+  scripts of rows 22 to 29) write `config.json` and `metrics.json` only, with
+  their exact argv, upstream run names and, for Task 1, input sha256s inside
+  them;
 - `REPORT.md` in campaign folders — what was tried, what happened, the verdict.
 
 Checkpoints and prediction files inside experiment folders are gitignored;
-configs, metrics, provenance, receipts, and reports are committed. Keep the
-index current:
+configs, metrics, provenance, receipts, and reports are committed.
+
+Timestamps: `daleel.artifacts.create_experiment_dir` stamps folder names in UTC
+with a `Z` suffix; folders without the suffix (the composition and gate scripts)
+are stamped in the machine's local time (America/New_York, UTC−4 in July) when
+the script finishes, so they mark the end of the computation; git commit dates
+carry their `-04:00` offset. Convert to one zone before comparing a folder to a
+commit. Keep the index current:
 
 | Folder | Task | Track | Setting | Model | Dev macro-F1 | One-line takeaway |
 |---|---|---|---|---|---|---|
@@ -27,9 +39,9 @@ index current:
 
 The v3 campaign writes microsecond/config-hash run directories and is indexed
 by its hash-bound artifacts rather than a pre-created folder. Its release
-contract and exact command sequence were fixed in the v3 milestone note. A run is valid
-only when `COMPLETED.json` is present; interrupted directories are never inputs
-to aggregation or deployment.
+contract and exact command sequence were fixed in the v3 milestone note. An LLM or encoder run
+is valid only when `COMPLETED.json` is present; interrupted directories are
+never inputs to aggregation or deployment.
 
 ## Registry rows and deployments → run directories
 
@@ -49,7 +61,7 @@ where the timestamp and hash suffix are unambiguous from `ls experiments/`.
 | 11 | theory-variables-alone design | `20260711-081348-…-t1-signal-audit-…-n8-…/`, `20260711-081440-…-t1-signal-audit-…-n430-7d1b713d9a/` |
 | 12 | tier-1 routed composition (T1) | gate `20260711-105107-…-t1-routed-k5-n430-0136977dee/`; rollouts `20260711-{100552,101957,103425,105038,105041}-…-t1-zeroshot-r{0..4}-…-train-*` (`20260711-{092229,093929}-…-r{0,1}-…-train-*` are the failed first attempts of r0 and r1, `FAILED.json`, not consumed) and `20260711-1{05157,10055,10724,11253,11820}-…-r{0..4}-…-dev-*`; encoder OOF `20260711-090448-…-encoder-t1-camelbert-msa-quarter-…-0e77e5faf4/`; encoder deployment `20260711-113659-…`; dev deployment `20260711-113730-…-t1-routed-deploy-dev_in-009d4fd89e/` |
 | 13 | mix-encoder amendment | `20260711-163945-…-encoder-t1-camelbert-mix-…/`, `20260711-170107-…-msa-…/`, `20260711-172215-…-da-…/`; screens `20260711-{170117,174308}-…-t1-routed-k5-n430-*`; deployments `20260711-174851-…-t1-encoder-deploy-camelbert-mix-dev_in-…/`, `20260711-174921-…-t1-routed-deploy-dev_in-554dc13d33/` |
-| 14 | routed v2 recomposition | gate `20260714-194246-…-t1-routed-v2-k5-n430-375f2468c5/`; ST seed judge `20260714-t1-judge-stage-gemma-4-31b-paid-val/`; dev deployments v2 `20260714-194633-…-dd107f0d5b/`, v2.1 `20260714-202259-…-fba4d257e3/` |
+| 14 | routed v2 recomposition | gate `20260714-194246-…-t1-routed-v2-k5-n430-375f2468c5/`; ST seed judge `20260714-t1-judge-stage-gemma-4-31b-paid-val/` (registered as the BFRS-compiled ST judge, executed zero-shot: `judge_stage_test.py --drop-labels ST`, `compiled: null`; the folder's `config.json`/`metrics.json` describe its dev-217 pass, while the train-430 pass the gate consumes, `predictions/st_judge_train430.jsonl`, has no record of its own; OOF ST 0.5902 → 0.6429, dev 0.6923 → 0.7619); dev deployments v2 `20260714-194633-…-dd107f0d5b/`, v2.1 `20260714-202259-…-fba4d257e3/` |
 | 15 | CO many-shot rank feature | `20260714-195647-…-co-judge-train-oof-…-n8-…/`, `20260714-200016-…-co-judge-train-oof-…-n430-…/` |
 | 16 | T2 atom-vote self-consistency | `20260714-200743-…-t2-vote-pilot-k3-n6-…/`, `20260714-204703-…-t2-vote-pilot-k5-n86-…/` |
 | 17 | discourse-forest prompts | forests `20260711-17{1237,3523}-…-discourse-forests-…/`; `20260714-{194441,195418,200827}-…-v4-structure-{flat,forest,shuffled}-…/`; `20260714-203040-…-structural-cv-comparison-…-833d98c8fb/comparison_report.json` |
@@ -87,3 +99,17 @@ pushed to the board.
 **Registered measurements, not deployed.** GN guideline-native program
 `20260729-1{71558,74953,82555,83456,83511,83519,92603,94331,94343,94644,94657}-…-t{1,2}-guideline-*`
 (ledger section "GN"); the paper-analysis bank `20260716-133715-…-paper-analysis-bank-n430-d7e5a011ed/`.
+
+**Records added after the campaign (2026-09-06).** The paper's placebo ablation
+(§3, 0.7133) originally ran on 2026-07-15 against a temporary uniform-score
+encoder folder that was not kept, leaving only the ledger sentence; it was re-run
+on the real encoder run's segment layout with every score set to 1/6: input
+`20260906-022503-t2-s1-placebo-uniform-scores-n430/`, gate
+`20260906-022528-t2-s1-structural-placebo-uniform-n430/` (`bundle_f1` 0.7133,
+delta +0.0199, 5/5 folds; the result is invariant to the constant and to the
+segment boundaries because `t2_structural_gate.py` renormalizes each span's
+distribution, so the run stands in for the deleted original). The corpus
+constants quoted in the paper's §2 (612; 357/255; 2,975 spans; 90.73% character
+coverage; per-label priors; AN base rate 0.1153; test 87/126) are recomputed from
+the organizer files by `scripts/paper_corpus_counts.py` into
+`paper/corpus_counts.json`.

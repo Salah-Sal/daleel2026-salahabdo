@@ -8,7 +8,9 @@
     "debate": 0.7589418226,
     "rank": 1,
     "teams": 10,
-    "scored_entry": "evaluation-week probe 3"
+    "scored_entry": "evaluation-week probe 3",
+    "runner_up_score": 0.7117008859,
+    "margin_over_runner_up": 2.9925e-05
   },
   "task_2": {
     "score": 0.7315867359,
@@ -16,6 +18,8 @@
     "debate": 0.7480736134,
     "rank": 5,
     "teams": 8,
-    "scored_entry": "evaluation-week probe 4"
-  }
+    "scored_entry": "evaluation-week probe 4",
+    "leader_score": 0.7547288195
+  },
+  "other_teams": "Other teams' scores are anonymized here (one leader and one runner-up value, from the organizers' sheet of 2026-08-11); the sheet itself is the organizers' document and is not redistributed."
 }
