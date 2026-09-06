@@ -44,13 +44,20 @@ gold = task1_labels(load_records(TRAIN_TASK1, genre="editorial"))
 - Create `.env` at the repository root (gitignored): `OPENROUTER_API_KEY` for every
   `gemma-4-31b-paid` run; `DEEPSEEK_API_KEY` only for GEPA with
   `--reflection-model deepseek-v4-pro`; `GEMINI_API_KEY` and `COHERE_API_KEY` only for those
-  bake-off rows. `daleel.runtime` loads the file before any DSPy import.
+  bake-off rows. `daleel.runtime` loads the file; the key is read at call time, so import order does not matter for it.
 - All runs use temperature 0. Splits are frozen in `daleel.splits` (seed 20260709: 430
   train / 182 validation; optimizer-internal re-split seed 20260710: 281 / 149, so optimizers
   never see the frozen validation set).
-- DSPy's disk cache lives at `experiments/.dspy_cache/` (gitignored); re-running a command
-  returns cached completions. Provider-side nondeterminism exists, so expect exact numbers
-  from the committed `metrics.json` files rather than from fresh API calls.
+- `daleel.runtime` points DSPy's disk cache at `experiments/.dspy_cache/` (gitignored)
+  when it is imported before DSPy, which the `daleel.dspy_*` modules and the main runners
+  (`run_zero_shot.py`, `run_decomposed.py`, `compile_span_roles.py`) do by design. Nine
+  scripts import DSPy first (`compile_program.py`, `compile_judge.py`, `judge_stage_test.py`,
+  `relabel_stage_test.py`, `co_specialist_rank.py`, `st_verifier_v2.py`,
+  `st_verifier_v2_deploy.py`, `st_judge_seed_deploy.py`, `t2_an_rescue.py`), so their cache
+  went to DSPy's default `~/.dspy_cache` unless the shell exported `DSPY_CACHEDIR`; only the
+  cache location differs, not the results. Re-running a command returns cached completions.
+  Provider-side nondeterminism exists, so expect exact numbers from the committed
+  `metrics.json` files rather than from fresh API calls.
 - `DALEEL_MLFLOW=0` disables MLflow logging (the test suite sets it).
 
 ## Module map (`src/daleel/`)

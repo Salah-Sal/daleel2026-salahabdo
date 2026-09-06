@@ -75,10 +75,16 @@ verifying anything by hash.
 
 - The commit history covers the four registration documents only. Everything else entered
   in one commit from the development tree at its commit `00c0c41` (2026-09-04).
-- Absolute paths of the development machine were replaced by `<repo>/` in experiment
-  records. The `COMPLETED.json` receipts were recomputed after that substitution, so every
-  receipt entry for a distributed file verifies; entries for files that are not distributed
-  are as originally written.
+- Absolute paths of the development machine were replaced in experiment records:
+  repository paths by `<repo>/`, and the temporary folders of the four 2026-07-14
+  encoder-ensemble runs by `<tmp>/`. Paths on the Kaggle machines (under `/tmp/`) are the
+  real runtime paths of those jobs and stay as recorded. The default upload folder in
+  `kaggle/encoder-preflight/prepare_assets.py`, its test, and the Kaggle READMEs are code
+  and documentation rather than records and stay as written. The `COMPLETED.json` receipts
+  were recomputed after the substitution, so every receipt entry for a distributed file
+  verifies; entries for files that are not distributed are as originally written. One
+  provider error body quoted in a 2026-07-09 bake-off record had its account identifier
+  replaced by `<redacted-account-id>`.
 - `git_commit` and `python_tree_sha256` in `provenance.json` refer to the private
   development tree and do not resolve here.
 - Comments in the code and in reports cite internal design notes (DSPy design space, metric

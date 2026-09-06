@@ -16,6 +16,10 @@ task data is not redistributable. The kernels here read the private dataset
 re-run them, build your own copy with `encoder-preflight/prepare_assets.py`
 from the organizers' clone and point `dataset_sources` in each
 `kernel-metadata.json` at it.
+`tests/test_encoder_preflight_assets.py` asserts the author's dataset ids and the
+default upload folder (`/private/tmp/daleel-encoder-preflight-upload`) exactly as
+`prepare_assets.py` writes them; a rebuilt copy changes both the script and those
+assertions.
 
 The DSPy-free CAMeLBERT GPU check lives in `encoder-preflight/`. Its builder
 copies only an explicit source/data whitelist into a private dataset staging
