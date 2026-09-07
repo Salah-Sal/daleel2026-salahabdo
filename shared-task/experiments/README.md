@@ -33,13 +33,13 @@ commit. Keep the index current:
 | `20260709-t*-zeroshot-*-train8/` | 1+2 | closed | — | 3B/9B | smoke only | pipeline plumbing validation; llama-3.2-3b `:free` starved upstream |
 | `20260709-d7-optimizers/` | 1+2 | closed | — | gemma-4-31b | local-val, not dev | **D7 optimizer report**: BFRS/MIPROv2/GEPA(×3 variants) on T1 and GEPA on T2 ALL rejected at the +0.02 paired bar — both tasks ship zero-shot seeds; incl. DeepSeek/Gemini/Cohere bake-off rows (gemma wins everything; free Gemini serving of the same checkpoint scores −0.048) |
 | `20260710-v2-stage-architecture/` | 1+2 | closed | — | gemma-4-31b | local-val, not dev | **v2 architecture report**: error anatomy (labeling, not detection: T2 gold mass 0% unpredicted), oracle ceilings (0.86/0.88), zero-shot verify stages flat, decision-level judge compiles lift decision accuracy (GEPA AN 0.74→0.88) and optval macro (+0.033) but FAIL frozen-val transfer (+0.001, winner's curse) — champions unchanged |
-| `20260710-233257-145267Z-sparse-tboth-both-legacy-train-723ea1b146/` | 1+2 | closed | both | TF-IDF + LinearSVC | OOF 0.5728 T1 cross-fit / 0.5832 T2; fixed-182 confirm 0.6702 / 0.6232 | **Canonical strict no-LM CPU run**: complete provenance + raw margins; T1 same-OOF threshold diagnostic is 0.6176; exact seeded rerun hashes match |
-| `20260710-231400-297323Z-encoder-t1-camelbert-msa-both-legacy-train-smoke-fe95497542/` + `20260710-231411-214841Z-encoder-t2-camelbert-msa-both-legacy-train-smoke-897186f054/` | 1+2 | closed | both | CAMeLBERT-MSA | smoke only | **Non-generative encoder plumbing**: both real-data paths complete through backward pass, OOF decode, official scorer, provenance, and completion marker; deliberately non-comparable one-step frozen-head runs |
+| `20260710-233257-145267Z-sparse-tboth-both-legacy-train-723ea1b146/` | 1+2 | closed | both | TF-IDF + LinearSVC | OOF 0.5728 T1 cross-fit / 0.5832 T2; fixed-182 confirm 0.6702 / 0.6232 | **Canonical strict no-LM CPU run**: complete provenance + raw margins; T1 same-OOF threshold diagnostic is 0.6176; exact seeded rerun hashes match; see `../SPARSE_BASELINE.md` |
+| `20260710-231400-297323Z-encoder-t1-camelbert-msa-both-legacy-train-smoke-fe95497542/` + `20260710-231411-214841Z-encoder-t2-camelbert-msa-both-legacy-train-smoke-897186f054/` | 1+2 | closed | both | CAMeLBERT-MSA | smoke only | **Non-generative encoder plumbing**: both real-data paths complete through backward pass, OOF decode, official scorer, provenance, and completion marker; deliberately non-comparable one-step frozen-head runs; see `../ENCODER_BASELINE.md` |
 | `20260711-v3-proposal-atom-role/` | 1+2 | closed | both | gemma-4-31b | frozen-182 T2 0.6995 (adopted) / T1 champion retained | **v3 campaign report**: proposal→atom→role passes the +0.02 OOF gate on both tasks (T2 +0.0387, T1 fusion +0.0436), frozen confirmation adopts **Task 2 0.6995 vs 0.6805**; T1 fusion fails transfer (0.6745 vs 0.7024) — first pre-registered win; incl. champion run-to-run stability finding (±0.03–0.04 macro on identical paragraphs) |
 
 The v3 campaign writes microsecond/config-hash run directories and is indexed
 by its hash-bound artifacts rather than a pre-created folder. Its release
-contract and exact command sequence were fixed in the v3 milestone note. An LLM or encoder run
+contract and exact command sequence are in `../V3_MILESTONE.md`. An LLM or encoder run
 is valid only when `COMPLETED.json` is present; interrupted directories are
 never inputs to aggregation or deployment.
 
@@ -114,15 +114,34 @@ coverage; per-label priors; AN base rate 0.1153; test 87/126) are recomputed fro
 the organizer files by `scripts/paper_corpus_counts.py` into
 `paper/corpus_counts.json`.
 
-**Camera-ready ablation (2026-09-07).** `scripts/t2_s1_ablation.py` runs a
-leave-one-out over the S1 bundle and writes
+**Camera-ready ablation (2026-09-07).** Reviewer 29cU asked for a clearer
+ablation of the S1 parts than the placebo alone gives.
+`scripts/t2_s1_ablation.py` runs a leave-one-out over the bundle and writes
 `20260907-160206-t2-s1-ablation-loo-n430/` (paper Appendix C). It re-fits every
 per-fold quantity, λ included, inside each variant, so each row scores that
 system rather than reusing the full system's fit; the `full` row reproduces
 0.7206 and the v3 baseline 0.6934 exactly, which is the run's control check.
 Results: −calibration 0.7210 (+0.0004), −genre conditioning 0.7167 (−0.0039),
-−Rule-A 0.7166 (−0.0040), −Viterbi 0.7073 (−0.0133, and the grid drops λ from
-0.9 to 0.5), −blend (λ=0) 0.6507 (−0.0699). Zero API cost and no predictions
-written, but like the other composition scripts it reads the role runs'
-prediction files, which are not distributed. Report-only: no gate is defined
-over these variants and nothing here can change a frozen system.
+−Rule-A 0.7166 (−0.0040), −Viterbi 0.7073 (−0.0133), −blend (λ=0) 0.6507
+(−0.0699). Zero API cost, no predictions written, report-only: no gate is
+defined over these variants and nothing here can change a frozen system.
+
+Two properties of the `−Viterbi` row matter when reading it (corrected
+2026-09-07 after review, paper Appendix C says the same). First, the emission
+blend is `(1−λ)·p_enc + λ·onehot(v3)` over a *normalized* encoder distribution,
+so a per-span argmax can overturn the v3 label only when `(1−λ)(e_k − e_L) > λ`,
+which is impossible at λ ≥ 0.5. That row is therefore v3 plus Rule-A and nothing
+else: its 103 label changes are all Rule-A's (`n_label_changes` equals
+`n_rule_a_changes` in `metrics.json`). Second, its re-fitted λ = 0.5 is not a
+finding: λ ∈ [0.5, 0.9] all decode identically, and the selection loop takes the
+first of that plateau because it compares with a strict `>` over an ascending
+grid. The grid is `LAMBDA_GRID = 0.0 … 0.9`, so the full bundle's λ = 0.9 is the
+grid's upper edge, and λ = 1 (v3 untouched) is outside it.
+
+Read against the placebo run (`20260906-022528-…`, 0.7133), the parts do not
+add. On top of v3: Rule-A alone +0.0139, the sequence and label-mass priors a
+further +0.0060, real encoder posteriors the remaining +0.0073. Yet removing
+Rule-A from the full bundle costs only −0.0040, because Viterbi already repairs
+most of what Rule-A repairs. Leave-one-out and add-one-in shares are not
+interchangeable here, and neither the genre nor the Rule-A delta clears the
+σ≈0.015 composed-OOF band the gates are calibrated to.

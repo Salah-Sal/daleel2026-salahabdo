@@ -298,10 +298,11 @@ preserved by construction \citep{widmoser-etal-2021-randomized}.
 0.7206 ($+0.0272$, better on all 5 folds), changing 237 of 3{,}824 span
 labels. A \emph{placebo ablation} --- the identical decode with the
 encoder replaced by uniform distributions --- scores 0.7133: structure
-alone contributes $\sim$$+0.02$, encoder evidence the remaining
-$+0.0073$ (cf.\ the $\neg$DAPT control of
-\citealp{gururangan-etal-2020-dont}); Table~\ref{tab:s1ablation}
-removes each step in turn. What the decode repairs is
+alone contributes $\sim$$+0.02$ (Rule-A $+0.014$ of it, the sequence
+and label-mass priors the rest), encoder evidence the remaining $+0.0073$ (cf.\ the
+$\neg$DAPT control of \citealp{gururangan-etal-2020-dont});
+Table~\ref{tab:s1ablation} removes each step in turn and shows the
+shares interact. What the decode repairs is
 over-prediction of rare labels: predicted \co{} text fell from
 $3.98\times$ the gold amount to $1.78\times$ and \st{} from $1.38\times$
 to $1.07\times$. The declared limit: predicted \an{} text sits at
@@ -385,23 +386,20 @@ set (\co, \te, \an); Appendix~\ref{app:analysis} decomposes both.
 organizers released the development gold labels and extended the
 deadline, we waived our own freeze for that window and ran one
 time-boxed, leaderboard-informed campaign: four probes per task in one
-evening plus two closing Task~2 uploads
-(Table~\ref{tab:components} marks which legs are pinned, which are
-probe-only, and what each was fitted on).
+evening plus two closing Task~2 uploads (legs and their fitting data
+in Table~\ref{tab:components}).
 Per-label scorer feedback moved the \as, \te, \an, and \co{} sourcing
 decisions across probes (Task~1 0.6499 $\rightarrow$ 0.712; Task~2
 0.7055 $\rightarrow$ 0.7316, via span-drop filters keyed to Task~1
 labels and encoder probabilities). The scorer log returned, per
 upload, per-label $F_1$ and the number of test paragraphs carrying each
 label; probes~2--4 set the editorial \an{} threshold and the \co{}
-budgets against those counts, and the scored Task~1 entry is the last
-pushed of four uploads. The probes also re-used two gate-rejected
+budgets against those counts. The probes also re-used two gate-rejected
 families: span-sourced \te{} (row~10) and a five-seed encoder ensemble
 for the \an{} and \co{} legs (row~27), built from four encoder
 deployments trained that evening; the ensemble the gate had rejected at
-$+0.014$ OOF added $+0.034$ on test. The rules allow unlimited uploads
-and score the last one pushed. Two stronger configurations missed the
-board through operational error (Appendix~\ref{app:disclosure}). In
+$+0.014$ OOF added $+0.034$ on test. Two stronger configurations missed
+the board through operational error (Appendix~\ref{app:disclosure}). In
 the organizers' final standings (rankings sheet of 2026-08-11) we place
 \textbf{first of ten} closed-track teams on Task~1 and \textbf{fifth
 of eight} on Task~2 (leader 0.755). Our Task~1 lead is $3{\times}10^{-5}$, far inside our
@@ -517,17 +515,17 @@ no reflection-model override in any of their recorded invocations.
 \texttt{deepseek-v4-pro} \citep{deepseekai-2026-deepseekv4} is the only
 model named in this paper that the closed track never admitted: at 1.6T
 parameters (49B activated) it is far above the track's 70B ceiling, so it
-was never eligible as a task model, and the compile script refuses a
-closed-track run whose task, prompt, or reflection model is unregistered,
-proprietary, or over that ceiling. It appears in this campaign only as the
+was never eligible as a task model, and the script behind the adopted
+role compiles refuses a closed-track run whose task, prompt, or
+reflection model is unregistered or over that ceiling. It appears in this campaign only as the
 reflection model of three \emph{rejected} optimizer compiles (rows~4, 5,
 and~8), whose verdict was to reject every optimizer and ship zero-shot
 seeds. Nothing it authored was deployed or submitted, and no reported
-score depends on it. We state the claim in that form, rather than as a
-claim about exposure, because GEPA reflection reads training-fold
-examples when it drafts candidate instructions, so during those rejected
-compiles it did see training-fold text. No external labeled data; no
-dataset text in any committed artifact.
+score depends on it. GEPA reflection reads training-fold examples when
+it drafts candidate instructions, so during those rejected compiles it
+did see training-fold text; the claim above is about deployment, not
+exposure. No external labeled data; no dataset text in any committed
+artifact.
 
 \paragraph{Components and their training data.}
 Table~\ref{tab:components} lists every stage of both systems, what
@@ -547,11 +545,13 @@ set against per-label scorer feedback on the test input
 Stage & Source & Fitted on & Where \\
 \midrule
 \multicolumn{4}{l}{\emph{Task 1}} \\
-\as, \te{} votes & gemma-4-31b, $k{=}5$, $T{=}0.7$ & 430 OOF ($\theta$ only) & pinned \\
+\as{} votes & gemma-4-31b, $k{=}5$, $T{=}0.7$ & 430 OOF ($\theta$ only) & both \\
+\te{} votes & gemma-4-31b, $k{=}5$, $T{=}0.7$ & 430 OOF ($\theta$ only) & pinned \\
 \st{} votes & gemma-4-31b, $k{=}5$ & 430 OOF ($\theta$) & both \\
 \st{} seed judge & gemma-4-31b, $T{=}0$ & not fitted & both \\
 \st{} verifier & gemma-4-31b + qwen3-32b / llama-3.3-70b & fold-external 430 exemplars & both \\
-\an, \ot{} encoder & CAMeLBERT-quarter, 1 seed & 430, 5-fold & pinned \\
+\ot{} encoder & CAMeLBERT-quarter, 1 seed & 430, 5-fold & both \\
+\an{} encoder & CAMeLBERT-quarter, 1 seed & 430, 5-fold & both \\
 \co{} budget & rank-mean of 3 signals & 430 prior ($2\times$) & pinned \\
 \te{} from spans & Task 2 span labels & not fitted & probe \\
 \an, \co{} ensemble & CAMeLBERT-quarter, 5 seeds & 430; cutoffs on test feedback & probe \\
@@ -569,8 +569,10 @@ span-drop filters & Task 1 labels + posteriors & test feedback & probe \\
 was fitted on. ``pinned'' = the frozen recipes v2.2 and S1 that produced
 0.6499 and 0.7055; ``probe'' = a leg that exists only in the
 evaluation-week entries that scored 0.712 and 0.7316; ``both'' = shared.
-No component uses data outside the organizers' training release, and
-only the probe rows saw any test-set feedback.}
+The single-seed \an{} encoder survives into the probe entries for the
+debate genre only; editorial \an{} there comes from the five-seed
+ensemble. No component uses data outside the organizers' training
+release, and only the probe rows saw any test-set feedback.}
 \label{tab:components}
 \end{table}
 
@@ -585,11 +587,13 @@ compiled state's demonstration-selector memory holds dataset text and is
 not distributed (a re-run rebuilds it).
 
 \paragraph{Evaluation-phase upload record (\S\ref{sec:results}).}
+The rules allow unlimited uploads and score the last one pushed.
 Stronger configurations missed the leaderboard on both tasks. Our final
 Task~1 package (predicted 0.7182 by the composition arithmetic) was
 never uploaded: the closing upload meant to carry it held an earlier
 probe configuration by mistake (scoring 0.711) and was never pushed to
-the board, so the scored Task~1 entry is probe-3 (0.712). Two closing
+the board, so the scored Task~1 entry is probe-3 (0.712), the last
+pushed of four uploads. Two closing
 Task~2 uploads scored 0.733 but were never pushed either, leaving
 probe-4 (0.7316) the scored Task~2 entry. Both are operational errors,
 not modeling choices, and neither is claimed as a result.
@@ -618,7 +622,7 @@ cheaper screen before the full gate.
 
 \begin{table*}[t]
 \centering\tiny
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{2.4pt}
 \begin{tabular}{rlllll}
 \toprule
 \# & Decision (task) & Gate / screen & Result & Verdict & Registered$\rightarrow$verdict \\
@@ -633,17 +637,17 @@ cheaper screen before the full gate.
 8 & decision-level judge compile (T1) & optval select $\rightarrow$ frozen confirm & $+0.033 \rightarrow +0.001$ & reject & pre-ledger \\
 9 & v3 proposal-atom-role (T2) & OOF gate + frozen confirm & $+0.0387$; 0.6995 vs.\ 0.6805 & \textbf{adopt} & pre-ledger \\
 10 & v3 Task-1 fusion & OOF gate + frozen confirm & $+0.0436$; frozen transfer failed & reject & pre-ledger \\
-11 & theory-variables-alone design (T1) & fitted ceiling $\geq$ champion & 0.6417 $<$ ${\sim}0.70$ & killed & runs$^{\ddagger\dagger}$ \\
+11 & theory-variables-alone design (T1) & fitted ceiling $\geq$ champion & 0.6417 $<$ ${\sim}0.70$ & killed & 8d494f1$^{\ddagger\dagger}$ \\
 12 & tier-1 routed composition (T1) & OOF $+0.02$ vs.\ champion-$T0$ & $+0.0225$; dev 0.6642 & \textbf{adopt} & f2a9ca7$^{\dagger}$ \\
-13 & mix-encoder amendment (T1) & one dev probe & 0.6364 vs.\ 0.6642 & reverted & runs$^{\ddagger}$ $\rightarrow$ log$^{\S}$ \\
-14 & routed v2 recomposition (T1) & OOF $+0.02$ & $+0.0381$, 5/5; dev $+0.0146$; \ot{} leg reverted $\rightarrow$ v2.1 0.6955 & \textbf{adopt} & 0f86915 $\rightarrow$ log$^{\S\dagger}$ \\
-15 & \co{} many-shot rank feature (T1) & precision@k on $\geq 3/5$ folds & 0.3733 vs.\ 0.40 control & reject & 0f86915 $\rightarrow$ runs$^{\ddagger\dagger}$ \\
-16 & T2 atom-vote self-consistency & fold-0 spend gate $+0.005$ & $+0.0024$ & killed & 0f86915 $\rightarrow$ runs$^{\ddagger\dagger}$ \\
-17 & discourse-forest prompts (T2) & forest $>$ flat, shuffled; $+0.02$ & forest $-$ shuffled $= 0.0003$ & killed & a673704 $\rightarrow$ runs$^{\ddagger\dagger}$ \\
-18 & constrained relabel (T2) & OOF $+0.02$ & $+0.0182$ & reject & 0f86915 $\rightarrow$ runs$^{\ddagger\dagger}$ \\
-19 & constrained relabel regate (T2) & OOF $+0.02$ (v2.2 constraint) & 0.7133 vs.\ gate 0.7134 & reject & runs$^{\ddagger}$ \\
+13 & mix-encoder amendment (T1) & one dev probe & 0.6364 vs.\ 0.6642 & reverted & 8d494f1$^{\ddagger}$ $\rightarrow$ log$^{\P}$ \\
+14 & routed v2 recomposition (T1) & OOF $+0.02$ & $+0.0381$, 5/5; dev $+0.0146$; \ot{} leg reverted $\rightarrow$ v2.1 0.6955 & \textbf{adopt} & 0f86915 $\rightarrow$ log$^{\P\dagger}$ \\
+15 & \co{} many-shot rank feature (T1) & precision@k on $\geq 3/5$ folds & 0.3733 vs.\ 0.40 control & reject & 0f86915 $\rightarrow$ 8d494f1$^{\ddagger\dagger}$ \\
+16 & T2 atom-vote self-consistency & fold-0 spend gate $+0.005$ & $+0.0024$ & killed & 0f86915 $\rightarrow$ 8d494f1$^{\ddagger\dagger}$ \\
+17 & discourse-forest prompts (T2) & forest $>$ flat, shuffled; $+0.02$ & forest $-$ shuffled $= 0.0003$ & killed & a673704 $\rightarrow$ 8d494f1$^{\ddagger\dagger}$ \\
+18 & constrained relabel (T2) & OOF $+0.02$ & $+0.0182$ & reject & 0f86915 $\rightarrow$ 8d494f1$^{\ddagger\dagger}$ \\
+19 & constrained relabel regate (T2) & OOF $+0.02$ (v2.2 constraint) & 0.7133 vs.\ gate 0.7134 & reject & 25babf7 $\rightarrow$ 8d494f1$^{\ddagger}$ \\
 20 & learned stacker (T1, screen) & beat hand rules on OOF & 0.7084 vs.\ 0.7203 & reject & 3a52b50$^{\dagger}$ \\
-21 & \st{} contrastive verifier v2 (T1) & OOF $+0.02$ & $+0.0233$, 5/5; dev exact & \textbf{adopt} & 3a52b50 $\rightarrow$ runs$^{\ddagger\dagger}$ \\
+21 & \st{} contrastive verifier v2 (T1) & OOF $+0.02$ & $+0.0233$, 5/5; dev exact & \textbf{adopt} & 3a52b50 $\rightarrow$ 8d494f1$^{\ddagger\dagger}$ \\
 22 & \co{} contrastive specialist (T1) & OOF $+0.02$, control-exact & 0.7254 $<$ 0.7498 & reject & 80d57b8 $\rightarrow$ 6f283a0 \\
 23 & \an-rescue span judge (T2) & fold-0 screen $+0.015$ & $-0.0024$ & killed & 71ea9f7 $\rightarrow$ 56e8795 \\
 24 & S1 structural re-decode (T2) & OOF $+0.02$, control-exact & $+0.0272$, 5/5; dev $+0.0400$ & \textbf{adopt} & 25babf7 $\rightarrow$ 936fec9 \\
@@ -659,16 +663,16 @@ in-repo registration convention and are documented in the corresponding
 campaign reports; later rows cite the ledger and verdict commits
 \emph{in the released repository}, so every hash printed here resolves
 there. $^{\ddagger}$: the entry changed only run directories or scripts,
-which entered that repository in its snapshot commit rather than
-individually; its run directories are listed in \texttt{COMMIT\_MAP.md}
-there. $^{\S}$: the record is the submission log, which is not
-released; its scores are reproduced in this table and
-\S\ref{sec:results}. $^{\dagger}$: design and verdict entered git
+which entered that repository in its snapshot commit 8d494f1 rather than
+individually; the row-to-directory map is the ``Registry rows and
+deployments'' section of \texttt{experiments/README.md} there. $^{\P}$:
+the record is the submission log, which is not released; its scores are
+reproduced in this table and \S\ref{sec:results}. $^{\dagger}$: design and verdict entered git
 together (same commit or same-day batch), so precedence over the run
 rests on the ledger's contemporaneous record, not git order. Every
-reject/kill closed its design family permanently; row~19 is the
-pre-registered free re-gate of banked row~18 on the moved baseline, not
-a reopening. Adoption bars are that day's baseline plus the registered
+reject/kill closed its design family permanently; row~19 is the free
+re-gate of banked row~18 on the moved baseline, pre-registered inside
+row~24's ledger entry, not a reopening. Adoption bars are that day's baseline plus the registered
 margin: row~20's 0.7203 is the hand-rule composition it screened against
 (routed v2 with the local five-seed encoder ensemble), and row~22's
 0.7498 is the v2.2 score of 0.7298 plus the registered $+0.02$.}
@@ -932,21 +936,29 @@ artifacts.
 
 \paragraph{Leave-one-out ablation of S1 (\S\ref{sec:t2}).} The placebo in
 \S\ref{sec:t2} isolates the encoder's contribution;
-Table~\ref{tab:s1ablation} instead removes each part of the bundle in
-turn. Every per-fold quantity, including $\lambda$, is re-fitted inside
+Table~\ref{tab:s1ablation} carries it as a row and removes each other
+part of the bundle in turn. Every per-fold quantity, including $\lambda$, is re-fitted inside
 each variant, so each row is the honest out-of-fold score of \emph{that}
 system rather than the full system's fit reused; the full row reproduces
 the recorded 0.7206 exactly. The blend is not a tuning knob but the
-bundle's backbone: trusting the calibrated encoder alone
-($\lambda{=}0$) falls to 0.6507, below v3 itself, which is why
-$\lambda{=}0.9$ was selected on every fold. Of the remaining parts the
-sequence model carries the most, and the re-fit shows how it is paid
-for: with Viterbi removed the grid drops $\lambda$ from 0.9 to 0.5,
-buying back encoder evidence it can no longer correct. Genre
-conditioning and Rule-A are each worth about $-0.004$, real but well
-inside the $\pm0.03$--$0.04$ rerun band. Prior calibration is inert
-($+0.0004$ to remove it), consistent with row~28's flat $\tau$ curve.
-Ablations report; they never adopt, and S1 ships exactly as gated.
+bundle's backbone: the calibrated encoder alone ($\lambda{=}0$) falls to
+0.6507, below v3 itself, and the fit chose the grid's upper edge,
+$\lambda{=}0.9$, on every fold ($\lambda{=}1$, v3 unchanged, is outside
+the grid). Removing Viterbi leaves a per-span argmax that at
+$\lambda{\geq}0.5$ can never overturn the v3 label, so that row is v3
+plus Rule-A and nothing else (all 103 of its label changes are
+Rule-A's), and its re-fitted $\lambda{=}0.5$ is the first point of a
+flat plateau rather than a choice. Read together with the placebo row,
+the parts do not add: on top of v3, Rule-A alone is worth $+0.0139$,
+the sequence and label-mass priors a further $+0.0060$, and real encoder
+posteriors the remaining $+0.0073$; yet removing Rule-A from the full bundle costs only
+$-0.0040$, because Viterbi already repairs most of what Rule-A repairs.
+Genre conditioning and Rule-A are each worth about $-0.004$ when
+removed, well below the composed-OOF band $\sigma{\approx}0.015$ that
+the gate is calibrated to, so neither is separable from noise on 430
+paragraphs. Prior calibration is inert ($+0.0004$ to remove it),
+consistent with row~28's flat $\tau$ curve. Ablations report; they never
+adopt, and S1 ships exactly as gated.
 
 \begin{table}[h]
 \centering\scriptsize
@@ -959,8 +971,9 @@ full S1 (as deployed) & 0.7206 & --- & $+0.0272$ \\
 $-$ prior calibration & 0.7210 & $+0.0004$ & $+0.0276$ \\
 $-$ genre conditioning & 0.7167 & $-0.0039$ & $+0.0233$ \\
 $-$ Rule-A & 0.7166 & $-0.0040$ & $+0.0232$ \\
-$-$ Viterbi (per-span argmax) & 0.7073 & $-0.0133$ & $+0.0139$ \\
-$-$ blend ($\lambda{=}0$) & 0.6507 & $-0.0699$ & $-0.0427$ \\
+placebo: uniform encoder (\S\ref{sec:t2}) & 0.7133 & $-0.0073$ & $+0.0199$ \\
+$-$ Viterbi ($=$ v3 $+$ Rule-A) & 0.7073 & $-0.0133$ & $+0.0139$ \\
+encoder only ($\lambda{=}0$, no blend) & 0.6507 & $-0.0699$ & $-0.0427$ \\
 \midrule
 v3, no re-decode & 0.6934 & $-0.0272$ & --- \\
 \bottomrule
@@ -969,8 +982,10 @@ v3, no re-decode & 0.6934 & $-0.0272$ & --- \\
 out-of-fold pool: each row removes one part and re-fits the rest.
 ``$-$ genre conditioning'' replaces the two genre-specific transition
 matrices with one pooled matrix; ``$-$ Viterbi'' labels each span by the
-argmax of its own emission; ``$-$ blend'' pins $\lambda$ to 0, leaving
-the calibrated encoder as the only evidence. Report-only: no gate is
+argmax of its own emission, which at the re-fitted $\lambda{=}0.5$
+never overturns the v3 label, so the row is v3 plus Rule-A; ``encoder
+only'' pins $\lambda$ to 0; the placebo row is the full decode with the
+encoder replaced by uniform distributions. Report-only: no gate is
 defined over these variants.}
 \label{tab:s1ablation}
 \end{table}

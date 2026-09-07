@@ -11,9 +11,11 @@ Paper: Salah Abdo, *SalahAbdo at Daleel 2026: Routing Each Label to LLM Votes, a
 Fine-Tuned Encoder, or Sequence Structure*, ArabicNLP 2026 (to appear). `shared-task/paper/` holds
 the **camera-ready version** (tex, bib, ACL style files, PDF), which replaced the submitted
 version on 2026-09-07; `CITATION.cff` carries the citation. The commit hashes printed in the
-paper's gate-registry table are commits *in this repository*: see `COMMIT_MAP.md`, which also
-lists the run directories for the few registry rows whose registration or verdict changed only
-run directories or scripts and so entered here in the snapshot commit.
+paper's gate-registry table are commits *in this repository*: `COMMIT_MAP.md` translates the
+development hashes cited in the four registration documents. Rows whose registration or verdict
+changed only run directories or scripts print the snapshot commit `8d494f1` instead; to go from
+a paper row number to its run directories, use the "Registry rows and deployments" section of
+`shared-task/experiments/README.md`.
 
 ## What is in this repository
 

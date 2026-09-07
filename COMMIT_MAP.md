@@ -42,7 +42,11 @@ the paper's registry table, `provenance.json` (`git_commit`), and the documents 
 ## 2. Commits cited in the paper's registry table that have no public twin
 
 These commits changed only experiment directories, scripts, or the private submission log.
-Their content is in the snapshot; the verdict lives in the run directories listed.
+Their content is in the snapshot commit `8d494f1`; the verdict lives in the run directories
+listed. This table is keyed by *development* hash. The paper's registry table prints the
+snapshot commit instead, so to go from a paper row number to its run directories use the
+"Registry rows and deployments" section of `shared-task/experiments/README.md`; the table
+below is the reverse lookup, from a development hash to the same directories.
 
 | Development | Date | Where the content is |
 |---|---|---|

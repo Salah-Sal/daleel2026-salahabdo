@@ -43,7 +43,7 @@ LADDER = (
         3, True, "plumbing smoke tests; not a serious candidate",
     ),
     # gemma-3 has no :free route on OpenRouter — paid, but ~$0.02-0.04 per
-    # val run (approved escalation 2026-07-09; log spend per run).
+    # val run (user-approved escalation 2026-07-09; log spend per run).
     ModelSpec(
         "gemma-3-4b", "openrouter/google/gemma-3-4b-it",
         4, True, "paid (cheap); smallest dense Gemma",
@@ -80,7 +80,7 @@ LADDER = (
         "gemma-4-31b-paid", "openrouter/google/gemma-4-31b-it",
         31, True, "paid fallback when the :free route is contended",
     ),
-    # ---- broad open-weight sweep (requested 2026-07-09): per-family
+    # ---- broad open-weight sweep (user request 2026-07-09): per-family
     # representatives, paid tier (cheap), smallest first. Models marked
     # "license TBV" postdate verifiable knowledge — confirm the weights are
     # actually open before using them in a CLOSED-track submission.
@@ -159,17 +159,22 @@ LADDER = (
         120, False, "open track only",
     ),
     # ---- compile-time teacher/reflection models (user key added 2026-07-09,
-    # DEEPSEEK_API_KEY in repo-root .env). Proprietary API, size unpublished:
-    # open-track legal; closed-track use even at compile time only is the D7
-    # organizer question — assume NO until the Jul 13 info session says
-    # otherwise. Never a task model for closed submissions.
+    # DEEPSEEK_API_KEY in repo-root .env). Size was unpublished when these
+    # entries were written; the V4 report (arXiv 2606.19348, 2026) later gave
+    # 1.6T total / 49B active for -pro and 284B / 13B for -flash, and released
+    # both checkpoints. Either way both are far over the 70B closed-track cap,
+    # so neither is ever a task model for a closed submission. Closed-track use
+    # at compile time only was the D7 organizer question — assume NO until the
+    # Jul 13 info session says otherwise; it was never answered.
     ModelSpec(
         "deepseek-v4-flash", "deepseek/deepseek-v4-flash",
-        0, False, "teacher/reflection only; cheap tier", "proprietary",
+        284, False, "teacher/reflection only; cheap tier; 13B active",
+        "open-weights, over the closed-track cap",
     ),
     ModelSpec(
         "deepseek-v4-pro", "deepseek/deepseek-v4-pro",
-        0, False, "teacher/reflection only; strongest available teacher", "proprietary",
+        1600, False, "teacher/reflection only; strongest available teacher; "
+        "49B active", "open-weights, over the closed-track cap",
     ),
     # ---- Gemini API (user key added 2026-07-09). Gemini-branded models are
     # proprietary -> open track only. The gemma-4 checkpoints on this API
@@ -219,8 +224,8 @@ SPECS = {spec.key: spec for spec in LADDER}
 
 # ---- Recommended serving configuration (CFG-J1 judge probe, 2026-07-29) ----
 # Measured-best default for future gemma-4-31b-paid runs: pin the CoreWeave
-# bf16 endpoint. Evidence (CFG-J1 config judge probe, ledger entry
-# of 2026-07-29): the unpinned route hopped NINE
+# bf16 endpoint. Evidence (CFG-J1, registered 056a329; report in
+# MODEL_CONFIG_OPTIMIZATION_DESIGN.md s11): the unpinned route hopped NINE
 # upstreams across four precisions in 20 calls; the pin scored best on the
 # stress set (0.7332 vs 0.7219 unpinned / 0.7178 fp4), cut the latency tail
 # from 1128s worst-case to 45s, at identical cost. The rest of the
@@ -256,7 +261,7 @@ def make_lm(
     provider_pin: True pins RECOMMENDED_PROVIDER_PIN (CFG-J1 winner); a
     dict pins a custom OpenRouter provider object. Merged under
     extra_body["provider"] (an explicit caller extra_body provider wins).
-    Two caveats from CFG-J1: pinning
+    Two caveats from CFG-J1/MODEL_CONFIG_OPTIMIZATION_DESIGN: pinning
     changes DSPy cache keys, so never enable it when replaying a frozen
     run's cache; and LiteLLM has paths that silently drop extra_body, so
     pinned runs must verify the served provider from response metadata

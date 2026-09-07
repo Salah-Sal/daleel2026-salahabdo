@@ -157,7 +157,7 @@ test-phase pass at roughly 3.9k calls and US$10.
 | Progression table, final probes and ranks | `shared-task/official_scores/final_standings.json`, `shared-task/EVAL_WEEK_PROBES.md` |
 | Transfer ledger | predicted values in the gate runs' `metrics.json`; observed values in `official_scores/` |
 | Threshold audit, vote model, confusion mass | the paper-analysis-bank run named above |
-| S1 leave-one-out ablation (Appendix C) | `shared-task/experiments/20260907-160206-t2-s1-ablation-loo-n430/metrics.json`; script `scripts/t2_s1_ablation.py`. Zero API, but it reads the role runs' prediction files, so it is inspectable here and re-runnable only after fresh upstream runs. Its `full` row reproduces the recorded 0.7206 and its `v3` baseline 0.6934, which is the run's own control check. |
+| S1 leave-one-out ablation (Appendix C) | `shared-task/experiments/20260907-160206-t2-s1-ablation-loo-n430/metrics.json`; script `scripts/t2_s1_ablation.py`. Zero API, but it reads the role runs' prediction files, so it is inspectable here and re-runnable only after fresh upstream runs. Its `full` row reproduces the recorded 0.7206 and its `v3` baseline 0.6934, which is the run's own control check. `experiments/README.md` explains how to read the `-Viterbi` row (it collapses to v3 + Rule-A) and why its re-fitted lambda is a plateau, not a finding. |
 | Bake-off | `experiments/20260709-d10-bakeoff/REPORT.md`, `scripts/bakeoff_table.py` |
 | Encoder-variant means | `kaggle/encoder-multiseed-v2/results/*/metrics.json`, `experiments/20260714-2345*-t1-encoder-ensemble-*-5seed-fp16-n430-*` |
 | Paid-API ledger and GPU hours | not verifiable from the repository |
