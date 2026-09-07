@@ -325,6 +325,21 @@
   archivePrefix = {arXiv},
   primaryClass  = {cs.AI}
 }
+
+@misc{deepseekai-2026-deepseekv4,
+  title         = {{DeepSeek-V4}: Towards Highly Efficient Million-Token
+                   Context Intelligence},
+  author        = {{DeepSeek-AI}},
+  year          = {2026},
+  eprint        = {2606.19348},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+% Cited in the disclosure appendix for the reflection model of the rejected
+% optimizer compiles (registry rows 4, 5, 8). Verified 2026-09-07 against
+% arxiv.org/abs/2606.19348: DeepSeek-V4-Pro is 1.6T parameters (49B
+% activated), i.e. far above the closed track's 70B ceiling, which is why it
+% was never eligible as a task model for a closed-track submission.
 % Covers Llama 3.0/3.1; the llama-3.3-70b checkpoint has no dedicated
 % report and is identified by its pinned route in the released configs
 % (stated in the disclosure appendix).

@@ -113,3 +113,16 @@ constants quoted in the paper's §2 (612; 357/255; 2,975 spans; 90.73% character
 coverage; per-label priors; AN base rate 0.1153; test 87/126) are recomputed from
 the organizer files by `scripts/paper_corpus_counts.py` into
 `paper/corpus_counts.json`.
+
+**Camera-ready ablation (2026-09-07).** `scripts/t2_s1_ablation.py` runs a
+leave-one-out over the S1 bundle and writes
+`20260907-160206-t2-s1-ablation-loo-n430/` (paper Appendix C). It re-fits every
+per-fold quantity, λ included, inside each variant, so each row scores that
+system rather than reusing the full system's fit; the `full` row reproduces
+0.7206 and the v3 baseline 0.6934 exactly, which is the run's control check.
+Results: −calibration 0.7210 (+0.0004), −genre conditioning 0.7167 (−0.0039),
+−Rule-A 0.7166 (−0.0040), −Viterbi 0.7073 (−0.0133, and the grid drops λ from
+0.9 to 0.5), −blend (λ=0) 0.6507 (−0.0699). Zero API cost and no predictions
+written, but like the other composition scripts it reads the role runs'
+prediction files, which are not distributed. Report-only: no gate is defined
+over these variants and nothing here can change a frozen system.

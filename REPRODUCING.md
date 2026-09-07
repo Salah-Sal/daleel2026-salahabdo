@@ -127,11 +127,11 @@ test-phase pass at roughly 3.9k calls and US$10.
   `scripts/t2_eval_week_filter.py`; the Task 1 leg swaps are described at rule level only.
 - **Prediction files, compiled prompt states, GEPA logs, and the DSPy cache** are not
   distributed because they embed dataset text. Every composition script (the routers, the
-  structural re-decode, the registered gates, `paper_analysis_bank.py`) reads such files
-  from earlier runs, so none of them can be replayed on the committed records; they need
-  fresh upstream runs first. Two gate scripts (`t2_g1_tau_gate.py`,
-  `t2_s2_combiner_gate.py`) read prediction files at import time and fail even on
-  `--help` without them.
+  structural re-decode, the registered gates, `paper_analysis_bank.py`,
+  `t2_s1_ablation.py`) reads such files from earlier runs, so none of them can be replayed
+  on the committed records; they need fresh upstream runs first. Two gate scripts
+  (`t2_g1_tau_gate.py`, `t2_s2_combiner_gate.py`) read prediction files at import time and
+  fail even on `--help` without them.
 - **The deployed Task 2 role state** (`compiled/role.json` of the run ending in
   `bc5f4625f5`, a GEPA compile self-reflected with `gemma-4-31b-it`) is one of those
   compiled states. Its selected candidate is number 0, the unmodified seed with no
@@ -157,6 +157,7 @@ test-phase pass at roughly 3.9k calls and US$10.
 | Progression table, final probes and ranks | `shared-task/official_scores/final_standings.json`, `shared-task/EVAL_WEEK_PROBES.md` |
 | Transfer ledger | predicted values in the gate runs' `metrics.json`; observed values in `official_scores/` |
 | Threshold audit, vote model, confusion mass | the paper-analysis-bank run named above |
+| S1 leave-one-out ablation (Appendix C) | `shared-task/experiments/20260907-160206-t2-s1-ablation-loo-n430/metrics.json`; script `scripts/t2_s1_ablation.py`. Zero API, but it reads the role runs' prediction files, so it is inspectable here and re-runnable only after fresh upstream runs. Its `full` row reproduces the recorded 0.7206 and its `v3` baseline 0.6934, which is the run's own control check. |
 | Bake-off | `experiments/20260709-d10-bakeoff/REPORT.md`, `scripts/bakeoff_table.py` |
 | Encoder-variant means | `kaggle/encoder-multiseed-v2/results/*/metrics.json`, `experiments/20260714-2345*-t1-encoder-ensemble-*-5seed-fp16-n430-*` |
 | Paid-API ledger and GPU hours | not verifiable from the repository |

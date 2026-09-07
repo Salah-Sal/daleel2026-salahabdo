@@ -1,0 +1,43 @@
+{
+  "script": "t2_s1_ablation.py",
+  "argv": [],
+  "role_runs": [
+    "20260710-193247-709106Z-v3-role-gepa-gemma-4-31b-paid-both-outer0-inner0-1447e7ced5",
+    "20260710-210609-072093Z-v3-role-gepa-gemma-4-31b-paid-both-outer1-inner0-d9995eddba",
+    "20260710-211213-843183Z-v3-role-gepa-gemma-4-31b-paid-both-outer2-inner0-1ce74f2e9a",
+    "20260710-215536-635075Z-v3-role-gepa-gemma-4-31b-paid-both-outer3-inner0-30cdb1492f",
+    "20260710-221215-667710Z-v3-role-gepa-gemma-4-31b-paid-both-outer4-inner0-49f2e2dad5"
+  ],
+  "encoder_run": "20260715-033553-432753Z-encoder-t2-camelbert-msa-quarter-both-legacy-train-78b1f7b0d3",
+  "quote_run": "20260710-190630-477294Z-t2-quote-gemma-4-31b-paid-alltrain-5aa0011e3b",
+  "labels": [
+    "CO",
+    "AS",
+    "TE",
+    "ST",
+    "AN",
+    "OT"
+  ],
+  "lambda_grid": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "alpha": 1.0,
+  "variants": [
+    "full",
+    "no-calibration",
+    "no-blend",
+    "no-genre",
+    "no-viterbi",
+    "no-rule-a"
+  ],
+  "purpose": "camera-ready reviewer 29cU point 5; report-only"
+}

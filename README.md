@@ -8,20 +8,23 @@ contains; macro-F1 0.712) and **fifth of eight** on Task 2 (where their spans ar
 span-F1 0.7316).
 
 Paper: Salah Abdo, *SalahAbdo at Daleel 2026: Routing Each Label to LLM Votes, a
-Fine-Tuned Encoder, or Sequence Structure*, ArabicNLP 2026 (to appear). `shared-task/paper/` holds the
-submitted version (tex, bib, ACL style files, PDF; revision of 2026-08-14). The camera-ready
-version will replace it and be attached to a GitHub release; `CITATION.cff` carries the citation.
+Fine-Tuned Encoder, or Sequence Structure*, ArabicNLP 2026 (to appear). `shared-task/paper/` holds
+the **camera-ready version** (tex, bib, ACL style files, PDF), which replaced the submitted
+version on 2026-09-07; `CITATION.cff` carries the citation. The commit hashes printed in the
+paper's gate-registry table are commits *in this repository*: see `COMMIT_MAP.md`, which also
+lists the run directories for the few registry rows whose registration or verdict changed only
+run directories or scripts and so entered here in the snapshot commit.
 
 ## What is in this repository
 
 | Path | Content |
 |---|---|
 | `shared-task/src/daleel/` | the `daleel` package: data loading and frozen splits, ports of the official scorers, label policy and verbatim prompts, DSPy programs and optimizer metrics, encoder and sparse baselines, provenance and completion receipts, submission packaging |
-| `shared-task/scripts/` | 47 command-line entry points: model bake-off, DSPy compiles, per-label routing, verifiers, registered gates, deployment twins, paper analyses |
+| `shared-task/scripts/` | 49 command-line entry points: model bake-off, DSPy compiles, per-label routing, verifiers, registered gates, deployment twins, paper analyses |
 | `shared-task/tests/` | 244 tests; 28 of them read the organizers' clone (18 fail and 10 skip without it) |
-| `shared-task/experiments/` | 239 run and campaign directories, indexed in `experiments/README.md`: 233 hold `config.json` and 219 `metrics.json`; the 72 runs from the evening of 2026-07-10 onward also hold `provenance.json` and a `COMPLETED.json` receipt (71); 5 campaign folders hold a `REPORT.md` |
+| `shared-task/experiments/` | 242 run and campaign directories, indexed in `experiments/README.md`: 236 hold `config.json` and 221 `metrics.json`; the 72 runs from the evening of 2026-07-10 onward also hold `provenance.json` and a `COMPLETED.json` receipt (71); 5 campaign folders hold a `REPORT.md` |
 | `shared-task/kaggle/` | the Kaggle kernels used for GPU encoder training |
-| `shared-task/paper/` | the paper: tex, bib, ACL style files, PDF (submitted version until the camera-ready replaces it) |
+| `shared-task/paper/` | the paper: tex, bib, ACL style files, PDF (camera-ready version, 2026-09-07) |
 | `shared-task/CREATIVE_HEADROOM_RESEARCH.md` | the preregistration ledger, with its commit history: each gate registered before the corresponding fit, each verdict appended after |
 | `shared-task/HEADROOM_AUDIT.md`, `TIER1_ROUTING_MILESTONE.md`, `STRUCTURAL_FOREST_EXPERIMENT.md` | the three registered designs that the ledger and the code cite |
 | `COMMIT_MAP.md` | development commit to public commit, so the hashes cited in the paper and in the ledger resolve here |
